@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Zawaの勉強記録</title>
+<title>Zawaの勉強記録 - 双対空間</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -247,14 +247,12 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#双対空間" id="toc-双対空間" class="nav-link active" data-scroll-target="#双対空間">双対空間</a>
-  <ul class="collapse">
-  <li><a href="#はじめに" id="toc-はじめに" class="nav-link" data-scroll-target="#はじめに">はじめに</a></li>
+  <li><a href="#はじめに" id="toc-はじめに" class="nav-link active" data-scroll-target="#はじめに">はじめに</a></li>
   <li><a href="#線形汎関数" id="toc-線形汎関数" class="nav-link" data-scroll-target="#線形汎関数">線形汎関数</a>
   <ul class="collapse">
   <li><a href="#具体例" id="toc-具体例" class="nav-link" data-scroll-target="#具体例">具体例</a></li>
   </ul></li>
-  <li><a href="#双対空間-1" id="toc-双対空間-1" class="nav-link" data-scroll-target="#双対空間-1">双対空間</a>
+  <li><a href="#双対空間" id="toc-双対空間" class="nav-link" data-scroll-target="#双対空間">双対空間</a>
   <ul class="collapse">
   <li><a href="#定義" id="toc-定義" class="nav-link" data-scroll-target="#定義">定義</a></li>
   <li><a href="#具体例-1" id="toc-具体例-1" class="nav-link" data-scroll-target="#具体例-1">具体例</a></li>
@@ -264,18 +262,31 @@ window.Quarto = {
   <li><a href="#テンソルの定義" id="toc-テンソルの定義" class="nav-link" data-scroll-target="#テンソルの定義">テンソルの定義</a></li>
   <li><a href="#具体例-2" id="toc-具体例-2" class="nav-link" data-scroll-target="#具体例-2">具体例</a></li>
   </ul></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/information_geometry/1.html">情報幾何学</a></li><li class="breadcrumb-item"><a href="../../Published/information_geometry/1.html">双対空間</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">双対空間</h1>
+</div>
 
 
 
-<section id="双対空間" class="level1">
-<h1>双対空間</h1>
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
 <section id="はじめに" class="level2">
 <h2 class="anchored" data-anchor-id="はじめに">はじめに</h2>
 <p>数理統計学，統計力学，機械学習を一つの視点で解釈できる情報幾何学を学ぶことで統一的視点を持てるのではないかと考えました．教科書（藤原先生の「情報幾何学の基礎」）を一通り読みましたが．ざっと流しただけなので，今の段階ではあまり理解はしていません．なので復習用というよりかは勉強ノートの側面のほうがずっと強いです． 情報幾何学は私が今勉強している分野で頭一つ抜けて難しく，間違えてしまう可能性が高いと思われます．教科書で確認をしたりAIに聞いたりはしますが，間違っているところがあればぜひ教えていただければありがたいです．</p>
@@ -291,8 +302,8 @@ f(x) = cx
 </span> と定義する．この<span class="math inline">f</span>は線形汎関数である．</p>
 </section>
 </section>
-<section id="双対空間-1" class="level2">
-<h2 class="anchored" data-anchor-id="双対空間-1">双対空間</h2>
+<section id="双対空間" class="level2">
+<h2 class="anchored" data-anchor-id="双対空間">双対空間</h2>
 <section id="定義" class="level3">
 <h3 class="anchored" data-anchor-id="定義">定義</h3>
 <p>先程出てきた線形汎関数を<span class="math inline">V</span>についてすべて集める．この集合を<span class="math inline">V^*</span>と書くことにする． <span class="math inline">f,g \in V^*</span>と<span class="math inline">a,b \in \mathbb R</span>に対し．写像<span class="math inline">af + bg</span>を <span class="math display">
@@ -363,7 +374,6 @@ T(f,v) = w^T A v
 </span> と同じ意味であることもわかる．</p>
 
 
-</section>
 </section>
 </section>
 

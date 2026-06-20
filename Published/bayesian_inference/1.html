@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Zawaの勉強記録</title>
+<title>Zawaの勉強記録 - モンテカルロ法</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -247,11 +247,9 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#モンテカルロ法" id="toc-モンテカルロ法" class="nav-link active" data-scroll-target="#モンテカルロ法">モンテカルロ法</a>
-  <ul class="collapse">
-  <li><a href="#はじめに" id="toc-はじめに" class="nav-link" data-scroll-target="#はじめに">はじめに</a></li>
+  <li><a href="#はじめに" id="toc-はじめに" class="nav-link active" data-scroll-target="#はじめに">はじめに</a></li>
   <li><a href="#この記事群について" id="toc-この記事群について" class="nav-link" data-scroll-target="#この記事群について">この記事群について</a></li>
-  <li><a href="#モンテカルロ法-1" id="toc-モンテカルロ法-1" class="nav-link" data-scroll-target="#モンテカルロ法-1">モンテカルロ法</a>
+  <li><a href="#モンテカルロ法" id="toc-モンテカルロ法" class="nav-link" data-scroll-target="#モンテカルロ法">モンテカルロ法</a>
   <ul class="collapse">
   <li><a href="#なぜモンテカルロ法をやるのか" id="toc-なぜモンテカルロ法をやるのか" class="nav-link" data-scroll-target="#なぜモンテカルロ法をやるのか">なぜモンテカルロ法をやるのか？</a></li>
   </ul></li>
@@ -273,18 +271,31 @@ window.Quarto = {
   <li><a href="#理論的根拠-2" id="toc-理論的根拠-2" class="nav-link" data-scroll-target="#理論的根拠-2">理論的根拠</a></li>
   </ul></li>
   <li><a href="#結論" id="toc-結論" class="nav-link" data-scroll-target="#結論">結論</a></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/bayesian_inference/1.html">ベイズ推論</a></li><li class="breadcrumb-item"><a href="../../Published/bayesian_inference/1.html">モンテカルロ法</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">モンテカルロ法</h1>
+</div>
 
 
 
-<section id="モンテカルロ法" class="level1">
-<h1>モンテカルロ法</h1>
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
 <section id="はじめに" class="level2">
 <h2 class="anchored" data-anchor-id="はじめに">はじめに</h2>
 <p>はじめまして，Zawaと申します．最近様々な分野の勉強をしています．ですがOutputをする機会があまりなく本当に理解しているのか最近疑問に思うようになりました．また復習をしようとしてもメモの保存がどこかにいってしまうことがよくありました．そこで心機一転Zennに投稿することでOutputの機会を得れ，さらにメモを保存することで復習がしやすくなると考えたのでこれから記事を書いていこうと思います．</p>
@@ -293,8 +304,8 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="この記事群について">この記事群について</h2>
 <p>勉強の復習用ノートです，ミスをしている部分もあるかもしれないのでコメントで教えてくださると幸いです．</p>
 </section>
-<section id="モンテカルロ法-1" class="level2">
-<h2 class="anchored" data-anchor-id="モンテカルロ法-1">モンテカルロ法</h2>
+<section id="モンテカルロ法" class="level2">
+<h2 class="anchored" data-anchor-id="モンテカルロ法">モンテカルロ法</h2>
 <section id="なぜモンテカルロ法をやるのか" class="level3">
 <h3 class="anchored" data-anchor-id="なぜモンテカルロ法をやるのか">なぜモンテカルロ法をやるのか？</h3>
 <p>機械学習の一種であるベイズ推論の主な目的とはなにか？ それは事後分布を求めることである．</p>
@@ -402,7 +413,6 @@ u c q(\theta)\le p(\theta)
 <p>逆関数法は式が解析的にわかっていたら出来る． 棄却サンプリング法は棄却域を決めないといけないが，その問題が難しい場合が一般である． MH法は棄却サンプリング法の棄却域を決めないといけない問題を回避出来る，</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
