@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.550">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>My Portal</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">My Portal</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../intro.html"> 
+<span class="menu-text">はじめに</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/IR25721/Zawa25721_documents#"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#モンテカルロ法" id="toc-モンテカルロ法" class="nav-link active" data-scroll-target="#モンテカルロ法">モンテカルロ法</a>
+  <ul class="collapse">
+  <li><a href="#はじめに" id="toc-はじめに" class="nav-link" data-scroll-target="#はじめに">はじめに</a></li>
+  <li><a href="#この記事群について" id="toc-この記事群について" class="nav-link" data-scroll-target="#この記事群について">この記事群について</a></li>
+  <li><a href="#モンテカルロ法-1" id="toc-モンテカルロ法-1" class="nav-link" data-scroll-target="#モンテカルロ法-1">モンテカルロ法</a>
+  <ul class="collapse">
+  <li><a href="#なぜモンテカルロ法をやるのか" id="toc-なぜモンテカルロ法をやるのか" class="nav-link" data-scroll-target="#なぜモンテカルロ法をやるのか">なぜモンテカルロ法をやるのか？</a></li>
+  </ul></li>
+  <li><a href="#モンテカルロ法その１逆関数法" id="toc-モンテカルロ法その１逆関数法" class="nav-link" data-scroll-target="#モンテカルロ法その１逆関数法">モンテカルロ法その１：逆関数法</a>
+  <ul class="collapse">
+  <li><a href="#手法" id="toc-手法" class="nav-link" data-scroll-target="#手法">手法</a></li>
+  <li><a href="#理論的根拠" id="toc-理論的根拠" class="nav-link" data-scroll-target="#理論的根拠">理論的根拠</a></li>
+  </ul></li>
+  <li><a href="#モンテカルロ法その2棄却サンプリング法" id="toc-モンテカルロ法その2棄却サンプリング法" class="nav-link" data-scroll-target="#モンテカルロ法その2棄却サンプリング法">モンテカルロ法その2：棄却サンプリング法</a>
+  <ul class="collapse">
+  <li><a href="#逆関数法のデメリット" id="toc-逆関数法のデメリット" class="nav-link" data-scroll-target="#逆関数法のデメリット">逆関数法のデメリット</a></li>
+  <li><a href="#棄却サンプリング法のアイディア" id="toc-棄却サンプリング法のアイディア" class="nav-link" data-scroll-target="#棄却サンプリング法のアイディア">棄却サンプリング法のアイディア</a></li>
+  <li><a href="#手法-1" id="toc-手法-1" class="nav-link" data-scroll-target="#手法-1">手法</a></li>
+  <li><a href="#理論的根拠-1" id="toc-理論的根拠-1" class="nav-link" data-scroll-target="#理論的根拠-1">理論的根拠</a></li>
+  <li><a href="#モンテカルロ法その3-mcmc法mh法" id="toc-モンテカルロ法その3-mcmc法mh法" class="nav-link" data-scroll-target="#モンテカルロ法その3-mcmc法mh法">モンテカルロ法その3 : MCMC法(MH法)</a></li>
+  <li><a href="#直感的発想" id="toc-直感的発想" class="nav-link" data-scroll-target="#直感的発想">直感的発想</a></li>
+  <li><a href="#必要なもの" id="toc-必要なもの" class="nav-link" data-scroll-target="#必要なもの">必要なもの</a></li>
+  <li><a href="#手法-2" id="toc-手法-2" class="nav-link" data-scroll-target="#手法-2">手法</a></li>
+  <li><a href="#理論的根拠-2" id="toc-理論的根拠-2" class="nav-link" data-scroll-target="#理論的根拠-2">理論的根拠</a></li>
+  </ul></li>
+  <li><a href="#結論" id="toc-結論" class="nav-link" data-scroll-target="#結論">結論</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="モンテカルロ法" class="level1">
+<h1>モンテカルロ法</h1>
+<section id="はじめに" class="level2">
+<h2 class="anchored" data-anchor-id="はじめに">はじめに</h2>
+<p>はじめまして，Zawaと申します．最近様々な分野の勉強をしています．ですがOutputをする機会があまりなく本当に理解しているのか最近疑問に思うようになりました．また復習をしようとしてもメモの保存がどこかにいってしまうことがよくありました．そこで心機一転Zennに投稿することでOutputの機会を得れ，さらにメモを保存することで復習がしやすくなると考えたのでこれから記事を書いていこうと思います．</p>
+</section>
+<section id="この記事群について" class="level2">
+<h2 class="anchored" data-anchor-id="この記事群について">この記事群について</h2>
+<p>勉強の復習用ノートです，ミスをしている部分もあるかもしれないのでコメントで教えてくださると幸いです．</p>
+</section>
+<section id="モンテカルロ法-1" class="level2">
+<h2 class="anchored" data-anchor-id="モンテカルロ法-1">モンテカルロ法</h2>
+<section id="なぜモンテカルロ法をやるのか" class="level3">
+<h3 class="anchored" data-anchor-id="なぜモンテカルロ法をやるのか">なぜモンテカルロ法をやるのか？</h3>
+<p>機械学習の一種であるベイズ推論の主な目的とはなにか？ それは事後分布を求めることである．</p>
+<p><span class="math display">\[
+p(\theta | x) = \frac{p(x|\theta)p(\theta)}{p(x)}
+\]</span> この事後分布を求めることで，問題にしている分布についての最適なパラメータの分布を逐次的に求めることが出来る． 確率分布が解析的に扱いやすいものならこのまま計算すればよいが，残念ながら解析的に扱いにくい確率分布がほとんどである． なぜ解析的に解けない場合があるのか？ それは</p>
+<p><span class="math display">\[
+p(x) = \int_{-\infty}^{\infty} p(x|\theta)p(\theta) d\theta
+\]</span> の計算が難しい場合が多いためである．特に多次元での更新の場合は積分計算が困難となるので，その解析的な求積は困難を極める． そこでどうにか工夫をしてコンピュータで，数値的に事後分布を求めたいという動機が出てくる．その手法の一つがモンテカルロ法である．</p>
+</section>
+</section>
+<section id="モンテカルロ法その１逆関数法" class="level2">
+<h2 class="anchored" data-anchor-id="モンテカルロ法その１逆関数法">モンテカルロ法その１：逆関数法</h2>
+<section id="手法" class="level3">
+<h3 class="anchored" data-anchor-id="手法">手法</h3>
+<p><span class="math display">\[
+F(x) = \int_{-\infty}^x p(t) dt
+\]</span></p>
+<p>1 : 一様乱数 <span class="math inline">\(u \sim U[0,1]\)</span>をサンプリングする 2 : <span class="math inline">\(x = F^{-1}(u)\)</span>をプロット これを繰り返して分布が得られる</p>
+</section>
+<section id="理論的根拠" class="level3">
+<h3 class="anchored" data-anchor-id="理論的根拠">理論的根拠</h3>
+<p>まず<span class="math inline">\(u\)</span>と<span class="math inline">\(F^{-1}\)</span>の範囲は一致する．これは累積確率分布の性質からわかる． <span class="math inline">\(X = F^{-1}\)</span>の累積分布関数を考えると</p>
+<p><span class="math display">\[
+𝑃(𝑋 ≤ 𝑥) = 𝑃( 𝐹^{-1}(𝑈) ≤ 𝑥 ) = 𝑃( 𝑈 ≤ 𝐹(𝑥) ) = 𝐹(𝑥)
+\]</span> すなわち，Xの累積分布関数は<span class="math inline">\(F\)</span>となる． よってXの密度関数は<span class="math inline">\(p\)</span>となりサンプリングが可能となる．</p>
+</section>
+</section>
+<section id="モンテカルロ法その2棄却サンプリング法" class="level2">
+<h2 class="anchored" data-anchor-id="モンテカルロ法その2棄却サンプリング法">モンテカルロ法その2：棄却サンプリング法</h2>
+<section id="逆関数法のデメリット" class="level3">
+<h3 class="anchored" data-anchor-id="逆関数法のデメリット">逆関数法のデメリット</h3>
+<ul>
+<li><span class="math inline">\(F\)</span>がそもそも解析的に書けない場合は使うことができない</li>
+<li><span class="math inline">\(F\)</span>は解析的に書けても，<span class="math inline">\(F^{-1}\)</span>が解析的に書けない場合は使うことができない</li>
+</ul>
+</section>
+<section id="棄却サンプリング法のアイディア" class="level3">
+<h3 class="anchored" data-anchor-id="棄却サンプリング法のアイディア">棄却サンプリング法のアイディア</h3>
+<p>1 : まずサンプリングのしやすい代理関数を用意する 2 : 代理関数でサンプリングをする 3 : サンプリングした値を目標関数の値に合うように採択ないしは棄却する 4 : 結果として残ったものは目標関数となる</p>
+</section>
+<section id="手法-1" class="level3">
+<h3 class="anchored" data-anchor-id="手法-1">手法</h3>
+<p>1 : 代理関数 <span class="math inline">\(q(x)\)</span>から候補点をサンプリング 2 : 一様乱数<span class="math inline">\(u \sim U([0,1])\)</span>を発生 3 : 採択判定 <span class="math display">\[u \le \frac{p(\theta)}{c q(\theta)}\]</span> なら採択，そうでなければ棄却 4 : ほしい数のサンプル数が集まるまで繰り返す</p>
+</section>
+<section id="理論的根拠-1" class="level3">
+<h3 class="anchored" data-anchor-id="理論的根拠-1">理論的根拠</h3>
+<p><span class="math display">\[
+u c q(\theta)\le p(\theta)
+\]</span> は，線<span class="math inline">\(x =cq(\theta)\)</span>上でランダムに点を打ってその値が<span class="math inline">\(p\)</span>よりも小さくなる場合は採用する． 逆にpより大きい場合は棄却する．<span class="math inline">\(c\)</span>は上界を決める重要因子である．上界を決めなければ完全な確率分布を求めることは困難である．</p>
+</section>
+<section id="モンテカルロ法その3-mcmc法mh法" class="level3">
+<h3 class="anchored" data-anchor-id="モンテカルロ法その3-mcmc法mh法">モンテカルロ法その3 : MCMC法(MH法)</h3>
+</section>
+<section id="直感的発想" class="level3">
+<h3 class="anchored" data-anchor-id="直感的発想">直感的発想</h3>
+<ul>
+<li>良いサンプル (採択される確率の高い領域)の周辺には，また良いサンプルがある可能性が高い</li>
+<li>現時点の近くを探ることで，効率よくサンプル出来るはずである．</li>
+<li>完全にランダムに飛ぶより，移動しながら次第に目標分布を覆っていく</li>
+</ul>
+</section>
+<section id="必要なもの" class="level3">
+<h3 class="anchored" data-anchor-id="必要なもの">必要なもの</h3>
+<ul>
+<li>目標分布に比例する関数<span class="math inline">\(f\)</span>の値が計算できれば良い</li>
+<li>提案分布 : 現在の<span class="math inline">\(\theta\)</span>から 次の候補を生成する分布</li>
+</ul>
+</section>
+<section id="手法-2" class="level3">
+<h3 class="anchored" data-anchor-id="手法-2">手法</h3>
+<p>1 : 現在の状態 <span class="math inline">\(\theta_{t-1}\)</span>から提案分布を用いて次の候補 <span class="math inline">\(\theta_{t}\)</span>を生成する ex) <span class="math inline">\(q(\theta_t | \theta_{t-1}) \sim N(\theta_{t-1}, \sigma^2)\)</span> 2 : 受理確率でその値を受容するか棄却するか決める. <span class="math inline">\(\alpha(\theta_t | \theta_{t-1})\)</span>は<span class="math inline">\(\theta_{t-1}\)</span>から<span class="math inline">\(\theta_{t}\)</span>へ遷移する確率を意味している．</p>
+<p><span class="math display">\[
+\alpha(\theta_t | \theta_{t-1}) = \min \big( 1, \frac{f(\theta_t)q(\theta_{t-1} | \theta_t)}{f(\theta_{t-1})q(\theta_{t} | \theta_{t-1})} \big)
+\]</span></p>
+</section>
+<section id="理論的根拠-2" class="level3">
+<h3 class="anchored" data-anchor-id="理論的根拠-2">理論的根拠</h3>
+<p>MCMC法が正しく昨日するためには，マルコフ連鎖を十分に長く走らせた後に，サンプルが目的の分布から得れるようになる必要がある．これを定常分布に達したという． マルコフ連鎖が目的分布を定常分布として持つための十分条件が詳細釣り合い条件と呼ばれる．</p>
+<p><span class="math display">\[ p(\theta_{t-1}) T(\theta_{t-1} \to \theta_t) = p(\theta_t) T(\theta_t \to \theta_{t-1}) \]</span> ここで<span class="math inline">\(T\)</span>は提案確率と，採択確率の積として表される</p>
+<p><span class="math display">\[ T(\theta_{t-1} \to \theta_t) = q(\theta_t | \theta_{t-1}) \alpha(\theta_t | \theta_{t-1}) \]</span></p>
+<p>すなわち次の等式を満たす必要がある <span class="math display">\[ \frac{\alpha(\theta_t | \theta_{t-1})}{\alpha(\theta_{t-1} | \theta_t)} = \frac{p(\theta_t)q(\theta_{t-1} | \theta_t)}{p(\theta_{t-1})q(\theta_t | \theta_{t-1})} \]</span> 右辺を <span class="math inline">\(r\)</span>と簡略化する <span class="math display">\[
+\frac{\alpha(\theta_t | \theta_{t-1})}{\alpha(\theta_{t-1} | \theta_t)} = r
+\]</span></p>
+<p>ここでなるべく遷移したい（サンプリング効率を高めたい）．この比率rを満たしながら，採択確率を可能な限り大きな値に設定する． #### r &gt;1 のとき</p>
+<p><span class="math display">\[
+\alpha(\theta_t | \theta_{t-1}) &gt; \alpha(\theta_{t-1} | \theta_{t})
+\]</span> を満たす．ここで大きい方を1と設定すれば，もう一方も確率的に正しい値 <span class="math inline">\(1/r\)</span>となるので 条件を満たす #### r &lt;=1 のとき</p>
+<p>同様に考えれば良い</p>
+<p>こう考えると，<span class="math inline">\(r&gt;1\)</span>なら1, <span class="math inline">\(r \le 1\)</span>なら <span class="math inline">\(r\)</span>になる よってまとめると</p>
+<p><span class="math display">\[
+\alpha(\theta_t | \theta_{t-1}) = \min \big( 1, \frac{f(\theta_t)q(\theta_{t-1} | \theta_t)}{f(\theta_{t-1})q(\theta_{t} | \theta_{t-1})} \big)
+\]</span></p>
+<p>となる．</p>
+</section>
+</section>
+<section id="結論" class="level2">
+<h2 class="anchored" data-anchor-id="結論">結論</h2>
+<p>逆関数法は式が解析的にわかっていたら出来る． 棄却サンプリング法は棄却域を決めないといけないが，その問題が難しい場合が一般である． MH法は棄却サンプリング法の棄却域を決めないといけない問題を回避出来る，</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
