@@ -1,5 +1,6 @@
 import os
 import re
+import subprocess
 
 def sort_key(filename):
     # ファイル名から数字を抽出（例： "1.md" -> 1）
@@ -37,20 +38,22 @@ def generate_in_progress():
 
 def generate_published():
     published_dir = "Published"
-    lines = []
+    lines = ["::: {.grid}"]
     sidebar_yaml = ["website:", "  sidebar:", "    style: \"docked\"", "    contents:"]
     
     if os.path.exists(published_dir):
         for item in sorted(os.listdir(published_dir)):
             item_path = os.path.join(published_dir, item)
             if os.path.isdir(item_path):
+                lines.append("::: {.g-col-12 .g-col-md-4}")
+                
                 # ロゴ画像の探索（ディレクトリ名と同名の画像）
                 logo_md = ""
                 for ext in ['.png', '.jpg', '.jpeg', '.webp', '.gif', '.svg', '.JPG', '.PNG', '.JPEG']:
                     logo_path = os.path.join(item_path, f"{item}{ext}")
                     if os.path.exists(logo_path):
                         logo_rel = f"Published/{item}/{item}{ext}"
-                        logo_md = f"<img src='{logo_rel}' width='50' style='vertical-align: middle; border-radius: 50%; margin-right: 10px;'/>"
+                        logo_md = f"<img src='{logo_rel}' width='40' style='vertical-align: middle; border-radius: 50%; margin-right: 8px;'/>"
                         break
                 
                 # Markdownファイルの再帰的な取得とソート
@@ -92,14 +95,15 @@ def generate_published():
                                 sec_logo_path = os.path.join(sec_dir, f"{sec_name}{ext}")
                                 if os.path.exists(sec_logo_path):
                                     sec_logo_rel = f"Published/{item}/{sec_name}/{sec_name}{ext}"
-                                    sec_logo_md = f"<img src='{sec_logo_rel}' width='30' style='vertical-align: middle; border-radius: 50%; margin-right: 5px;'/>"
+                                    sec_logo_md = f"<img src='{sec_logo_rel}' width='20' style='vertical-align: middle; border-radius: 50%; margin-right: 5px;'/>"
                                     break
                             
                             lines.append(f"- {sec_logo_md}[{sec_name}]({first_sec_art})")
                 else:
                     lines.append(f"### {logo_md}{item} (記事なし)")
+                lines.append(":::")
+                lines.append("")
                     
-
                 # グローバルサイドバーのセクション構成
                 sidebar_yaml.append(f"      - section: \"{item}\"")
                 sidebar_yaml.append(f"        contents:")
@@ -118,6 +122,8 @@ def generate_published():
                         for md in sec_mds:
                             md_clean = md.replace('\\', '/')
                             sidebar_yaml.append(f"              - \"Published/{item}/{md_clean}\"")
+        
+        lines.append(":::")
     
     with open("_generated/_sidebars.yml", "w", encoding="utf-8") as f:
         f.write("\n".join(sidebar_yaml))
@@ -128,6 +134,28 @@ def generate_published():
         else:
             f.write("現在公開中のコンテンツはありません。")
 
+def generate_git_history():
+    try:
+        # Gitコマンドで最新10件のコミット履歴を取得 (日付とメッセージ)
+        result = subprocess.run(
+            ['git', 'log', '-10', '--format=- %cd: %s', '--date=short'],
+            capture_output=True,
+            text=True,
+            check=True
+        )
+        history = result.stdout
+    except Exception as e:
+        history = f"履歴の取得に失敗しました: {e}"
+
+    with open("_generated/_git_history.qmd", "w", encoding="utf-8") as f:
+        if history.strip():
+            f.write(history)
+        else:
+            f.write("履歴がありません。")
+
 if __name__ == "__main__":
+    # _generated ディレクトリが存在しない場合は作成
+    os.makedirs("_generated", exist_ok=True)
     generate_in_progress()
     generate_published()
+    generate_git_history()

@@ -8,7 +8,7 @@ metadata-files:
 
 
 website:
-  title: "My Portal"
+  title: "Zawaの勉強記録"
   repo-url: "https://github.com/IR25721/Zawa25721_documents#"
   page-navigation: true
   navbar:
@@ -29,3 +29,7 @@ format:
     css: styles.css
     toc: true
     number-sections: false
+    grid:
+      body-width: 1400px
+      margin-width: 300px
+      gutter-width: 2rem

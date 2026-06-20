@@ -1,9 +1,0 @@
-page-navigation: true
-sidebar:
-  title: "機械学習理論"
-  style: "docked"
-  contents:
-    - section: "ベイズ推論"
-      contents:
-        - "ベイズ推論/1.md"
-        - "ベイズ推論/2.md"

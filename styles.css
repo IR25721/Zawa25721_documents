@@ -10,3 +10,11 @@ h1, h2, h3 {
 .quarto-title-block {
   margin-bottom: 2rem;
 }
+
+/* 左の余白のみ少し調整 */
+@media (min-width: 992px) {
+  /* サイドバーがないページ（トップページなど）でのメインコンテンツの左余白を増やす */
+  body:not(.floating) main.content {
+    padding-left: 2rem;
+  }
+}

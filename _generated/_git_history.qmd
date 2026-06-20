@@ -1,0 +1,4 @@
+- 2026-06-20: Organize directory structure, move scripts and generated files
+- 2026-06-20: Update Quarto site configuration, navigation, and logos
+- 2026-06-20: Update pre_render.py to support nested directories
+- 2026-06-20: Initial commit for Quarto portal site

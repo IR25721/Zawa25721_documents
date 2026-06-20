@@ -1,18 +1,25 @@
 ---
-title: "ポータルサイト"
+title: "Zawaの勉強記録"
 ---
 
 ## はじめに
 [はじめに（当サイトについて）](intro.md)
 
 ## 自己紹介
-[自己紹介ページ](about.qmd)をご覧ください。
+[自己紹介ページ](about.qmd)を見てください．
 
 ## GitHubページ
-[GitHub Repository](https://github.com/IR25721/Zawa25721_documents#)
+[GitHub Repository](https://github.com/IR25721/Zawa25721_documents#)指摘などはここからIssueを立ててください．
 
 ## 公開済みコンテンツ
 {{< include _generated/_published_dirs.qmd >}}
 
 ## 執筆中コンテンツ
 {{< include _generated/_in_progress.qmd >}}
+
+::: {.column-margin}
+### 更新履歴
+<div style="font-size: 0.85em; color: #555;">
+{{< include _generated/_git_history.qmd >}}
+</div>
+:::
