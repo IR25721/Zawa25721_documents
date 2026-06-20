@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>My Portal</title>
+<title>Zawaの勉強記録</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,22 +23,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../../">
-<script src="../../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../Published/bayesian_inference/2.html" rel="next">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -67,8 +68,22 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -97,18 +112,18 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../../index.html">
-    <span class="navbar-title">My Portal</span>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Zawaの勉強記録</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -118,16 +133,12 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../intro.html"> 
+    <a class="nav-link" href="../../intro.html"> 
 <span class="menu-text">はじめに</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../../about.html"> 
-<span class="menu-text">About</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
@@ -142,10 +153,88 @@ window.Quarto = {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/bayesian_inference/1.html">ベイズ推論</a></li><li class="breadcrumb-item"><a href="../../Published/bayesian_inference/1.html">モンテカルロ法</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">ベイズ推論</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/bayesian_inference/1.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">モンテカルロ法</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/bayesian_inference/2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ベイズ推定におけるモデル選択</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">平衡系統計力学</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/equilibrium_stat_mech/1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">リウビルの定理と等確率の原理</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">情報幾何学</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/information_geometry/1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">双対空間</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">最適化数学</span></span>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -203,29 +292,29 @@ window.Quarto = {
 <section id="なぜモンテカルロ法をやるのか" class="level3">
 <h3 class="anchored" data-anchor-id="なぜモンテカルロ法をやるのか">なぜモンテカルロ法をやるのか？</h3>
 <p>機械学習の一種であるベイズ推論の主な目的とはなにか？ それは事後分布を求めることである．</p>
-<p><span class="math display">\[
+<p><span class="math display">
 p(\theta | x) = \frac{p(x|\theta)p(\theta)}{p(x)}
-\]</span> この事後分布を求めることで，問題にしている分布についての最適なパラメータの分布を逐次的に求めることが出来る． 確率分布が解析的に扱いやすいものならこのまま計算すればよいが，残念ながら解析的に扱いにくい確率分布がほとんどである． なぜ解析的に解けない場合があるのか？ それは</p>
-<p><span class="math display">\[
+</span> この事後分布を求めることで，問題にしている分布についての最適なパラメータの分布を逐次的に求めることが出来る． 確率分布が解析的に扱いやすいものならこのまま計算すればよいが，残念ながら解析的に扱いにくい確率分布がほとんどである． なぜ解析的に解けない場合があるのか？ それは</p>
+<p><span class="math display">
 p(x) = \int_{-\infty}^{\infty} p(x|\theta)p(\theta) d\theta
-\]</span> の計算が難しい場合が多いためである．特に多次元での更新の場合は積分計算が困難となるので，その解析的な求積は困難を極める． そこでどうにか工夫をしてコンピュータで，数値的に事後分布を求めたいという動機が出てくる．その手法の一つがモンテカルロ法である．</p>
+</span> の計算が難しい場合が多いためである．特に多次元での更新の場合は積分計算が困難となるので，その解析的な求積は困難を極める． そこでどうにか工夫をしてコンピュータで，数値的に事後分布を求めたいという動機が出てくる．その手法の一つがモンテカルロ法である．</p>
 </section>
 </section>
 <section id="モンテカルロ法その１逆関数法" class="level2">
 <h2 class="anchored" data-anchor-id="モンテカルロ法その１逆関数法">モンテカルロ法その１：逆関数法</h2>
 <section id="手法" class="level3">
 <h3 class="anchored" data-anchor-id="手法">手法</h3>
-<p><span class="math display">\[
+<p><span class="math display">
 F(x) = \int_{-\infty}^x p(t) dt
-\]</span></p>
-<p>1 : 一様乱数 <span class="math inline">\(u \sim U[0,1]\)</span>をサンプリングする 2 : <span class="math inline">\(x = F^{-1}(u)\)</span>をプロット これを繰り返して分布が得られる</p>
+</span></p>
+<p>1 : 一様乱数 <span class="math inline">u \sim U[0,1]</span>をサンプリングする 2 : <span class="math inline">x = F^{-1}(u)</span>をプロット これを繰り返して分布が得られる</p>
 </section>
 <section id="理論的根拠" class="level3">
 <h3 class="anchored" data-anchor-id="理論的根拠">理論的根拠</h3>
-<p>まず<span class="math inline">\(u\)</span>と<span class="math inline">\(F^{-1}\)</span>の範囲は一致する．これは累積確率分布の性質からわかる． <span class="math inline">\(X = F^{-1}\)</span>の累積分布関数を考えると</p>
-<p><span class="math display">\[
+<p>まず<span class="math inline">u</span>と<span class="math inline">F^{-1}</span>の範囲は一致する．これは累積確率分布の性質からわかる． <span class="math inline">X = F^{-1}</span>の累積分布関数を考えると</p>
+<p><span class="math display">
 𝑃(𝑋 ≤ 𝑥) = 𝑃( 𝐹^{-1}(𝑈) ≤ 𝑥 ) = 𝑃( 𝑈 ≤ 𝐹(𝑥) ) = 𝐹(𝑥)
-\]</span> すなわち，Xの累積分布関数は<span class="math inline">\(F\)</span>となる． よってXの密度関数は<span class="math inline">\(p\)</span>となりサンプリングが可能となる．</p>
+</span> すなわち，Xの累積分布関数は<span class="math inline">F</span>となる． よってXの密度関数は<span class="math inline">p</span>となりサンプリングが可能となる．</p>
 </section>
 </section>
 <section id="モンテカルロ法その2棄却サンプリング法" class="level2">
@@ -233,8 +322,8 @@ F(x) = \int_{-\infty}^x p(t) dt
 <section id="逆関数法のデメリット" class="level3">
 <h3 class="anchored" data-anchor-id="逆関数法のデメリット">逆関数法のデメリット</h3>
 <ul>
-<li><span class="math inline">\(F\)</span>がそもそも解析的に書けない場合は使うことができない</li>
-<li><span class="math inline">\(F\)</span>は解析的に書けても，<span class="math inline">\(F^{-1}\)</span>が解析的に書けない場合は使うことができない</li>
+<li><span class="math inline">F</span>がそもそも解析的に書けない場合は使うことができない</li>
+<li><span class="math inline">F</span>は解析的に書けても，<span class="math inline">F^{-1}</span>が解析的に書けない場合は使うことができない</li>
 </ul>
 </section>
 <section id="棄却サンプリング法のアイディア" class="level3">
@@ -243,13 +332,13 @@ F(x) = \int_{-\infty}^x p(t) dt
 </section>
 <section id="手法-1" class="level3">
 <h3 class="anchored" data-anchor-id="手法-1">手法</h3>
-<p>1 : 代理関数 <span class="math inline">\(q(x)\)</span>から候補点をサンプリング 2 : 一様乱数<span class="math inline">\(u \sim U([0,1])\)</span>を発生 3 : 採択判定 <span class="math display">\[u \le \frac{p(\theta)}{c q(\theta)}\]</span> なら採択，そうでなければ棄却 4 : ほしい数のサンプル数が集まるまで繰り返す</p>
+<p>1 : 代理関数 <span class="math inline">q(x)</span>から候補点をサンプリング 2 : 一様乱数<span class="math inline">u \sim U([0,1])</span>を発生 3 : 採択判定 <span class="math display">u \le \frac{p(\theta)}{c q(\theta)}</span> なら採択，そうでなければ棄却 4 : ほしい数のサンプル数が集まるまで繰り返す</p>
 </section>
 <section id="理論的根拠-1" class="level3">
 <h3 class="anchored" data-anchor-id="理論的根拠-1">理論的根拠</h3>
-<p><span class="math display">\[
+<p><span class="math display">
 u c q(\theta)\le p(\theta)
-\]</span> は，線<span class="math inline">\(x =cq(\theta)\)</span>上でランダムに点を打ってその値が<span class="math inline">\(p\)</span>よりも小さくなる場合は採用する． 逆にpより大きい場合は棄却する．<span class="math inline">\(c\)</span>は上界を決める重要因子である．上界を決めなければ完全な確率分布を求めることは困難である．</p>
+</span> は，線<span class="math inline">x =cq(\theta)</span>上でランダムに点を打ってその値が<span class="math inline">p</span>よりも小さくなる場合は採用する． 逆にpより大きい場合は棄却する．<span class="math inline">c</span>は上界を決める重要因子である．上界を決めなければ完全な確率分布を求めることは困難である．</p>
 </section>
 <section id="モンテカルロ法その3-mcmc法mh法" class="level3">
 <h3 class="anchored" data-anchor-id="モンテカルロ法その3-mcmc法mh法">モンテカルロ法その3 : MCMC法(MH法)</h3>
@@ -265,34 +354,34 @@ u c q(\theta)\le p(\theta)
 <section id="必要なもの" class="level3">
 <h3 class="anchored" data-anchor-id="必要なもの">必要なもの</h3>
 <ul>
-<li>目標分布に比例する関数<span class="math inline">\(f\)</span>の値が計算できれば良い</li>
-<li>提案分布 : 現在の<span class="math inline">\(\theta\)</span>から 次の候補を生成する分布</li>
+<li>目標分布に比例する関数<span class="math inline">f</span>の値が計算できれば良い</li>
+<li>提案分布 : 現在の<span class="math inline">\theta</span>から 次の候補を生成する分布</li>
 </ul>
 </section>
 <section id="手法-2" class="level3">
 <h3 class="anchored" data-anchor-id="手法-2">手法</h3>
-<p>1 : 現在の状態 <span class="math inline">\(\theta_{t-1}\)</span>から提案分布を用いて次の候補 <span class="math inline">\(\theta_{t}\)</span>を生成する ex) <span class="math inline">\(q(\theta_t | \theta_{t-1}) \sim N(\theta_{t-1}, \sigma^2)\)</span> 2 : 受理確率でその値を受容するか棄却するか決める. <span class="math inline">\(\alpha(\theta_t | \theta_{t-1})\)</span>は<span class="math inline">\(\theta_{t-1}\)</span>から<span class="math inline">\(\theta_{t}\)</span>へ遷移する確率を意味している．</p>
-<p><span class="math display">\[
+<p>1 : 現在の状態 <span class="math inline">\theta_{t-1}</span>から提案分布を用いて次の候補 <span class="math inline">\theta_{t}</span>を生成する ex) <span class="math inline">q(\theta_t | \theta_{t-1}) \sim N(\theta_{t-1}, \sigma^2)</span> 2 : 受理確率でその値を受容するか棄却するか決める. <span class="math inline">\alpha(\theta_t | \theta_{t-1})</span>は<span class="math inline">\theta_{t-1}</span>から<span class="math inline">\theta_{t}</span>へ遷移する確率を意味している．</p>
+<p><span class="math display">
 \alpha(\theta_t | \theta_{t-1}) = \min \big( 1, \frac{f(\theta_t)q(\theta_{t-1} | \theta_t)}{f(\theta_{t-1})q(\theta_{t} | \theta_{t-1})} \big)
-\]</span></p>
+</span></p>
 </section>
 <section id="理論的根拠-2" class="level3">
 <h3 class="anchored" data-anchor-id="理論的根拠-2">理論的根拠</h3>
 <p>MCMC法が正しく昨日するためには，マルコフ連鎖を十分に長く走らせた後に，サンプルが目的の分布から得れるようになる必要がある．これを定常分布に達したという． マルコフ連鎖が目的分布を定常分布として持つための十分条件が詳細釣り合い条件と呼ばれる．</p>
-<p><span class="math display">\[ p(\theta_{t-1}) T(\theta_{t-1} \to \theta_t) = p(\theta_t) T(\theta_t \to \theta_{t-1}) \]</span> ここで<span class="math inline">\(T\)</span>は提案確率と，採択確率の積として表される</p>
-<p><span class="math display">\[ T(\theta_{t-1} \to \theta_t) = q(\theta_t | \theta_{t-1}) \alpha(\theta_t | \theta_{t-1}) \]</span></p>
-<p>すなわち次の等式を満たす必要がある <span class="math display">\[ \frac{\alpha(\theta_t | \theta_{t-1})}{\alpha(\theta_{t-1} | \theta_t)} = \frac{p(\theta_t)q(\theta_{t-1} | \theta_t)}{p(\theta_{t-1})q(\theta_t | \theta_{t-1})} \]</span> 右辺を <span class="math inline">\(r\)</span>と簡略化する <span class="math display">\[
+<p><span class="math display"> p(\theta_{t-1}) T(\theta_{t-1} \to \theta_t) = p(\theta_t) T(\theta_t \to \theta_{t-1}) </span> ここで<span class="math inline">T</span>は提案確率と，採択確率の積として表される</p>
+<p><span class="math display"> T(\theta_{t-1} \to \theta_t) = q(\theta_t | \theta_{t-1}) \alpha(\theta_t | \theta_{t-1}) </span></p>
+<p>すなわち次の等式を満たす必要がある <span class="math display"> \frac{\alpha(\theta_t | \theta_{t-1})}{\alpha(\theta_{t-1} | \theta_t)} = \frac{p(\theta_t)q(\theta_{t-1} | \theta_t)}{p(\theta_{t-1})q(\theta_t | \theta_{t-1})} </span> 右辺を <span class="math inline">r</span>と簡略化する <span class="math display">
 \frac{\alpha(\theta_t | \theta_{t-1})}{\alpha(\theta_{t-1} | \theta_t)} = r
-\]</span></p>
+</span></p>
 <p>ここでなるべく遷移したい（サンプリング効率を高めたい）．この比率rを満たしながら，採択確率を可能な限り大きな値に設定する． #### r &gt;1 のとき</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \alpha(\theta_t | \theta_{t-1}) &gt; \alpha(\theta_{t-1} | \theta_{t})
-\]</span> を満たす．ここで大きい方を1と設定すれば，もう一方も確率的に正しい値 <span class="math inline">\(1/r\)</span>となるので 条件を満たす #### r &lt;=1 のとき</p>
+</span> を満たす．ここで大きい方を1と設定すれば，もう一方も確率的に正しい値 <span class="math inline">1/r</span>となるので 条件を満たす #### r &lt;=1 のとき</p>
 <p>同様に考えれば良い</p>
-<p>こう考えると，<span class="math inline">\(r&gt;1\)</span>なら1, <span class="math inline">\(r \le 1\)</span>なら <span class="math inline">\(r\)</span>になる よってまとめると</p>
-<p><span class="math display">\[
+<p>こう考えると，<span class="math inline">r&gt;1</span>なら1, <span class="math inline">r \le 1</span>なら <span class="math inline">r</span>になる よってまとめると</p>
+<p><span class="math display">
 \alpha(\theta_t | \theta_{t-1}) = \min \big( 1, \frac{f(\theta_t)q(\theta_{t-1} | \theta_t)}{f(\theta_{t-1})q(\theta_{t} | \theta_{t-1})} \big)
-\]</span></p>
+</span></p>
 <p>となる．</p>
 </section>
 </section>
@@ -692,6 +781,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../Published/bayesian_inference/2.html" class="pagination-link" aria-label="ベイズ推定におけるモデル選択">
+        <span class="nav-page-text">ベイズ推定におけるモデル選択</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 

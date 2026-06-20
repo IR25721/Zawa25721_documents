@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>My Portal</title>
+<title>Zawaの勉強記録</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,6 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../../Published/equilibrium_stat_mech/1.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -67,8 +68,22 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -100,7 +115,7 @@ window.Quarto = {
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -108,7 +123,7 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">My Portal</span>
+    <span class="navbar-title">Zawaの勉強記録</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -125,10 +140,6 @@ window.Quarto = {
     <a class="nav-link" href="../../intro.html"> 
 <span class="menu-text">はじめに</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../about.html"> 
-<span class="menu-text">About</span></a>
-  </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
@@ -142,10 +153,88 @@ window.Quarto = {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/information_geometry/1.html">情報幾何学</a></li><li class="breadcrumb-item"><a href="../../Published/information_geometry/1.html">双対空間</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">ベイズ推論</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/bayesian_inference/1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">モンテカルロ法</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/bayesian_inference/2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ベイズ推定におけるモデル選択</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">平衡系統計力学</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/equilibrium_stat_mech/1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">リウビルの定理と等確率の原理</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">情報幾何学</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/information_geometry/1.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">双対空間</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">最適化数学</span></span>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -157,11 +246,17 @@ window.Quarto = {
   <li><a href="#はじめに" id="toc-はじめに" class="nav-link" data-scroll-target="#はじめに">はじめに</a></li>
   <li><a href="#線形汎関数" id="toc-線形汎関数" class="nav-link" data-scroll-target="#線形汎関数">線形汎関数</a>
   <ul class="collapse">
+  <li><a href="#具体例" id="toc-具体例" class="nav-link" data-scroll-target="#具体例">具体例</a></li>
+  </ul></li>
+  <li><a href="#双対空間-1" id="toc-双対空間-1" class="nav-link" data-scroll-target="#双対空間-1">双対空間</a>
+  <ul class="collapse">
+  <li><a href="#定義" id="toc-定義" class="nav-link" data-scroll-target="#定義">定義</a></li>
+  <li><a href="#具体例-1" id="toc-具体例-1" class="nav-link" data-scroll-target="#具体例-1">具体例</a></li>
   <li><a href="#双対基底" id="toc-双対基底" class="nav-link" data-scroll-target="#双対基底">双対基底</a></li>
   <li><a href="#テンソルという概念について" id="toc-テンソルという概念について" class="nav-link" data-scroll-target="#テンソルという概念について">テンソルという概念について</a></li>
   <li><a href="#多重線形写像" id="toc-多重線形写像" class="nav-link" data-scroll-target="#多重線形写像">多重線形写像</a></li>
   <li><a href="#テンソルの定義" id="toc-テンソルの定義" class="nav-link" data-scroll-target="#テンソルの定義">テンソルの定義</a></li>
-  <li><a href="#具体例" id="toc-具体例" class="nav-link" data-scroll-target="#具体例">具体例</a></li>
+  <li><a href="#具体例-2" id="toc-具体例-2" class="nav-link" data-scroll-target="#具体例-2">具体例</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -181,34 +276,49 @@ window.Quarto = {
 </section>
 <section id="線形汎関数" class="level2">
 <h2 class="anchored" data-anchor-id="線形汎関数">線形汎関数</h2>
-<p><span class="math inline">\(V\)</span>を<span class="math inline">\(\mathbb R\)</span> 上の有限次元線形空間とする．<span class="math inline">\(V\)</span>から<span class="math inline">\(\mathbb R\)</span>への線形写像を<span class="math inline">\(V\)</span>上の線形汎関数という． ### 具体例 <span class="math inline">\(V = \mathbb R\)</span>とし，<span class="math inline">\(f : V \rightarrow \mathbb R\)</span>を</p>
-<p><span class="math display">\[
+<p><span class="math inline">V</span>を<span class="math inline">\mathbb R</span> 上の有限次元線形空間とする．<span class="math inline">V</span>から<span class="math inline">\mathbb R</span>への線形写像を<span class="math inline">V</span>上の線形汎関数という．</p>
+<section id="具体例" class="level3">
+<h3 class="anchored" data-anchor-id="具体例">具体例</h3>
+<p><span class="math inline">V = \mathbb R</span>とし，<span class="math inline">f : V \rightarrow \mathbb R</span>を</p>
+<p><span class="math display">
 f(x) = cx
-\]</span> と定義する．この<span class="math inline">\(f\)</span>は線形汎関数である． ## 双対空間 ### 定義 先程出てきた線形汎関数を<span class="math inline">\(V\)</span>についてすべて集める．この集合を<span class="math inline">\(V^*\)</span>と書くことにする． <span class="math inline">\(f,g \in V^*\)</span>と<span class="math inline">\(a,b \in \mathbb R\)</span>に対し．写像<span class="math inline">\(af + bg\)</span>を <span class="math display">\[
+</span> と定義する．この<span class="math inline">f</span>は線形汎関数である．</p>
+</section>
+</section>
+<section id="双対空間-1" class="level2">
+<h2 class="anchored" data-anchor-id="双対空間-1">双対空間</h2>
+<section id="定義" class="level3">
+<h3 class="anchored" data-anchor-id="定義">定義</h3>
+<p>先程出てきた線形汎関数を<span class="math inline">V</span>についてすべて集める．この集合を<span class="math inline">V^*</span>と書くことにする． <span class="math inline">f,g \in V^*</span>と<span class="math inline">a,b \in \mathbb R</span>に対し．写像<span class="math inline">af + bg</span>を <span class="math display">
 (af + bg)(x) := af(x) + bg(x)
-\]</span> で定義すれば，これも<span class="math inline">\(V\)</span>上の線形汎関数である．<span class="math inline">\(V^*\)</span>も<span class="math inline">\(\mathbb R\)</span>上の線形空間になる．線形空間<span class="math inline">\(V^*\)</span>を<span class="math inline">\(V\)</span>の双対空間という． ### 具体例 <span class="math inline">\(V = \mathbb R^2, \boldsymbol x \in V\)</span>とする．線形汎関数を <span class="math display">\[
+</span> で定義すれば，これも<span class="math inline">V</span>上の線形汎関数である．<span class="math inline">V^*</span>も<span class="math inline">\mathbb R</span>上の線形空間になる．線形空間<span class="math inline">V^*</span>を<span class="math inline">V</span>の双対空間という．</p>
+</section>
+<section id="具体例-1" class="level3">
+<h3 class="anchored" data-anchor-id="具体例-1">具体例</h3>
+<p><span class="math inline">V = \mathbb R^2, \boldsymbol x \in V</span>とする．線形汎関数を <span class="math display">
 f(\boldsymbol x ) =  {\boldsymbol a}^T\boldsymbol x
-\]</span> と定義する．すなわち<span class="math inline">\(f \in V^*\)</span>である． <span class="math inline">\(\alpha ,\beta \in \mathbb R\)</span>とし<span class="math inline">\(f,g \in V^*\)</span>とする．ここで写像<span class="math inline">\(\alpha f + \beta g\)</span>を適応すると <span class="math display">\[
+</span> と定義する．すなわち<span class="math inline">f \in V^*</span>である． <span class="math inline">\alpha ,\beta \in \mathbb R</span>とし<span class="math inline">f,g \in V^*</span>とする．ここで写像<span class="math inline">\alpha f + \beta g</span>を適応すると <span class="math display">
 \begin{align}
 (\alpha f + \beta g)(\boldsymbol x) &amp;= \alpha \boldsymbol a^T \boldsymbol x +  \beta \boldsymbol b^T \boldsymbol x \\
 &amp;= (\alpha \boldsymbol a +  \beta \boldsymbol b )^T\boldsymbol x
 \end{align}
-\]</span> より，確かに<span class="math inline">\(V^*は\)</span>演算について閉じている．したがって双対空間 <span class="math inline">\(V^*\)</span>は<span class="math inline">\(\mathbb R\)</span>上の線形空間となる． 噛み砕いて言うならば，双対空間の要素である線形汎関数を足し合わせたり実数倍したりしてもそれは双対空間の要素となるので，それは実数上の線形空間であるということである． 言いたいことはおそらく，関数にも演算をきちんと定義できますよということだろう．</p>
+</span> より，確かに<span class="math inline">V^*は</span>演算について閉じている．したがって双対空間 <span class="math inline">V^*</span>は<span class="math inline">\mathbb R</span>上の線形空間となる． 噛み砕いて言うならば，双対空間の要素である線形汎関数を足し合わせたり実数倍したりしてもそれは双対空間の要素となるので，それは実数上の線形空間であるということである． 言いたいことはおそらく，関数にも演算をきちんと定義できますよということだろう．</p>
+</section>
 <section id="双対基底" class="level3">
 <h3 class="anchored" data-anchor-id="双対基底">双対基底</h3>
-<p><span class="math inline">\(V\)</span>は<span class="math inline">\(n\)</span>次元とし，<span class="math inline">\(\{ e_1,e_2 , ... , e_n \}\)</span> を<span class="math inline">\(V\)</span>の一つの基底とする.<span class="math inline">\(V^*\)</span>の元 <span class="math inline">\(f^i\)</span>を <span class="math display">\[
+<p><span class="math inline">V</span>は<span class="math inline">n</span>次元とし，<span class="math inline">\{ e_1,e_2 , ... , e_n \}</span> を<span class="math inline">V</span>の一つの基底とする.<span class="math inline">V^*</span>の元 <span class="math inline">f^i</span>を <span class="math display">
 f^i(e_j) = \delta ^ i_j
-\]</span> を満たすように定める．ただし<span class="math inline">\(\delta ^i _ j\)</span>はクロネッカーデルタである． <span class="math inline">\(v \in V\)</span>とすると <span class="math display">\[
+</span> を満たすように定める．ただし<span class="math inline">\delta ^i _ j</span>はクロネッカーデルタである． <span class="math inline">v \in V</span>とすると <span class="math display">
 v = \sum_i v^i e_i
-\]</span> ただし<span class="math inline">\(v^i \in \mathbb R\)</span>である．なぜ<span class="math inline">\(v^i\)</span>のように上付きにしたのかは，今は気にしなくて良い．暗黙に受け入れるべきである．（なるべくこういうことはしたくはないが，どう頑張ってもここで説明できることではないと判断した．） この<span class="math inline">\(v\)</span> について基底<span class="math inline">\(f^i\)</span>を作用してみる．すると</p>
-<p><span class="math display">\[
+</span> ただし<span class="math inline">v^i \in \mathbb R</span>である．なぜ<span class="math inline">v^i</span>のように上付きにしたのかは，今は気にしなくて良い．暗黙に受け入れるべきである．（なるべくこういうことはしたくはないが，どう頑張ってもここで説明できることではないと判断した．） この<span class="math inline">v</span> について基底<span class="math inline">f^i</span>を作用してみる．すると</p>
+<p><span class="math display">
 \begin{align}
 f^i(\sum_j v^j e_j) &amp;= \sum_j v^j f^i (e_j)\\
 &amp;= \sum_j v^j \delta^i_j \\
 &amp;= v^i
 \end{align}
-\]</span></p>
-<p>となる．これは線型結合から基底<span class="math inline">\(e_i\)</span>に対応する要素をとって来ていることを意味している． ## テンソル</p>
+</span></p>
+<p>となる．これは線型結合から基底<span class="math inline">e_i</span>に対応する要素をとって来ていることを意味している． ## テンソル</p>
 </section>
 <section id="テンソルという概念について" class="level3">
 <h3 class="anchored" data-anchor-id="テンソルという概念について">テンソルという概念について</h3>
@@ -216,35 +326,35 @@ f^i(\sum_j v^j e_j) &amp;= \sum_j v^j f^i (e_j)\\
 </section>
 <section id="多重線形写像" class="level3">
 <h3 class="anchored" data-anchor-id="多重線形写像">多重線形写像</h3>
-<p>大まかにいうなら多変数関数において，個別に線型性が成り立つ写像のことである． 厳密な定義は教科書を参照してもらうとして，<span class="math inline">\(T: \mathbb R^2 \times \mathbb R^2 \rightarrow \mathbb R\)</span> を考える．このとき</p>
+<p>大まかにいうなら多変数関数において，個別に線型性が成り立つ写像のことである． 厳密な定義は教科書を参照してもらうとして，<span class="math inline">T: \mathbb R^2 \times \mathbb R^2 \rightarrow \mathbb R</span> を考える．このとき</p>
 <ol type="1">
-<li>1つ目の入力に対する線形性（<span class="math inline">\(v\)</span> を固定する）： <span class="math display">\[ T(a u_1 + b u_2, v) = a T(u_1, v) + b T(u_2, v) \]</span></li>
-<li>2つ目の入力に対する線形性（<span class="math inline">\(u\)</span> を固定する）： <span class="math display">\[ T(u, c v_1 + d v_2) = c T(u, v_1) + d T(u, v_2) \]</span> を満たすような<span class="math inline">\(T\)</span>を一般に多重線形写像という．</li>
+<li>1つ目の入力に対する線形性（<span class="math inline">v</span> を固定する）： <span class="math display"> T(a u_1 + b u_2, v) = a T(u_1, v) + b T(u_2, v) </span></li>
+<li>2つ目の入力に対する線形性（<span class="math inline">u</span> を固定する）： <span class="math display"> T(u, c v_1 + d v_2) = c T(u, v_1) + d T(u, v_2) </span> を満たすような<span class="math inline">T</span>を一般に多重線形写像という．</li>
 </ol>
 </section>
 <section id="テンソルの定義" class="level3">
 <h3 class="anchored" data-anchor-id="テンソルの定義">テンソルの定義</h3>
-<p>ベクトル空間<span class="math inline">\(V\)</span>とその双対空間<span class="math inline">\(V^*\)</span>を用意する． このとき写像</p>
-<p><span class="math display">\[ T : \underbrace{V^* \times \dots \times V^*}_{r \text{個}} \times \underbrace{V \times \dots \times V}_{s \text{個}} \to \mathbb{R} \]</span> が多重線形写像であるとき，<span class="math inline">\(T\)</span>を<span class="math inline">\((r,s)\)</span>型テンソルと定義する．</p>
+<p>ベクトル空間<span class="math inline">V</span>とその双対空間<span class="math inline">V^*</span>を用意する． このとき写像</p>
+<p><span class="math display"> T : \underbrace{V^* \times \dots \times V^*}_{r \text{個}} \times \underbrace{V \times \dots \times V}_{s \text{個}} \to \mathbb{R} </span> が多重線形写像であるとき，<span class="math inline">T</span>を<span class="math inline">(r,s)</span>型テンソルと定義する．</p>
 </section>
-<section id="具体例" class="level3">
-<h3 class="anchored" data-anchor-id="具体例">具体例</h3>
-<p><span class="math inline">\((1,1)\)</span>型テンソルを考える．<span class="math inline">\(T(f,v), f \in V^*, v \in V\)</span> <span class="math inline">\(f,v\)</span>を成分に分解すると<span class="math inline">\(T\)</span>も基底<span class="math inline">\(T^i_j = T(f^i, e_j)\)</span>を用いて</p>
-<p><span class="math display">\[
+<section id="具体例-2" class="level3">
+<h3 class="anchored" data-anchor-id="具体例-2">具体例</h3>
+<p><span class="math inline">(1,1)</span>型テンソルを考える．<span class="math inline">T(f,v), f \in V^*, v \in V</span> <span class="math inline">f,v</span>を成分に分解すると<span class="math inline">T</span>も基底<span class="math inline">T^i_j = T(f^i, e_j)</span>を用いて</p>
+<p><span class="math display">
 \begin{align}
 T(f, v) &amp;= T\left( \sum_i w_i f^i, \sum_j v^j e_j \right) \\ &amp;= \sum_{i,j} w_i v^j T(f^i, e_j)
 \\ &amp;= \sum_{i,j} T^i_j w_i v^j
 \end{align}
-\]</span> と表される．これを<span class="math inline">\(w_i\)</span>でくくり直してみる</p>
-<p><span class="math display">\[
+</span> と表される．これを<span class="math inline">w_i</span>でくくり直してみる</p>
+<p><span class="math display">
 \sum_{i,j} T^i_j w_i v^j = \sum_i w_i \bigg(\sum_j T^i_j v^j \bigg)
-\]</span> <span class="math inline">\(\sum_j T^i_j v^j\)</span>はベクトルである．これの第<span class="math inline">\(i\)</span>成分を<span class="math inline">\(u^i\)</span>とおく． すなわち元の式は次のように書き換えれる <span class="math display">\[
+</span> <span class="math inline">\sum_j T^i_j v^j</span>はベクトルである．これの第<span class="math inline">i</span>成分を<span class="math inline">u^i</span>とおく． すなわち元の式は次のように書き換えれる <span class="math display">
 T(f,v) = f(u)
-\]</span> この式の意味を考えてみる． <span class="math inline">\(u^i = \sum_j T^i_j v^j\)</span>をよく観察すると，これは行列と列ベクトルの積そのものを意味している．</p>
-<p><span class="math display">\[ \begin{pmatrix} u^1 \\ \vdots \\ u^n \end{pmatrix} = \begin{pmatrix} T^1_1 &amp; \dots &amp; T^1_n \\ \vdots &amp; \ddots &amp; \vdots \\ T^n_1 &amp; \dots &amp; T^n_n \end{pmatrix} \begin{pmatrix} v^1 \\ \vdots \\ v^n \end{pmatrix} \]</span></p>
-<p>テンソルの成分を並べたものは，ベクトルを変換する行列として機能することがわかる． また <span class="math display">\[
+</span> この式の意味を考えてみる． <span class="math inline">u^i = \sum_j T^i_j v^j</span>をよく観察すると，これは行列と列ベクトルの積そのものを意味している．</p>
+<p><span class="math display"> \begin{pmatrix} u^1 \\ \vdots \\ u^n \end{pmatrix} = \begin{pmatrix} T^1_1 &amp; \dots &amp; T^1_n \\ \vdots &amp; \ddots &amp; \vdots \\ T^n_1 &amp; \dots &amp; T^n_n \end{pmatrix} \begin{pmatrix} v^1 \\ \vdots \\ v^n \end{pmatrix} </span></p>
+<p>テンソルの成分を並べたものは，ベクトルを変換する行列として機能することがわかる． また <span class="math display">
 T(f,v) = w^T A v
-\]</span> と同じ意味であることもわかる．</p>
+</span> と同じ意味であることもわかる．</p>
 
 
 </section>
@@ -639,6 +749,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../Published/equilibrium_stat_mech/1.html" class="pagination-link" aria-label="リウビルの定理と等確率の原理">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">リウビルの定理と等確率の原理</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
 </div> <!-- /content -->
 
 

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>My Portal</title>
+<title>Zawaの勉強記録</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,6 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../../Published/information_geometry/1.html" rel="next">
+<link href="../../Published/bayesian_inference/2.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -67,11 +69,54 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -79,7 +124,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">My Portal</span>
+    <span class="navbar-title">Zawaの勉強記録</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -96,10 +141,6 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="../../intro.html"> 
 <span class="menu-text">はじめに</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../about.html"> 
-<span class="menu-text">About</span></a>
-  </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
@@ -113,13 +154,104 @@ ul.task-list li input[type="checkbox"] {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/equilibrium_stat_mech/1.html">平衡系統計力学</a></li><li class="breadcrumb-item"><a href="../../Published/equilibrium_stat_mech/1.html">リウビルの定理と等確率の原理</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">ベイズ推論</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/bayesian_inference/1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">モンテカルロ法</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/bayesian_inference/2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ベイズ推定におけるモデル選択</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">平衡系統計力学</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/equilibrium_stat_mech/1.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">リウビルの定理と等確率の原理</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">情報幾何学</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/information_geometry/1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">双対空間</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">最適化数学</span></span>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#リウビルの定理と等確率の原理" id="toc-リウビルの定理と等確率の原理" class="nav-link active" data-scroll-target="#リウビルの定理と等確率の原理">リウビルの定理と等確率の原理</a>
+  <ul class="collapse">
+  <li><a href="#はじめに" id="toc-はじめに" class="nav-link" data-scroll-target="#はじめに">はじめに</a></li>
+  <li><a href="#n個の粒子の運動" id="toc-n個の粒子の運動" class="nav-link" data-scroll-target="#n個の粒子の運動">N個の粒子の運動</a></li>
+  <li><a href="#不確定性原理と状態数" id="toc-不確定性原理と状態数" class="nav-link" data-scroll-target="#不確定性原理と状態数">不確定性原理と状態数</a></li>
+  <li><a href="#等確率の原理とエルゴード性" id="toc-等確率の原理とエルゴード性" class="nav-link" data-scroll-target="#等確率の原理とエルゴード性">等確率の原理とエルゴード性</a></li>
+  <li><a href="#まとめ" id="toc-まとめ" class="nav-link" data-scroll-target="#まとめ">まとめ</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -127,8 +259,72 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+<section id="リウビルの定理と等確率の原理" class="level1">
+<h1>リウビルの定理と等確率の原理</h1>
+<section id="はじめに" class="level2">
+<h2 class="anchored" data-anchor-id="はじめに">はじめに</h2>
+<p>この記事群は統計力学の復習用ノートです．なぜ統計力学をやるんだという話ですが，まず機械学習と関わりがある部分があること，創発科学の一つであること，あとなにより第一原理から出発する学問をなにか一つ身につけたいと思ったからというのがあります．すなわち趣味です． とりあえず手元にあるマセマを一通りやってから，他の本に行こうと思っています．</p>
+</section>
+<section id="n個の粒子の運動" class="level2">
+<h2 class="anchored" data-anchor-id="n個の粒子の運動">N個の粒子の運動</h2>
+<p>ある3次元の箱の中にN個の粒子が運動しているとする．このとき粒子が持っている情報は，位置と運動量である．一つの粒子に対して6次元の情報があるので，N個に対しては6N次元の情報がある．ここで6N次元位相空間上の一点は，箱の中の情報を意味している．箱の中はエネルギーが保存されているとする．すると6N-1次元上の超平面空間の軌跡（トラジェクトリー）として箱の中の状態が記述される．</p>
+<p>ここで，この位相空間における重要な定理であるリウビルの定理を下に記述する．</p>
+<p><span class="math display">
+    位相空間上の微小体積要素がカノニカル方程式に従うとき，その体積要素は一定である
+</span></p>
+<p>６N次元でこれを示すのは難しいので，一つの粒子かつ１次元運動のみで考えてみる． 微小体積要素が一定であるとは，微小時間が経過してもそのヤコビアンが1となることを意味している．微小時間<span class="math inline">\Delta t</span>経過したあとの位置と運動量を<span class="math inline">p_1^{'},位置をq_1^{'}</span> とする． ヤコビアンは</p>
+<p><span class="math display">
+\begin{vmatrix}
+\frac \partial {\partial p_1} p_1^{'}&amp; \frac \partial {\partial q_1} p_1^{'} \\   &nbsp;&nbsp;&nbsp;\frac \partial {\partial p_1} q_1^{'}&amp; \frac \partial {\partial q_1} q_1^{'}
+\end{vmatrix} = 1
+</span> を満たすことを示したい． まずそれぞれの関係は</p>
+<p><span class="math display">
+\begin{align}
+q_1^{'} &amp;= q_1 + \frac {d}{dt}q_1  \Delta t \\
+p_1^{'} &amp;= p_1 + \frac {d}{dt}p_1  \Delta t
+\end{align}
+</span> である．ここでカノニカル方程式を用いれば，それぞれの微分値を書き換えることができる．</p>
+<p><span class="math display">
+\begin{align}
+q_1^{'} &amp;= q_1 + \frac {\partial}{\partial p_1}H  \Delta t \\
+p_1^{'} &amp;= p_1 - \frac {\partial}{\partial q_1}H  \Delta t
+\end{align}
+</span></p>
+<p>この式をヤコビアンに代入すると</p>
+<p><span class="math display">
+\begin{vmatrix}
+\frac \partial {\partial p_1} {(p_1 - \frac {\partial}{\partial q_1}H  \Delta t)} &amp; \frac \partial {\partial q_1} (p_1 - \frac {\partial}{\partial q_1}H  \Delta t) \\   &nbsp;&nbsp;&nbsp;\frac \partial {\partial p_1} {(q_1 + \frac {\partial}{\partial p_1}H  \Delta t)}&amp; \frac \partial {\partial q_1} (q_1 + \frac {\partial}{\partial p_1}H  \Delta t)
+\end{vmatrix} = 1
+</span></p>
+<p>これを計算すると，<span class="math inline">(\Delta t)^2</span>の項が出てくるが，これを０とみなせばヤコビアンが1となることがわかる．</p>
+<p>これを次元を増やして同様の計算をすれば，6N次元でも同様の結論が得れることがわかる．</p>
+</section>
+<section id="不確定性原理と状態数" class="level2">
+<h2 class="anchored" data-anchor-id="不確定性原理と状態数">不確定性原理と状態数</h2>
+<p>原子スケールにおいて，位置と運動量はそれぞれ揺らいでいる．このゆらぎのスケールを述べているのが不確定性原理である．</p>
+<p><span class="math display">
+\Delta p \Delta q \sim h
+</span></p>
+<p><span class="math inline">h</span>はプランク定数である． ここで，<span class="math inline">\Delta p と\Delta q</span>は<span class="math inline">d p, d q</span>よりもずっと小さいとする．すなわち超体積要素 <span class="math inline">dv</span>は極超小立体の立方体<span class="math inline">h^{3N}</span>で構成されていると考えられる． ここで <span class="math display">
+g = \frac {dv}{h^{3N}}
+</span> を考える．これは，<span class="math inline">dv</span>の中にどれだけ<span class="math inline">h^{3N}</span>が含まれているかを意味している． この<span class="math inline">g</span>は<span class="math inline">dv</span>の中にどれだけ微視的状態が含まれているかという状態数を意味している．</p>
+</section>
+<section id="等確率の原理とエルゴード性" class="level2">
+<h2 class="anchored" data-anchor-id="等確率の原理とエルゴード性">等確率の原理とエルゴード性</h2>
+<p>ここでリウビルの定理より，状態数<span class="math inline">g</span>は時間によって変化しないことがわかる． ここで重要な過程を置く．それはこの位相空間がエルゴード性を持つということである． ある物理量がエルゴード性を持つとは 対象としている物理量の時間平均と位相平均が等しい ということだが，これは暗黙に正しいものとして考える． イメージだが．代表点（<span class="math inline">h^{3N}</span>の大きさを持つとする）は，十分長い時間を経てば超平面上のすべての代表点を埋め尽くすはずであり，そうなればエルゴード性を満たすと考えれる．</p>
+<p>今回考えている位相空間がエルゴード性を持つならば，観測時に代表点がその領域に見出される確率は，リウビルの定理より時間が経過しても等しくなり,<span class="math inline">dv</span>に比例する． どの位相空間の部分空間においてそれが満たされるので，各微視的状態は，位相空間上で同じ体積ならば同じ確率で実現することがわかる． これを等確率の原理と呼ぶ．</p>
+</section>
+<section id="まとめ" class="level2">
+<h2 class="anchored" data-anchor-id="まとめ">まとめ</h2>
+<ul>
+<li>リウビルの定理が満たされていれば，時間が経過していても微小体積要素は変化しない</li>
+<li>エルゴード性とリウビルの定理から，各微視的状態は，位相空間上で同じ体積ならば同じ確率で実現するという等確率の原理が導かれる．</li>
+</ul>
+<p>次回はボルツマンの原理を導出します．</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -518,6 +714,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../Published/bayesian_inference/2.html" class="pagination-link" aria-label="ベイズ推定におけるモデル選択">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">ベイズ推定におけるモデル選択</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../Published/information_geometry/1.html" class="pagination-link" aria-label="双対空間">
+        <span class="nav-page-text">双対空間</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 

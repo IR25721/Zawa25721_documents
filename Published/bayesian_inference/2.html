@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>My Portal</title>
+<title>Zawaの勉強記録</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,22 +23,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../../">
-<script src="../../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../Published/equilibrium_stat_mech/1.html" rel="next">
+<link href="../../Published/bayesian_inference/1.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -67,8 +69,22 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -97,18 +113,18 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../../index.html">
-    <span class="navbar-title">My Portal</span>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Zawaの勉強記録</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -118,16 +134,12 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../intro.html"> 
+    <a class="nav-link" href="../../intro.html"> 
 <span class="menu-text">はじめに</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../../about.html"> 
-<span class="menu-text">About</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
@@ -142,10 +154,88 @@ window.Quarto = {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/bayesian_inference/1.html">ベイズ推論</a></li><li class="breadcrumb-item"><a href="../../Published/bayesian_inference/2.html">ベイズ推定におけるモデル選択</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">ベイズ推論</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/bayesian_inference/1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">モンテカルロ法</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/bayesian_inference/2.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">ベイズ推定におけるモデル選択</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">平衡系統計力学</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/equilibrium_stat_mech/1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">リウビルの定理と等確率の原理</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">情報幾何学</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/information_geometry/1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">双対空間</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">最適化数学</span></span>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -168,6 +258,7 @@ window.Quarto = {
   <li><a href="#周辺尤度のラプラス近似" id="toc-周辺尤度のラプラス近似" class="nav-link" data-scroll-target="#周辺尤度のラプラス近似">周辺尤度のラプラス近似</a>
   <ul class="collapse">
   <li><a href="#アイディア" id="toc-アイディア" class="nav-link" data-scroll-target="#アイディア">アイディア</a></li>
+  <li><a href="#なぜmap点なのか" id="toc-なぜmap点なのか" class="nav-link" data-scroll-target="#なぜmap点なのか">なぜMAP点なのか？</a></li>
   </ul></li>
   <li><a href="#まとめ" id="toc-まとめ" class="nav-link" data-scroll-target="#まとめ">まとめ</a></li>
   </ul></li>
@@ -184,35 +275,35 @@ window.Quarto = {
 <h1>ベイズ推定におけるモデル選択</h1>
 <section id="事前分布の設定" class="level2">
 <h2 class="anchored" data-anchor-id="事前分布の設定">事前分布の設定</h2>
-<p>ベイズの定理 <span class="math display">\[
+<p>ベイズの定理 <span class="math display">
 p(\theta | X) = \frac{p(X | \theta) p(\theta)}{p(X)}
-\]</span> の<span class="math inline">\(p(\theta)\)</span>は自分で設定する必要がある．この事前分布によって結果が変わってくるので重要である．</p>
+</span> の<span class="math inline">p(\theta)</span>は自分で設定する必要がある．この事前分布によって結果が変わってくるので重要である．</p>
 <section id="ハイパーパラメータ" class="level3">
 <h3 class="anchored" data-anchor-id="ハイパーパラメータ">ハイパーパラメータ</h3>
-<p><span class="math display">\[
+<p><span class="math display">
 p(\theta) = p(\theta;\beta)
-\]</span> と書く．</p>
-<p><span class="math display">\[
+</span> と書く．</p>
+<p><span class="math display">
 p(\theta | X ; \beta) = \frac{p(X | \theta) p(\theta;\beta)}{p(X;\beta)}
-\]</span> となる（周辺尤度も<span class="math inline">\(\beta\)</span>に依存する） なので良い<span class="math inline">\(\beta\)</span>を選ぶことがモデル選択において重要である．</p>
+</span> となる（周辺尤度も<span class="math inline">\beta</span>に依存する） なので良い<span class="math inline">\beta</span>を選ぶことがモデル選択において重要である．</p>
 </section>
 <section id="map推定の解釈" class="level3">
 <h3 class="anchored" data-anchor-id="map推定の解釈">MAP推定の解釈</h3>
-<p>MAP推定 <span class="math display">\[
+<p>MAP推定 <span class="math display">
 \begin{align}
 \theta_{MAP} &amp;= \arg\max_{\theta}p(X|\theta)p(\theta;\beta) \\
             &amp;=  \arg\max_{\theta} [\log p(X| \theta) + \log p(\theta; \beta)]
 \end{align}
-\]</span></p>
+</span></p>
 <p>第一項は，対数尤度である．第二項の意味を考えたい． 具体例として，事前分布が正規分布の場合を考える．</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \begin{align}
 \log p(\theta) &amp;= -\frac{1}{2 \sigma^2} \theta^2 +C \\
             &amp; \propto -\frac \beta 2 \theta^2
 \end{align}
-\]</span></p>
+</span></p>
 <p>これは，パラメータをなるべく0に近づけたいということ，すなわちパラメータを大きくすることへのペナルティ と解釈出来る．いわゆるRidge回帰．</p>
-<p>すなわちMAP推定とは，<span class="math inline">\(\theta\)</span>の値を大きくして過学習を起こさないようにするために罰則項を追加した最尤推定という見方もできる．</p>
+<p>すなわちMAP推定とは，<span class="math inline">\theta</span>の値を大きくして過学習を起こさないようにするために罰則項を追加した最尤推定という見方もできる．</p>
 </section>
 </section>
 <section id="ハイパーパラメータをどう決定するか" class="level2">
@@ -224,7 +315,7 @@ p(\theta | X ; \beta) = \frac{p(X | \theta) p(\theta;\beta)}{p(X;\beta)}
 </ul>
 <section id="経験ベイズ法" class="level3">
 <h3 class="anchored" data-anchor-id="経験ベイズ法">経験ベイズ法</h3>
-<p><span class="math inline">\(p(X ; \beta)\)</span> を最大化する手法である 周辺尤度とは，<span class="math inline">\(\beta\)</span>を与えたときに訓練標本が生成される確率のことを指している． これはなるべく高い方が良いので，この手法は適切である． なぜ，<span class="math inline">\(p(X;\beta)\)</span>の最大化で過学習が起こらないのか．それは周辺尤度が，<span class="math inline">\(\theta\)</span>についての全領域積分を行っているため，ある偏ったパラメータ（過学習するパラメータ）があったとしても，その影響をあまり受けない堅固な指標だからである．</p>
+<p><span class="math inline">p(X ; \beta)</span> を最大化する手法である 周辺尤度とは，<span class="math inline">\beta</span>を与えたときに訓練標本が生成される確率のことを指している． これはなるべく高い方が良いので，この手法は適切である． なぜ，<span class="math inline">p(X;\beta)</span>の最大化で過学習が起こらないのか．それは周辺尤度が，<span class="math inline">\theta</span>についての全領域積分を行っているため，ある偏ったパラメータ（過学習するパラメータ）があったとしても，その影響をあまり受けない堅固な指標だからである．</p>
 </section>
 <section id="aic-との関係" class="level3">
 <h3 class="anchored" data-anchor-id="aic-との関係">AIC との関係</h3>
@@ -232,32 +323,36 @@ p(\theta | X ; \beta) = \frac{p(X | \theta) p(\theta;\beta)}{p(X;\beta)}
 </section>
 <section id="エビデンス近似" class="level3">
 <h3 class="anchored" data-anchor-id="エビデンス近似">エビデンス近似</h3>
-<p>本来のベイズ推論ならば<span class="math inline">\(\beta\)</span>についても周辺化を行うべきである． <span class="math display">\[
+<p>本来のベイズ推論ならば<span class="math inline">\beta</span>についても周辺化を行うべきである． <span class="math display">
 p(\theta | X) = \int p(\theta|X;\beta) p(\beta | X) d\beta
-\]</span></p>
-<p>だが，<span class="math inline">\(\beta\)</span>の分布はほとんどの場合複雑すぎるので，この積分を解析的に実行することは現実的ではない．そこである<span class="math inline">\(\beta^*\)</span>で<span class="math inline">\(p(\beta | X)\)</span>が最大値をとりさらにそれが鋭く（デルタ関数で近似できるほど）分布していると仮定する． するとこれは積分は必要なく，代入するだけでよくなる．（デルタ関数の性質を参照）</p>
-<p>すなわち <span class="math display">\[
+</span></p>
+<p>だが，<span class="math inline">\beta</span>の分布はほとんどの場合複雑すぎるので，この積分を解析的に実行することは現実的ではない．そこである<span class="math inline">\beta^*</span>で<span class="math inline">p(\beta | X)</span>が最大値をとりさらにそれが鋭く（デルタ関数で近似できるほど）分布していると仮定する． するとこれは積分は必要なく，代入するだけでよくなる．（デルタ関数の性質を参照）</p>
+<p>すなわち <span class="math display">
 p(\theta | X) \approx p(\theta | X ; \beta^*)
-\]</span></p>
+</span></p>
 </section>
 </section>
 <section id="周辺尤度のラプラス近似" class="level2">
 <h2 class="anchored" data-anchor-id="周辺尤度のラプラス近似">周辺尤度のラプラス近似</h2>
-<p>そもそも前回を思い出すと，この<span class="math inline">\(p(X;\beta)\)</span>の計算は非常に複雑である． 前回学んだモンテカルロ法（特にMCMC法）を用いれば周辺尤度を求めることは可能だが，計算コストが高いという問題がある． 今回は計算コストが低いラプラス近似という手法を学んでいく．</p>
+<p>そもそも前回を思い出すと，この<span class="math inline">p(X;\beta)</span>の計算は非常に複雑である． 前回学んだモンテカルロ法（特にMCMC法）を用いれば周辺尤度を求めることは可能だが，計算コストが高いという問題がある． 今回は計算コストが低いラプラス近似という手法を学んでいく．</p>
 <section id="アイディア" class="level3">
 <h3 class="anchored" data-anchor-id="アイディア">アイディア</h3>
-<p>MAP点のまわりで，ガウス分布として<span class="math inline">\(p(X;\beta)\)</span>を近似する．すなわち，MAP点の周りで二次のテイラー展開を行う． ### なぜMAP点なのか？ 思い出すとMAP点とは <span class="math display">\[
+<p>MAP点のまわりで，ガウス分布として<span class="math inline">p(X;\beta)</span>を近似する．すなわち，MAP点の周りで二次のテイラー展開を行う．</p>
+</section>
+<section id="なぜmap点なのか" class="level3">
+<h3 class="anchored" data-anchor-id="なぜmap点なのか">なぜMAP点なのか？</h3>
+<p>思い出すとMAP点とは <span class="math display">
 \begin{align}
 \theta_{MAP} &amp;= \arg\max_{\theta} p(X|\theta)p(\theta;\beta) \\
 \end{align}
-\]</span></p>
-<p>である．これは<span class="math inline">\(\log p(\theta | X)\)</span>が極大値を取ることと言い換えれるので <span class="math inline">\(\nabla \log p(\theta|X) = 0\)</span>と言い換えれる．</p>
-<p>テイラー展開の四季は以下の通りである． <span class="math display">\[\log p(\theta | X) \approx \log p(\theta_0 | X) + \nabla \log p(\theta_0 | X)(\theta - \theta_0) + \frac{1}{2}(\theta - \theta_0)^T H (\theta - \theta_0)\]</span></p>
+</span></p>
+<p>である．これは<span class="math inline">\log p(\theta | X)</span>が極大値を取ることと言い換えれるので <span class="math inline">\nabla \log p(\theta|X) = 0</span>と言い換えれる．</p>
+<p>テイラー展開の四季は以下の通りである． <span class="math display">\log p(\theta | X) \approx \log p(\theta_0 | X) + \nabla \log p(\theta_0 | X)(\theta - \theta_0) + \frac{1}{2}(\theta - \theta_0)^T H (\theta - \theta_0)</span></p>
 <p>一方で、ガウス分布の対数をとった式は以下の構造を持つ</p>
-<p><span class="math display">\[\log \mathcal{N}(\mu, \Sigma) = -\frac{1}{2}(x - \mu)^T \Sigma^{-1} (x - \mu) + C\]</span></p>
-<p>一次の項を持たないので，これは <span class="math display">\[
+<p><span class="math display">\log \mathcal{N}(\mu, \Sigma) = -\frac{1}{2}(x - \mu)^T \Sigma^{-1} (x - \mu) + C</span></p>
+<p>一次の項を持たないので，これは <span class="math display">
 \nabla \log p(\theta_0 | X) = 0
-\]</span> でないといけない．これはMAP点の条件と一致する．</p>
+</span> でないといけない．これはMAP点の条件と一致する．</p>
 </section>
 </section>
 <section id="まとめ" class="level2">
@@ -265,7 +360,7 @@ p(\theta | X) \approx p(\theta | X ; \beta^*)
 <ul>
 <li>MAP推定は罰則項付き最尤推定を拡張したものである．</li>
 <li>モデル選択にはハイパーパラメータが必要であり，ハイパーパラメータを決める手法の一つとして経験ベイズ法がある．</li>
-<li>ラプラス近似を使うことで計算量少なく<span class="math inline">\(p(X; \beta)\)</span>を計算できる．</li>
+<li>ラプラス近似を使うことで計算量少なく<span class="math inline">p(X; \beta)</span>を計算できる．</li>
 </ul>
 
 
@@ -660,6 +755,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../Published/bayesian_inference/1.html" class="pagination-link" aria-label="モンテカルロ法">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">モンテカルロ法</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../Published/equilibrium_stat_mech/1.html" class="pagination-link" aria-label="リウビルの定理と等確率の原理">
+        <span class="nav-page-text">リウビルの定理と等確率の原理</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 
