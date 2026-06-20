@@ -17,14 +17,13 @@ website:
         text: Home
       - href: intro.md
         text: はじめに
-      - href: about.qmd
-        text: About
     right:
       - icon: github
         href: "https://github.com/IR25721/Zawa25721_documents#"
 
 format:
   html:
+    html-math-method: katex
     theme: cosmo
     css: styles.css
     toc: true

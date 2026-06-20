@@ -2,6 +2,17 @@ import os
 import re
 import subprocess
 
+DISPLAY_NAMES = {
+    "bayesian_inference": "ベイズ推論",
+    "equilibrium_stat_mech": "平衡系統計力学",
+    "information_geometry": "情報幾何学",
+    "optimization_math": "最適化数学",
+    "machine_learning_theory": "機械学習理論"
+}
+
+def get_display_name(name):
+    return DISPLAY_NAMES.get(name, name)
+
 def sort_key(filename):
     # ファイル名から数字を抽出（例： "1.md" -> 1）
     match = re.search(r'(\d+)', filename)
@@ -28,7 +39,8 @@ def generate_in_progress():
                     if rel_dir == ".":
                         lines.append(f"- {title}")
                     else:
-                        lines.append(f"- 【{rel_dir}】 {title}")
+                        display_dir = get_display_name(rel_dir)
+                        lines.append(f"- 【{display_dir}】 {title}")
     
     with open("_generated/_in_progress.qmd", "w", encoding="utf-8") as f:
         if lines:
@@ -81,9 +93,9 @@ def generate_published():
                     if "" in sections:
                         root_art = sections[''][0].replace('\\', '/')
                         first_article = f"Published/{item}/{root_art}"
-                        lines.append(f"### [{logo_md}{item}]({first_article})")
+                        lines.append(f"### [{logo_md}{get_display_name(item)}]({first_article})")
                     else:
-                        lines.append(f"### {logo_md}{item}")
+                        lines.append(f"### {logo_md}{get_display_name(item)}")
                     for sec_name in sections.keys():
                         if sec_name != "":
                             first_sec_art = f"Published/{item}/{sections[sec_name][0]}"
@@ -98,14 +110,14 @@ def generate_published():
                                     sec_logo_md = f"<img src='{sec_logo_rel}' width='20' style='vertical-align: middle; border-radius: 50%; margin-right: 5px;'/>"
                                     break
                             
-                            lines.append(f"- {sec_logo_md}[{sec_name}]({first_sec_art})")
+                            lines.append(f"- {sec_logo_md}[{get_display_name(sec_name)}]({first_sec_art})")
                 else:
-                    lines.append(f"### {logo_md}{item} (記事なし)")
+                    lines.append(f"### {logo_md}{get_display_name(item)} (記事なし)")
                 lines.append(":::")
                 lines.append("")
                     
                 # グローバルサイドバーのセクション構成
-                sidebar_yaml.append(f"      - section: \"{item}\"")
+                sidebar_yaml.append(f"      - section: \"{get_display_name(item)}\"")
                 sidebar_yaml.append(f"        contents:")
                 
                 # ルート直下のファイルを先に出力
@@ -117,7 +129,7 @@ def generate_published():
                 # サブディレクトリごとのセクションを出力
                 for sec_name, sec_mds in sections.items():
                     if sec_name != "":
-                        sidebar_yaml.append(f"          - section: \"{sec_name}\"")
+                        sidebar_yaml.append(f"          - section: \"{get_display_name(sec_name)}\"")
                         sidebar_yaml.append(f"            contents:")
                         for md in sec_mds:
                             md_clean = md.replace('\\', '/')

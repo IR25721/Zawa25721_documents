@@ -1,3 +1,4 @@
+- 2026-06-20: Fix markdown headings rendering issue by adding blank lines before headers
 - 2026-06-20: Update index.qmd and intro.md
 - 2026-06-20: Update layout grid and margins for better width, add git history to margin
 - 2026-06-20: Organize directory structure, move scripts and generated files

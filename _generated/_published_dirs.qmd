@@ -2,7 +2,7 @@
 
 ::: {.g-col-12 .g-col-md-4}
 
-### [<img src='Published/ベイズ推論/ベイズ推論.gif' width='40' style='vertical-align: middle; border-radius: 50%; margin-right: 8px;'/>ベイズ推論](Published/ベイズ推論/1.md)
+### [<img src='Published/bayesian_inference/bayesian_inference.gif' width='40' style='vertical-align: middle; border-radius: 50%; margin-right: 8px;'/>ベイズ推論](Published/bayesian_inference/1.md)
 
 :::
 
@@ -10,7 +10,7 @@
 
 ::: {.g-col-12 .g-col-md-4}
 
-### [<img src='Published/平衡系統計力学/平衡系統計力学.jpg' width='40' style='vertical-align: middle; border-radius: 50%; margin-right: 8px;'/>平衡系統計力学](Published/平衡系統計力学/1.md)
+### [<img src='Published/equilibrium_stat_mech/equilibrium_stat_mech.jpg' width='40' style='vertical-align: middle; border-radius: 50%; margin-right: 8px;'/>平衡系統計力学](Published/equilibrium_stat_mech/1.md)
 
 :::
 
@@ -18,7 +18,7 @@
 
 ::: {.g-col-12 .g-col-md-4}
 
-### [<img src='Published/情報幾何学/情報幾何学.jpg' width='40' style='vertical-align: middle; border-radius: 50%; margin-right: 8px;'/>情報幾何学](Published/情報幾何学/1.md)
+### [<img src='Published/information_geometry/information_geometry.jpg' width='40' style='vertical-align: middle; border-radius: 50%; margin-right: 8px;'/>情報幾何学](Published/information_geometry/1.md)
 
 :::
 
@@ -26,7 +26,7 @@
 
 ::: {.g-col-12 .g-col-md-4}
 
-### <img src='Published/最適化数学/最適化数学.jpg' width='40' style='vertical-align: middle; border-radius: 50%; margin-right: 8px;'/>最適化数学 (記事なし)
+### <img src='Published/optimization_math/optimization_math.jpg' width='40' style='vertical-align: middle; border-radius: 50%; margin-right: 8px;'/>最適化数学 (記事なし)
 
 :::
 
