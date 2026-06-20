@@ -36,9 +36,15 @@ def generate_published():
                 if os.path.exists(logo_path):
                     logo_md = f"<img src='{logo_rel}' width='50' style='vertical-align: middle; border-radius: 50%; margin-right: 10px;'/>"
                 
-                # Markdownファイルの取得とソート
-                md_files = [f for f in os.listdir(item_path) if f.endswith('.md')]
-                md_files.sort(key=sort_key)
+                # Markdownファイルの再帰的な取得とソート
+                md_files = []
+                for root, dirs, files in os.walk(item_path):
+                    for f in files:
+                        if f.endswith('.md'):
+                            rel_path = os.path.relpath(os.path.join(root, f), item_path)
+                            md_files.append(rel_path)
+                            
+                md_files.sort(key=lambda x: sort_key(os.path.basename(x)))
                 
                 if md_files:
                     first_article = f"Published/{item}/{md_files[0]}"
