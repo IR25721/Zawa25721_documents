@@ -2,3 +2,6 @@
 **/*.quarto_ipynb
 _site/
 _sidebars.yml
+InProgress/
+.obsidian/
+_generated/portal_site_document.txt

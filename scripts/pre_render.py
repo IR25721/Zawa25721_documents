@@ -10,11 +10,26 @@ def generate_in_progress():
     in_progress_dir = "InProgress"
     lines = []
     if os.path.exists(in_progress_dir):
-        for item in sorted(os.listdir(in_progress_dir)):
-            if os.path.isdir(os.path.join(in_progress_dir, item)):
-                lines.append(f"- {item}")
+        for root, dirs, files in os.walk(in_progress_dir):
+            # フォルダやファイルをソートして順序を固定
+            dirs.sort()
+            for f in sorted(files):
+                if f.endswith('.md'):
+                    filepath = os.path.join(root, f)
+                    title = f"({f} タイトル未設定)"
+                    with open(filepath, "r", encoding="utf-8") as md_file:
+                        for line in md_file:
+                            if line.startswith("# "):
+                                title = line[2:].strip()
+                                break
+                    
+                    rel_dir = os.path.relpath(root, in_progress_dir)
+                    if rel_dir == ".":
+                        lines.append(f"- {title}")
+                    else:
+                        lines.append(f"- 【{rel_dir}】 {title}")
     
-    with open("_in_progress.qmd", "w", encoding="utf-8") as f:
+    with open("_generated/_in_progress.qmd", "w", encoding="utf-8") as f:
         if lines:
             f.write("\n".join(lines))
         else:
@@ -104,10 +119,10 @@ def generate_published():
                             md_clean = md.replace('\\', '/')
                             sidebar_yaml.append(f"              - \"Published/{item}/{md_clean}\"")
     
-    with open("_sidebars.yml", "w", encoding="utf-8") as f:
+    with open("_generated/_sidebars.yml", "w", encoding="utf-8") as f:
         f.write("\n".join(sidebar_yaml))
     
-    with open("_published_dirs.qmd", "w", encoding="utf-8") as f:
+    with open("_generated/_published_dirs.qmd", "w", encoding="utf-8") as f:
         if lines:
             f.write("\n\n".join(lines))
         else:

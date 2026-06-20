@@ -1,9 +1,9 @@
 project:
   type: website
-  pre-render: pre_render.py
+  pre-render: scripts/pre_render.py
 
 metadata-files:
-  - _sidebars.yml
+  - _generated/_sidebars.yml
 
 
 

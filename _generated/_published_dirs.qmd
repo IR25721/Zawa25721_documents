@@ -1,0 +1,9 @@
+### [<img src='Published/平衡系統計力学/平衡系統計力学.jpg' width='50' style='vertical-align: middle; border-radius: 50%; margin-right: 10px;'/>平衡系統計力学](Published/平衡系統計力学/1.md)
+
+### [<img src='Published/情報幾何学/情報幾何学.jpg' width='50' style='vertical-align: middle; border-radius: 50%; margin-right: 10px;'/>情報幾何学](Published/情報幾何学/1.md)
+
+### <img src='Published/最適化数学/最適化数学.jpg' width='50' style='vertical-align: middle; border-radius: 50%; margin-right: 10px;'/>最適化数学 (記事なし)
+
+### <img src='Published/機械学習理論/機械学習理論.png' width='50' style='vertical-align: middle; border-radius: 50%; margin-right: 10px;'/>機械学習理論
+
+- <img src='Published/機械学習理論/ベイズ推論/ベイズ推論.gif' width='30' style='vertical-align: middle; border-radius: 50%; margin-right: 5px;'/>[ベイズ推論](Published/機械学習理論/ベイズ推論/1.md)
