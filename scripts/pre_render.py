@@ -14,35 +14,38 @@ def get_display_name(name):
     return DISPLAY_NAMES.get(name, name)
 
 def sort_key(filename):
-    # ファイル名から数字を抽出（例： "1.md" -> 1）
     match = re.search(r'(\d+)', filename)
     return int(match.group(1)) if match else 9999
+
+def get_md_title(filepath, default_title):
+    title = default_title
+    if os.path.exists(filepath):
+        with open(filepath, "r", encoding="utf-8") as md_file:
+            in_yaml = False
+            for line in md_file:
+                if line.strip() == "---":
+                    in_yaml = not in_yaml
+                    continue
+                if in_yaml:
+                    match = re.match(r'^title\s*:\s*(.*)', line)
+                    if match:
+                        title = match.group(1).strip().strip('"').strip("'")
+                        break
+                elif line.startswith("# "):
+                    title = line[2:].strip()
+                    break
+    return title
 
 def generate_in_progress():
     in_progress_dir = "InProgress"
     lines = []
     if os.path.exists(in_progress_dir):
         for root, dirs, files in os.walk(in_progress_dir):
-            # フォルダやファイルをソートして順序を固定
             dirs.sort()
             for f in sorted(files):
                 if f.endswith('.md'):
                     filepath = os.path.join(root, f)
-                    title = f"({f} タイトル未設定)"
-                    with open(filepath, "r", encoding="utf-8") as md_file:
-                        in_yaml = False
-                        for line in md_file:
-                            if line.strip() == "---":
-                                in_yaml = not in_yaml
-                                continue
-                            if in_yaml:
-                                match = re.match(r'^title\s*:\s*(.*)', line)
-                                if match:
-                                    title = match.group(1).strip().strip('"').strip("'")
-                                    break
-                            elif line.startswith("# "):
-                                title = line[2:].strip()
-                                break
+                    title = get_md_title(filepath, f"({f} タイトル未設定)")
                     
                     rel_dir = os.path.relpath(root, in_progress_dir)
                     if rel_dir == ".":
@@ -68,7 +71,6 @@ def generate_published():
             if os.path.isdir(item_path):
                 lines.append("::: {.g-col-12 .g-col-md-4}")
                 
-                # ロゴ画像の探索（ディレクトリ名と同名の画像）
                 logo_md = ""
                 for ext in ['.png', '.jpg', '.jpeg', '.webp', '.gif', '.svg', '.JPG', '.PNG', '.JPEG']:
                     logo_path = os.path.join(item_path, f"{item}{ext}")
@@ -77,7 +79,6 @@ def generate_published():
                         logo_md = f"<img src='{logo_rel}' width='40' style='vertical-align: middle; border-radius: 50%; margin-right: 8px;'/>"
                         break
                 
-                # Markdownファイルの再帰的な取得とソート
                 md_files = []
                 for root, dirs, files in os.walk(item_path):
                     for f in files:
@@ -87,7 +88,6 @@ def generate_published():
                             
                 md_files.sort(key=lambda x: sort_key(os.path.basename(x)))
                 
-                # サブディレクトリでグループ化 (先に行う)
                 from collections import defaultdict
                 sections = defaultdict(list)
                 for md in md_files:
@@ -109,7 +109,6 @@ def generate_published():
                         if sec_name != "":
                             first_sec_art = f"Published/{item}/{sections[sec_name][0]}"
                             
-                            # サブディレクトリのロゴ探索
                             sec_logo_md = ""
                             sec_dir = os.path.join(item_path, sec_name)
                             for ext in ['.png', '.jpg', '.jpeg', '.webp', '.gif', '.svg', '.JPG', '.PNG', '.JPEG']:
@@ -125,24 +124,25 @@ def generate_published():
                 lines.append(":::")
                 lines.append("")
                     
-                # グローバルサイドバーのセクション構成
                 sidebar_yaml.append(f"      - section: \"{get_display_name(item)}\"")
                 sidebar_yaml.append(f"        contents:")
                 
-                # ルート直下のファイルを先に出力
                 if "" in sections:
                     for md in sections[""]:
                         md_clean = md.replace('\\', '/')
-                        sidebar_yaml.append(f"          - \"Published/{item}/{md_clean}\"")
+                        title = get_md_title(os.path.join(item_path, md), md_clean)
+                        sidebar_yaml.append(f"          - text: \"{title}\"")
+                        sidebar_yaml.append(f"            href: Published/{item}/{md_clean}")
                 
-                # サブディレクトリごとのセクションを出力
                 for sec_name, sec_mds in sections.items():
                     if sec_name != "":
                         sidebar_yaml.append(f"          - section: \"{get_display_name(sec_name)}\"")
                         sidebar_yaml.append(f"            contents:")
                         for md in sec_mds:
                             md_clean = md.replace('\\', '/')
-                            sidebar_yaml.append(f"              - \"Published/{item}/{md_clean}\"")
+                            title = get_md_title(os.path.join(item_path, md), md_clean)
+                            sidebar_yaml.append(f"              - text: \"{title}\"")
+                            sidebar_yaml.append(f"                href: Published/{item}/{md_clean}")
         
         lines.append(":::")
     
@@ -157,7 +157,6 @@ def generate_published():
 
 def generate_git_history():
     try:
-        # Gitコマンドで最新10件のコミット履歴を取得 (日付とメッセージ)
         result = subprocess.run(
             ['git', 'log', '-10', '--format=- %cd: %s', '--date=short'],
             capture_output=True,
@@ -175,7 +174,6 @@ def generate_git_history():
             f.write("履歴がありません。")
 
 if __name__ == "__main__":
-    # _generated ディレクトリが存在しない場合は作成
     os.makedirs("_generated", exist_ok=True)
     generate_in_progress()
     generate_published()
