@@ -191,6 +191,12 @@ window.Quarto = {
  <span class="menu-text">ベイズ推定におけるモデル選択</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/bayesian_inference/3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ベイズ推定におけるモデル選択（続き）</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -373,16 +379,22 @@ u c q(\theta)\le p(\theta)
 <p>すなわち次の等式を満たす必要がある <span class="math display"> \frac{\alpha(\theta_t | \theta_{t-1})}{\alpha(\theta_{t-1} | \theta_t)} = \frac{p(\theta_t)q(\theta_{t-1} | \theta_t)}{p(\theta_{t-1})q(\theta_t | \theta_{t-1})} </span> 右辺を <span class="math inline">r</span>と簡略化する <span class="math display">
 \frac{\alpha(\theta_t | \theta_{t-1})}{\alpha(\theta_{t-1} | \theta_t)} = r
 </span></p>
-<p>ここでなるべく遷移したい（サンプリング効率を高めたい）．この比率rを満たしながら，採択確率を可能な限り大きな値に設定する． #### r &gt;1 のとき</p>
+<p>ここでなるべく遷移したい（サンプリング効率を高めたい）．この比率rを満たしながら，採択確率を可能な限り大きな値に設定する．</p>
+<section id="r-1-のとき" class="level4">
+<h4 class="anchored" data-anchor-id="r-1-のとき">r &gt;1 のとき</h4>
 <p><span class="math display">
 \alpha(\theta_t | \theta_{t-1}) &gt; \alpha(\theta_{t-1} | \theta_{t})
-</span> を満たす．ここで大きい方を1と設定すれば，もう一方も確率的に正しい値 <span class="math inline">1/r</span>となるので 条件を満たす #### r &lt;=1 のとき</p>
+</span> を満たす．ここで大きい方を1と設定すれば，もう一方も確率的に正しい値 <span class="math inline">1/r</span>となるので 条件を満たす</p>
+</section>
+<section id="r-1-のとき-1" class="level4">
+<h4 class="anchored" data-anchor-id="r-1-のとき-1">r &lt;=1 のとき</h4>
 <p>同様に考えれば良い</p>
 <p>こう考えると，<span class="math inline">r&gt;1</span>なら1, <span class="math inline">r \le 1</span>なら <span class="math inline">r</span>になる よってまとめると</p>
 <p><span class="math display">
 \alpha(\theta_t | \theta_{t-1}) = \min \big( 1, \frac{f(\theta_t)q(\theta_{t-1} | \theta_t)}{f(\theta_{t-1})q(\theta_{t} | \theta_{t-1})} \big)
 </span></p>
 <p>となる．</p>
+</section>
 </section>
 </section>
 <section id="結論" class="level2">
