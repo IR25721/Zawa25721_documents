@@ -1,39 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://IR25721.github.io/Zawa25721_documents/InProgress/information_geometry/2.html</loc>
-    <lastmod>2026-06-20T11:14:49.646Z</lastmod>
-  </url>
-  <url>
-    <loc>https://IR25721.github.io/Zawa25721_documents/Published/equilibrium_stat_mech/1.html</loc>
-    <lastmod>2026-06-20T11:14:49.644Z</lastmod>
-  </url>
-  <url>
-    <loc>https://IR25721.github.io/Zawa25721_documents/Published/bayesian_inference/3.html</loc>
-    <lastmod>2026-06-20T11:14:49.643Z</lastmod>
-  </url>
-  <url>
-    <loc>https://IR25721.github.io/Zawa25721_documents/Published/bayesian_inference/1.html</loc>
-    <lastmod>2026-06-20T11:14:49.641Z</lastmod>
-  </url>
-  <url>
-    <loc>https://IR25721.github.io/Zawa25721_documents/intro.html</loc>
-    <lastmod>2026-06-20T08:17:57.227Z</lastmod>
-  </url>
-  <url>
     <loc>https://IR25721.github.io/Zawa25721_documents/index.html</loc>
-    <lastmod>2026-06-20T05:49:23.859Z</lastmod>
-  </url>
-  <url>
-    <loc>https://IR25721.github.io/Zawa25721_documents/Published/bayesian_inference/2.html</loc>
-    <lastmod>2026-06-20T11:14:49.642Z</lastmod>
+    <lastmod>2026-06-20T11:23:36.375Z</lastmod>
   </url>
   <url>
     <loc>https://IR25721.github.io/Zawa25721_documents/Published/information_geometry/1.html</loc>
-    <lastmod>2026-06-20T11:14:49.643Z</lastmod>
+    <lastmod>2026-06-20T11:23:36.374Z</lastmod>
   </url>
   <url>
-    <loc>https://IR25721.github.io/Zawa25721_documents/InProgress/optimization_math/1.html</loc>
-    <lastmod>2026-06-19T03:32:55.553Z</lastmod>
+    <loc>https://IR25721.github.io/Zawa25721_documents/Published/bayesian_inference/1.html</loc>
+    <lastmod>2026-06-20T11:23:36.373Z</lastmod>
+  </url>
+  <url>
+    <loc>https://IR25721.github.io/Zawa25721_documents/Published/bayesian_inference/3.html</loc>
+    <lastmod>2026-06-20T11:23:36.373Z</lastmod>
+  </url>
+  <url>
+    <loc>https://IR25721.github.io/Zawa25721_documents/Published/bayesian_inference/2.html</loc>
+    <lastmod>2026-06-20T11:23:36.373Z</lastmod>
+  </url>
+  <url>
+    <loc>https://IR25721.github.io/Zawa25721_documents/Published/equilibrium_stat_mech/1.html</loc>
+    <lastmod>2026-06-20T11:23:36.373Z</lastmod>
+  </url>
+  <url>
+    <loc>https://IR25721.github.io/Zawa25721_documents/intro.html</loc>
+    <lastmod>2026-06-20T11:23:36.375Z</lastmod>
   </url>
 </urlset>
