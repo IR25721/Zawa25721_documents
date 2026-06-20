@@ -30,8 +30,17 @@ def generate_in_progress():
                     filepath = os.path.join(root, f)
                     title = f"({f} タイトル未設定)"
                     with open(filepath, "r", encoding="utf-8") as md_file:
+                        in_yaml = False
                         for line in md_file:
-                            if line.startswith("# "):
+                            if line.strip() == "---":
+                                in_yaml = not in_yaml
+                                continue
+                            if in_yaml:
+                                match = re.match(r'^title\s*:\s*(.*)', line)
+                                if match:
+                                    title = match.group(1).strip().strip('"').strip("'")
+                                    break
+                            elif line.startswith("# "):
                                 title = line[2:].strip()
                                 break
                     
