@@ -1,0 +1,5 @@
+sidebar:
+  title: "情報幾何学"
+  style: "docked"
+  contents:
+    - "1.md"

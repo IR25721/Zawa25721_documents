@@ -1,0 +1,18 @@
+---
+title: "ポータルサイト"
+---
+
+## はじめに
+[はじめに（当サイトについて）](intro.md)
+
+## 自己紹介
+[自己紹介ページ](about.qmd)をご覧ください。
+
+## GitHubページ
+[GitHub Repository](https://github.com/zawa/Zawa25721_documents) (※URLは適宜変更してください)
+
+## 公開済みコンテンツ
+{{< include _published_dirs.qmd >}}
+
+## 執筆中コンテンツ
+{{< include _in_progress.qmd >}}

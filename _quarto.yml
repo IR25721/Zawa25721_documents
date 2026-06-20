@@ -1,0 +1,22 @@
+project:
+  type: website
+  pre-render: pre_render.py
+
+website:
+  title: "My Portal"
+  page-navigation: true
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: intro.md
+        text: はじめに
+      - href: about.qmd
+        text: About
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    number-sections: false

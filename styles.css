@@ -1,0 +1,12 @@
+/* シンプルなスタイル調整 */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+h1, h2, h3 {
+  color: #333;
+}
+
+.quarto-title-block {
+  margin-bottom: 2rem;
+}
