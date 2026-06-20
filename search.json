@@ -25,7 +25,7 @@
     "href": "index.html#公開済みコンテンツ",
     "title": "Zawaの勉強記録",
     "section": "公開済みコンテンツ",
-    "text": "公開済みコンテンツ\n\n\nベイズ推論\n\n\n平衡系統計力学\n\n\n情報幾何学\n\n\n最適化数学"
+    "text": "公開済みコンテンツ\n\n\nベイズ推論\n\n\n平衡系統計力学\n\n\n情報幾何学\n\n\n最適化数学 (記事なし)"
   },
   {
     "objectID": "index.html#執筆中コンテンツ",
@@ -80,114 +80,6 @@
       "Home",
       "情報幾何学",
       "双対空間"
-    ]
-  },
-  {
-    "objectID": "Published/bayesian_inference/2.html",
-    "href": "Published/bayesian_inference/2.html",
-    "title": "ベイズ推定におけるモデル選択",
-    "section": "",
-    "text": "ベイズの定理 \np(\\theta | X) = \\frac{p(X | \\theta) p(\\theta)}{p(X)}\n のp(\\theta)は自分で設定する必要がある．この事前分布によって結果が変わってくるので重要である．\n\n\n\np(\\theta) = p(\\theta;\\beta)\n と書く．\n\np(\\theta | X ; \\beta) = \\frac{p(X | \\theta) p(\\theta;\\beta)}{p(X;\\beta)}\n となる（周辺尤度も\\betaに依存する） なので良い\\betaを選ぶことがモデル選択において重要である．\n\n\n\nMAP推定 \n\\begin{align}\n\\theta_{MAP} &= \\arg\\max_{\\theta}p(X|\\theta)p(\\theta;\\beta) \\\\\n            &=  \\arg\\max_{\\theta} [\\log p(X| \\theta) + \\log p(\\theta; \\beta)]\n\\end{align}\n\n第一項は，対数尤度である．第二項の意味を考えたい． 具体例として，事前分布が正規分布の場合を考える．\n\n\\begin{align}\n\\log p(\\theta) &= -\\frac{1}{2 \\sigma^2} \\theta^2 +C \\\\\n            & \\propto -\\frac \\beta 2 \\theta^2\n\\end{align}\n\nこれは，パラメータをなるべく0に近づけたいということ，すなわちパラメータを大きくすることへのペナルティ と解釈出来る．いわゆるRidge回帰．\nすなわちMAP推定とは，\\thetaの値を大きくして過学習を起こさないようにするために罰則項を追加した最尤推定という見方もできる．",
-    "crumbs": [
-      "Home",
-      "ベイズ推論",
-      "ベイズ推定におけるモデル選択"
-    ]
-  },
-  {
-    "objectID": "Published/bayesian_inference/2.html#事前分布の設定",
-    "href": "Published/bayesian_inference/2.html#事前分布の設定",
-    "title": "ベイズ推定におけるモデル選択",
-    "section": "",
-    "text": "ベイズの定理 \np(\\theta | X) = \\frac{p(X | \\theta) p(\\theta)}{p(X)}\n のp(\\theta)は自分で設定する必要がある．この事前分布によって結果が変わってくるので重要である．\n\n\n\np(\\theta) = p(\\theta;\\beta)\n と書く．\n\np(\\theta | X ; \\beta) = \\frac{p(X | \\theta) p(\\theta;\\beta)}{p(X;\\beta)}\n となる（周辺尤度も\\betaに依存する） なので良い\\betaを選ぶことがモデル選択において重要である．\n\n\n\nMAP推定 \n\\begin{align}\n\\theta_{MAP} &= \\arg\\max_{\\theta}p(X|\\theta)p(\\theta;\\beta) \\\\\n            &=  \\arg\\max_{\\theta} [\\log p(X| \\theta) + \\log p(\\theta; \\beta)]\n\\end{align}\n\n第一項は，対数尤度である．第二項の意味を考えたい． 具体例として，事前分布が正規分布の場合を考える．\n\n\\begin{align}\n\\log p(\\theta) &= -\\frac{1}{2 \\sigma^2} \\theta^2 +C \\\\\n            & \\propto -\\frac \\beta 2 \\theta^2\n\\end{align}\n\nこれは，パラメータをなるべく0に近づけたいということ，すなわちパラメータを大きくすることへのペナルティ と解釈出来る．いわゆるRidge回帰．\nすなわちMAP推定とは，\\thetaの値を大きくして過学習を起こさないようにするために罰則項を追加した最尤推定という見方もできる．",
-    "crumbs": [
-      "Home",
-      "ベイズ推論",
-      "ベイズ推定におけるモデル選択"
-    ]
-  },
-  {
-    "objectID": "Published/bayesian_inference/2.html#ハイパーパラメータをどう決定するか",
-    "href": "Published/bayesian_inference/2.html#ハイパーパラメータをどう決定するか",
-    "title": "ベイズ推定におけるモデル選択",
-    "section": "ハイパーパラメータをどう決定するか",
-    "text": "ハイパーパラメータをどう決定するか\n\n手動\n交差検証による比較\n経験ベイズ法 等が挙げられる 今回は経験ベイズ法に進む\n\n\n経験ベイズ法\np(X ; \\beta) を最大化する手法である 周辺尤度とは，\\betaを与えたときに訓練標本が生成される確率のことを指している． これはなるべく高い方が良いので，この手法は適切である． なぜ，p(X;\\beta)の最大化で過学習が起こらないのか．それは周辺尤度が，\\thetaについての全領域積分を行っているため，ある偏ったパラメータ（過学習するパラメータ）があったとしても，その影響をあまり受けない堅固な指標だからである．\n\n\nAIC との関係\nハイパーパラメータを決定するものとして，AICがある． AICは事前情報を入れることができないが，MAP推定と経験ベイズ法を用いればそれが可能となる．\n\n\nエビデンス近似\n本来のベイズ推論ならば\\betaについても周辺化を行うべきである． \np(\\theta | X) = \\int p(\\theta|X;\\beta) p(\\beta | X) d\\beta\n\nだが，\\betaの分布はほとんどの場合複雑すぎるので，この積分を解析的に実行することは現実的ではない．そこである\\beta^*でp(\\beta | X)が最大値をとりさらにそれが鋭く（デルタ関数で近似できるほど）分布していると仮定する． するとこれは積分は必要なく，代入するだけでよくなる．（デルタ関数の性質を参照）\nすなわち \np(\\theta | X) \\approx p(\\theta | X ; \\beta^*)",
-    "crumbs": [
-      "Home",
-      "ベイズ推論",
-      "ベイズ推定におけるモデル選択"
-    ]
-  },
-  {
-    "objectID": "Published/bayesian_inference/2.html#周辺尤度のラプラス近似",
-    "href": "Published/bayesian_inference/2.html#周辺尤度のラプラス近似",
-    "title": "ベイズ推定におけるモデル選択",
-    "section": "周辺尤度のラプラス近似",
-    "text": "周辺尤度のラプラス近似\nそもそも前回を思い出すと，このp(X;\\beta)の計算は非常に複雑である． 前回学んだモンテカルロ法（特にMCMC法）を用いれば周辺尤度を求めることは可能だが，計算コストが高いという問題がある． 今回は計算コストが低いラプラス近似という手法を学んでいく．\n\nアイディア\nMAP点のまわりで，ガウス分布としてp(X;\\beta)を近似する．すなわち，MAP点の周りで二次のテイラー展開を行う．\n\n\nなぜMAP点なのか？\n思い出すとMAP点とは \n\\begin{align}\n\\theta_{MAP} &= \\arg\\max_{\\theta} p(X|\\theta)p(\\theta;\\beta) \\\\\n\\end{align}\n\nである．これは\\log p(\\theta | X)が極大値を取ることと言い換えれるので \\nabla \\log p(\\theta|X) = 0と言い換えれる．\nテイラー展開の四季は以下の通りである． \\log p(\\theta | X) \\approx \\log p(\\theta_0 | X) + \\nabla \\log p(\\theta_0 | X)(\\theta - \\theta_0) + \\frac{1}{2}(\\theta - \\theta_0)^T H (\\theta - \\theta_0)\n一方で、ガウス分布の対数をとった式は以下の構造を持つ\n\\log \\mathcal{N}(\\mu, \\Sigma) = -\\frac{1}{2}(x - \\mu)^T \\Sigma^{-1} (x - \\mu) + C\n一次の項を持たないので，これは \n\\nabla \\log p(\\theta_0 | X) = 0\n でないといけない．これはMAP点の条件と一致する．",
-    "crumbs": [
-      "Home",
-      "ベイズ推論",
-      "ベイズ推定におけるモデル選択"
-    ]
-  },
-  {
-    "objectID": "Published/bayesian_inference/2.html#まとめ",
-    "href": "Published/bayesian_inference/2.html#まとめ",
-    "title": "ベイズ推定におけるモデル選択",
-    "section": "まとめ",
-    "text": "まとめ\n\nMAP推定は罰則項付き最尤推定を拡張したものである．\nモデル選択にはハイパーパラメータが必要であり，ハイパーパラメータを決める手法の一つとして経験ベイズ法がある．\nラプラス近似を使うことで計算量少なくp(X; \\beta)を計算できる．",
-    "crumbs": [
-      "Home",
-      "ベイズ推論",
-      "ベイズ推定におけるモデル選択"
-    ]
-  },
-  {
-    "objectID": "Published/bayesian_inference/3.html",
-    "href": "Published/bayesian_inference/3.html",
-    "title": "ベイズ推定におけるモデル選択（続き）",
-    "section": "",
-    "text": "前回のラプラス近似の結果を考える\n\n\\log (X; \\beta) \\approx \\log p(X | \\theta_{MAP}) + \\log p(\\theta_{MAP} ; \\beta) + \\frac t 2 \\log(2 \\pi) - \\frac 1 2 \\log |-H|\n ここで，ヘッセ行列の計算量はO(t^3) である．これは重い計算である． なのでもっと軽い近似がほしい．なので，ヘッセ項を更に近似したものがほしい．これがBICとなる．\n\n\n\nまず，対数尤度の式は，i.i.d.からn個の標本を得れるとして(\\theta \\in \\mathbb R^t)\n\n\\log p(X | \\theta) = \\sum_i^n \\log q(x_i | \\theta)\n これの二回微分がヘッセ行列なので，微分の線形性から \n\\nabla ^2 \\log p(X | \\theta) =  \\sum_i^n \\nabla^2\\log q(x_i | \\theta)\n\nここで，\n\nY_H(X) = \\frac 1 n \\sum_i^n \\nabla^2\\log q(x_i | \\theta)\n とY_Hを定義すると，\n\nH = n Y_H(X)\n が成立する． ここで，サンプルサイズを無限に飛ばすと，対数の法則より期待値に確率収束する．(フィッシャー情報量の逆符号)\n\nY_H(X) \\xrightarrow{p} \\bar Y_H\n すなわちサンプル数が十分に大きいとき次の近似が成立する．\n\nH \\approx n \\bar Y_H\n\n行列の多重共線性より\n\n|n (-\\bar Y_H)| = n^t |-\\bar Y_H |\n が成立する．なので\n\n\\log |-H| \\approx t \\log n + \\log |-\\bar Y_H|\n ここで，nが大きいときは定数項を無視できるので\n\n\\log p(X; \\beta) \\approx \\log p(X | \\theta_{MAP}) + \\log p(\\theta_{MAP} ; \\beta) - \\frac 1 2 t\\log n + O(1)\n\nさらに，事前分布の影響もnが大きいと小さくなる また\\theta_{MAP} \\approx \\theta_{ML}に漸近するので\n\n\\log p(X; \\beta) \\approx \\log p(X | \\theta_{ML})  - \\frac 1 2 t\\log n\n ここで，周辺尤度はその\\betaを与えたときにどれだけ妥当かを意味しているので，情報量基準として使える．\n\nBIC = - \\log p(X | \\theta_{ML})  + \\frac 1 2 t\\log n\n\nこれがBICの定義である．",
-    "crumbs": [
-      "Home",
-      "ベイズ推論",
-      "ベイズ推定におけるモデル選択（続き）"
-    ]
-  },
-  {
-    "objectID": "Published/bayesian_inference/3.html#bic",
-    "href": "Published/bayesian_inference/3.html#bic",
-    "title": "ベイズ推定におけるモデル選択（続き）",
-    "section": "",
-    "text": "前回のラプラス近似の結果を考える\n\n\\log (X; \\beta) \\approx \\log p(X | \\theta_{MAP}) + \\log p(\\theta_{MAP} ; \\beta) + \\frac t 2 \\log(2 \\pi) - \\frac 1 2 \\log |-H|\n ここで，ヘッセ行列の計算量はO(t^3) である．これは重い計算である． なのでもっと軽い近似がほしい．なので，ヘッセ項を更に近似したものがほしい．これがBICとなる．\n\n\n\nまず，対数尤度の式は，i.i.d.からn個の標本を得れるとして(\\theta \\in \\mathbb R^t)\n\n\\log p(X | \\theta) = \\sum_i^n \\log q(x_i | \\theta)\n これの二回微分がヘッセ行列なので，微分の線形性から \n\\nabla ^2 \\log p(X | \\theta) =  \\sum_i^n \\nabla^2\\log q(x_i | \\theta)\n\nここで，\n\nY_H(X) = \\frac 1 n \\sum_i^n \\nabla^2\\log q(x_i | \\theta)\n とY_Hを定義すると，\n\nH = n Y_H(X)\n が成立する． ここで，サンプルサイズを無限に飛ばすと，対数の法則より期待値に確率収束する．(フィッシャー情報量の逆符号)\n\nY_H(X) \\xrightarrow{p} \\bar Y_H\n すなわちサンプル数が十分に大きいとき次の近似が成立する．\n\nH \\approx n \\bar Y_H\n\n行列の多重共線性より\n\n|n (-\\bar Y_H)| = n^t |-\\bar Y_H |\n が成立する．なので\n\n\\log |-H| \\approx t \\log n + \\log |-\\bar Y_H|\n ここで，nが大きいときは定数項を無視できるので\n\n\\log p(X; \\beta) \\approx \\log p(X | \\theta_{MAP}) + \\log p(\\theta_{MAP} ; \\beta) - \\frac 1 2 t\\log n + O(1)\n\nさらに，事前分布の影響もnが大きいと小さくなる また\\theta_{MAP} \\approx \\theta_{ML}に漸近するので\n\n\\log p(X; \\beta) \\approx \\log p(X | \\theta_{ML})  - \\frac 1 2 t\\log n\n ここで，周辺尤度はその\\betaを与えたときにどれだけ妥当かを意味しているので，情報量基準として使える．\n\nBIC = - \\log p(X | \\theta_{ML})  + \\frac 1 2 t\\log n\n\nこれがBICの定義である．",
-    "crumbs": [
-      "Home",
-      "ベイズ推論",
-      "ベイズ推定におけるモデル選択（続き）"
-    ]
-  },
-  {
-    "objectID": "Published/bayesian_inference/3.html#変分ベイズ法",
-    "href": "Published/bayesian_inference/3.html#変分ベイズ法",
-    "title": "ベイズ推定におけるモデル選択（続き）",
-    "section": "変分ベイズ法",
-    "text": "変分ベイズ法\nラプラス近似では，事後分布が多峰性，歪んだ分布では不適合となる． もっと柔軟な近似分布を用いてKLダイバージェンスを最小化する．\n\nJensen不等式\n\n\\log E[f] \\ge E[\\log f]\n\nが成立する．重要不等式である． 周辺尤度を，近似分布を用いたパラメータ\\eta, \\theta で分解する．またJensen不等式で下限をとる．\n\n\n平均場近似\nJensen不等式を使いたいが，この式はパラメーターが複雑に絡み合っている．だが近似として\n\nq(\\eta, \\theta) \\approx q(\\eta) q(\\theta)\n をする．これは平均場近似と呼ばれる近似である． これは変数の次元が増加するにつれて，それぞれの変数がもつ個別のノイズは足し合わされることで，大数の法則により打ち消される． なので周囲からの影響はほぼ一定であるとみなせるので，平均場近似は妥当な近似として作用する． \\eta,\\thetaは存在するだろうと，仮定しておいているに過ぎない．\n\n\\begin{align}\n\\log p(X; \\beta) &= \\log \\int \\int p(X,\\eta,\\theta;\\beta) d\\eta d\\theta \\\\\n&= \\log \\int \\int q(\\eta,\\theta; \\beta) \\frac{p(X,\\eta,\\theta;\\beta)}{ q(\\eta,\\theta; \\beta) } d\\eta d\\theta \\\\\n&\\approx\\log \\int \\int  q(\\eta) q(\\theta)\\frac{p(X,\\eta,\\theta;\\beta)}{q(\\eta) q(\\theta)} d\\eta d\\theta \\\\\n& \\ge \\int \\int q(\\eta)q(\\theta) \\log \\frac{p(X,\\eta,\\theta;\\beta)}{q(\\eta) q(\\theta)} d\\eta d\\theta \\\\\n&= F(q(\\eta), q(\\theta))\n\\end{align}\n ここでFをそれぞれの変数で変分して解くと，それぞれの分布が何に比例するのかがわかる． このFは対数周辺尤度の下界，ELBOと呼ばれる量である． このELBOを最大化させることさせることで，対数周辺尤度を最大化させることができる． このELBOを最大化させるにはq(\\theta),q(\\eta)を動かす必要がある． これらを動かしてELBOを最大化させる手法をVB-EMアルゴリズムという． 今日は時間が無いので次回VB-EMアルゴリズムを説明する．",
-    "crumbs": [
-      "Home",
-      "ベイズ推論",
-      "ベイズ推定におけるモデル選択（続き）"
-    ]
-  },
-  {
-    "objectID": "Published/bayesian_inference/3.html#まとめ",
-    "href": "Published/bayesian_inference/3.html#まとめ",
-    "title": "ベイズ推定におけるモデル選択（続き）",
-    "section": "まとめ",
-    "text": "まとめ\n\nヘッシアンを求めることは時間がかかるので，さらに近似してBICでモデルパラメータを決定する\nラプラス近似は不適合な場合が多いので，より柔軟な分布を用いてELBOを最大化させる方法を採用する手法をとる．",
-    "crumbs": [
-      "Home",
-      "ベイズ推論",
-      "ベイズ推定におけるモデル選択（続き）"
     ]
   },
   {
@@ -272,6 +164,114 @@
       "Home",
       "ベイズ推論",
       "モンテカルロ法"
+    ]
+  },
+  {
+    "objectID": "Published/bayesian_inference/3.html",
+    "href": "Published/bayesian_inference/3.html",
+    "title": "ベイズ推定におけるモデル選択（続き）",
+    "section": "",
+    "text": "前回のラプラス近似の結果を考える\n\n\\log (X; \\beta) \\approx \\log p(X | \\theta_{MAP}) + \\log p(\\theta_{MAP} ; \\beta) + \\frac t 2 \\log(2 \\pi) - \\frac 1 2 \\log |-H|\n ここで，ヘッセ行列の計算量はO(t^3) である．これは重い計算である． なのでもっと軽い近似がほしい．なので，ヘッセ項を更に近似したものがほしい．これがBICとなる．\n\n\n\nまず，対数尤度の式は，i.i.d.からn個の標本を得れるとして(\\theta \\in \\mathbb R^t)\n\n\\log p(X | \\theta) = \\sum_i^n \\log q(x_i | \\theta)\n これの二回微分がヘッセ行列なので，微分の線形性から \n\\nabla ^2 \\log p(X | \\theta) =  \\sum_i^n \\nabla^2\\log q(x_i | \\theta)\n\nここで，\n\nY_H(X) = \\frac 1 n \\sum_i^n \\nabla^2\\log q(x_i | \\theta)\n とY_Hを定義すると，\n\nH = n Y_H(X)\n が成立する． ここで，サンプルサイズを無限に飛ばすと，対数の法則より期待値に確率収束する．(フィッシャー情報量の逆符号)\n\nY_H(X) \\xrightarrow{p} \\bar Y_H\n すなわちサンプル数が十分に大きいとき次の近似が成立する．\n\nH \\approx n \\bar Y_H\n\n行列の多重共線性より\n\n|n (-\\bar Y_H)| = n^t |-\\bar Y_H |\n が成立する．なので\n\n\\log |-H| \\approx t \\log n + \\log |-\\bar Y_H|\n ここで，nが大きいときは定数項を無視できるので\n\n\\log p(X; \\beta) \\approx \\log p(X | \\theta_{MAP}) + \\log p(\\theta_{MAP} ; \\beta) - \\frac 1 2 t\\log n + O(1)\n\nさらに，事前分布の影響もnが大きいと小さくなる また\\theta_{MAP} \\approx \\theta_{ML}に漸近するので\n\n\\log p(X; \\beta) \\approx \\log p(X | \\theta_{ML})  - \\frac 1 2 t\\log n\n ここで，周辺尤度はその\\betaを与えたときにどれだけ妥当かを意味しているので，情報量基準として使える．\n\nBIC = - \\log p(X | \\theta_{ML})  + \\frac 1 2 t\\log n\n\nこれがBICの定義である．",
+    "crumbs": [
+      "Home",
+      "ベイズ推論",
+      "ベイズ推定におけるモデル選択（続き）"
+    ]
+  },
+  {
+    "objectID": "Published/bayesian_inference/3.html#bic",
+    "href": "Published/bayesian_inference/3.html#bic",
+    "title": "ベイズ推定におけるモデル選択（続き）",
+    "section": "",
+    "text": "前回のラプラス近似の結果を考える\n\n\\log (X; \\beta) \\approx \\log p(X | \\theta_{MAP}) + \\log p(\\theta_{MAP} ; \\beta) + \\frac t 2 \\log(2 \\pi) - \\frac 1 2 \\log |-H|\n ここで，ヘッセ行列の計算量はO(t^3) である．これは重い計算である． なのでもっと軽い近似がほしい．なので，ヘッセ項を更に近似したものがほしい．これがBICとなる．\n\n\n\nまず，対数尤度の式は，i.i.d.からn個の標本を得れるとして(\\theta \\in \\mathbb R^t)\n\n\\log p(X | \\theta) = \\sum_i^n \\log q(x_i | \\theta)\n これの二回微分がヘッセ行列なので，微分の線形性から \n\\nabla ^2 \\log p(X | \\theta) =  \\sum_i^n \\nabla^2\\log q(x_i | \\theta)\n\nここで，\n\nY_H(X) = \\frac 1 n \\sum_i^n \\nabla^2\\log q(x_i | \\theta)\n とY_Hを定義すると，\n\nH = n Y_H(X)\n が成立する． ここで，サンプルサイズを無限に飛ばすと，対数の法則より期待値に確率収束する．(フィッシャー情報量の逆符号)\n\nY_H(X) \\xrightarrow{p} \\bar Y_H\n すなわちサンプル数が十分に大きいとき次の近似が成立する．\n\nH \\approx n \\bar Y_H\n\n行列の多重共線性より\n\n|n (-\\bar Y_H)| = n^t |-\\bar Y_H |\n が成立する．なので\n\n\\log |-H| \\approx t \\log n + \\log |-\\bar Y_H|\n ここで，nが大きいときは定数項を無視できるので\n\n\\log p(X; \\beta) \\approx \\log p(X | \\theta_{MAP}) + \\log p(\\theta_{MAP} ; \\beta) - \\frac 1 2 t\\log n + O(1)\n\nさらに，事前分布の影響もnが大きいと小さくなる また\\theta_{MAP} \\approx \\theta_{ML}に漸近するので\n\n\\log p(X; \\beta) \\approx \\log p(X | \\theta_{ML})  - \\frac 1 2 t\\log n\n ここで，周辺尤度はその\\betaを与えたときにどれだけ妥当かを意味しているので，情報量基準として使える．\n\nBIC = - \\log p(X | \\theta_{ML})  + \\frac 1 2 t\\log n\n\nこれがBICの定義である．",
+    "crumbs": [
+      "Home",
+      "ベイズ推論",
+      "ベイズ推定におけるモデル選択（続き）"
+    ]
+  },
+  {
+    "objectID": "Published/bayesian_inference/3.html#変分ベイズ法",
+    "href": "Published/bayesian_inference/3.html#変分ベイズ法",
+    "title": "ベイズ推定におけるモデル選択（続き）",
+    "section": "変分ベイズ法",
+    "text": "変分ベイズ法\nラプラス近似では，事後分布が多峰性，歪んだ分布では不適合となる． もっと柔軟な近似分布を用いてKLダイバージェンスを最小化する．\n\nJensen不等式\n\n\\log E[f] \\ge E[\\log f]\n\nが成立する．重要不等式である． 周辺尤度を，近似分布を用いたパラメータ\\eta, \\theta で分解する．またJensen不等式で下限をとる．\n\n\n平均場近似\nJensen不等式を使いたいが，この式はパラメーターが複雑に絡み合っている．だが近似として\n\nq(\\eta, \\theta) \\approx q(\\eta) q(\\theta)\n をする．これは平均場近似と呼ばれる近似である． これは変数の次元が増加するにつれて，それぞれの変数がもつ個別のノイズは足し合わされることで，大数の法則により打ち消される． なので周囲からの影響はほぼ一定であるとみなせるので，平均場近似は妥当な近似として作用する． \\eta,\\thetaは存在するだろうと，仮定しておいているに過ぎない．\n\n\\begin{align}\n\\log p(X; \\beta) &= \\log \\int \\int p(X,\\eta,\\theta;\\beta) d\\eta d\\theta \\\\\n&= \\log \\int \\int q(\\eta,\\theta; \\beta) \\frac{p(X,\\eta,\\theta;\\beta)}{ q(\\eta,\\theta; \\beta) } d\\eta d\\theta \\\\\n&\\approx\\log \\int \\int  q(\\eta) q(\\theta)\\frac{p(X,\\eta,\\theta;\\beta)}{q(\\eta) q(\\theta)} d\\eta d\\theta \\\\\n& \\ge \\int \\int q(\\eta)q(\\theta) \\log \\frac{p(X,\\eta,\\theta;\\beta)}{q(\\eta) q(\\theta)} d\\eta d\\theta \\\\\n&= F(q(\\eta), q(\\theta))\n\\end{align}\n ここでFをそれぞれの変数で変分して解くと，それぞれの分布が何に比例するのかがわかる． このFは対数周辺尤度の下界，ELBOと呼ばれる量である． このELBOを最大化させることさせることで，対数周辺尤度を最大化させることができる． このELBOを最大化させるにはq(\\theta),q(\\eta)を動かす必要がある． これらを動かしてELBOを最大化させる手法をVB-EMアルゴリズムという． 今日は時間が無いので次回VB-EMアルゴリズムを説明する．",
+    "crumbs": [
+      "Home",
+      "ベイズ推論",
+      "ベイズ推定におけるモデル選択（続き）"
+    ]
+  },
+  {
+    "objectID": "Published/bayesian_inference/3.html#まとめ",
+    "href": "Published/bayesian_inference/3.html#まとめ",
+    "title": "ベイズ推定におけるモデル選択（続き）",
+    "section": "まとめ",
+    "text": "まとめ\n\nヘッシアンを求めることは時間がかかるので，さらに近似してBICでモデルパラメータを決定する\nラプラス近似は不適合な場合が多いので，より柔軟な分布を用いてELBOを最大化させる方法を採用する手法をとる．",
+    "crumbs": [
+      "Home",
+      "ベイズ推論",
+      "ベイズ推定におけるモデル選択（続き）"
+    ]
+  },
+  {
+    "objectID": "Published/bayesian_inference/2.html",
+    "href": "Published/bayesian_inference/2.html",
+    "title": "ベイズ推定におけるモデル選択",
+    "section": "",
+    "text": "ベイズの定理 \np(\\theta | X) = \\frac{p(X | \\theta) p(\\theta)}{p(X)}\n のp(\\theta)は自分で設定する必要がある．この事前分布によって結果が変わってくるので重要である．\n\n\n\np(\\theta) = p(\\theta;\\beta)\n と書く．\n\np(\\theta | X ; \\beta) = \\frac{p(X | \\theta) p(\\theta;\\beta)}{p(X;\\beta)}\n となる（周辺尤度も\\betaに依存する） なので良い\\betaを選ぶことがモデル選択において重要である．\n\n\n\nMAP推定 \n\\begin{align}\n\\theta_{MAP} &= \\arg\\max_{\\theta}p(X|\\theta)p(\\theta;\\beta) \\\\\n            &=  \\arg\\max_{\\theta} [\\log p(X| \\theta) + \\log p(\\theta; \\beta)]\n\\end{align}\n\n第一項は，対数尤度である．第二項の意味を考えたい． 具体例として，事前分布が正規分布の場合を考える．\n\n\\begin{align}\n\\log p(\\theta) &= -\\frac{1}{2 \\sigma^2} \\theta^2 +C \\\\\n            & \\propto -\\frac \\beta 2 \\theta^2\n\\end{align}\n\nこれは，パラメータをなるべく0に近づけたいということ，すなわちパラメータを大きくすることへのペナルティ と解釈出来る．いわゆるRidge回帰．\nすなわちMAP推定とは，\\thetaの値を大きくして過学習を起こさないようにするために罰則項を追加した最尤推定という見方もできる．",
+    "crumbs": [
+      "Home",
+      "ベイズ推論",
+      "ベイズ推定におけるモデル選択"
+    ]
+  },
+  {
+    "objectID": "Published/bayesian_inference/2.html#事前分布の設定",
+    "href": "Published/bayesian_inference/2.html#事前分布の設定",
+    "title": "ベイズ推定におけるモデル選択",
+    "section": "",
+    "text": "ベイズの定理 \np(\\theta | X) = \\frac{p(X | \\theta) p(\\theta)}{p(X)}\n のp(\\theta)は自分で設定する必要がある．この事前分布によって結果が変わってくるので重要である．\n\n\n\np(\\theta) = p(\\theta;\\beta)\n と書く．\n\np(\\theta | X ; \\beta) = \\frac{p(X | \\theta) p(\\theta;\\beta)}{p(X;\\beta)}\n となる（周辺尤度も\\betaに依存する） なので良い\\betaを選ぶことがモデル選択において重要である．\n\n\n\nMAP推定 \n\\begin{align}\n\\theta_{MAP} &= \\arg\\max_{\\theta}p(X|\\theta)p(\\theta;\\beta) \\\\\n            &=  \\arg\\max_{\\theta} [\\log p(X| \\theta) + \\log p(\\theta; \\beta)]\n\\end{align}\n\n第一項は，対数尤度である．第二項の意味を考えたい． 具体例として，事前分布が正規分布の場合を考える．\n\n\\begin{align}\n\\log p(\\theta) &= -\\frac{1}{2 \\sigma^2} \\theta^2 +C \\\\\n            & \\propto -\\frac \\beta 2 \\theta^2\n\\end{align}\n\nこれは，パラメータをなるべく0に近づけたいということ，すなわちパラメータを大きくすることへのペナルティ と解釈出来る．いわゆるRidge回帰．\nすなわちMAP推定とは，\\thetaの値を大きくして過学習を起こさないようにするために罰則項を追加した最尤推定という見方もできる．",
+    "crumbs": [
+      "Home",
+      "ベイズ推論",
+      "ベイズ推定におけるモデル選択"
+    ]
+  },
+  {
+    "objectID": "Published/bayesian_inference/2.html#ハイパーパラメータをどう決定するか",
+    "href": "Published/bayesian_inference/2.html#ハイパーパラメータをどう決定するか",
+    "title": "ベイズ推定におけるモデル選択",
+    "section": "ハイパーパラメータをどう決定するか",
+    "text": "ハイパーパラメータをどう決定するか\n\n手動\n交差検証による比較\n経験ベイズ法 等が挙げられる 今回は経験ベイズ法に進む\n\n\n経験ベイズ法\np(X ; \\beta) を最大化する手法である 周辺尤度とは，\\betaを与えたときに訓練標本が生成される確率のことを指している． これはなるべく高い方が良いので，この手法は適切である． なぜ，p(X;\\beta)の最大化で過学習が起こらないのか．それは周辺尤度が，\\thetaについての全領域積分を行っているため，ある偏ったパラメータ（過学習するパラメータ）があったとしても，その影響をあまり受けない堅固な指標だからである．\n\n\nAIC との関係\nハイパーパラメータを決定するものとして，AICがある． AICは事前情報を入れることができないが，MAP推定と経験ベイズ法を用いればそれが可能となる．\n\n\nエビデンス近似\n本来のベイズ推論ならば\\betaについても周辺化を行うべきである． \np(\\theta | X) = \\int p(\\theta|X;\\beta) p(\\beta | X) d\\beta\n\nだが，\\betaの分布はほとんどの場合複雑すぎるので，この積分を解析的に実行することは現実的ではない．そこである\\beta^*でp(\\beta | X)が最大値をとりさらにそれが鋭く（デルタ関数で近似できるほど）分布していると仮定する． するとこれは積分は必要なく，代入するだけでよくなる．（デルタ関数の性質を参照）\nすなわち \np(\\theta | X) \\approx p(\\theta | X ; \\beta^*)",
+    "crumbs": [
+      "Home",
+      "ベイズ推論",
+      "ベイズ推定におけるモデル選択"
+    ]
+  },
+  {
+    "objectID": "Published/bayesian_inference/2.html#周辺尤度のラプラス近似",
+    "href": "Published/bayesian_inference/2.html#周辺尤度のラプラス近似",
+    "title": "ベイズ推定におけるモデル選択",
+    "section": "周辺尤度のラプラス近似",
+    "text": "周辺尤度のラプラス近似\nそもそも前回を思い出すと，このp(X;\\beta)の計算は非常に複雑である． 前回学んだモンテカルロ法（特にMCMC法）を用いれば周辺尤度を求めることは可能だが，計算コストが高いという問題がある． 今回は計算コストが低いラプラス近似という手法を学んでいく．\n\nアイディア\nMAP点のまわりで，ガウス分布としてp(X;\\beta)を近似する．すなわち，MAP点の周りで二次のテイラー展開を行う．\n\n\nなぜMAP点なのか？\n思い出すとMAP点とは \n\\begin{align}\n\\theta_{MAP} &= \\arg\\max_{\\theta} p(X|\\theta)p(\\theta;\\beta) \\\\\n\\end{align}\n\nである．これは\\log p(\\theta | X)が極大値を取ることと言い換えれるので \\nabla \\log p(\\theta|X) = 0と言い換えれる．\nテイラー展開の四季は以下の通りである． \\log p(\\theta | X) \\approx \\log p(\\theta_0 | X) + \\nabla \\log p(\\theta_0 | X)(\\theta - \\theta_0) + \\frac{1}{2}(\\theta - \\theta_0)^T H (\\theta - \\theta_0)\n一方で、ガウス分布の対数をとった式は以下の構造を持つ\n\\log \\mathcal{N}(\\mu, \\Sigma) = -\\frac{1}{2}(x - \\mu)^T \\Sigma^{-1} (x - \\mu) + C\n一次の項を持たないので，これは \n\\nabla \\log p(\\theta_0 | X) = 0\n でないといけない．これはMAP点の条件と一致する．",
+    "crumbs": [
+      "Home",
+      "ベイズ推論",
+      "ベイズ推定におけるモデル選択"
+    ]
+  },
+  {
+    "objectID": "Published/bayesian_inference/2.html#まとめ",
+    "href": "Published/bayesian_inference/2.html#まとめ",
+    "title": "ベイズ推定におけるモデル選択",
+    "section": "まとめ",
+    "text": "まとめ\n\nMAP推定は罰則項付き最尤推定を拡張したものである．\nモデル選択にはハイパーパラメータが必要であり，ハイパーパラメータを決める手法の一つとして経験ベイズ法がある．\nラプラス近似を使うことで計算量少なくp(X; \\beta)を計算できる．",
+    "crumbs": [
+      "Home",
+      "ベイズ推論",
+      "ベイズ推定におけるモデル選択"
     ]
   },
   {
