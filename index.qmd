@@ -9,7 +9,7 @@ title: "ポータルサイト"
 [自己紹介ページ](about.qmd)をご覧ください。
 
 ## GitHubページ
-[GitHub Repository](https://github.com/zawa/Zawa25721_documents) (※URLは適宜変更してください)
+[GitHub Repository](https://github.com/IR25721/Zawa25721_documents#)
 
 ## 公開済みコンテンツ
 {{< include _published_dirs.qmd >}}

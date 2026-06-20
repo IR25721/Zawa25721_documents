@@ -2,8 +2,14 @@ project:
   type: website
   pre-render: pre_render.py
 
+metadata-files:
+  - _sidebars.yml
+
+
+
 website:
   title: "My Portal"
+  repo-url: "https://github.com/IR25721/Zawa25721_documents#"
   page-navigation: true
   navbar:
     left:
@@ -13,6 +19,9 @@ website:
         text: はじめに
       - href: about.qmd
         text: About
+    right:
+      - icon: github
+        href: "https://github.com/IR25721/Zawa25721_documents#"
 
 format:
   html:
