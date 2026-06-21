@@ -33,7 +33,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../Published/equilibrium_stat_mech/1.html" rel="next">
+<link href="../../Published/bayesian_inference/4.html" rel="next">
 <link href="../../Published/bayesian_inference/2.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -202,6 +202,12 @@ window.Quarto = {
  <span class="menu-text">ベイズ推定におけるモデル選択（続き）</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/bayesian_inference/4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.md</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -362,7 +368,7 @@ q(\eta, \theta) \approx q(\eta) q(\theta)
 &amp; \ge \int \int q(\eta)q(\theta) \log \frac{p(X,\eta,\theta;\beta)}{q(\eta) q(\theta)} d\eta d\theta \\
 &amp;= F(q(\eta), q(\theta))
 \end{align}
-</span> ここで<span class="math inline">F</span>をそれぞれの変数で変分して解くと，それぞれの分布が何に比例するのかがわかる． この<span class="math inline">F</span>は対数周辺尤度の下界，ELBOと呼ばれる量である． このELBOを最大化させることさせることで，対数周辺尤度を最大化させることができる． このELBOを最大化させるには<span class="math inline">q(\theta),q(\eta)</span>を動かす必要がある． これらを動かしてELBOを最大化させる手法をVB-EMアルゴリズムという． 今日は時間が無いので次回VB-EMアルゴリズムを説明する．</p>
+</span> ここで<span class="math inline">F</span>をそれぞれの変数で変分して解くと，それぞれの分布が何に比例するのかがわかる． この<span class="math inline">F</span>は対数周辺尤度の下界，ELBOと呼ばれる量である． このELBOを最大化させることさせることで，対数周辺尤度を最大化させることができる． ELBOは計算可能である．なぜなら積分の中身はすべて計算可能（事前に形を設定している）であるためである． このELBOを最大化させるには<span class="math inline">q(\theta),q(\eta)</span>を動かす必要がある． これらを動かしてELBOを最大化させる手法をVB-EMアルゴリズムという． 今日は時間が無いので次回VB-EMアルゴリズムを説明する．</p>
 </section>
 </section>
 <section id="まとめ" class="level2">
@@ -783,8 +789,8 @@ q(\eta, \theta) \approx q(\eta) q(\theta)
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../Published/equilibrium_stat_mech/1.html" class="pagination-link" aria-label="リウビルの定理と等確率の原理">
-        <span class="nav-page-text">リウビルの定理と等確率の原理</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../Published/bayesian_inference/4.html" class="pagination-link" aria-label="4.md">
+        <span class="nav-page-text">4.md</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
