@@ -83,195 +83,75 @@
     ]
   },
   {
-    "objectID": "Published/bayesian_inference/4.html",
-    "href": "Published/bayesian_inference/4.html",
-    "title": "VB-EMアルゴリズム",
+    "objectID": "Published/equilibrium_stat_mech/2.html",
+    "href": "Published/equilibrium_stat_mech/2.html",
+    "title": "ボルツマンの原理",
     "section": "",
-    "text": "ラプラス近似では，事後分布が非ガウス分布のときに不適合なので，より柔軟な分布q(\\theta)を用いて近似したいという動機がある．そこで，対数周辺尤度の下限，いわれるELBOを最大化する qを求めたくなる． そこでVB-EMアルゴリズムを使う．",
+    "text": "ここでは，議論を完結にするために単原子分子理想気体で考える． ここで，これまで議論してきた微視的状態の数と，エネルギーの関係について考えてみる．エネルギーが小さいときは原子はあまり動かない，すなわち位相空間を占める割合が低くなる，すなわち等確率の原理から微視的状態の数が少ない． 逆にエネルギーが高いときは，同様に考えて微視的状態の数が多いと考えられる． ここで，あるエネルギーEの場合についての状態数Wを考えたい．ただしこれは計算が難しい，なぜなら，このWを計算することは，すなわち超球の表面を計算することに相当し，数学的に困難だからである， ここで[0,E]までの状態数\\Omega (E)を計算することを考える．これは超球の体積を求めることに相当し，これは積分で求めることが可能である． \n\\frac{d \\Omega}{d E} = W(E)\n としてW(E)を定義する．これは熱力学的重率と呼ばれる．この熱力学的重率を用いると[E, E + \\Delta E]の場合の状態数は \nW = W(E)\\Delta E\n となり，\\Delta E \\rightarrow 0とすればWが求まる．",
     "crumbs": [
       "Home",
-      "ベイズ推論",
-      "VB-EMアルゴリズム"
+      "平衡系統計力学",
+      "ボルツマンの原理"
     ]
   },
   {
-    "objectID": "Published/bayesian_inference/4.html#復習",
-    "href": "Published/bayesian_inference/4.html#復習",
-    "title": "VB-EMアルゴリズム",
+    "objectID": "Published/equilibrium_stat_mech/2.html#単原子分子理想気体の状態と状態数",
+    "href": "Published/equilibrium_stat_mech/2.html#単原子分子理想気体の状態と状態数",
+    "title": "ボルツマンの原理",
     "section": "",
-    "text": "ラプラス近似では，事後分布が非ガウス分布のときに不適合なので，より柔軟な分布q(\\theta)を用いて近似したいという動機がある．そこで，対数周辺尤度の下限，いわれるELBOを最大化する qを求めたくなる． そこでVB-EMアルゴリズムを使う．",
+    "text": "ここでは，議論を完結にするために単原子分子理想気体で考える． ここで，これまで議論してきた微視的状態の数と，エネルギーの関係について考えてみる．エネルギーが小さいときは原子はあまり動かない，すなわち位相空間を占める割合が低くなる，すなわち等確率の原理から微視的状態の数が少ない． 逆にエネルギーが高いときは，同様に考えて微視的状態の数が多いと考えられる． ここで，あるエネルギーEの場合についての状態数Wを考えたい．ただしこれは計算が難しい，なぜなら，このWを計算することは，すなわち超球の表面を計算することに相当し，数学的に困難だからである， ここで[0,E]までの状態数\\Omega (E)を計算することを考える．これは超球の体積を求めることに相当し，これは積分で求めることが可能である． \n\\frac{d \\Omega}{d E} = W(E)\n としてW(E)を定義する．これは熱力学的重率と呼ばれる．この熱力学的重率を用いると[E, E + \\Delta E]の場合の状態数は \nW = W(E)\\Delta E\n となり，\\Delta E \\rightarrow 0とすればWが求まる．",
     "crumbs": [
       "Home",
-      "ベイズ推論",
-      "VB-EMアルゴリズム"
+      "平衡系統計力学",
+      "ボルツマンの原理"
     ]
   },
   {
-    "objectID": "Published/bayesian_inference/4.html#elbo最大化と変分微分",
-    "href": "Published/bayesian_inference/4.html#elbo最大化と変分微分",
-    "title": "VB-EMアルゴリズム",
-    "section": "ELBO最大化と変分微分",
-    "text": "ELBO最大化と変分微分\n変分ベイズにおける目標は，真の事後分布 p(\\theta, \\eta | X) を近似する分布 q(\\theta, \\eta) を求めることである．まず q(\\theta,\\eta) = p'(\\eta)p''(\\theta)と平均場近似する．\nこのとき，私たちが解くべきは「確率密度関数としての制約条件を満たしつつ，ELBOを最大化する」という制約付き最適化問題である． すなわち，\n\n\\max_{p', p''} \\text{ELBO} \\quad \\text{subject to} \\quad \\int p'(\\eta) d\\eta = 1, \\ \\int p''(\\theta) d\\theta = 1\n\nという問題を解くことを考える．この制約付き最適化問題を解くために，まずはパラメータ \\theta を固定した状態で，潜在変数 \\eta の分布 p'(\\eta) について最適化を行う．\nここでどう更新するのかという話になってくるが，p''(\\theta)を固定した状態でELBOを最大化するということなので，まずは制約条件を脇に置いて，極値条件\n\n\\frac \\partial{\\partial p'(\\eta)}ELBO = 0\n\nを満たすような p'(\\eta)の形を調べていく．\nまずELBOを分解すると（積分変数を\\eta 'としている）\n\n\\begin{align} \\text{ELBO} &= \\int \\int p'(\\eta') p''(\\theta) \\left( \\log p(X, \\eta', \\theta; \\beta) - \\log p'(\\eta') - \\log p''(\\theta) \\right) d\\eta' d\\theta \\\\ &= \\int p'(\\eta') \\left[ \\int p''(\\theta) \\log p(X, \\eta', \\theta; \\beta) d\\theta \\right] d\\eta' \\\\ &\\quad - \\int p'(\\eta') \\log p'(\\eta') \\underbrace{\\left[ \\int p''(\\theta) d\\theta \\right]}_{= 1} d\\eta' \\\\ &\\quad - \\underbrace{\\left[ \\int p'(\\eta') d\\eta' \\right]}_{= 1} \\int p''(\\theta) \\log p''(\\theta) d\\theta \\\\ &= \\int p'(\\eta') \\left[ \\int p''(\\theta) \\log p(X, \\eta', \\theta; \\beta) d\\theta \\right] d\\eta' - \\int p'(\\eta') \\log p'(\\eta') d\\eta' - \\text{Const} \\end{align}\n\nこのELBOをある点\\etaにおけるp(\\eta)で関数偏微分，いわゆる変分微分をする．\n\n変分微分\n汎関数を関数で微分することを変分微分という．汎関数とは，関数を入力して数値を返すシステムのことである．今回のELBOは汎関数である．\n定義はいったん置いておいて(いずれどこかで書きたいが)，今回は計算ができれば良いので，変分微分のルールを以下に記述する．\n\n基本となる恒等式\n\n普通の微分 \n  \\frac {\\partial x_i}{\\partial x_j} = \\delta_{ij}\n (余談だがこれは(0,2)型テンソルの単位である．(1,1)型テンソル，すなわち行列にしたかったらx^iにしないといけない．)\n変分微分 \\deltaで書く \n  \\frac{\\delta p(x')}{\\delta p(x)} = \\delta(x' - x)\n これはイメージとしては，変数が無限にあるベクトルの一点をクロネッカーデルタとして取ると，ディラックのデルタになるということである．\n\n線型性が成立する（微分なので）\nライプニッツルールが成立する（微分なので）\nチェーンルール 1. 汎関数が普通の関数に包まれているとき \n     \\frac \\delta{\\delta p(x)} f(I[p]) = f'(I[p]) \\frac {\\delta I[p]}{\\delta p(x)}\n      具体例 \n     \\frac{\\delta}{\\delta p(x)} \\exp\\left( \\int p(t) \\, dt \\right) = \\exp\\left( \\int p(t) \\, dt \\right) \\cdot 1\n      2. 積分の内側で関数が変換されている場合 \n     \\frac \\delta{\\delta p(x)} \\int f(p(t)) dt = f'(p(t))\n      具体例 \n         \\frac \\delta {\\delta p(x)} \\int p(t)\\log p(t) dt = \\log p(x) + 1\n          これらを用いてELBOの変分微分を行う．\n\n\n\n続き\np'(\\eta)でELBOを変分微分をする．\n\n\\begin{align}\n\\frac \\delta {\\delta p'(\\eta)} ELBO\n& = \\frac \\delta {\\delta p'(\\eta)} \\bigg( \\int p'(\\eta') \\left[ \\int p''(\\theta) \\log p(X, \\eta', \\theta; \\beta) d\\theta \\right] d\\eta' - \\int p'(\\eta') \\log p'(\\eta') d\\eta' - \\text{Const} \\bigg) \\\\\n&= \\int \\delta(\\eta' - \\eta)\\left[ \\int p''(\\theta) \\log p(X, \\eta', \\theta; \\beta) d\\theta \\right] d \\eta' -\\log p'(\\eta) -1 \\\\\n& =  \\int p''(\\theta) \\log p(X, \\eta, \\theta; \\beta) d\\theta -\\log p'(\\eta) -1\n\\end{align}\n\nとなる．ここで，確率密度関数としての制約条件 \\int p'(\\eta) d\\eta = 1 を満たしつつ極値を求めるために，ラグランジュの未定乗数法を用いる．\nラグランジュ乗数 \\lambda を用いて，以下のようにラグランジュ関数 L を構成する．\n\nL = \\text{ELBO} + \\lambda \\left( \\int p'(\\eta) d\\eta - 1 \\right)\n\n制約付き最適化問題の極値条件は， \\frac{\\delta L}{\\delta p'(\\eta)} = 0 となることなので，\n\n\\frac{\\delta L}{\\delta p'(\\eta)} = \\frac{\\delta \\text{ELBO}}{\\delta p'(\\eta)} + \\lambda = 0\n\nに先ほどの変分微分の結果を代入すると，\n\n\\int p''(\\theta) \\log p(X, \\eta, \\theta; \\beta) d\\theta -\\log p'(\\eta) -1 + \\lambda = 0\n\nとなる．これを \\log p'(\\eta) について整理すると，\n\n\\log p'(\\eta) = \\int p''(\\theta) \\log p(X, \\eta, \\theta; \\beta) d\\theta + \\lambda - 1\n\n両辺の指数（ \\exp ）をとることで， p'(\\eta) の最適解の条件が得られる．\n\np'(\\eta) = e^{\\lambda - 1} \\exp\\left( \\int p''(\\theta) \\log p(X, \\eta, \\theta; \\beta) d\\theta \\right)\n\nここで， e^{\\lambda - 1} は変数 \\eta に依存しない定数（規格化定数）であるため，これを比例記号 \\propto に置き換えて，以下の形に整理できる．\n\np'(\\eta) \\propto \\exp\\left( \\int p''(\\theta) \\log p(X, \\eta, \\theta; \\beta) d\\theta \\right)\n\n全く同様の手続きを p''(\\theta) に対しても行うと，以下の最適解が得られる．\n\np''(\\theta) \\propto \\exp\\left( \\int p'(\\eta) \\log p(X, \\eta, \\theta; \\beta) d\\eta \\right)\n\nここで，数学的な矛盾に直面する． 制約条件を満たす最適解として得られたこの2つの式は，互いの分布を必要としている．すなわち， p'(\\eta) を決定するためには p''(\\theta) が必要であり， p''(\\theta) を決定するためには p'(\\eta) が必要というデッドロック状態にあり，この2つの方程式を同時に解くことはできない．\nこの矛盾を回避し，最適化問題を実際に解くための具体的な手法として提案されるのが，VB-EMアルゴリズムである．",
+    "objectID": "Published/equilibrium_stat_mech/2.html#wを求める",
+    "href": "Published/equilibrium_stat_mech/2.html#wを求める",
+    "title": "ボルツマンの原理",
+    "section": "Wを求める",
+    "text": "Wを求める\nまず，\\Omega(E)を求める．条件は体積がV，粒子数がN,粒子の質量はmである． ハミルトニアンがE \\ge Hを満たす6N次元位相空間の超体積を求め，h^{3N}で割ることによって求まる． (復習だが，ハミルトニアンが等しいとは，同じエネルギー面にいるということを意味している．その面を重ね合わせて，体積を求めるというイメージ)\n\n\\Omega(E) = \\frac 1 {h^{3N}} \\int\\int ...\\int dq_1dq_2 ...dq_{3N}dp_1 dp_2 ... dp_{3N}\n の積分を求める．変形すると\n\n\\Omega(E) = \\frac 1 {h^{3N}} \\int ... \\int dq_1dq_2 ...dq_{3N} \\int ...\\int dp_1 dp_2 ... dp_{3N}\n\nである．ここでqについての積分は，3次元空間なので， \n\\int \\int \\int dq_1 dq_2 dq_3 = V\n である．同様に考えると\n\n\\Omega(E) = \\frac {V^N} {h^{3N}} \\int ...\\int dp_1 dp_2 ... dp_{3N}\n\nとなることがわかる． ハミルトニアンをmとp_iを用いて表すと，mが十分小さいのでポテンシャルエネルギーを0として \nH = \\frac{1}{2m}\\sum_i^{3N} p^2_i\n\nと表現される． H \\le Eであるので代入すると．\n\n\\frac{1}{2m}\\sum_i^{3N} p^2_i  \\le E\n 式変形すると \n\\sum_i^{3N} p^2_i \\le (\\sqrt{2mE})^2\n すなわち\\int ...\\int dp_1 dp_2 ... dp_{3N}は半径\\sqrt{2mE}のN次元球の体積である． N次元球の体積の公式を用いて\n\n\\int ...\\int dp_1 dp_2 ... dp_{3N} = \\frac{(2 \\pi)^{\\frac {3N}2}}{3N\\Gamma(\\frac {3N}2)} (2mE)^{\\frac{3N}{2}}\n\n式をまとめて，定数項をCと置くと\n\n\\Omega(E) = C E^{\\frac {3N} 2}\n\nである．これを微分して\\Delta E(定数)を掛けてやると，Wが求まる．よって \nW = C E^{\\frac{3N }{2} -1}",
     "crumbs": [
       "Home",
-      "ベイズ推論",
-      "VB-EMアルゴリズム"
+      "平衡系統計力学",
+      "ボルツマンの原理"
     ]
   },
   {
-    "objectID": "Published/bayesian_inference/4.html#vb-emアルゴリズム",
-    "href": "Published/bayesian_inference/4.html#vb-emアルゴリズム",
-    "title": "VB-EMアルゴリズム",
-    "section": "VB-EMアルゴリズム",
-    "text": "VB-EMアルゴリズム\nやっていることは簡単で， ステップ数をtとしたとき\n\n1．VB-Eステップ（潜在変数 \\eta の更新）  p'^{(t+1)}(\\eta) = \\frac{\\exp\\left( \\int p''^{(t)}(\\theta) \\log p(X, \\eta, \\theta; \\beta) \\, d\\theta \\right)}{\\int \\exp\\left( \\int p''^{(t)}(\\theta) \\log p(X, \\eta', \\theta; \\beta) \\, d\\theta \\right) d\\eta'} \n\n\n2．VB-Mステップ（パラメータ \\theta の更新）  p''^{(t+1)}(\\theta) = \\frac{\\exp\\left( \\int p'^{(t+1)}(\\eta) \\log p(X, \\eta, \\theta; \\beta) \\, d\\eta \\right)}{\\int \\exp\\left( \\int p'^{(t+1)}(\\eta) \\log p(X, \\eta, \\theta'; \\beta) \\, d\\eta \\right) d\\theta'} \nを満たすように確率密度関数を更新するだけである．\nELBOには上限が存在するため，局所最適に収束する．またこの交互更新によって単調増加していくことも知られている．",
+    "objectID": "Published/equilibrium_stat_mech/2.html#ボルツマンの原理",
+    "href": "Published/equilibrium_stat_mech/2.html#ボルツマンの原理",
+    "title": "ボルツマンの原理",
+    "section": "ボルツマンの原理",
+    "text": "ボルツマンの原理\nまずこれの対数をとると\n\n\\log W = \\log C + (\\frac {3N}{2} -1)\\log E\n となる．これをEで微分し，\\frac {3N}{2} -1 \\approx \\frac {3N}{2}とすると\n\n\\frac{d}{dE} \\log W = \\frac {3N}{2E}\n ここで気体分子運動論の結果から \nE = \\frac 3 2 N k T\n となる，代入すると\n\n\\frac d {dE} \\log W = \\frac 1 {kT}\n\nここで熱力学第一法則より\n\ndE = T dS - pdV\n\ndV = 0なので \n\\frac {dS}{dE} = \\frac 1 T\n である．比較すると \nS = k \\log W\n が導出される．この状態数とエントロピーの関係をボルツマンの原理と言う．",
     "crumbs": [
       "Home",
-      "ベイズ推論",
-      "VB-EMアルゴリズム"
+      "平衡系統計力学",
+      "ボルツマンの原理"
     ]
   },
   {
-    "objectID": "Published/bayesian_inference/4.html#具体例",
-    "href": "Published/bayesian_inference/4.html#具体例",
-    "title": "VB-EMアルゴリズム",
-    "section": "具体例",
-    "text": "具体例\n流石に具体例がないとわかりにくいのでコードをGeminiに書いてもらった．\n\n尤度\n\n各データ x_n は，未知の平均 \\mu と精度 \\tau（分散の逆数）を持つ正規分布から発生すると仮定する．\n p(x_n \\mid \\mu, \\tau) = \\mathcal{N}(x_n \\mid \\mu, \\tau^{-1}) \n\n\n事前分布 計算相性が良い分布を採用する．\n\n\n平均 \\mu の事前分布  p(\\mu) = \\mathcal{N}(\\mu \\mid \\mu_0, \\lambda_0^{-1}) \n精度 \\tau の事前分布  p(\\tau) = \\text{Gam}(\\tau \\mid a_0, b_0) \n\n\n\n更新式とコードの対応\n\n共役事前分布の関係となっているので解析的に更新式が求まる．\n\nVB-Eステップ\n \\lambda*N = \\lambda_0 + N \\cdot E[\\tau]   \\mu_N = \\frac{\\lambda_0 \\mu_0 + E[\\tau]\\sum*{n=1}^N x_n}{\\lambda_N} \n\n\nVB-Mステップ\n a*N = a_0 + \\frac{N}{2}   b_N = b_0 + \\frac{1}{2}\\sum*{n=1}^N (x_n - \\mu_N)^2 + \\frac{N}{2\\lambda_N} \n\n\nコード\nステップ数は１０回である．\nimport matplotlib.pyplot as plt\n\nimport numpy as np\n\nfrom scipy.stats import gamma, norm\n\n\n\n\ndef vb_e_step(X, E_tau, mu_0, lambda_0):\n\nN = len(X)\n\nlambda_N = lambda_0 + N * E_tau\n\nmu_N = (lambda_0 * mu_0 + E_tau * np.sum(X)) / lambda_N\n\nreturn mu_N, lambda_N\n\n\n\n\ndef vb_m_step(X, mu_N, lambda_N, a_0, b_0):\n\nN = len(X)\n\na_N = a_0 + N / 2.0\n\nb_N = b_0 + 0.5 * np.sum((X - mu_N) ** 2) + N / (2.0 * lambda_N)\n\nE_tau = a_N / b_N\n\nreturn a_N, b_N, E_tau\n\n\n\n\ndef plot_results(X, mu_N, lambda_N, a_N, b_N):\n\nfig, axes = plt.subplots(1, 3, figsize=(15, 4))\n\n\n\nmu_axis = np.linspace(\n\nmu_N - 4 / np.sqrt(lambda_N), mu_N + 4 / np.sqrt(lambda_N), 500\n\n)\n\naxes[0].plot(mu_axis, norm.pdf(mu_axis, mu_N, 1 / np.sqrt(lambda_N)))\n\naxes[0].set_title(\"q(mu)\")\n\n\n\ntau_axis = np.linspace(\n\nmax(0.01, a_N / b_N - 4 * np.sqrt(a_N) / b_N),\n\na_N / b_N + 4 * np.sqrt(a_N) / b_N,\n\n500,\n\n)\n\naxes[1].plot(tau_axis, gamma.pdf(tau_axis, a_N, scale=1 / b_N))\n\naxes[1].set_title(\"q(tau)\")\n\n\n\nx_axis = np.linspace(min(X) - 2, max(X) + 2, 500)\n\nE_tau = a_N / b_N\n\nstd_dev = 1 / np.sqrt(E_tau)\n\naxes[2].plot(x_axis, norm.pdf(x_axis, mu_N, std_dev), label='Estimated dist')\n\naxes[2].scatter(X, np.zeros_like(X), color='red', marker='x', label='Data X')\n\naxes[2].set_title(\"Data and Estimated Distribution\")\n\naxes[2].legend()\n\n\n\nplt.show()\n\n\n\n\nX = np.array([1.2, 1.8, 2.2, 2.8, 3.0])\n\nmu_0, lambda_0 = 0.0, 1.0\n\na_0, b_0 = 1.0, 1.0\n\n\n\nE_tau = a_0 / b_0\n\n\n\nfor _ in range(10):\n\nmu_N, lambda_N = vb_e_step(X, E_tau, mu_0, lambda_0)\n\na_N, b_N, E_tau = vb_m_step(X, mu_N, lambda_N, a_0, b_0)\n\n\n\nplot_results(X, mu_N, lambda_N, a_N, b_N)\n\n実行結果  尤もらしい分布になっている．\nELBOの推移 \n\n単調増加し，収束していることがわかる．",
+    "objectID": "Published/equilibrium_stat_mech/2.html#エントロピーの示量性",
+    "href": "Published/equilibrium_stat_mech/2.html#エントロピーの示量性",
+    "title": "ボルツマンの原理",
+    "section": "エントロピーの示量性",
+    "text": "エントロピーの示量性\nエントロピーは示量変数（物質の量に比例する変数）である．これを示したい．熱力学的重率W(E)に粒子の区別はつかないものとしてN!で割る操作をすることでこの性質を示すことができる．\n\nW(E) = \\frac{V^N}{N!} \\bigg(\\frac{2 \\pi}{h^2}\\bigg) ^{\\frac {3N}2} \\frac{1}{\\Gamma(\\frac {3N}2)} (2mE)^{\\frac{3N}{2} -1}\n\nよって \nW = \\frac{V^N}{N!} \\bigg(\\frac{2 \\pi}{h^2}\\bigg) ^{\\frac {3N}2} \\frac{\\Delta E}{\\Gamma(\\frac {3N}2)} (2mE)^{\\frac{3N}{2} -1}\n\nこの式をボルツマンの原理に代入すると\n\nS = k \\log \\left \\{  \\frac{V^N}{N!} \\bigg(\\frac{2 \\pi}{h^2}\\bigg) ^{\\frac {3N}2} \\frac{\\Delta E}{\\Gamma(\\frac {3N}2)} (2mE)^{\\frac{3N}{2} -1} \\right \\}\n\n粗いスターリング公式（\\Gamma関数でも同様に） \nN! \\approx N \\log N - N\n と，N &gt;&gt; 1より\n\n\\begin{align}\nS &= k \\left(   N \\log V - N \\log N + N + \\frac 3 2 N \\log \\frac{2 \\pi m E}{h^2} -\\frac {3N} 2 \\log \\frac{3N}{2} + \\frac {3N}{2}   \\right) \\\\\n&= Nk \\left(\\log \\frac {V}{N} + \\frac 3 2 \\log \\left( \\frac{4 \\pi m}{3h^2} \\frac E N  \\right) + \\frac 5 2  \\right)\n\\end{align}  \n ここで，Vは一定であり，EはNに比例するので\\frac V Nと\\frac E Nは定数となる． よってエントロピーは示量変数である．",
     "crumbs": [
       "Home",
-      "ベイズ推論",
-      "VB-EMアルゴリズム"
+      "平衡系統計力学",
+      "ボルツマンの原理"
     ]
   },
   {
-    "objectID": "Published/bayesian_inference/4.html#まとめ",
-    "href": "Published/bayesian_inference/4.html#まとめ",
-    "title": "VB-EMアルゴリズム",
+    "objectID": "Published/equilibrium_stat_mech/2.html#まとめ",
+    "href": "Published/equilibrium_stat_mech/2.html#まとめ",
+    "title": "ボルツマンの原理",
     "section": "まとめ",
-    "text": "まとめ\n\nELBOを最大化する近似分布を求めるために，変分微分をする必要がある．\n直接求めることは不可能なので，一つを固定して更新，もう一方を固定して更新…と繰り返してELBOを段階的に大きくしていくことで最適な近似関数を求める．",
+    "text": "まとめ\n\n単原子分子理想気体の状態数WはC E ^{\\frac {3N}{2} -1}である\n上の式と熱力学第一法則を使うことで，ボルツマンの原理が導出される\nエントロピーの示量性を示すにはN!で割る必要がある．",
     "crumbs": [
       "Home",
-      "ベイズ推論",
-      "VB-EMアルゴリズム"
-    ]
-  },
-  {
-    "objectID": "Published/bayesian_inference/4.html#感想おまけ",
-    "href": "Published/bayesian_inference/4.html#感想おまけ",
-    "title": "VB-EMアルゴリズム",
-    "section": "感想(おまけ)",
-    "text": "感想(おまけ)\n授業でやって，ちょこちょこ飛ばしているところがあったので頑張って自分で補いながらこの文章を書いていたらかなり時間がかかってしまった．内容が深いということにしておこう． あとベイズ推論が思っていたよりも深い分野なのかもしれないと考えるようになった．どのようにして事前分布を決めるかがまだ理解していない．いちおう共役事前分布なら計算しやすいというのは，数理統計学を勉強したときに学んだが，もっと具体的にどういったときに何を使うべきなのかは全然覚えていないというか勉強していないので．やはりPRMLをじっくり読んで，そういったところに詳しくならないといけないなと実感した．あとやっぱりベイズ推論と深層学習は全く異なる分野であると捉えているし，私が好きなのはこっちの計算をガリガリする方なのだなと思っている．まあ，深層学習も深層学習で面白いが． ところで最近機械学習系論文のAbstract, Introduction, Conclusionを英語の勉強で読んでいる．そこでMCMCや変分ベイズより良い手法が紹介されていた(https://arxiv.org/abs/2606.20538 ，どうやらすでに学習されたモデルを再利用することで計算量を削減しつつ，真のモデルに近い性能となれるらしい)．これを読んで，ああ，まだまだベイズ推論は研究されているのだなあと印象に残ったのである．",
-    "crumbs": [
-      "Home",
-      "ベイズ推論",
-      "VB-EMアルゴリズム"
-    ]
-  },
-  {
-    "objectID": "Published/bayesian_inference/2.html",
-    "href": "Published/bayesian_inference/2.html",
-    "title": "ベイズ推定におけるモデル選択",
-    "section": "",
-    "text": "ベイズの定理 \np(\\theta | X) = \\frac{p(X | \\theta) p(\\theta)}{p(X)}\n のp(\\theta)は自分で設定する必要がある．この事前分布によって結果が変わってくるので重要である．\n\n\n\np(\\theta) = p(\\theta;\\beta)\n と書く．\n\np(\\theta | X ; \\beta) = \\frac{p(X | \\theta) p(\\theta;\\beta)}{p(X;\\beta)}\n となる（周辺尤度も\\betaに依存する） なので良い\\betaを選ぶことがモデル選択において重要である．\n\n\n\nMAP推定 \n\\begin{align}\n\\theta_{MAP} &= \\arg\\max_{\\theta}p(X|\\theta)p(\\theta;\\beta) \\\\\n            &=  \\arg\\max_{\\theta} [\\log p(X| \\theta) + \\log p(\\theta; \\beta)]\n\\end{align}\n\n第一項は，対数尤度である．第二項の意味を考えたい． 具体例として，事前分布が正規分布の場合を考える．\n\n\\begin{align}\n\\log p(\\theta) &= -\\frac{1}{2 \\sigma^2} \\theta^2 +C \\\\\n            & \\propto -\\frac \\beta 2 \\theta^2\n\\end{align}\n\nこれは，パラメータをなるべく0に近づけたいということ，すなわちパラメータを大きくすることへのペナルティ と解釈出来る．いわゆるRidge回帰．\nすなわちMAP推定とは，\\thetaの値を大きくして過学習を起こさないようにするために罰則項を追加した最尤推定という見方もできる．",
-    "crumbs": [
-      "Home",
-      "ベイズ推論",
-      "ベイズ推定におけるモデル選択"
-    ]
-  },
-  {
-    "objectID": "Published/bayesian_inference/2.html#事前分布の設定",
-    "href": "Published/bayesian_inference/2.html#事前分布の設定",
-    "title": "ベイズ推定におけるモデル選択",
-    "section": "",
-    "text": "ベイズの定理 \np(\\theta | X) = \\frac{p(X | \\theta) p(\\theta)}{p(X)}\n のp(\\theta)は自分で設定する必要がある．この事前分布によって結果が変わってくるので重要である．\n\n\n\np(\\theta) = p(\\theta;\\beta)\n と書く．\n\np(\\theta | X ; \\beta) = \\frac{p(X | \\theta) p(\\theta;\\beta)}{p(X;\\beta)}\n となる（周辺尤度も\\betaに依存する） なので良い\\betaを選ぶことがモデル選択において重要である．\n\n\n\nMAP推定 \n\\begin{align}\n\\theta_{MAP} &= \\arg\\max_{\\theta}p(X|\\theta)p(\\theta;\\beta) \\\\\n            &=  \\arg\\max_{\\theta} [\\log p(X| \\theta) + \\log p(\\theta; \\beta)]\n\\end{align}\n\n第一項は，対数尤度である．第二項の意味を考えたい． 具体例として，事前分布が正規分布の場合を考える．\n\n\\begin{align}\n\\log p(\\theta) &= -\\frac{1}{2 \\sigma^2} \\theta^2 +C \\\\\n            & \\propto -\\frac \\beta 2 \\theta^2\n\\end{align}\n\nこれは，パラメータをなるべく0に近づけたいということ，すなわちパラメータを大きくすることへのペナルティ と解釈出来る．いわゆるRidge回帰．\nすなわちMAP推定とは，\\thetaの値を大きくして過学習を起こさないようにするために罰則項を追加した最尤推定という見方もできる．",
-    "crumbs": [
-      "Home",
-      "ベイズ推論",
-      "ベイズ推定におけるモデル選択"
-    ]
-  },
-  {
-    "objectID": "Published/bayesian_inference/2.html#ハイパーパラメータをどう決定するか",
-    "href": "Published/bayesian_inference/2.html#ハイパーパラメータをどう決定するか",
-    "title": "ベイズ推定におけるモデル選択",
-    "section": "ハイパーパラメータをどう決定するか",
-    "text": "ハイパーパラメータをどう決定するか\n\n手動\n交差検証による比較\n経験ベイズ法 等が挙げられる 今回は経験ベイズ法に進む\n\n\n経験ベイズ法\np(X ; \\beta) を最大化する手法である 周辺尤度とは，\\betaを与えたときに訓練標本が生成される確率のことを指している． これはなるべく高い方が良いので，この手法は適切である． なぜ，p(X;\\beta)の最大化で過学習が起こらないのか．それは周辺尤度が，\\thetaについての全領域積分を行っているため，ある偏ったパラメータ（過学習するパラメータ）があったとしても，その影響をあまり受けない堅固な指標だからである．\n\n\nAIC との関係\nハイパーパラメータを決定するものとして，AICがある． AICは事前情報を入れることができないが，MAP推定と経験ベイズ法を用いればそれが可能となる．\n\n\nエビデンス近似\n本来のベイズ推論ならば\\betaについても周辺化を行うべきである． \np(\\theta | X) = \\int p(\\theta|X;\\beta) p(\\beta | X) d\\beta\n\nだが，\\betaの分布はほとんどの場合複雑すぎるので，この積分を解析的に実行することは現実的ではない．そこである\\beta^*でp(\\beta | X)が最大値をとりさらにそれが鋭く（デルタ関数で近似できるほど）分布していると仮定する． するとこれは積分は必要なく，代入するだけでよくなる．（デルタ関数の性質を参照）\nすなわち \np(\\theta | X) \\approx p(\\theta | X ; \\beta^*)",
-    "crumbs": [
-      "Home",
-      "ベイズ推論",
-      "ベイズ推定におけるモデル選択"
-    ]
-  },
-  {
-    "objectID": "Published/bayesian_inference/2.html#周辺尤度のラプラス近似",
-    "href": "Published/bayesian_inference/2.html#周辺尤度のラプラス近似",
-    "title": "ベイズ推定におけるモデル選択",
-    "section": "周辺尤度のラプラス近似",
-    "text": "周辺尤度のラプラス近似\nそもそも前回を思い出すと，このp(X;\\beta)の計算は非常に複雑である． 前回学んだモンテカルロ法（特にMCMC法）を用いれば周辺尤度を求めることは可能だが，計算コストが高いという問題がある． 今回は計算コストが低いラプラス近似という手法を学んでいく．\n\nアイディア\nMAP点のまわりで，ガウス分布としてp(X;\\beta)を近似する．すなわち，MAP点の周りで二次のテイラー展開を行う．\n\n\nなぜMAP点なのか？\n思い出すとMAP点とは \n\\begin{align}\n\\theta_{MAP} &= \\arg\\max_{\\theta} p(X|\\theta)p(\\theta;\\beta) \\\\\n\\end{align}\n\nである．これは\\log p(\\theta | X)が極大値を取ることと言い換えれるので \\nabla \\log p(\\theta|X) = 0と言い換えれる．\nテイラー展開の四季は以下の通りである． \\log p(\\theta | X) \\approx \\log p(\\theta_0 | X) + \\nabla \\log p(\\theta_0 | X)(\\theta - \\theta_0) + \\frac{1}{2}(\\theta - \\theta_0)^T H (\\theta - \\theta_0)\n一方で、ガウス分布の対数をとった式は以下の構造を持つ\n\\log \\mathcal{N}(\\mu, \\Sigma) = -\\frac{1}{2}(x - \\mu)^T \\Sigma^{-1} (x - \\mu) + C\n一次の項を持たないので，これは \n\\nabla \\log p(\\theta_0 | X) = 0\n でないといけない．これはMAP点の条件と一致する．",
-    "crumbs": [
-      "Home",
-      "ベイズ推論",
-      "ベイズ推定におけるモデル選択"
-    ]
-  },
-  {
-    "objectID": "Published/bayesian_inference/2.html#まとめ",
-    "href": "Published/bayesian_inference/2.html#まとめ",
-    "title": "ベイズ推定におけるモデル選択",
-    "section": "まとめ",
-    "text": "まとめ\n\nMAP推定は罰則項付き最尤推定を拡張したものである．\nモデル選択にはハイパーパラメータが必要であり，ハイパーパラメータを決める手法の一つとして経験ベイズ法がある．\nラプラス近似を使うことで計算量少なくp(X; \\beta)を計算できる．",
-    "crumbs": [
-      "Home",
-      "ベイズ推論",
-      "ベイズ推定におけるモデル選択"
-    ]
-  },
-  {
-    "objectID": "Published/bayesian_inference/3.html",
-    "href": "Published/bayesian_inference/3.html",
-    "title": "ベイズ推定におけるモデル選択（続き）",
-    "section": "",
-    "text": "前回のラプラス近似の結果を考える\n\n\\log (X; \\beta) \\approx \\log p(X | \\theta_{MAP}) + \\log p(\\theta_{MAP} ; \\beta) + \\frac t 2 \\log(2 \\pi) - \\frac 1 2 \\log |-H|\n ここで，ヘッセ行列の計算量はO(t^3) である．これは重い計算である． なのでもっと軽い近似がほしい．なので，ヘッセ項を更に近似したものがほしい．これがBICとなる．\n\n\n\nまず，対数尤度の式は，i.i.d.からn個の標本を得れるとして(\\theta \\in \\mathbb R^t)\n\n\\log p(X | \\theta) = \\sum_i^n \\log q(x_i | \\theta)\n これの二回微分がヘッセ行列なので，微分の線形性から \n\\nabla ^2 \\log p(X | \\theta) =  \\sum_i^n \\nabla^2\\log q(x_i | \\theta)\n\nここで，\n\nY_H(X) = \\frac 1 n \\sum_i^n \\nabla^2\\log q(x_i | \\theta)\n とY_Hを定義すると，\n\nH = n Y_H(X)\n が成立する． ここで，サンプルサイズを無限に飛ばすと，対数の法則より期待値に確率収束する．(フィッシャー情報量の逆符号)\n\nY_H(X) \\xrightarrow{p} \\bar Y_H\n すなわちサンプル数が十分に大きいとき次の近似が成立する．\n\nH \\approx n \\bar Y_H\n\n行列の多重共線性より\n\n|n (-\\bar Y_H)| = n^t |-\\bar Y_H |\n が成立する．なので\n\n\\log |-H| \\approx t \\log n + \\log |-\\bar Y_H|\n ここで，nが大きいときは定数項を無視できるので\n\n\\log p(X; \\beta) \\approx \\log p(X | \\theta_{MAP}) + \\log p(\\theta_{MAP} ; \\beta) - \\frac 1 2 t\\log n + O(1)\n\nさらに，事前分布の影響もnが大きいと小さくなる また\\theta_{MAP} \\approx \\theta_{ML}に漸近するので\n\n\\log p(X; \\beta) \\approx \\log p(X | \\theta_{ML})  - \\frac 1 2 t\\log n\n ここで，周辺尤度はその\\betaを与えたときにどれだけ妥当かを意味しているので，情報量基準として使える．\n\nBIC = - \\log p(X | \\theta_{ML})  + \\frac 1 2 t\\log n\n\nこれがBICの定義である．",
-    "crumbs": [
-      "Home",
-      "ベイズ推論",
-      "ベイズ推定におけるモデル選択（続き）"
-    ]
-  },
-  {
-    "objectID": "Published/bayesian_inference/3.html#bic",
-    "href": "Published/bayesian_inference/3.html#bic",
-    "title": "ベイズ推定におけるモデル選択（続き）",
-    "section": "",
-    "text": "前回のラプラス近似の結果を考える\n\n\\log (X; \\beta) \\approx \\log p(X | \\theta_{MAP}) + \\log p(\\theta_{MAP} ; \\beta) + \\frac t 2 \\log(2 \\pi) - \\frac 1 2 \\log |-H|\n ここで，ヘッセ行列の計算量はO(t^3) である．これは重い計算である． なのでもっと軽い近似がほしい．なので，ヘッセ項を更に近似したものがほしい．これがBICとなる．\n\n\n\nまず，対数尤度の式は，i.i.d.からn個の標本を得れるとして(\\theta \\in \\mathbb R^t)\n\n\\log p(X | \\theta) = \\sum_i^n \\log q(x_i | \\theta)\n これの二回微分がヘッセ行列なので，微分の線形性から \n\\nabla ^2 \\log p(X | \\theta) =  \\sum_i^n \\nabla^2\\log q(x_i | \\theta)\n\nここで，\n\nY_H(X) = \\frac 1 n \\sum_i^n \\nabla^2\\log q(x_i | \\theta)\n とY_Hを定義すると，\n\nH = n Y_H(X)\n が成立する． ここで，サンプルサイズを無限に飛ばすと，対数の法則より期待値に確率収束する．(フィッシャー情報量の逆符号)\n\nY_H(X) \\xrightarrow{p} \\bar Y_H\n すなわちサンプル数が十分に大きいとき次の近似が成立する．\n\nH \\approx n \\bar Y_H\n\n行列の多重共線性より\n\n|n (-\\bar Y_H)| = n^t |-\\bar Y_H |\n が成立する．なので\n\n\\log |-H| \\approx t \\log n + \\log |-\\bar Y_H|\n ここで，nが大きいときは定数項を無視できるので\n\n\\log p(X; \\beta) \\approx \\log p(X | \\theta_{MAP}) + \\log p(\\theta_{MAP} ; \\beta) - \\frac 1 2 t\\log n + O(1)\n\nさらに，事前分布の影響もnが大きいと小さくなる また\\theta_{MAP} \\approx \\theta_{ML}に漸近するので\n\n\\log p(X; \\beta) \\approx \\log p(X | \\theta_{ML})  - \\frac 1 2 t\\log n\n ここで，周辺尤度はその\\betaを与えたときにどれだけ妥当かを意味しているので，情報量基準として使える．\n\nBIC = - \\log p(X | \\theta_{ML})  + \\frac 1 2 t\\log n\n\nこれがBICの定義である．",
-    "crumbs": [
-      "Home",
-      "ベイズ推論",
-      "ベイズ推定におけるモデル選択（続き）"
-    ]
-  },
-  {
-    "objectID": "Published/bayesian_inference/3.html#変分ベイズ法",
-    "href": "Published/bayesian_inference/3.html#変分ベイズ法",
-    "title": "ベイズ推定におけるモデル選択（続き）",
-    "section": "変分ベイズ法",
-    "text": "変分ベイズ法\nラプラス近似では，事後分布が多峰性，歪んだ分布では不適合となる． もっと柔軟な近似分布を用いてKLダイバージェンスを最小化する．\n\nJensen不等式\n\n\\log E[f] \\ge E[\\log f]\n\nが成立する．重要不等式である． 周辺尤度を，近似分布を用いたパラメータ\\eta, \\theta で分解する．またJensen不等式で下限をとる．\n\n\n平均場近似\nJensen不等式を使いたいが，この式はパラメーターが複雑に絡み合っている．だが近似として\n\nq(\\eta, \\theta) \\approx q(\\eta) q(\\theta)\n をする．これは平均場近似と呼ばれる近似である． これは変数の次元が増加するにつれて，それぞれの変数がもつ個別のノイズは足し合わされることで，大数の法則により打ち消される． なので周囲からの影響はほぼ一定であるとみなせるので，平均場近似は妥当な近似として作用する． \\eta,\\thetaは存在するだろうと，仮定しておいているに過ぎない．\n\n\\begin{align}\n\\log p(X; \\beta) &= \\log \\int \\int p(X,\\eta,\\theta;\\beta) d\\eta d\\theta \\\\\n&= \\log \\int \\int q(\\eta,\\theta; \\beta) \\frac{p(X,\\eta,\\theta;\\beta)}{ q(\\eta,\\theta; \\beta) } d\\eta d\\theta \\\\\n&\\approx\\log \\int \\int  q(\\eta) q(\\theta)\\frac{p(X,\\eta,\\theta;\\beta)}{q(\\eta) q(\\theta)} d\\eta d\\theta \\\\\n& \\ge \\int \\int q(\\eta)q(\\theta) \\log \\frac{p(X,\\eta,\\theta;\\beta)}{q(\\eta) q(\\theta)} d\\eta d\\theta \\\\\n&= F(q(\\eta), q(\\theta))\n\\end{align}\n ここでFをそれぞれの変数で変分して解くと，それぞれの分布が何に比例するのかがわかる． このFは対数周辺尤度の下界，ELBOと呼ばれる量である． このELBOを最大化させることさせることで，対数周辺尤度を最大化させることができる． ELBOは計算可能である．なぜなら積分の中身はすべて計算可能（事前に形を設定している）であるためである． このELBOを最大化させるにはq(\\theta),q(\\eta)を動かす必要がある． これらを動かしてELBOを最大化させる手法をVB-EMアルゴリズムという． 今日は時間が無いので次回VB-EMアルゴリズムを説明する．",
-    "crumbs": [
-      "Home",
-      "ベイズ推論",
-      "ベイズ推定におけるモデル選択（続き）"
-    ]
-  },
-  {
-    "objectID": "Published/bayesian_inference/3.html#まとめ",
-    "href": "Published/bayesian_inference/3.html#まとめ",
-    "title": "ベイズ推定におけるモデル選択（続き）",
-    "section": "まとめ",
-    "text": "まとめ\n\nヘッシアンを求めることは時間がかかるので，さらに近似してBICでモデルパラメータを決定する\nラプラス近似は不適合な場合が多いので，より柔軟な分布を用いてELBOを最大化させる方法を採用する手法をとる．",
-    "crumbs": [
-      "Home",
-      "ベイズ推論",
-      "ベイズ推定におけるモデル選択（続き）"
+      "平衡系統計力学",
+      "ボルツマンの原理"
     ]
   },
   {
@@ -356,6 +236,198 @@
       "Home",
       "ベイズ推論",
       "モンテカルロ法"
+    ]
+  },
+  {
+    "objectID": "Published/bayesian_inference/3.html",
+    "href": "Published/bayesian_inference/3.html",
+    "title": "ベイズ推定におけるモデル選択（続き）",
+    "section": "",
+    "text": "前回のラプラス近似の結果を考える\n\n\\log (X; \\beta) \\approx \\log p(X | \\theta_{MAP}) + \\log p(\\theta_{MAP} ; \\beta) + \\frac t 2 \\log(2 \\pi) - \\frac 1 2 \\log |-H|\n ここで，ヘッセ行列の計算量はO(t^3) である．これは重い計算である． なのでもっと軽い近似がほしい．なので，ヘッセ項を更に近似したものがほしい．これがBICとなる．\n\n\n\nまず，対数尤度の式は，i.i.d.からn個の標本を得れるとして(\\theta \\in \\mathbb R^t)\n\n\\log p(X | \\theta) = \\sum_i^n \\log q(x_i | \\theta)\n これの二回微分がヘッセ行列なので，微分の線形性から \n\\nabla ^2 \\log p(X | \\theta) =  \\sum_i^n \\nabla^2\\log q(x_i | \\theta)\n\nここで，\n\nY_H(X) = \\frac 1 n \\sum_i^n \\nabla^2\\log q(x_i | \\theta)\n とY_Hを定義すると，\n\nH = n Y_H(X)\n が成立する． ここで，サンプルサイズを無限に飛ばすと，対数の法則より期待値に確率収束する．(フィッシャー情報量の逆符号)\n\nY_H(X) \\xrightarrow{p} \\bar Y_H\n すなわちサンプル数が十分に大きいとき次の近似が成立する．\n\nH \\approx n \\bar Y_H\n\n行列の多重共線性より\n\n|n (-\\bar Y_H)| = n^t |-\\bar Y_H |\n が成立する．なので\n\n\\log |-H| \\approx t \\log n + \\log |-\\bar Y_H|\n ここで，nが大きいときは定数項を無視できるので\n\n\\log p(X; \\beta) \\approx \\log p(X | \\theta_{MAP}) + \\log p(\\theta_{MAP} ; \\beta) - \\frac 1 2 t\\log n + O(1)\n\nさらに，事前分布の影響もnが大きいと小さくなる また\\theta_{MAP} \\approx \\theta_{ML}に漸近するので\n\n\\log p(X; \\beta) \\approx \\log p(X | \\theta_{ML})  - \\frac 1 2 t\\log n\n ここで，周辺尤度はその\\betaを与えたときにどれだけ妥当かを意味しているので，情報量基準として使える．\n\nBIC = - \\log p(X | \\theta_{ML})  + \\frac 1 2 t\\log n\n\nこれがBICの定義である．",
+    "crumbs": [
+      "Home",
+      "ベイズ推論",
+      "ベイズ推定におけるモデル選択（続き）"
+    ]
+  },
+  {
+    "objectID": "Published/bayesian_inference/3.html#bic",
+    "href": "Published/bayesian_inference/3.html#bic",
+    "title": "ベイズ推定におけるモデル選択（続き）",
+    "section": "",
+    "text": "前回のラプラス近似の結果を考える\n\n\\log (X; \\beta) \\approx \\log p(X | \\theta_{MAP}) + \\log p(\\theta_{MAP} ; \\beta) + \\frac t 2 \\log(2 \\pi) - \\frac 1 2 \\log |-H|\n ここで，ヘッセ行列の計算量はO(t^3) である．これは重い計算である． なのでもっと軽い近似がほしい．なので，ヘッセ項を更に近似したものがほしい．これがBICとなる．\n\n\n\nまず，対数尤度の式は，i.i.d.からn個の標本を得れるとして(\\theta \\in \\mathbb R^t)\n\n\\log p(X | \\theta) = \\sum_i^n \\log q(x_i | \\theta)\n これの二回微分がヘッセ行列なので，微分の線形性から \n\\nabla ^2 \\log p(X | \\theta) =  \\sum_i^n \\nabla^2\\log q(x_i | \\theta)\n\nここで，\n\nY_H(X) = \\frac 1 n \\sum_i^n \\nabla^2\\log q(x_i | \\theta)\n とY_Hを定義すると，\n\nH = n Y_H(X)\n が成立する． ここで，サンプルサイズを無限に飛ばすと，対数の法則より期待値に確率収束する．(フィッシャー情報量の逆符号)\n\nY_H(X) \\xrightarrow{p} \\bar Y_H\n すなわちサンプル数が十分に大きいとき次の近似が成立する．\n\nH \\approx n \\bar Y_H\n\n行列の多重共線性より\n\n|n (-\\bar Y_H)| = n^t |-\\bar Y_H |\n が成立する．なので\n\n\\log |-H| \\approx t \\log n + \\log |-\\bar Y_H|\n ここで，nが大きいときは定数項を無視できるので\n\n\\log p(X; \\beta) \\approx \\log p(X | \\theta_{MAP}) + \\log p(\\theta_{MAP} ; \\beta) - \\frac 1 2 t\\log n + O(1)\n\nさらに，事前分布の影響もnが大きいと小さくなる また\\theta_{MAP} \\approx \\theta_{ML}に漸近するので\n\n\\log p(X; \\beta) \\approx \\log p(X | \\theta_{ML})  - \\frac 1 2 t\\log n\n ここで，周辺尤度はその\\betaを与えたときにどれだけ妥当かを意味しているので，情報量基準として使える．\n\nBIC = - \\log p(X | \\theta_{ML})  + \\frac 1 2 t\\log n\n\nこれがBICの定義である．",
+    "crumbs": [
+      "Home",
+      "ベイズ推論",
+      "ベイズ推定におけるモデル選択（続き）"
+    ]
+  },
+  {
+    "objectID": "Published/bayesian_inference/3.html#変分ベイズ法",
+    "href": "Published/bayesian_inference/3.html#変分ベイズ法",
+    "title": "ベイズ推定におけるモデル選択（続き）",
+    "section": "変分ベイズ法",
+    "text": "変分ベイズ法\nラプラス近似では，事後分布が多峰性，歪んだ分布では不適合となる． もっと柔軟な近似分布を用いてKLダイバージェンスを最小化する．\n\nJensen不等式\n\n\\log E[f] \\ge E[\\log f]\n\nが成立する．重要不等式である． 周辺尤度を，近似分布を用いたパラメータ\\eta, \\theta で分解する．またJensen不等式で下限をとる．\n\n\n平均場近似\nJensen不等式を使いたいが，この式はパラメーターが複雑に絡み合っている．だが近似として\n\nq(\\eta, \\theta) \\approx q(\\eta) q(\\theta)\n をする．これは平均場近似と呼ばれる近似である． これは変数の次元が増加するにつれて，それぞれの変数がもつ個別のノイズは足し合わされることで，大数の法則により打ち消される． なので周囲からの影響はほぼ一定であるとみなせるので，平均場近似は妥当な近似として作用する． \\eta,\\thetaは存在するだろうと，仮定しておいているに過ぎない．\n\n\\begin{align}\n\\log p(X; \\beta) &= \\log \\int \\int p(X,\\eta,\\theta;\\beta) d\\eta d\\theta \\\\\n&= \\log \\int \\int q(\\eta,\\theta; \\beta) \\frac{p(X,\\eta,\\theta;\\beta)}{ q(\\eta,\\theta; \\beta) } d\\eta d\\theta \\\\\n&\\approx\\log \\int \\int  q(\\eta) q(\\theta)\\frac{p(X,\\eta,\\theta;\\beta)}{q(\\eta) q(\\theta)} d\\eta d\\theta \\\\\n& \\ge \\int \\int q(\\eta)q(\\theta) \\log \\frac{p(X,\\eta,\\theta;\\beta)}{q(\\eta) q(\\theta)} d\\eta d\\theta \\\\\n&= F(q(\\eta), q(\\theta))\n\\end{align}\n ここでFをそれぞれの変数で変分して解くと，それぞれの分布が何に比例するのかがわかる． このFは対数周辺尤度の下界，ELBOと呼ばれる量である． このELBOを最大化させることさせることで，対数周辺尤度を最大化させることができる． ELBOは計算可能である．なぜなら積分の中身はすべて計算可能（事前に形を設定している）であるためである． このELBOを最大化させるにはq(\\theta),q(\\eta)を動かす必要がある． これらを動かしてELBOを最大化させる手法をVB-EMアルゴリズムという． 今日は時間が無いので次回VB-EMアルゴリズムを説明する．",
+    "crumbs": [
+      "Home",
+      "ベイズ推論",
+      "ベイズ推定におけるモデル選択（続き）"
+    ]
+  },
+  {
+    "objectID": "Published/bayesian_inference/3.html#まとめ",
+    "href": "Published/bayesian_inference/3.html#まとめ",
+    "title": "ベイズ推定におけるモデル選択（続き）",
+    "section": "まとめ",
+    "text": "まとめ\n\nヘッシアンを求めることは時間がかかるので，さらに近似してBICでモデルパラメータを決定する\nラプラス近似は不適合な場合が多いので，より柔軟な分布を用いてELBOを最大化させる方法を採用する手法をとる．",
+    "crumbs": [
+      "Home",
+      "ベイズ推論",
+      "ベイズ推定におけるモデル選択（続き）"
+    ]
+  },
+  {
+    "objectID": "Published/bayesian_inference/2.html",
+    "href": "Published/bayesian_inference/2.html",
+    "title": "ベイズ推定におけるモデル選択",
+    "section": "",
+    "text": "ベイズの定理 \np(\\theta | X) = \\frac{p(X | \\theta) p(\\theta)}{p(X)}\n のp(\\theta)は自分で設定する必要がある．この事前分布によって結果が変わってくるので重要である．\n\n\n\np(\\theta) = p(\\theta;\\beta)\n と書く．\n\np(\\theta | X ; \\beta) = \\frac{p(X | \\theta) p(\\theta;\\beta)}{p(X;\\beta)}\n となる（周辺尤度も\\betaに依存する） なので良い\\betaを選ぶことがモデル選択において重要である．\n\n\n\nMAP推定 \n\\begin{align}\n\\theta_{MAP} &= \\arg\\max_{\\theta}p(X|\\theta)p(\\theta;\\beta) \\\\\n            &=  \\arg\\max_{\\theta} [\\log p(X| \\theta) + \\log p(\\theta; \\beta)]\n\\end{align}\n\n第一項は，対数尤度である．第二項の意味を考えたい． 具体例として，事前分布が正規分布の場合を考える．\n\n\\begin{align}\n\\log p(\\theta) &= -\\frac{1}{2 \\sigma^2} \\theta^2 +C \\\\\n            & \\propto -\\frac \\beta 2 \\theta^2\n\\end{align}\n\nこれは，パラメータをなるべく0に近づけたいということ，すなわちパラメータを大きくすることへのペナルティ と解釈出来る．いわゆるRidge回帰．\nすなわちMAP推定とは，\\thetaの値を大きくして過学習を起こさないようにするために罰則項を追加した最尤推定という見方もできる．",
+    "crumbs": [
+      "Home",
+      "ベイズ推論",
+      "ベイズ推定におけるモデル選択"
+    ]
+  },
+  {
+    "objectID": "Published/bayesian_inference/2.html#事前分布の設定",
+    "href": "Published/bayesian_inference/2.html#事前分布の設定",
+    "title": "ベイズ推定におけるモデル選択",
+    "section": "",
+    "text": "ベイズの定理 \np(\\theta | X) = \\frac{p(X | \\theta) p(\\theta)}{p(X)}\n のp(\\theta)は自分で設定する必要がある．この事前分布によって結果が変わってくるので重要である．\n\n\n\np(\\theta) = p(\\theta;\\beta)\n と書く．\n\np(\\theta | X ; \\beta) = \\frac{p(X | \\theta) p(\\theta;\\beta)}{p(X;\\beta)}\n となる（周辺尤度も\\betaに依存する） なので良い\\betaを選ぶことがモデル選択において重要である．\n\n\n\nMAP推定 \n\\begin{align}\n\\theta_{MAP} &= \\arg\\max_{\\theta}p(X|\\theta)p(\\theta;\\beta) \\\\\n            &=  \\arg\\max_{\\theta} [\\log p(X| \\theta) + \\log p(\\theta; \\beta)]\n\\end{align}\n\n第一項は，対数尤度である．第二項の意味を考えたい． 具体例として，事前分布が正規分布の場合を考える．\n\n\\begin{align}\n\\log p(\\theta) &= -\\frac{1}{2 \\sigma^2} \\theta^2 +C \\\\\n            & \\propto -\\frac \\beta 2 \\theta^2\n\\end{align}\n\nこれは，パラメータをなるべく0に近づけたいということ，すなわちパラメータを大きくすることへのペナルティ と解釈出来る．いわゆるRidge回帰．\nすなわちMAP推定とは，\\thetaの値を大きくして過学習を起こさないようにするために罰則項を追加した最尤推定という見方もできる．",
+    "crumbs": [
+      "Home",
+      "ベイズ推論",
+      "ベイズ推定におけるモデル選択"
+    ]
+  },
+  {
+    "objectID": "Published/bayesian_inference/2.html#ハイパーパラメータをどう決定するか",
+    "href": "Published/bayesian_inference/2.html#ハイパーパラメータをどう決定するか",
+    "title": "ベイズ推定におけるモデル選択",
+    "section": "ハイパーパラメータをどう決定するか",
+    "text": "ハイパーパラメータをどう決定するか\n\n手動\n交差検証による比較\n経験ベイズ法 等が挙げられる 今回は経験ベイズ法に進む\n\n\n経験ベイズ法\np(X ; \\beta) を最大化する手法である 周辺尤度とは，\\betaを与えたときに訓練標本が生成される確率のことを指している． これはなるべく高い方が良いので，この手法は適切である． なぜ，p(X;\\beta)の最大化で過学習が起こらないのか．それは周辺尤度が，\\thetaについての全領域積分を行っているため，ある偏ったパラメータ（過学習するパラメータ）があったとしても，その影響をあまり受けない堅固な指標だからである．\n\n\nAIC との関係\nハイパーパラメータを決定するものとして，AICがある． AICは事前情報を入れることができないが，MAP推定と経験ベイズ法を用いればそれが可能となる．\n\n\nエビデンス近似\n本来のベイズ推論ならば\\betaについても周辺化を行うべきである． \np(\\theta | X) = \\int p(\\theta|X;\\beta) p(\\beta | X) d\\beta\n\nだが，\\betaの分布はほとんどの場合複雑すぎるので，この積分を解析的に実行することは現実的ではない．そこである\\beta^*でp(\\beta | X)が最大値をとりさらにそれが鋭く（デルタ関数で近似できるほど）分布していると仮定する． するとこれは積分は必要なく，代入するだけでよくなる．（デルタ関数の性質を参照）\nすなわち \np(\\theta | X) \\approx p(\\theta | X ; \\beta^*)",
+    "crumbs": [
+      "Home",
+      "ベイズ推論",
+      "ベイズ推定におけるモデル選択"
+    ]
+  },
+  {
+    "objectID": "Published/bayesian_inference/2.html#周辺尤度のラプラス近似",
+    "href": "Published/bayesian_inference/2.html#周辺尤度のラプラス近似",
+    "title": "ベイズ推定におけるモデル選択",
+    "section": "周辺尤度のラプラス近似",
+    "text": "周辺尤度のラプラス近似\nそもそも前回を思い出すと，このp(X;\\beta)の計算は非常に複雑である． 前回学んだモンテカルロ法（特にMCMC法）を用いれば周辺尤度を求めることは可能だが，計算コストが高いという問題がある． 今回は計算コストが低いラプラス近似という手法を学んでいく．\n\nアイディア\nMAP点のまわりで，ガウス分布としてp(X;\\beta)を近似する．すなわち，MAP点の周りで二次のテイラー展開を行う．\n\n\nなぜMAP点なのか？\n思い出すとMAP点とは \n\\begin{align}\n\\theta_{MAP} &= \\arg\\max_{\\theta} p(X|\\theta)p(\\theta;\\beta) \\\\\n\\end{align}\n\nである．これは\\log p(\\theta | X)が極大値を取ることと言い換えれるので \\nabla \\log p(\\theta|X) = 0と言い換えれる．\nテイラー展開の四季は以下の通りである． \\log p(\\theta | X) \\approx \\log p(\\theta_0 | X) + \\nabla \\log p(\\theta_0 | X)(\\theta - \\theta_0) + \\frac{1}{2}(\\theta - \\theta_0)^T H (\\theta - \\theta_0)\n一方で、ガウス分布の対数をとった式は以下の構造を持つ\n\\log \\mathcal{N}(\\mu, \\Sigma) = -\\frac{1}{2}(x - \\mu)^T \\Sigma^{-1} (x - \\mu) + C\n一次の項を持たないので，これは \n\\nabla \\log p(\\theta_0 | X) = 0\n でないといけない．これはMAP点の条件と一致する．",
+    "crumbs": [
+      "Home",
+      "ベイズ推論",
+      "ベイズ推定におけるモデル選択"
+    ]
+  },
+  {
+    "objectID": "Published/bayesian_inference/2.html#まとめ",
+    "href": "Published/bayesian_inference/2.html#まとめ",
+    "title": "ベイズ推定におけるモデル選択",
+    "section": "まとめ",
+    "text": "まとめ\n\nMAP推定は罰則項付き最尤推定を拡張したものである．\nモデル選択にはハイパーパラメータが必要であり，ハイパーパラメータを決める手法の一つとして経験ベイズ法がある．\nラプラス近似を使うことで計算量少なくp(X; \\beta)を計算できる．",
+    "crumbs": [
+      "Home",
+      "ベイズ推論",
+      "ベイズ推定におけるモデル選択"
+    ]
+  },
+  {
+    "objectID": "Published/bayesian_inference/4.html",
+    "href": "Published/bayesian_inference/4.html",
+    "title": "VB-EMアルゴリズム",
+    "section": "",
+    "text": "ラプラス近似では，事後分布が非ガウス分布のときに不適合なので，より柔軟な分布q(\\theta)を用いて近似したいという動機がある．そこで，対数周辺尤度の下限，いわれるELBOを最大化する qを求めたくなる． そこでVB-EMアルゴリズムを使う．",
+    "crumbs": [
+      "Home",
+      "ベイズ推論",
+      "VB-EMアルゴリズム"
+    ]
+  },
+  {
+    "objectID": "Published/bayesian_inference/4.html#復習",
+    "href": "Published/bayesian_inference/4.html#復習",
+    "title": "VB-EMアルゴリズム",
+    "section": "",
+    "text": "ラプラス近似では，事後分布が非ガウス分布のときに不適合なので，より柔軟な分布q(\\theta)を用いて近似したいという動機がある．そこで，対数周辺尤度の下限，いわれるELBOを最大化する qを求めたくなる． そこでVB-EMアルゴリズムを使う．",
+    "crumbs": [
+      "Home",
+      "ベイズ推論",
+      "VB-EMアルゴリズム"
+    ]
+  },
+  {
+    "objectID": "Published/bayesian_inference/4.html#elbo最大化と変分微分",
+    "href": "Published/bayesian_inference/4.html#elbo最大化と変分微分",
+    "title": "VB-EMアルゴリズム",
+    "section": "ELBO最大化と変分微分",
+    "text": "ELBO最大化と変分微分\n変分ベイズにおける目標は，真の事後分布 p(\\theta, \\eta | X) を近似する分布 q(\\theta, \\eta) を求めることである．まず q(\\theta,\\eta) = p'(\\eta)p''(\\theta)と平均場近似する．\nこのとき，私たちが解くべきは「確率密度関数としての制約条件を満たしつつ，ELBOを最大化する」という制約付き最適化問題である． すなわち，\n\n\\max_{p', p''} \\text{ELBO} \\quad \\text{subject to} \\quad \\int p'(\\eta) d\\eta = 1, \\ \\int p''(\\theta) d\\theta = 1\n\nという問題を解くことを考える．この制約付き最適化問題を解くために，まずはパラメータ \\theta を固定した状態で，潜在変数 \\eta の分布 p'(\\eta) について最適化を行う．\nここでどう更新するのかという話になってくるが，p''(\\theta)を固定した状態でELBOを最大化するということなので，まずは制約条件を脇に置いて，極値条件\n\n\\frac \\partial{\\partial p'(\\eta)}ELBO = 0\n\nを満たすような p'(\\eta)の形を調べていく．\nまずELBOを分解すると（積分変数を\\eta 'としている）\n\n\\begin{align} \\text{ELBO} &= \\int \\int p'(\\eta') p''(\\theta) \\left( \\log p(X, \\eta', \\theta; \\beta) - \\log p'(\\eta') - \\log p''(\\theta) \\right) d\\eta' d\\theta \\\\ &= \\int p'(\\eta') \\left[ \\int p''(\\theta) \\log p(X, \\eta', \\theta; \\beta) d\\theta \\right] d\\eta' \\\\ &\\quad - \\int p'(\\eta') \\log p'(\\eta') \\underbrace{\\left[ \\int p''(\\theta) d\\theta \\right]}_{= 1} d\\eta' \\\\ &\\quad - \\underbrace{\\left[ \\int p'(\\eta') d\\eta' \\right]}_{= 1} \\int p''(\\theta) \\log p''(\\theta) d\\theta \\\\ &= \\int p'(\\eta') \\left[ \\int p''(\\theta) \\log p(X, \\eta', \\theta; \\beta) d\\theta \\right] d\\eta' - \\int p'(\\eta') \\log p'(\\eta') d\\eta' - \\text{Const} \\end{align}\n\nこのELBOをある点\\etaにおけるp(\\eta)で関数偏微分，いわゆる変分微分をする．\n\n変分微分\n汎関数を関数で微分することを変分微分という．汎関数とは，関数を入力して数値を返すシステムのことである．今回のELBOは汎関数である．\n定義はいったん置いておいて(いずれどこかで書きたいが)，今回は計算ができれば良いので，変分微分のルールを以下に記述する．\n\n基本となる恒等式\n\n普通の微分 \n  \\frac {\\partial x_i}{\\partial x_j} = \\delta_{ij}\n (余談だがこれは(0,2)型テンソルの単位である．(1,1)型テンソル，すなわち行列にしたかったらx^iにしないといけない．)\n変分微分 \\deltaで書く \n  \\frac{\\delta p(x')}{\\delta p(x)} = \\delta(x' - x)\n これはイメージとしては，変数が無限にあるベクトルの一点をクロネッカーデルタとして取ると，ディラックのデルタになるということである．\n\n線型性が成立する（微分なので）\nライプニッツルールが成立する（微分なので）\nチェーンルール 1. 汎関数が普通の関数に包まれているとき \n     \\frac \\delta{\\delta p(x)} f(I[p]) = f'(I[p]) \\frac {\\delta I[p]}{\\delta p(x)}\n      具体例 \n     \\frac{\\delta}{\\delta p(x)} \\exp\\left( \\int p(t) \\, dt \\right) = \\exp\\left( \\int p(t) \\, dt \\right) \\cdot 1\n      2. 積分の内側で関数が変換されている場合 \n     \\frac \\delta{\\delta p(x)} \\int f(p(t)) dt = f'(p(t))\n      具体例 \n         \\frac \\delta {\\delta p(x)} \\int p(t)\\log p(t) dt = \\log p(x) + 1\n          これらを用いてELBOの変分微分を行う．\n\n\n\n続き\np'(\\eta)でELBOを変分微分をする．\n\n\\begin{align}\n\\frac \\delta {\\delta p'(\\eta)} ELBO\n& = \\frac \\delta {\\delta p'(\\eta)} \\bigg( \\int p'(\\eta') \\left[ \\int p''(\\theta) \\log p(X, \\eta', \\theta; \\beta) d\\theta \\right] d\\eta' - \\int p'(\\eta') \\log p'(\\eta') d\\eta' - \\text{Const} \\bigg) \\\\\n&= \\int \\delta(\\eta' - \\eta)\\left[ \\int p''(\\theta) \\log p(X, \\eta', \\theta; \\beta) d\\theta \\right] d \\eta' -\\log p'(\\eta) -1 \\\\\n& =  \\int p''(\\theta) \\log p(X, \\eta, \\theta; \\beta) d\\theta -\\log p'(\\eta) -1\n\\end{align}\n\nとなる．ここで，確率密度関数としての制約条件 \\int p'(\\eta) d\\eta = 1 を満たしつつ極値を求めるために，ラグランジュの未定乗数法を用いる．\nラグランジュ乗数 \\lambda を用いて，以下のようにラグランジュ関数 L を構成する．\n\nL = \\text{ELBO} + \\lambda \\left( \\int p'(\\eta) d\\eta - 1 \\right)\n\n制約付き最適化問題の極値条件は， \\frac{\\delta L}{\\delta p'(\\eta)} = 0 となることなので，\n\n\\frac{\\delta L}{\\delta p'(\\eta)} = \\frac{\\delta \\text{ELBO}}{\\delta p'(\\eta)} + \\lambda = 0\n\nに先ほどの変分微分の結果を代入すると，\n\n\\int p''(\\theta) \\log p(X, \\eta, \\theta; \\beta) d\\theta -\\log p'(\\eta) -1 + \\lambda = 0\n\nとなる．これを \\log p'(\\eta) について整理すると，\n\n\\log p'(\\eta) = \\int p''(\\theta) \\log p(X, \\eta, \\theta; \\beta) d\\theta + \\lambda - 1\n\n両辺の指数（ \\exp ）をとることで， p'(\\eta) の最適解の条件が得られる．\n\np'(\\eta) = e^{\\lambda - 1} \\exp\\left( \\int p''(\\theta) \\log p(X, \\eta, \\theta; \\beta) d\\theta \\right)\n\nここで， e^{\\lambda - 1} は変数 \\eta に依存しない定数（規格化定数）であるため，これを比例記号 \\propto に置き換えて，以下の形に整理できる．\n\np'(\\eta) \\propto \\exp\\left( \\int p''(\\theta) \\log p(X, \\eta, \\theta; \\beta) d\\theta \\right)\n\n全く同様の手続きを p''(\\theta) に対しても行うと，以下の最適解が得られる．\n\np''(\\theta) \\propto \\exp\\left( \\int p'(\\eta) \\log p(X, \\eta, \\theta; \\beta) d\\eta \\right)\n\nここで，数学的な矛盾に直面する． 制約条件を満たす最適解として得られたこの2つの式は，互いの分布を必要としている．すなわち， p'(\\eta) を決定するためには p''(\\theta) が必要であり， p''(\\theta) を決定するためには p'(\\eta) が必要というデッドロック状態にあり，この2つの方程式を同時に解くことはできない．\nこの矛盾を回避し，最適化問題を実際に解くための具体的な手法として提案されるのが，VB-EMアルゴリズムである．",
+    "crumbs": [
+      "Home",
+      "ベイズ推論",
+      "VB-EMアルゴリズム"
+    ]
+  },
+  {
+    "objectID": "Published/bayesian_inference/4.html#vb-emアルゴリズム",
+    "href": "Published/bayesian_inference/4.html#vb-emアルゴリズム",
+    "title": "VB-EMアルゴリズム",
+    "section": "VB-EMアルゴリズム",
+    "text": "VB-EMアルゴリズム\nやっていることは簡単で， ステップ数をtとしたとき\n\n1．VB-Eステップ（潜在変数 \\eta の更新）  p'^{(t+1)}(\\eta) = \\frac{\\exp\\left( \\int p''^{(t)}(\\theta) \\log p(X, \\eta, \\theta; \\beta) \\, d\\theta \\right)}{\\int \\exp\\left( \\int p''^{(t)}(\\theta) \\log p(X, \\eta', \\theta; \\beta) \\, d\\theta \\right) d\\eta'} \n\n\n2．VB-Mステップ（パラメータ \\theta の更新）  p''^{(t+1)}(\\theta) = \\frac{\\exp\\left( \\int p'^{(t+1)}(\\eta) \\log p(X, \\eta, \\theta; \\beta) \\, d\\eta \\right)}{\\int \\exp\\left( \\int p'^{(t+1)}(\\eta) \\log p(X, \\eta, \\theta'; \\beta) \\, d\\eta \\right) d\\theta'} \nを満たすように確率密度関数を更新するだけである．\nELBOには上限が存在するため，局所最適に収束する．またこの交互更新によって単調増加していくことも知られている．",
+    "crumbs": [
+      "Home",
+      "ベイズ推論",
+      "VB-EMアルゴリズム"
+    ]
+  },
+  {
+    "objectID": "Published/bayesian_inference/4.html#具体例",
+    "href": "Published/bayesian_inference/4.html#具体例",
+    "title": "VB-EMアルゴリズム",
+    "section": "具体例",
+    "text": "具体例\n流石に具体例がないとわかりにくいのでコードをGeminiに書いてもらった．\n\n尤度\n\n各データ x_n は，未知の平均 \\mu と精度 \\tau（分散の逆数）を持つ正規分布から発生すると仮定する．\n p(x_n \\mid \\mu, \\tau) = \\mathcal{N}(x_n \\mid \\mu, \\tau^{-1}) \n\n\n事前分布 計算相性が良い分布を採用する．\n\n\n平均 \\mu の事前分布  p(\\mu) = \\mathcal{N}(\\mu \\mid \\mu_0, \\lambda_0^{-1}) \n精度 \\tau の事前分布  p(\\tau) = \\text{Gam}(\\tau \\mid a_0, b_0) \n\n\n\n更新式とコードの対応\n\n共役事前分布の関係となっているので解析的に更新式が求まる．\n\nVB-Eステップ\n \\lambda*N = \\lambda_0 + N \\cdot E[\\tau]   \\mu_N = \\frac{\\lambda_0 \\mu_0 + E[\\tau]\\sum*{n=1}^N x_n}{\\lambda_N} \n\n\nVB-Mステップ\n a*N = a_0 + \\frac{N}{2}   b_N = b_0 + \\frac{1}{2}\\sum*{n=1}^N (x_n - \\mu_N)^2 + \\frac{N}{2\\lambda_N} \n\n\nコード\nステップ数は１０回である．\nimport matplotlib.pyplot as plt\n\nimport numpy as np\n\nfrom scipy.stats import gamma, norm\n\n\n\n\ndef vb_e_step(X, E_tau, mu_0, lambda_0):\n\nN = len(X)\n\nlambda_N = lambda_0 + N * E_tau\n\nmu_N = (lambda_0 * mu_0 + E_tau * np.sum(X)) / lambda_N\n\nreturn mu_N, lambda_N\n\n\n\n\ndef vb_m_step(X, mu_N, lambda_N, a_0, b_0):\n\nN = len(X)\n\na_N = a_0 + N / 2.0\n\nb_N = b_0 + 0.5 * np.sum((X - mu_N) ** 2) + N / (2.0 * lambda_N)\n\nE_tau = a_N / b_N\n\nreturn a_N, b_N, E_tau\n\n\n\n\ndef plot_results(X, mu_N, lambda_N, a_N, b_N):\n\nfig, axes = plt.subplots(1, 3, figsize=(15, 4))\n\n\n\nmu_axis = np.linspace(\n\nmu_N - 4 / np.sqrt(lambda_N), mu_N + 4 / np.sqrt(lambda_N), 500\n\n)\n\naxes[0].plot(mu_axis, norm.pdf(mu_axis, mu_N, 1 / np.sqrt(lambda_N)))\n\naxes[0].set_title(\"q(mu)\")\n\n\n\ntau_axis = np.linspace(\n\nmax(0.01, a_N / b_N - 4 * np.sqrt(a_N) / b_N),\n\na_N / b_N + 4 * np.sqrt(a_N) / b_N,\n\n500,\n\n)\n\naxes[1].plot(tau_axis, gamma.pdf(tau_axis, a_N, scale=1 / b_N))\n\naxes[1].set_title(\"q(tau)\")\n\n\n\nx_axis = np.linspace(min(X) - 2, max(X) + 2, 500)\n\nE_tau = a_N / b_N\n\nstd_dev = 1 / np.sqrt(E_tau)\n\naxes[2].plot(x_axis, norm.pdf(x_axis, mu_N, std_dev), label='Estimated dist')\n\naxes[2].scatter(X, np.zeros_like(X), color='red', marker='x', label='Data X')\n\naxes[2].set_title(\"Data and Estimated Distribution\")\n\naxes[2].legend()\n\n\n\nplt.show()\n\n\n\n\nX = np.array([1.2, 1.8, 2.2, 2.8, 3.0])\n\nmu_0, lambda_0 = 0.0, 1.0\n\na_0, b_0 = 1.0, 1.0\n\n\n\nE_tau = a_0 / b_0\n\n\n\nfor _ in range(10):\n\nmu_N, lambda_N = vb_e_step(X, E_tau, mu_0, lambda_0)\n\na_N, b_N, E_tau = vb_m_step(X, mu_N, lambda_N, a_0, b_0)\n\n\n\nplot_results(X, mu_N, lambda_N, a_N, b_N)\n\n実行結果  尤もらしい分布になっている．\nELBOの推移 \n\n単調増加し，収束していることがわかる．",
+    "crumbs": [
+      "Home",
+      "ベイズ推論",
+      "VB-EMアルゴリズム"
+    ]
+  },
+  {
+    "objectID": "Published/bayesian_inference/4.html#まとめ",
+    "href": "Published/bayesian_inference/4.html#まとめ",
+    "title": "VB-EMアルゴリズム",
+    "section": "まとめ",
+    "text": "まとめ\n\nELBOを最大化する近似分布を求めるために，変分微分をする必要がある．\n直接求めることは不可能なので，一つを固定して更新，もう一方を固定して更新…と繰り返してELBOを段階的に大きくしていくことで最適な近似関数を求める．",
+    "crumbs": [
+      "Home",
+      "ベイズ推論",
+      "VB-EMアルゴリズム"
+    ]
+  },
+  {
+    "objectID": "Published/bayesian_inference/4.html#感想おまけ",
+    "href": "Published/bayesian_inference/4.html#感想おまけ",
+    "title": "VB-EMアルゴリズム",
+    "section": "感想(おまけ)",
+    "text": "感想(おまけ)\n授業でやって，ちょこちょこ飛ばしているところがあったので頑張って自分で補いながらこの文章を書いていたらかなり時間がかかってしまった．内容が深いということにしておこう． あとベイズ推論が思っていたよりも深い分野なのかもしれないと考えるようになった．どのようにして事前分布を決めるかがまだ理解していない．いちおう共役事前分布なら計算しやすいというのは，数理統計学を勉強したときに学んだが，もっと具体的にどういったときに何を使うべきなのかは全然覚えていないというか勉強していないので．やはりPRMLをじっくり読んで，そういったところに詳しくならないといけないなと実感した．あとやっぱりベイズ推論と深層学習は全く異なる分野であると捉えているし，私が好きなのはこっちの計算をガリガリする方なのだなと思っている．まあ，深層学習も深層学習で面白いが． ところで最近機械学習系論文のAbstract, Introduction, Conclusionを英語の勉強で読んでいる．そこでMCMCや変分ベイズより良い手法が紹介されていた(https://arxiv.org/abs/2606.20538 ，どうやらすでに学習されたモデルを再利用することで計算量を削減しつつ，真のモデルに近い性能となれるらしい)．これを読んで，ああ，まだまだベイズ推論は研究されているのだなあと印象に残ったのである．",
+    "crumbs": [
+      "Home",
+      "ベイズ推論",
+      "VB-EMアルゴリズム"
     ]
   },
   {

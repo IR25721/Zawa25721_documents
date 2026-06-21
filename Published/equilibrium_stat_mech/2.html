@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>はじめに – Zawaの勉強記録</title>
+<title>ボルツマンの原理 – Zawaの勉強記録</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,23 +26,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-48d31611f1c1daf173a6ee5e3799dc94.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../Published/information_geometry/1.html" rel="next">
+<link href="../../Published/equilibrium_stat_mech/1.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-48d31611f1c1daf173a6ee5e3799dc94.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,8 +73,51 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
-<link rel="stylesheet" href="styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light">
@@ -82,7 +127,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Zawaの勉強記録</span>
     </a>
   </div>
@@ -93,11 +138,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./intro.html" aria-current="page"> 
+    <a class="nav-link" href="../../intro.html"> 
 <span class="menu-text">はじめに</span></a>
   </li>  
 </ul>
@@ -118,7 +163,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">はじめに</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/equilibrium_stat_mech/1.html">平衡系統計力学</a></li><li class="breadcrumb-item"><a href="../../Published/equilibrium_stat_mech/2.html">ボルツマンの原理</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -141,25 +186,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Published/bayesian_inference/1.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/bayesian_inference/1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">モンテカルロ法</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Published/bayesian_inference/2.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/bayesian_inference/2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ベイズ推定におけるモデル選択</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Published/bayesian_inference/3.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/bayesian_inference/3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ベイズ推定におけるモデル選択（続き）</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Published/bayesian_inference/4.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/bayesian_inference/4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">VB-EMアルゴリズム</span></a>
   </div>
 </li>
@@ -176,13 +221,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Published/equilibrium_stat_mech/1.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/equilibrium_stat_mech/1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">リウビルの定理と等確率の原理</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Published/equilibrium_stat_mech/2.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/equilibrium_stat_mech/2.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">ボルツマンの原理</span></a>
   </div>
 </li>
@@ -199,7 +244,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Published/information_geometry/1.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/information_geometry/1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">双対空間</span></a>
   </div>
 </li>
@@ -219,19 +264,20 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#自己紹介" id="toc-自己紹介" class="nav-link active" data-scroll-target="#自己紹介">自己紹介</a></li>
-  <li><a href="#なぜこのサイトを作ろうと考えたのか" id="toc-なぜこのサイトを作ろうと考えたのか" class="nav-link" data-scroll-target="#なぜこのサイトを作ろうと考えたのか">なぜこのサイトを作ろうと考えたのか</a></li>
-  <li><a href="#このサイトについて" id="toc-このサイトについて" class="nav-link" data-scroll-target="#このサイトについて">このサイトについて</a></li>
-  <li><a href="#日々の学習について" id="toc-日々の学習について" class="nav-link" data-scroll-target="#日々の学習について">日々の学習について</a></li>
+  <li><a href="#単原子分子理想気体の状態と状態数" id="toc-単原子分子理想気体の状態と状態数" class="nav-link active" data-scroll-target="#単原子分子理想気体の状態と状態数">単原子分子理想気体の状態と状態数</a></li>
+  <li><a href="#wを求める" id="toc-wを求める" class="nav-link" data-scroll-target="#wを求める"><span class="math inline">W</span>を求める</a></li>
+  <li><a href="#ボルツマンの原理" id="toc-ボルツマンの原理" class="nav-link" data-scroll-target="#ボルツマンの原理">ボルツマンの原理</a></li>
+  <li><a href="#エントロピーの示量性" id="toc-エントロピーの示量性" class="nav-link" data-scroll-target="#エントロピーの示量性">エントロピーの示量性</a></li>
+  <li><a href="#まとめ" id="toc-まとめ" class="nav-link" data-scroll-target="#まとめ">まとめ</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/equilibrium_stat_mech/1.html">平衡系統計力学</a></li><li class="breadcrumb-item"><a href="../../Published/equilibrium_stat_mech/2.html">ボルツマンの原理</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">はじめに</h1>
+<h1 class="title">ボルツマンの原理</h1>
 </div>
 
 
@@ -248,55 +294,103 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="自己紹介" class="level2">
-<h2 class="anchored" data-anchor-id="自己紹介">自己紹介</h2>
-<p>はじめまして，Zawaと申します．現在は情報理工学部の3回生で，機械学習をメインに学習しています．それ以外にも物理学，特に統計力学に興味があり，独自に学習を進めています．最近は情報幾何学や量子科学にも関心を持っています．将来は創発現象に関連する分野の研究を行いたいと考えています．</p>
+<section id="単原子分子理想気体の状態と状態数" class="level2">
+<h2 class="anchored" data-anchor-id="単原子分子理想気体の状態と状態数">単原子分子理想気体の状態と状態数</h2>
+<p>ここでは，議論を完結にするために単原子分子理想気体で考える． ここで，これまで議論してきた微視的状態の数と，エネルギーの関係について考えてみる．エネルギーが小さいときは原子はあまり動かない，すなわち位相空間を占める割合が低くなる，すなわち等確率の原理から微視的状態の数が少ない． 逆にエネルギーが高いときは，同様に考えて微視的状態の数が多いと考えられる． ここで，あるエネルギー<span class="math inline">E</span>の場合についての状態数<span class="math inline">W</span>を考えたい．ただしこれは計算が難しい，なぜなら，この<span class="math inline">W</span>を計算することは，すなわち超球の表面を計算することに相当し，数学的に困難だからである， ここで<span class="math inline">[0,E]</span>までの状態数<span class="math inline">\Omega (E)</span>を計算することを考える．これは超球の体積を求めることに相当し，これは積分で求めることが可能である． <span class="math display">
+\frac{d \Omega}{d E} = W(E)
+</span> として<span class="math inline">W(E)</span>を定義する．これは熱力学的重率と呼ばれる．この熱力学的重率を用いると<span class="math inline">[E, E + \Delta E]</span>の場合の状態数は <span class="math display">
+W = W(E)\Delta E
+</span> となり，<span class="math inline">\Delta E \rightarrow 0</span>とすれば<span class="math inline">W</span>が求まる．</p>
 </section>
-<section id="なぜこのサイトを作ろうと考えたのか" class="level2">
-<h2 class="anchored" data-anchor-id="なぜこのサイトを作ろうと考えたのか">なぜこのサイトを作ろうと考えたのか</h2>
-<p>当初はZennでの投稿を検討していましたが，1日の投稿数に制限があり，頻繁に勉強記録を残したい自分のスタイルには合わないと感じました．また，関心分野が多岐にわたるため，特定の専門分野に特化したプラットフォームよりも，自身の裁量で自由にまとめることができる個人サイトの方が適していると考えました．</p>
-<p>さらに，情報理工学部に在籍しコンピュータクラブに所属していることもあり，「自分自身のWebサイトを持っておきたい」と考えたのも理由の一つです．高校時代から『EMANの物理学』(https://eman-physics.net/) で物理学を学んできた背景もあり，「あのような充実したサイトをいつか自分でも作ってみたい」と憧れていたことが，今回のサイト開設の大きなモチベーションになっています．</p>
-<p>現在の環境は，先輩の研究や同期のKaggleへの取り組みなど，機械学習分野を学ぶには非常に恵まれています．一方で，物理学や情報幾何学などの分野に関しては周囲に同じ関心を持つ人が少なく，どうしても独学にならざるを得ません．しかし，高度な物理・数学分野を独学で進めると，どうしても理解が独りよがりになりがちです．そこで，日々の復習や演習，学習中の疑問点をこのサイトで公開し，「ここが間違っている」「その認識は少し違う」「こんなおすすめの書籍がある」といったフィードバックをいただける場を作ることで，より客観的で深い学習へと繋げたいと考えています．</p>
+<section id="wを求める" class="level2">
+<h2 class="anchored" data-anchor-id="wを求める"><span class="math inline">W</span>を求める</h2>
+<p>まず，<span class="math inline">\Omega(E)</span>を求める．条件は体積がV，粒子数がN,粒子の質量は<span class="math inline">m</span>である． ハミルトニアンが<span class="math inline">E \ge H</span>を満たす<span class="math inline">6N</span>次元位相空間の超体積を求め，<span class="math inline">h^{3N}</span>で割ることによって求まる． (復習だが，ハミルトニアンが等しいとは，同じエネルギー面にいるということを意味している．その面を重ね合わせて，体積を求めるというイメージ)</p>
+<p><span class="math display">
+\Omega(E) = \frac 1 {h^{3N}} \int\int ...\int dq_1dq_2 ...dq_{3N}dp_1 dp_2 ... dp_{3N}
+</span> の積分を求める．変形すると</p>
+<p><span class="math display">
+\Omega(E) = \frac 1 {h^{3N}} \int ... \int dq_1dq_2 ...dq_{3N} \int ...\int dp_1 dp_2 ... dp_{3N}
+</span></p>
+<p>である．ここで<span class="math inline">q</span>についての積分は，3次元空間なので， <span class="math display">
+\int \int \int dq_1 dq_2 dq_3 = V
+</span> である．同様に考えると</p>
+<p><span class="math display">
+\Omega(E) = \frac {V^N} {h^{3N}} \int ...\int dp_1 dp_2 ... dp_{3N}
+</span></p>
+<p>となることがわかる． ハミルトニアンを<span class="math inline">m</span>と<span class="math inline">p_i</span>を用いて表すと，mが十分小さいのでポテンシャルエネルギーを0として <span class="math display">
+H = \frac{1}{2m}\sum_i^{3N} p^2_i
+</span></p>
+<p>と表現される． <span class="math inline">H \le E</span>であるので代入すると．</p>
+<p><span class="math display">
+\frac{1}{2m}\sum_i^{3N} p^2_i  \le E
+</span> 式変形すると <span class="math display">
+\sum_i^{3N} p^2_i \le (\sqrt{2mE})^2
+</span> すなわち<span class="math inline">\int ...\int dp_1 dp_2 ... dp_{3N}</span>は半径<span class="math inline">\sqrt{2mE}</span>の<span class="math inline">N</span>次元球の体積である． <span class="math inline">N</span>次元球の体積の公式を用いて</p>
+<p><span class="math display">
+\int ...\int dp_1 dp_2 ... dp_{3N} = \frac{(2 \pi)^{\frac {3N}2}}{3N\Gamma(\frac {3N}2)} (2mE)^{\frac{3N}{2}}
+</span></p>
+<p>式をまとめて，定数項を<span class="math inline">C</span>と置くと</p>
+<p><span class="math display">
+\Omega(E) = C E^{\frac {3N} 2}
+</span></p>
+<p>である．これを微分して<span class="math inline">\Delta E</span>(定数)を掛けてやると，<span class="math inline">W</span>が求まる．よって <span class="math display">
+W = C E^{\frac{3N }{2} -1}
+</span></p>
 </section>
-<section id="このサイトについて" class="level2">
-<h2 class="anchored" data-anchor-id="このサイトについて">このサイトについて</h2>
-<p>日々の学習のメモ，まとめ，演習，疑問点などを投稿する場所です．基本的には分野ごとにカテゴリーを分け，理論と演習も分けて整理する予定ですが，詳細はまだ未定です．記事に対するご指摘や疑問点などは，GitHubのIssueにてお気軽にお寄せください．</p>
+<section id="ボルツマンの原理" class="level2">
+<h2 class="anchored" data-anchor-id="ボルツマンの原理">ボルツマンの原理</h2>
+<p>まずこれの対数をとると</p>
+<p><span class="math display">
+\log W = \log C + (\frac {3N}{2} -1)\log E
+</span> となる．これを<span class="math inline">E</span>で微分し，<span class="math inline">\frac {3N}{2} -1 \approx \frac {3N}{2}</span>とすると</p>
+<p><span class="math display">
+\frac{d}{dE} \log W = \frac {3N}{2E}
+</span> ここで気体分子運動論の結果から <span class="math display">
+E = \frac 3 2 N k T
+</span> となる，代入すると</p>
+<p><span class="math display">
+\frac d {dE} \log W = \frac 1 {kT}
+</span></p>
+<p>ここで熱力学第一法則より</p>
+<p><span class="math display">
+dE = T dS - pdV
+</span></p>
+<p><span class="math inline">dV = 0</span>なので <span class="math display">
+\frac {dS}{dE} = \frac 1 T
+</span> である．比較すると <span class="math display">
+S = k \log W
+</span> が導出される．この状態数とエントロピーの関係をボルツマンの原理と言う．</p>
 </section>
-<section id="日々の学習について" class="level2">
-<h2 class="anchored" data-anchor-id="日々の学習について">日々の学習について</h2>
-<p>「継続は力なり」ということで，毎日最低1記事は投稿することを目標にしています．調子が良い時や休日などで時間がある場合は，1日に複数記事を投稿することもあるかもしれません．当面は理論の学習を十分に進めてから演習に移る形を取るため，現在は演習カテゴリーを追加していません．学習の進捗に合わせて順次追加していく予定です．</p>
-<p>主に機械学習，統計力学，情報幾何学を学んでいきますが，興味のある分野が非常に多く，それぞれが相互に関わり合う分野でもあるため，何を優先して勉強すべきか常に模索しています． 現在の自身の数学レベルと関心の強さから優先順位をつけると，以下のようになります．</p>
-<ol type="1">
-<li>とにかく身につけたい分野
-<ol type="1">
-<li>機械学習理論，パターン認識 (PRMLなど)</li>
-<li>平衡系統計力学 (マセマ，田崎先生の本，久保統計など)</li>
-<li>情報幾何学 (藤原先生の本)</li>
-<li>最適化数学 (金谷先生の本)</li>
-<li>機械学習実務 (Kaggleなど)</li>
-</ol></li>
-<li>いずれは身につけたいが時間がないので後回しになってしまっている分野
-<ol type="1">
-<li>一般相対性理論</li>
-<li>量子力学</li>
-<li>社会物理学</li>
-<li>力学系</li>
-<li>数理モデルの理論</li>
-<li>強化学習の理論</li>
-<li>偏微分方程式理論</li>
-<li>確率過程，確率微分方程式論</li>
-<li>テンソル解析</li>
-<li>深層学習モデル (拡散モデルなど)</li>
-<li>因果推論</li>
-</ol></li>
-<li>数学レベルが高すぎてまだ手を出せないが，いずれはやりたいと考えている分野
-<ol type="1">
-<li>渡辺澄夫ベイズ理論</li>
-<li>非平衡系統計力学</li>
-<li>ゲージ理論</li>
-</ol></li>
-</ol>
-<p>今思いつくだけでもこれだけ多くの分野があります．そのため，しっかりと優先順位をつけて着実にレベルアップしていく必要があると考えています． まずは，上記「1」に挙げた分野をメインに勉強を進めていきます．</p>
+<section id="エントロピーの示量性" class="level2">
+<h2 class="anchored" data-anchor-id="エントロピーの示量性">エントロピーの示量性</h2>
+<p>エントロピーは示量変数（物質の量に比例する変数）である．これを示したい．熱力学的重率<span class="math inline">W(E)</span>に粒子の区別はつかないものとして<span class="math inline">N!</span>で割る操作をすることでこの性質を示すことができる．</p>
+<p><span class="math display">
+W(E) = \frac{V^N}{N!} \bigg(\frac{2 \pi}{h^2}\bigg) ^{\frac {3N}2} \frac{1}{\Gamma(\frac {3N}2)} (2mE)^{\frac{3N}{2} -1}
+</span></p>
+<p>よって <span class="math display">
+W = \frac{V^N}{N!} \bigg(\frac{2 \pi}{h^2}\bigg) ^{\frac {3N}2} \frac{\Delta E}{\Gamma(\frac {3N}2)} (2mE)^{\frac{3N}{2} -1}
+</span></p>
+<p>この式をボルツマンの原理に代入すると</p>
+<p><span class="math display">
+S = k \log \left \{  \frac{V^N}{N!} \bigg(\frac{2 \pi}{h^2}\bigg) ^{\frac {3N}2} \frac{\Delta E}{\Gamma(\frac {3N}2)} (2mE)^{\frac{3N}{2} -1} \right \}
+</span></p>
+<p>粗いスターリング公式（<span class="math inline">\Gamma</span>関数でも同様に） <span class="math display">
+N! \approx N \log N - N
+</span> と，<span class="math inline">N &gt;&gt; 1</span>より</p>
+<p><span class="math display">
+\begin{align}
+S &amp;= k \left(   N \log V - N \log N + N + \frac 3 2 N \log \frac{2 \pi m E}{h^2} -\frac {3N} 2 \log \frac{3N}{2} + \frac {3N}{2}   \right) \\
+&amp;= Nk \left(\log \frac {V}{N} + \frac 3 2 \log \left( \frac{4 \pi m}{3h^2} \frac E N  \right) + \frac 5 2  \right)
+\end{align}  
+</span> ここで，<span class="math inline">V</span>は一定であり，<span class="math inline">E</span>は<span class="math inline">N</span>に比例するので<span class="math inline">\frac V N</span>と<span class="math inline">\frac E N</span>は定数となる． よってエントロピーは示量変数である．</p>
+</section>
+<section id="まとめ" class="level2">
+<h2 class="anchored" data-anchor-id="まとめ">まとめ</h2>
+<ul>
+<li>単原子分子理想気体の状態数<span class="math inline">W</span>は<span class="math inline">C E ^{\frac {3N}{2} -1}</span>である</li>
+<li>上の式と熱力学第一法則を使うことで，ボルツマンの原理が導出される</li>
+<li>エントロピーの示量性を示すには<span class="math inline">N!</span>で割る必要がある．</li>
+</ul>
 
 
 </section>
@@ -702,6 +796,18 @@ ul.task-list li input[type="checkbox"] {
     }
   });
   </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../Published/equilibrium_stat_mech/1.html" class="pagination-link" aria-label="リウビルの定理と等確率の原理">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">リウビルの定理と等確率の原理</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../Published/information_geometry/1.html" class="pagination-link" aria-label="双対空間">
+        <span class="nav-page-text">双対空間</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 
