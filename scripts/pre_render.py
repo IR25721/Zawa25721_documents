@@ -36,6 +36,36 @@ def get_md_title(filepath, default_title):
                     break
     return title
 
+def convert_obsidian_image_links():
+    """
+    Obsidianの ![[画像名.png]] という記法を
+    Quarto(Markdown)標準の ![](画像名.png) に変換する（スペースはURLエンコードする）
+    """
+    import urllib.parse
+    for root, dirs, files in os.walk("."):
+        if "_site" in root or ".git" in root or ".quarto" in root or "_generated" in root:
+            continue
+        for f in files:
+            if f.endswith(".md") or f.endswith(".qmd"):
+                filepath = os.path.join(root, f)
+                with open(filepath, "r", encoding="utf-8") as file:
+                    content = file.read()
+                
+                def replace_obsidian_link(match):
+                    filename = match.group(1)
+                    # Handle optional size parameter like ![[image.png|300]]
+                    parts = filename.split('|')
+                    file_part = parts[0].strip()
+                    # URL encode the filename to handle spaces properly
+                    file_encoded = urllib.parse.quote(file_part)
+                    return f'![]({file_encoded})'
+                
+                new_content = re.sub(r'!\[\[(.*?)\]\]', replace_obsidian_link, content)
+                
+                if new_content != content:
+                    with open(filepath, "w", encoding="utf-8") as file:
+                        file.write(new_content)
+
 def generate_in_progress():
     in_progress_dir = "InProgress"
     lines = []
@@ -175,6 +205,7 @@ def generate_git_history():
 
 if __name__ == "__main__":
     os.makedirs("_generated", exist_ok=True)
+    convert_obsidian_image_links()
     generate_in_progress()
     generate_published()
     generate_git_history()

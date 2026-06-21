@@ -26,7 +26,7 @@
 
 ::: {.g-col-12 .g-col-md-4}
 
-### [<img src='Published/optimization_math/optimization_math.jpg' width='40' style='vertical-align: middle; border-radius: 50%; margin-right: 8px;'/>最適化数学](Published/optimization_math/1.md)
+### <img src='Published/optimization_math/optimization_math.jpg' width='40' style='vertical-align: middle; border-radius: 50%; margin-right: 8px;'/>最適化数学 (記事なし)
 
 :::
 

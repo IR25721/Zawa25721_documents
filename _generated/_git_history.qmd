@@ -1,10 +1,10 @@
+- 2026-06-21: Fix YAML front-matter title format in 4.md
+- 2026-06-21: add title
+- 2026-06-21: 4
+- 2026-06-20: zikken3
+- 2026-06-20: Update pre_render.py to explicitly set sidebar titles
 - 2026-06-20: zikken2
 - 2026-06-20: zikken
 - 2026-06-20: Add GitHub Actions workflow for Quarto publish
 - 2026-06-20: Update markdown files to use YAML frontmatter for title and fix pre_render.py
 - 2026-06-20: Fix markdown titles for Quarto sidebar
-- 2026-06-20: 第三回を追加
-- 2026-06-20: Fix URL encoding issues, update math method, and revise intro
-- 2026-06-20: Fix markdown headings rendering issue by adding blank lines before headers
-- 2026-06-20: Update index.qmd and intro.md
-- 2026-06-20: Update layout grid and margins for better width, add git history to margin
