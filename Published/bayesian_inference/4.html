@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>quarto-input6b0c0688f0997cf1 – Zawaの勉強記録</title>
+<title>VB-EMアルゴリズム – Zawaの勉強記録</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -198,7 +198,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/bayesian_inference/1.html">ベイズ推論</a></li><li class="breadcrumb-item"><a href="../../Published/bayesian_inference/4.html">4.md</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/bayesian_inference/1.html">ベイズ推論</a></li><li class="breadcrumb-item"><a href="../../Published/bayesian_inference/4.html">VB-EMアルゴリズム</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -240,7 +240,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Published/bayesian_inference/4.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">4.md</span></a>
+ <span class="menu-text">VB-EMアルゴリズム</span></a>
   </div>
 </li>
       </ul>
@@ -309,9 +309,25 @@ window.Quarto = {
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/bayesian_inference/1.html">ベイズ推論</a></li><li class="breadcrumb-item"><a href="../../Published/bayesian_inference/4.html">4.md</a></li></ol></nav></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/bayesian_inference/1.html">ベイズ推論</a></li><li class="breadcrumb-item"><a href="../../Published/bayesian_inference/4.html">VB-EMアルゴリズム</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">VB-EMアルゴリズム</h1>
+</div>
 
 
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
 
 
 <section id="復習" class="level2">
@@ -321,13 +337,18 @@ window.Quarto = {
 <section id="elbo最大化と変分微分" class="level2">
 <h2 class="anchored" data-anchor-id="elbo最大化と変分微分">ELBO最大化と変分微分</h2>
 <p>変分ベイズにおける目標は，真の事後分布 <span class="math inline">p(\theta, \eta | X)</span> を近似する分布 <span class="math inline">q(\theta, \eta)</span> を求めることである．まず <span class="math inline">q(\theta,\eta) = p'(\eta)p''(\theta)</span>と平均場近似する．</p>
-<p>このとき，私たちが解くべきは「確率密度関数としての制約条件を満たしつつ，ELBOを最大化する」という制約付き最適化問題である． すなわち， <span class="math display">
+<p>このとき，私たちが解くべきは「確率密度関数としての制約条件を満たしつつ，ELBOを最大化する」という制約付き最適化問題である． すなわち，</p>
+<p><span class="math display">
 \max_{p', p''} \text{ELBO} \quad \text{subject to} \quad \int p'(\eta) d\eta = 1, \ \int p''(\theta) d\theta = 1
-</span> という問題を解くことを考える．この制約付き最適化問題を解くために，まずはパラメータ <span class="math inline">\theta</span> を固定した状態で，潜在変数 <span class="math inline">\eta</span> の分布 <span class="math inline">p'(\eta)</span> について最適化を行う．</p>
-<p>ここでどう更新するのかという話になってくるが，<span class="math inline">p''(\theta)</span>を固定した状態でELBOを最大化するということなので，まずは制約条件を脇に置いて，極値条件 <span class="math display">
+</span></p>
+<p>という問題を解くことを考える．この制約付き最適化問題を解くために，まずはパラメータ <span class="math inline">\theta</span> を固定した状態で，潜在変数 <span class="math inline">\eta</span> の分布 <span class="math inline">p'(\eta)</span> について最適化を行う．</p>
+<p>ここでどう更新するのかという話になってくるが，<span class="math inline">p''(\theta)</span>を固定した状態でELBOを最大化するということなので，まずは制約条件を脇に置いて，極値条件</p>
+<p><span class="math display">
 \frac \partial{\partial p'(\eta)}ELBO = 0
-</span> を満たすような <span class="math inline">p'(\eta)</span>の形を調べていく．</p>
-<p>まずELBOを分解すると（積分変数を<span class="math inline">\eta '</span>としている） <span class="math display">
+</span></p>
+<p>を満たすような <span class="math inline">p'(\eta)</span>の形を調べていく．</p>
+<p>まずELBOを分解すると（積分変数を<span class="math inline">\eta '</span>としている）</p>
+<p><span class="math display">
 \begin{align} \text{ELBO} &amp;= \int \int p'(\eta') p''(\theta) \left( \log p(X, \eta', \theta; \beta) - \log p'(\eta') - \log p''(\theta) \right) d\eta' d\theta \\ &amp;= \int p'(\eta') \left[ \int p''(\theta) \log p(X, \eta', \theta; \beta) d\theta \right] d\eta' \\ &amp;\quad - \int p'(\eta') \log p'(\eta') \underbrace{\left[ \int p''(\theta) d\theta \right]}_{= 1} d\eta' \\ &amp;\quad - \underbrace{\left[ \int p'(\eta') d\eta' \right]}_{= 1} \int p''(\theta) \log p''(\theta) d\theta \\ &amp;= \int p'(\eta') \left[ \int p''(\theta) \log p(X, \eta', \theta; \beta) d\theta \right] d\eta' - \int p'(\eta') \log p'(\eta') d\eta' - \text{Const} \end{align}
 </span></p>
 <p>このELBOをある点<span class="math inline">\eta</span>における<span class="math inline">p(\eta)</span>で関数偏微分，いわゆる変分微分をする．</p>
@@ -339,27 +360,23 @@ window.Quarto = {
 <li>基本となる恒等式
 <ol type="1">
 <li>普通の微分 <span class="math display">
-     \frac {\partial x_i}{\partial x_j} = \delta_{ij}
+  \frac {\partial x_i}{\partial x_j} = \delta_{ij}
 </span> (余談だがこれは(0,2)型テンソルの単位である．(1,1)型テンソル，すなわち行列にしたかったら<span class="math inline">x^i</span>にしないといけない．)</li>
 <li>変分微分 <span class="math inline">\delta</span>で書く <span class="math display">
-     \frac{\delta p(x')}{\delta p(x)} = \delta(x' - x)
+  \frac{\delta p(x')}{\delta p(x)} = \delta(x' - x)
 </span> これはイメージとしては，変数が無限にあるベクトルの一点をクロネッカーデルタとして取ると，ディラックのデルタになるということである．</li>
 </ol></li>
 <li>線型性が成立する（微分なので）</li>
 <li>ライプニッツルールが成立する（微分なので）</li>
-<li>チェーンルール
-<ol type="1">
-<li>汎関数が普通の関数に包まれているとき <span class="math display">
-\frac \delta{\delta p(x)} f(I[p]) = f'(I[p]) \frac {\delta I[p]}{\delta p(x)}
-</span> 具体例 <span class="math display">
-\frac{\delta}{\delta p(x)} \exp\left( \int p(t) \, dt \right) = \exp\left( \int p(t) \, dt \right) \cdot 1
-</span></li>
-<li>積分の内側で関数が変換されている場合 <span class="math display">
-\frac \delta{\delta p(x)} \int f(p(t)) dt = f'(p(t))
-</span> 具体例 <span class="math display">
-     \frac \delta {\delta p(x)} \int p(t)\log p(t) dt = \log p(x) + 1
-     </span> これらを用いてELBOの変分微分を行う．</li>
-</ol></li>
+<li>チェーンルール 1. 汎関数が普通の関数に包まれているとき <span class="math display">
+     \frac \delta{\delta p(x)} f(I[p]) = f'(I[p]) \frac {\delta I[p]}{\delta p(x)}
+     </span> 具体例 <span class="math display">
+     \frac{\delta}{\delta p(x)} \exp\left( \int p(t) \, dt \right) = \exp\left( \int p(t) \, dt \right) \cdot 1
+     </span> 2. 積分の内側で関数が変換されている場合 <span class="math display">
+     \frac \delta{\delta p(x)} \int f(p(t)) dt = f'(p(t))
+     </span> 具体例 <span class="math display">
+         \frac \delta {\delta p(x)} \int p(t)\log p(t) dt = \log p(x) + 1
+         </span> これらを用いてELBOの変分微分を行う．</li>
 </ol>
 </section>
 <section id="続き" class="level3">
@@ -370,23 +387,36 @@ window.Quarto = {
 \frac \delta {\delta p'(\eta)} ELBO
 &amp; = \frac \delta {\delta p'(\eta)} \bigg( \int p'(\eta') \left[ \int p''(\theta) \log p(X, \eta', \theta; \beta) d\theta \right] d\eta' - \int p'(\eta') \log p'(\eta') d\eta' - \text{Const} \bigg) \\
 &amp;= \int \delta(\eta' - \eta)\left[ \int p''(\theta) \log p(X, \eta', \theta; \beta) d\theta \right] d \eta' -\log p'(\eta) -1 \\
-&amp; =  \int p''(\theta) \log p(X, \eta, \theta; \beta) d\theta -\log p'(\eta) -1    
+&amp; =  \int p''(\theta) \log p(X, \eta, \theta; \beta) d\theta -\log p'(\eta) -1
 \end{align}
-</span> となる．ここで，確率密度関数としての制約条件 <span class="math inline">\int p'(\eta) d\eta = 1</span> を満たしつつ極値を求めるために，ラグランジュの未定乗数法を用いる．</p>
-<p>ラグランジュ乗数 <span class="math inline">\lambda</span> を用いて，以下のようにラグランジュ関数 <span class="math inline">L</span> を構成する． <span class="math display">
+</span></p>
+<p>となる．ここで，確率密度関数としての制約条件 <span class="math inline">\int p'(\eta) d\eta = 1</span> を満たしつつ極値を求めるために，ラグランジュの未定乗数法を用いる．</p>
+<p>ラグランジュ乗数 <span class="math inline">\lambda</span> を用いて，以下のようにラグランジュ関数 <span class="math inline">L</span> を構成する．</p>
+<p><span class="math display">
 L = \text{ELBO} + \lambda \left( \int p'(\eta) d\eta - 1 \right)
-</span> 制約付き最適化問題の極値条件は， <span class="math inline">\frac{\delta L}{\delta p'(\eta)} = 0</span> となることなので， <span class="math display">
+</span></p>
+<p>制約付き最適化問題の極値条件は， <span class="math inline">\frac{\delta L}{\delta p'(\eta)} = 0</span> となることなので，</p>
+<p><span class="math display">
 \frac{\delta L}{\delta p'(\eta)} = \frac{\delta \text{ELBO}}{\delta p'(\eta)} + \lambda = 0
-</span> に先ほどの変分微分の結果を代入すると， <span class="math display">
+</span></p>
+<p>に先ほどの変分微分の結果を代入すると，</p>
+<p><span class="math display">
 \int p''(\theta) \log p(X, \eta, \theta; \beta) d\theta -\log p'(\eta) -1 + \lambda = 0
-</span> となる．これを <span class="math inline">\log p'(\eta)</span> について整理すると， <span class="math display">
+</span></p>
+<p>となる．これを <span class="math inline">\log p'(\eta)</span> について整理すると，</p>
+<p><span class="math display">
 \log p'(\eta) = \int p''(\theta) \log p(X, \eta, \theta; \beta) d\theta + \lambda - 1
-</span> 両辺の指数（ <span class="math inline">\exp</span> ）をとることで， <span class="math inline">p'(\eta)</span> の最適解の条件が得られる． <span class="math display">
+</span></p>
+<p>両辺の指数（ <span class="math inline">\exp</span> ）をとることで， <span class="math inline">p'(\eta)</span> の最適解の条件が得られる．</p>
+<p><span class="math display">
 p'(\eta) = e^{\lambda - 1} \exp\left( \int p''(\theta) \log p(X, \eta, \theta; \beta) d\theta \right)
-</span> ここで， <span class="math inline">e^{\lambda - 1}</span> は変数 <span class="math inline">\eta</span> に依存しない定数（規格化定数）であるため，これを比例記号 <span class="math inline">\propto</span> に置き換えて，以下の形に整理できる． <span class="math display">
+</span></p>
+<p>ここで， <span class="math inline">e^{\lambda - 1}</span> は変数 <span class="math inline">\eta</span> に依存しない定数（規格化定数）であるため，これを比例記号 <span class="math inline">\propto</span> に置き換えて，以下の形に整理できる．</p>
+<p><span class="math display">
 p'(\eta) \propto \exp\left( \int p''(\theta) \log p(X, \eta, \theta; \beta) d\theta \right)
 </span></p>
-<p>全く同様の手続きを <span class="math inline">p''(\theta)</span> に対しても行うと，以下の最適解が得られる． <span class="math display">
+<p>全く同様の手続きを <span class="math inline">p''(\theta)</span> に対しても行うと，以下の最適解が得られる．</p>
+<p><span class="math display">
 p''(\theta) \propto \exp\left( \int p'(\eta) \log p(X, \eta, \theta; \beta) d\eta \right)
 </span></p>
 <p>ここで，数学的な矛盾に直面する． 制約条件を満たす最適解として得られたこの2つの式は，互いの分布を必要としている．すなわち， <span class="math inline">p'(\eta)</span> を決定するためには <span class="math inline">p''(\theta)</span> が必要であり， <span class="math inline">p''(\theta)</span> を決定するためには <span class="math inline">p'(\eta)</span> が必要というデッドロック状態にあり，この2つの方程式を同時に解くことはできない．</p>
@@ -428,11 +458,11 @@ p''(\theta) \propto \exp\left( \int p'(\eta) \log p(X, \eta, \theta; \beta) d\et
 <p>共役事前分布の関係となっているので解析的に更新式が求まる．</p>
 <section id="vb-eステップ" class="level4">
 <h4 class="anchored" data-anchor-id="vb-eステップ">VB-Eステップ</h4>
-<p><span class="math display"> \lambda_N = \lambda_0 + N \cdot E[\tau] </span> <span class="math display"> \mu_N = \frac{\lambda_0 \mu_0 + E[\tau]\sum_{n=1}^N x_n}{\lambda_N} </span></p>
+<p><span class="math display"> \lambda*N = \lambda_0 + N \cdot E[\tau] </span> <span class="math display"> \mu_N = \frac{\lambda_0 \mu_0 + E[\tau]\sum*{n=1}^N x_n}{\lambda_N} </span></p>
 </section>
 <section id="vb-mステップ" class="level4">
 <h4 class="anchored" data-anchor-id="vb-mステップ">VB-Mステップ</h4>
-<p><span class="math display"> a_N = a_0 + \frac{N}{2} </span> <span class="math display"> b_N = b_0 + \frac{1}{2}\sum_{n=1}^N (x_n - \mu_N)^2 + \frac{N}{2\lambda_N} </span></p>
+<p><span class="math display"> a*N = a_0 + \frac{N}{2} </span> <span class="math display"> b_N = b_0 + \frac{1}{2}\sum*{n=1}^N (x_n - \mu_N)^2 + \frac{N}{2\lambda_N} </span></p>
 </section>
 <section id="コード" class="level3">
 <h3 class="anchored" data-anchor-id="コード">コード</h3>
@@ -443,8 +473,8 @@ p''(\theta) \propto \exp\left( \int p'(\eta) \log p(X, \eta, \theta; \beta) d\et
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> gamma, norm</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> vb_e_step(X, E_tau, mu_0, lambda_0):</span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
@@ -456,8 +486,8 @@ p''(\theta) \propto \exp\left( \int p'(\eta) \log p(X, \eta, \theta; \beta) d\et
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="cf">return</span> mu_N, lambda_N</span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> vb_m_step(X, mu_N, lambda_N, a_0, b_0):</span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
@@ -471,14 +501,14 @@ p''(\theta) \propto \exp\left( \int p'(\eta) \log p(X, \eta, \theta; \beta) d\et
 <span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="cf">return</span> a_N, b_N, E_tau</span>
 <span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_results(X, mu_N, lambda_N, a_N, b_N):</span>
 <span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">4</span>))</span>
 <span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>mu_axis <span class="op">=</span> np.linspace(</span>
 <span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
@@ -490,7 +520,7 @@ p''(\theta) \propto \exp\left( \int p'(\eta) \log p(X, \eta, \theta; \beta) d\et
 <span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].set_title(<span class="st">"q(mu)"</span>)</span>
 <span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>tau_axis <span class="op">=</span> np.linspace(</span>
 <span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a></span>
@@ -506,7 +536,7 @@ p''(\theta) \propto \exp\left( \int p'(\eta) \log p(X, \eta, \theta; \beta) d\et
 <span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].set_title(<span class="st">"q(tau)"</span>)</span>
 <span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>x_axis <span class="op">=</span> np.linspace(<span class="bu">min</span>(X) <span class="op">-</span> <span class="dv">2</span>, <span class="bu">max</span>(X) <span class="op">+</span> <span class="dv">2</span>, <span class="dv">500</span>)</span>
 <span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a></span>
@@ -522,12 +552,12 @@ p''(\theta) \propto \exp\left( \int p'(\eta) \log p(X, \eta, \theta; \beta) d\et
 <span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">2</span>].legend()</span>
 <span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
 <span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> np.array([<span class="fl">1.2</span>, <span class="fl">1.8</span>, <span class="fl">2.2</span>, <span class="fl">2.8</span>, <span class="fl">3.0</span>])</span>
 <span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a></span>
@@ -535,11 +565,11 @@ p''(\theta) \propto \exp\left( \int p'(\eta) \log p(X, \eta, \theta; \beta) d\et
 <span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>a_0, b_0 <span class="op">=</span> <span class="fl">1.0</span>, <span class="fl">1.0</span></span>
 <span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>E_tau <span class="op">=</span> a_0 <span class="op">/</span> b_0</span>
 <span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):</span>
 <span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a></span>
@@ -547,7 +577,7 @@ p''(\theta) \propto \exp\left( \int p'(\eta) \log p(X, \eta, \theta; \beta) d\et
 <span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>a_N, b_N, E_tau <span class="op">=</span> vb_m_step(X, mu_N, lambda_N, a_0, b_0)</span>
 <span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a>plot_results(X, mu_N, lambda_N, a_N, b_N)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
