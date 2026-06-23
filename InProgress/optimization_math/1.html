@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Zawaの勉強記録</title>
+<title>最適化の基礎 – Zawaの勉強記録</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,23 +26,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-48d31611f1c1daf173a6ee5e3799dc94.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-48d31611f1c1daf173a6ee5e3799dc94.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -72,7 +72,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light">
@@ -82,7 +82,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Zawaの勉強記録</span>
     </a>
   </div>
@@ -93,11 +93,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./intro.html"> 
+    <a class="nav-link" href="../../intro.html"> 
 <span class="menu-text">はじめに</span></a>
   </li>  
 </ul>
@@ -118,7 +118,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Zawaの勉強記録</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">最適化の基礎</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -141,25 +141,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Published/bayesian_inference/1.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/bayesian_inference/1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">モンテカルロ法</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Published/bayesian_inference/2.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/bayesian_inference/2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ベイズ推定におけるモデル選択</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Published/bayesian_inference/3.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/bayesian_inference/3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ベイズ推定におけるモデル選択（続き）</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Published/bayesian_inference/4.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/bayesian_inference/4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">VB-EMアルゴリズム</span></a>
   </div>
 </li>
@@ -176,13 +176,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Published/equilibrium_stat_mech/1.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/equilibrium_stat_mech/1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">リウビルの定理と等確率の原理</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Published/equilibrium_stat_mech/2.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/equilibrium_stat_mech/2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ボルツマンの原理</span></a>
   </div>
 </li>
@@ -199,13 +199,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Published/information_geometry/1.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/information_geometry/1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">双対空間</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Published/information_geometry/2.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/information_geometry/2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">多様体と接空間</span></a>
   </div>
 </li>
@@ -220,25 +220,15 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#お知らせ" id="toc-お知らせ" class="nav-link active" data-scroll-target="#お知らせ">お知らせ</a></li>
-  <li><a href="#はじめに" id="toc-はじめに" class="nav-link" data-scroll-target="#はじめに">はじめに</a></li>
-  <li><a href="#githubページ" id="toc-githubページ" class="nav-link" data-scroll-target="#githubページ">GitHubページ</a></li>
-  <li><a href="#公開済みコンテンツ" id="toc-公開済みコンテンツ" class="nav-link" data-scroll-target="#公開済みコンテンツ">公開済みコンテンツ</a></li>
-  <li><a href="#執筆中コンテンツ" id="toc-執筆中コンテンツ" class="nav-link" data-scroll-target="#執筆中コンテンツ">執筆中コンテンツ</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Zawaの勉強記録</h1>
+<h1 class="title">最適化の基礎</h1>
 </div>
 
 
@@ -255,47 +245,8 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="お知らせ" class="level2">
-<h2 class="anchored" data-anchor-id="お知らせ">お知らせ</h2>
-<ul>
-<li>2026-06-23: <a href="./News/pr.html">パターン認識コンテンツの作成予定</a></li>
-</ul>
-</section>
-<section id="はじめに" class="level2">
-<h2 class="anchored" data-anchor-id="はじめに">はじめに</h2>
-<p><a href="./intro.html">はじめに</a></p>
-</section>
-<section id="githubページ" class="level2">
-<h2 class="anchored" data-anchor-id="githubページ">GitHubページ</h2>
-<p><a href="https://github.com/IR25721/Zawa25721_documents#">GitHub Repository</a>：指摘などはここからIssueを立ててください．</p>
-</section>
-<section id="公開済みコンテンツ" class="level2">
-<h2 class="anchored" data-anchor-id="公開済みコンテンツ">公開済みコンテンツ</h2>
-<div class="grid">
-<section id="ベイズ推論" class="level3 g-col-12 g-col-md-4">
-<h3 class="anchored" data-anchor-id="ベイズ推論"><a href="./Published/bayesian_inference/1.html"><img src="Published/bayesian_inference/bayesian_inference.gif" width="40" style="vertical-align: middle; border-radius: 50%; margin-right: 8px;">ベイズ推論</a></h3>
-</section>
-<section id="平衡系統計力学" class="level3 g-col-12 g-col-md-4">
-<h3 class="anchored" data-anchor-id="平衡系統計力学"><a href="./Published/equilibrium_stat_mech/1.html"><img src="Published/equilibrium_stat_mech/equilibrium_stat_mech.jpg" width="40" style="vertical-align: middle; border-radius: 50%; margin-right: 8px;">平衡系統計力学</a></h3>
-</section>
-<section id="情報幾何学" class="level3 g-col-12 g-col-md-4">
-<h3 class="anchored" data-anchor-id="情報幾何学"><a href="./Published/information_geometry/1.html"><img src="Published/information_geometry/information_geometry.jpg" width="40" style="vertical-align: middle; border-radius: 50%; margin-right: 8px;">情報幾何学</a></h3>
-</section>
-<section id="最適化数学-記事なし" class="level3 g-col-12 g-col-md-4">
-<h3 class="anchored" data-anchor-id="最適化数学-記事なし"><img src="Published/optimization_math/optimization_math.jpg" width="40" style="vertical-align: middle; border-radius: 50%; margin-right: 8px;">最適化数学 (記事なし)</h3>
-</section>
-</div>
-</section>
-<section id="執筆中コンテンツ" class="level2">
-<h2 class="anchored" data-anchor-id="執筆中コンテンツ">執筆中コンテンツ</h2>
-<ul>
-<li>【PR】 (1.md タイトル未設定)</li>
-<li>【平衡系統計力学】 (3.md タイトル未設定)</li>
-<li>【最適化数学】 最適化の基礎</li>
-</ul>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
