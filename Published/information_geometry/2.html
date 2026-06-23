@@ -270,10 +270,27 @@ window.Quarto = {
    
   <ul>
   <li><a href="#はじめに" id="toc-はじめに" class="nav-link active" data-scroll-target="#はじめに">はじめに</a></li>
+  <li><a href="#多様体の数学的な定義" id="toc-多様体の数学的な定義" class="nav-link" data-scroll-target="#多様体の数学的な定義">多様体の数学的な定義</a>
+  <ul class="collapse">
+  <li><a href="#の条件について" id="toc-の条件について" class="nav-link" data-scroll-target="#の条件について">1の条件について</a></li>
+  </ul></li>
+  <li><a href="#の条件について-1" id="toc-の条件について-1" class="nav-link" data-scroll-target="#の条件について-1">2の条件について</a>
+  <ul class="collapse">
+  <li><a href="#多様体上の微分積分" id="toc-多様体上の微分積分" class="nav-link" data-scroll-target="#多様体上の微分積分">多様体上の微分積分</a></li>
+  </ul></li>
+  <li><a href="#接ベクトル" id="toc-接ベクトル" class="nav-link" data-scroll-target="#接ベクトル">接ベクトル</a>
+  <ul class="collapse">
+  <li><a href="#接ベクトルの定義抽象的に" id="toc-接ベクトルの定義抽象的に" class="nav-link" data-scroll-target="#接ベクトルの定義抽象的に">接ベクトルの定義(抽象的に)</a></li>
+  <li><a href="#上の議論の疑問" id="toc-上の議論の疑問" class="nav-link" data-scroll-target="#上の議論の疑問">上の議論の疑問</a></li>
+  </ul></li>
   <li><a href="#接空間" id="toc-接空間" class="nav-link" data-scroll-target="#接空間">接空間</a>
   <ul class="collapse">
   <li><a href="#定義" id="toc-定義" class="nav-link" data-scroll-target="#定義">定義</a></li>
   <li><a href="#t_pmの基底" id="toc-t_pmの基底" class="nav-link" data-scroll-target="#t_pmの基底"><span class="math inline">T_pM</span>の基底</a></li>
+  </ul></li>
+  <li><a href="#双対空間t_pm" id="toc-双対空間t_pm" class="nav-link" data-scroll-target="#双対空間t_pm">双対空間<span class="math inline">T^*_pM</span></a>
+  <ul class="collapse">
+  <li><a href="#微分" id="toc-微分" class="nav-link" data-scroll-target="#微分">微分</a></li>
   </ul></li>
   <li><a href="#まとめ" id="toc-まとめ" class="nav-link" data-scroll-target="#まとめ">まとめ</a></li>
   <li><a href="#お気持ち表明" id="toc-お気持ち表明" class="nav-link" data-scroll-target="#お気持ち表明">お気持ち表明</a></li>
@@ -304,7 +321,10 @@ window.Quarto = {
 
 <section id="はじめに" class="level2">
 <h2 class="anchored" data-anchor-id="はじめに">はじめに</h2>
-<p>さて，多様体の定義を書くが，私は数学科ではないので，この定義をほとんんど理解していない．というか理解する必要あるのだろうか．いちおうイメージでは理解はしているつもりだし，教科書もこれを丸暗記することはないというかそんな感じのことを言っているので，数学的に正しい定義よりも，イメージで覚えて行くほうが私にとっては大事なのかなと認識している． あと接ベクトルの抽象的な定義が出てくるが，これは初めて学ぶ人にとってみれば奇妙な考えだと思うので，疑問に思ったらAIと徹底的に議論したり教科書をじっくり読むなどすれば良いと思う．あとここからアインシュタイン縮約記法を使っていく． ## 多様体の数学的な定義</p>
+<p>さて，多様体の定義を書くが，私は数学科ではないので，この定義をほとんんど理解していない．というか理解する必要あるのだろうか．いちおうイメージでは理解はしているつもりだし，教科書もこれを丸暗記することはないというかそんな感じのことを言っているので，数学的に正しい定義よりも，イメージで覚えて行くほうが私にとっては大事なのかなと認識している． あと接ベクトルの抽象的な定義が出てくるが，これは初めて学ぶ人にとってみれば奇妙な考えだと思うので，疑問に思ったらAIと徹底的に議論したり教科書をじっくり読むなどすれば良いと思う．あとここからアインシュタイン縮約記法を使っていく．</p>
+</section>
+<section id="多様体の数学的な定義" class="level2">
+<h2 class="anchored" data-anchor-id="多様体の数学的な定義">多様体の数学的な定義</h2>
 <p>集合<span class="math inline">M</span>が以下の条件を満たすとき，<span class="math inline">M</span>を<span class="math inline">n</span>次元<span class="math inline">C^{r}</span> 級可微分多様体と言う．</p>
 <ol type="1">
 <li><span class="math inline">M</span>は可算基を持つHausdorff空間</li>
@@ -315,19 +335,44 @@ window.Quarto = {
 \end{align*}
 </span></li>
 </ol>
-<p>図での説明 <img src="IMG_20260622_162720.jpg" class="img-fluid"> ### 1の条件について この定義は，病的な対象を排除するための要請であるので，説明を割愛する． ## 2の条件について</p>
-<p>まずここに登場するペア<span class="math inline">(U_{\alpha} , \psi_{\alpha})</span>を座標近傍またはチャート（地図）という．その全体<span class="math inline">\{  (U_{\alpha} , \psi_{\alpha}), \alpha \in A  \}</span>のことをアトラス（地図帳）という．また各写像<span class="math inline">\psi_{\alpha}</span>を局所座標系とよび，2-3に登場する写像 <span class="math inline">\psi_{\beta} \circ \psi_{\alpha}^{-1}</span>を座標変換という． 重要な点は，地球儀と，地図帳は一対一対応しているという点である． 地球儀の一部と地図を変換する関数が<span class="math inline">\psi</span>である． ここで，チャートの空間は<span class="math inline">\mathbb R^n</span>である． ### 多様体上の微分積分</p>
-<p>多様体<span class="math inline">M</span>上で定義された関数<span class="math inline">f : M \rightarrow \mathbb R</span> が<span class="math inline">C^r</span>級とは<span class="math inline">M</span>の任意の座標近傍<span class="math inline">(U_{\alpha},\psi _{\alpha})</span>に対し， <span class="math inline">f \circ \psi^{-1}_{\alpha} : \psi_{\alpha} (U_{\alpha}) \rightarrow \mathbb R</span>が<span class="math inline">C^r</span>級であることとする. <span class="math inline">n</span>次元多様体<span class="math inline">M</span>と<span class="math inline">k</span>次元多様体<span class="math inline">N</span>への写像<span class="math inline">f : M \rightarrow N</span>が<span class="math inline">C^r</span>級であるとは， <span class="math inline">M,N</span>のアトラスをそれぞれ<span class="math inline">\{ (U_{\alpha},\psi_{\alpha}) \},\{ (W_{\beta},\phi_{\beta}) \}</span>とするとき， <span class="math inline">f(U_{\alpha}) \cap W_{\beta} \neq \emptyset</span>なる全ての<span class="math inline">\alpha,\beta</span>について <span class="math inline">\phi_{\beta} \circ f \circ \psi^{-1}_{\alpha} : \psi_{\alpha}(U_{\alpha}) \rightarrow \phi_{\beta}(W_{\beta})</span>が<span class="math inline">C^r</span>級であることと定義する． だが，いちいちこう書くのはめんどくさいので，単に<span class="math inline">f</span>と書く． ## 接ベクトル</p>
-<p>多様体上で接ベクトルを考えることは簡単なことではない．接ベクトルとは，空間のある一点に接しているベクトルの集合だが，これは外側の世界を考えている．これではいけない．多様体の中で閉じた形で記述したい． どうするのが良いのか．いったん幾何学的イメージを捨てて，接ベクトルが満たすべき抽象的な性質を定義として採用する． ### 接ベクトルの定義(抽象的に) 多様体<span class="math inline">M</span>上の点<span class="math inline">p</span>における接ベクトル<span class="math inline">v</span>とは各<span class="math inline">f \in C^{\infty}(M)</span>に対し，実数<span class="math inline">v(f)</span> を対応させる写像であって，次の性質を満たす 1. 線型性 2. Leibniz則 <span class="math display">
-    v(fg) = v(f)g(p) + f(p)v(g)
-    </span> ではこの定義の背景には，接ベクトルとは，曲線に沿った方向微分のことであるという着想がある．<span class="math inline">p \in M</span>を通る<span class="math inline">M</span>上のなめらかな曲線<span class="math inline">C = {p(t) ; p(0) = p}</span>を考える．さらに<span class="math inline">M</span>上のなめらかな関数<span class="math inline">f</span>が任意に指定されたとすると，曲線<span class="math inline">C</span>と関数<span class="math inline">f</span>を合成することにより，<span class="math inline">C</span>上の一変数関数が定まり，したがってこの関数の<span class="math inline">t = 0</span>での変化率 <span class="math display">
+<p>図での説明 <img src="IMG_20260622_162720.jpg" class="img-fluid"></p>
+<section id="の条件について" class="level3">
+<h3 class="anchored" data-anchor-id="の条件について">1の条件について</h3>
+<p>この定義は，病的な対象を排除するための要請であるので，説明を割愛する．</p>
+</section>
+</section>
+<section id="の条件について-1" class="level2">
+<h2 class="anchored" data-anchor-id="の条件について-1">2の条件について</h2>
+<p>まずここに登場するペア<span class="math inline">(U_{\alpha} , \psi_{\alpha})</span>を座標近傍またはチャート（地図）という．その全体<span class="math inline">\{  (U_{\alpha} , \psi_{\alpha}), \alpha \in A  \}</span>のことをアトラス（地図帳）という．また各写像<span class="math inline">\psi_{\alpha}</span>を局所座標系とよび，2-3に登場する写像 <span class="math inline">\psi_{\beta} \circ \psi_{\alpha}^{-1}</span>を座標変換という． 重要な点は，地球儀と，地図帳は一対一対応しているという点である． 地球儀の一部と地図を変換する関数が<span class="math inline">\psi</span>である． ここで，チャートの空間は<span class="math inline">\mathbb R^n</span>である．</p>
+<section id="多様体上の微分積分" class="level3">
+<h3 class="anchored" data-anchor-id="多様体上の微分積分">多様体上の微分積分</h3>
+<p>多様体<span class="math inline">M</span>上で定義された関数<span class="math inline">f : M \rightarrow \mathbb R</span> が<span class="math inline">C^r</span>級とは<span class="math inline">M</span>の任意の座標近傍<span class="math inline">(U_{\alpha},\psi _{\alpha})</span>に対し， <span class="math inline">f \circ \psi^{-1}_{\alpha} : \psi_{\alpha} (U_{\alpha}) \rightarrow \mathbb R</span>が<span class="math inline">C^r</span>級であることとする. <span class="math inline">n</span>次元多様体<span class="math inline">M</span>と<span class="math inline">k</span>次元多様体<span class="math inline">N</span>への写像<span class="math inline">f : M \rightarrow N</span>が<span class="math inline">C^r</span>級であるとは， <span class="math inline">M,N</span>のアトラスをそれぞれ<span class="math inline">\{ (U_{\alpha},\psi_{\alpha}) \},\{ (W_{\beta},\phi_{\beta}) \}</span>とするとき， <span class="math inline">f(U_{\alpha}) \cap W_{\beta} \neq \emptyset</span>なる全ての<span class="math inline">\alpha,\beta</span>について <span class="math inline">\phi_{\beta} \circ f \circ \psi^{-1}_{\alpha} : \psi_{\alpha}(U_{\alpha}) \rightarrow \phi_{\beta}(W_{\beta})</span>が<span class="math inline">C^r</span>級であることと定義する． だが，いちいちこう書くのはめんどくさいので，単に<span class="math inline">f</span>と書く．</p>
+</section>
+</section>
+<section id="接ベクトル" class="level2">
+<h2 class="anchored" data-anchor-id="接ベクトル">接ベクトル</h2>
+<p>多様体上で接ベクトルを考えることは簡単なことではない．接ベクトルとは，空間のある一点に接しているベクトルの集合だが，これは外側の世界を考えている．これではいけない．多様体の中で閉じた形で記述したい． どうするのが良いのか．いったん幾何学的イメージを捨てて，接ベクトルが満たすべき抽象的な性質を定義として採用する．</p>
+<section id="接ベクトルの定義抽象的に" class="level3">
+<h3 class="anchored" data-anchor-id="接ベクトルの定義抽象的に">接ベクトルの定義(抽象的に)</h3>
+<p>多様体<span class="math inline">M</span>上の点<span class="math inline">p</span>における接ベクトル<span class="math inline">v</span>とは各<span class="math inline">f \in C^{\infty}(M)</span>に対し，実数<span class="math inline">v(f)</span> を対応させる写像であって，次の性質を満たす</p>
+<ol type="1">
+<li>線型性</li>
+<li>Leibniz則 <span class="math display">
+v(fg) = v(f)g(p) + f(p)v(g)
+</span> ではこの定義の背景には，接ベクトルとは，曲線に沿った方向微分のことであるという着想がある．<span class="math inline">p \in M</span>を通る<span class="math inline">M</span>上のなめらかな曲線<span class="math inline">C = {p(t) ; p(0) = p}</span>を考える．さらに<span class="math inline">M</span>上のなめらかな関数<span class="math inline">f</span>が任意に指定されたとすると，曲線<span class="math inline">C</span>と関数<span class="math inline">f</span>を合成することにより，<span class="math inline">C</span>上の一変数関数が定まり，したがってこの関数の<span class="math inline">t = 0</span>での変化率 <span class="math display">
 \left.  v(f) = \frac{d}{dt} f(p(t)) \right|_{t=0}
-</span> も定まる． ### 上の議論の疑問 さて，疑問としてなぜ急に曲線を考えるのかという話になってくる．それは多様体の微分を一変数微分に落とし込みたいという動機から生まれる． まず，多様体の微分を素直に書くと（次の式は定義できない） <span class="math display">
+</span> も定まる．</li>
+</ol>
+</section>
+<section id="上の議論の疑問" class="level3">
+<h3 class="anchored" data-anchor-id="上の議論の疑問">上の議論の疑問</h3>
+<p>さて，疑問としてなぜ急に曲線を考えるのかという話になってくる．それは多様体の微分を一変数微分に落とし込みたいという動機から生まれる． まず，多様体の微分を素直に書くと（次の式は定義できない） <span class="math display">
 \lim_{h \rightarrow 0} \frac{f(p + h) - f(p)}{h}
 </span> となるが，これは<span class="math inline">p + h</span>が定義できないので，この式は意味をなさない． ここで<span class="math inline">p(t)</span>という曲線を定義する，まず<span class="math inline">p(t)</span>は<span class="math inline">\mathbb R \rightarrow M</span>である．次に<span class="math inline">f</span>は多様体上の点を実数に写す関数である．すなわち<span class="math inline">f : M \rightarrow \mathbb R</span>．ここで合成関数<span class="math inline">f  \circ p</span>の写像を考えると<span class="math inline">\mathbb R \rightarrow \mathbb R</span>となるので，これは一変数関数である なので微分の定義を用いて微分を定義できる. <span class="math display">
 \left. \frac{d}{dt} f(p(t)) \right|_{t=0} = \lim_{h \to 0} \frac{f(p(h)) - f(p(0))}{h}
 </span></p>
 <p><span class="math inline">p</span>も<span class="math inline">f</span>もどちらも<span class="math inline">M</span>の中で定義している．なのでこれは<span class="math inline">M</span>で完結している接ベクトルの定義となる．</p>
+</section>
 </section>
 <section id="接空間" class="level2">
 <h2 class="anchored" data-anchor-id="接空間">接空間</h2>
@@ -352,8 +397,9 @@ window.Quarto = {
 </span> となる．ここでこの微分は<span class="math inline">x^1</span>の方向しかしていない．すなわちこの微分は<span class="math inline">x^1</span>についての偏微分であると定義できる．すなわちここで偏微分を $$ ( {x^i} )<em>p = . {dt}(f <sup>{-1})(x</sup>1 + t, x^2) |</em>{t=0}</p>
 <p>$$ と定義する．(厳密な定義は<span class="math inline">n</span>次元でするべきであるが) 教科書は<span class="math inline">(f \circ \psi^{-1})</span>を<span class="math inline">f</span>と省略していることがわかる． この偏微分の組が<span class="math inline">T_pM</span>の基底となることを示していく．</p>
 <p>定理 <span class="math display">
-\left \{  \left( \frac{\partial}{\partial x^i} \right)  \right \}^n_{i=1}はT_pMの一つの基底である
-</span> これを確認していく． まずこれが一次独立であることを示す． すなわち <span class="math display">
+\left \{  \left( \frac{\partial}{\partial x^i} \right)  \right \}^n_{i=1} \text{は} T_pM \text{の一つの基底である}
+</span></p>
+<p>これを確認していく． まずこれが一次独立であることを示す． すなわち <span class="math display">
 a^i \left(\frac{\partial}{\partial x^i}\right)_p = 0
 </span> ですべての<span class="math inline">a^i</span>が<span class="math inline">0</span>になることを示せば良い． <span class="math display">
 a^i \frac {\partial f}{\partial x^i} (p) = 0
@@ -379,10 +425,20 @@ v(f(x)) = v(f(x_0)) + \frac{\partial f}{\partial x^i} (x_0)v(x^i - x^i_0) + v(G_
 <p><span class="math display">
 v(f) = \left( v(x^i) \frac{\partial}{\partial x^i} \right)_p(f)
 </span></p>
-<p>であることが分かるので定理は示された． なので偏微分が<span class="math inline">T_pM</span>の基底の一つになることが分かる． ## 双対空間<span class="math inline">T^*_pM</span> さて，<span class="math inline">T_pM</span>の双対空間について考える．<span class="math inline">T^*_pM</span>は余接空間と呼ばれる． 余接空間の基底は何だろうか．次の概念を導入する． ### 微分 <span class="math inline">f \in C^{\infty}(M)</span> が任意に与えられたとき</p>
+<p>であることが分かるので定理は示された． なので偏微分が<span class="math inline">T_pM</span>の基底の一つになることが分かる．</p>
+</section>
+</section>
+<section id="双対空間t_pm" class="level2">
+<h2 class="anchored" data-anchor-id="双対空間t_pm">双対空間<span class="math inline">T^*_pM</span></h2>
+<p>さて，<span class="math inline">T_pM</span>の双対空間について考える．<span class="math inline">T^*_pM</span>は余接空間と呼ばれる． 余接空間の基底は何だろうか．次の概念を導入する．</p>
+<section id="微分" class="level3">
+<h3 class="anchored" data-anchor-id="微分">微分</h3>
+<p><span class="math inline">f \in C^{\infty}(M)</span> が任意に与えられたとき</p>
 <p><span class="math display">
 (df)_p (v) = v(f)
-</span> で定まる線形汎関数<span class="math inline">(df)_p : T_pM \rightarrow \mathbb R</span>を<span class="math inline">p</span>における<span class="math inline">f</span>の微分という． <img src="IMG_20260623_145143.jpg" class="img-fluid">さて，はっきり言って謎である．なぜこれが急に微分としていいのか全くわからない．いったん抽象度を落として考えてみる． 平坦な2次元の座標空間 <span class="math inline">\mathbb{R}^2</span> において，関数 <span class="math inline">f</span> の変化を考える． 点 <span class="math inline">p</span> の座標を <span class="math inline">x^1(p)</span> と <span class="math inline">x^2(p)</span> とする．ここから位置を少し動かした点 <span class="math inline">p+h</span> を考え，このときのズレを表すベクトルを <span class="math inline">h = \begin{pmatrix} h^1 \\ h^2 \end{pmatrix}</span> とする．</p>
+</span> で定まる線形汎関数<span class="math inline">(df)_p : T_pM \rightarrow \mathbb R</span>を<span class="math inline">p</span>における<span class="math inline">f</span>の微分という．</p>
+<p><img src="IMG_20260623_145143.jpg" class="img-fluid"></p>
+<p>さて，はっきり言って謎である．なぜこれが急に微分としていいのか全くわからない．いったん抽象度を落として考えてみる． 平坦な2次元の座標空間 <span class="math inline">\mathbb{R}^2</span> において，関数 <span class="math inline">f</span> の変化を考える． 点 <span class="math inline">p</span> の座標を <span class="math inline">x^1(p)</span> と <span class="math inline">x^2(p)</span> とする．ここから位置を少し動かした点 <span class="math inline">p+h</span> を考え，このときのズレを表すベクトルを <span class="math inline">h = \begin{pmatrix} h^1 \\ h^2 \end{pmatrix}</span> とする．</p>
 <p>座標軸に沿ったそれぞれの増分 <span class="math inline">\Delta x^1, \Delta x^2</span> は，図のように座標関数の差として表される． <span class="math display">
 \Delta x^1 = x^1(p+h) - x^1(p) = h^1
 </span> <span class="math display">
