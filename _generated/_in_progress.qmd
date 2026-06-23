@@ -1,4 +1,3 @@
-- 【情報幾何学】 接空間
-- 【machine_learning_theory/venv/lib/python3.14/site-packages/pip/_vendor/idna】 (LICENSE.md タイトル未設定)
-- 【machine_learning_theory/venv/lib/python3.14/site-packages/pip-26.1.2.dist-info/licenses/src/pip/_vendor/idna】 (LICENSE.md タイトル未設定)
+- 【PR】 (1.md タイトル未設定)
+- 【平衡系統計力学】 (3.md タイトル未設定)
 - 【最適化数学】 最適化の基礎

@@ -2,6 +2,9 @@
 title: "Zawaの勉強記録"
 ---
 
+## お知らせ
+{{< include _generated/_news.qmd >}}
+
 ## はじめに
 [はじめに](intro.md)
 

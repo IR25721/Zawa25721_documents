@@ -43,8 +43,7 @@ def convert_obsidian_image_links():
     """
     import urllib.parse
     for root, dirs, files in os.walk("."):
-        if "_site" in root or ".git" in root or ".quarto" in root or "_generated" in root:
-            continue
+        dirs[:] = [d for d in dirs if not d.startswith('.') and d not in ['venv', '_site', '_generated', '__pycache__']]
         for f in files:
             if f.endswith(".md") or f.endswith(".qmd"):
                 filepath = os.path.join(root, f)
@@ -71,6 +70,7 @@ def generate_in_progress():
     lines = []
     if os.path.exists(in_progress_dir):
         for root, dirs, files in os.walk(in_progress_dir):
+            dirs[:] = [d for d in dirs if not d.startswith('.') and d not in ['venv', '_site', '_generated', '__pycache__']]
             dirs.sort()
             for f in sorted(files):
                 if f.endswith('.md'):
@@ -111,8 +111,9 @@ def generate_published():
                 
                 md_files = []
                 for root, dirs, files in os.walk(item_path):
+                    dirs[:] = [d for d in dirs if not d.startswith('.') and d not in ['venv', '_site', '_generated', '__pycache__']]
                     for f in files:
-                        if f.endswith('.md'):
+                        if f.endswith('.md') or f.endswith('.qmd'):
                             rel_path = os.path.relpath(os.path.join(root, f), item_path)
                             md_files.append(rel_path)
                             
@@ -203,9 +204,38 @@ def generate_git_history():
         else:
             f.write("履歴がありません。")
 
+def generate_news():
+    import datetime
+    news_dir = "News"
+    lines = []
+    if os.path.exists(news_dir):
+        news_files = []
+        for root, dirs, files in os.walk(news_dir):
+            dirs[:] = [d for d in dirs if not d.startswith('.') and d not in ['venv', '_site', '_generated', '__pycache__']]
+            for f in files:
+                if f.endswith('.md') or f.endswith('.qmd'):
+                    filepath = os.path.join(root, f)
+                    news_files.append((filepath, os.path.getmtime(filepath)))
+        
+        # Sort by modification time descending
+        news_files.sort(key=lambda x: x[1], reverse=True)
+        
+        for filepath, mtime in news_files:
+            title = get_md_title(filepath, os.path.basename(filepath))
+            date_str = datetime.datetime.fromtimestamp(mtime).strftime('%Y-%m-%d')
+            href = filepath.replace('\\', '/')
+            lines.append(f"- {date_str}: [{title}]({href})")
+    
+    with open("_generated/_news.qmd", "w", encoding="utf-8") as f:
+        if lines:
+            f.write("\n".join(lines))
+        else:
+            f.write("現在お知らせはありません。")
+
 if __name__ == "__main__":
     os.makedirs("_generated", exist_ok=True)
     convert_obsidian_image_links()
     generate_in_progress()
     generate_published()
     generate_git_history()
+    generate_news()
