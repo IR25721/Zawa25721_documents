@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>リウビルの定理と等確率の原理 – Zawaの勉強記録</title>
+<title>多様体と接空間 – Zawaの勉強記録</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -33,8 +33,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../Published/equilibrium_stat_mech/2.html" rel="next">
-<link href="../../Published/bayesian_inference/4.html" rel="prev">
+<link href="../../Published/information_geometry/1.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -163,7 +162,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/equilibrium_stat_mech/1.html">平衡系統計力学</a></li><li class="breadcrumb-item"><a href="../../Published/equilibrium_stat_mech/1.html">リウビルの定理と等確率の原理</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/information_geometry/1.html">情報幾何学</a></li><li class="breadcrumb-item"><a href="../../Published/information_geometry/2.html">多様体と接空間</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -221,7 +220,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Published/equilibrium_stat_mech/1.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../Published/equilibrium_stat_mech/1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">リウビルの定理と等確率の原理</span></a>
   </div>
 </li>
@@ -250,7 +249,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Published/information_geometry/2.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/information_geometry/2.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">多様体と接空間</span></a>
   </div>
 </li>
@@ -271,19 +270,22 @@ window.Quarto = {
    
   <ul>
   <li><a href="#はじめに" id="toc-はじめに" class="nav-link active" data-scroll-target="#はじめに">はじめに</a></li>
-  <li><a href="#n個の粒子の運動" id="toc-n個の粒子の運動" class="nav-link" data-scroll-target="#n個の粒子の運動">N個の粒子の運動</a></li>
-  <li><a href="#不確定性原理と状態数" id="toc-不確定性原理と状態数" class="nav-link" data-scroll-target="#不確定性原理と状態数">不確定性原理と状態数</a></li>
-  <li><a href="#等確率の原理とエルゴード性" id="toc-等確率の原理とエルゴード性" class="nav-link" data-scroll-target="#等確率の原理とエルゴード性">等確率の原理とエルゴード性</a></li>
+  <li><a href="#接空間" id="toc-接空間" class="nav-link" data-scroll-target="#接空間">接空間</a>
+  <ul class="collapse">
+  <li><a href="#定義" id="toc-定義" class="nav-link" data-scroll-target="#定義">定義</a></li>
+  <li><a href="#t_pmの基底" id="toc-t_pmの基底" class="nav-link" data-scroll-target="#t_pmの基底"><span class="math inline">T_pM</span>の基底</a></li>
+  </ul></li>
   <li><a href="#まとめ" id="toc-まとめ" class="nav-link" data-scroll-target="#まとめ">まとめ</a></li>
+  <li><a href="#お気持ち表明" id="toc-お気持ち表明" class="nav-link" data-scroll-target="#お気持ち表明">お気持ち表明</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/equilibrium_stat_mech/1.html">平衡系統計力学</a></li><li class="breadcrumb-item"><a href="../../Published/equilibrium_stat_mech/1.html">リウビルの定理と等確率の原理</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/information_geometry/1.html">情報幾何学</a></li><li class="breadcrumb-item"><a href="../../Published/information_geometry/2.html">多様体と接空間</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">リウビルの定理と等確率の原理</h1>
+<h1 class="title">多様体と接空間</h1>
 </div>
 
 
@@ -302,64 +304,138 @@ window.Quarto = {
 
 <section id="はじめに" class="level2">
 <h2 class="anchored" data-anchor-id="はじめに">はじめに</h2>
-<p>この記事群は統計力学の復習用ノートです．なぜ統計力学をやるんだという話ですが，まず機械学習と関わりがある部分があること，創発科学の一つであること，あとなにより第一原理から出発する学問をなにか一つ身につけたいと思ったからというのがあります．すなわち趣味です． とりあえず手元にあるマセマを一通りやってから，他の本に行こうと思っています．</p>
+<p>さて，多様体の定義を書くが，私は数学科ではないので，この定義をほとんんど理解していない．というか理解する必要あるのだろうか．いちおうイメージでは理解はしているつもりだし，教科書もこれを丸暗記することはないというかそんな感じのことを言っているので，数学的に正しい定義よりも，イメージで覚えて行くほうが私にとっては大事なのかなと認識している． あと接ベクトルの抽象的な定義が出てくるが，これは初めて学ぶ人にとってみれば奇妙な考えだと思うので，疑問に思ったらAIと徹底的に議論したり教科書をじっくり読むなどすれば良いと思う．あとここからアインシュタイン縮約記法を使っていく． ## 多様体の数学的な定義</p>
+<p>集合<span class="math inline">M</span>が以下の条件を満たすとき，<span class="math inline">M</span>を<span class="math inline">n</span>次元<span class="math inline">C^{r}</span> 級可微分多様体と言う．</p>
+<ol type="1">
+<li><span class="math inline">M</span>は可算基を持つHausdorff空間</li>
+<li>適当な集合<span class="math inline">A</span>を添え字集合とする<span class="math inline">M</span>の開集合の族<span class="math inline">\{ U_{\alpha} , \alpha \in A\}</span>と写像 <span class="math inline">\psi_{\alpha} : U_{\alpha} \rightarrow \mathbb R^n</span>の族 <span class="math inline">\{ \psi_{\alpha} \}</span>があって，以下の三条件を満たす <span class="math display">\begin{align*}
+&amp; 1. M = \bigcup_{\alpha \in A} U_{\alpha} \\
+&amp; 2.\psi_{\alpha} : U_{\alpha} \rightarrow \psi_{\alpha}(U_{\alpha}) \text{ は全単射で，} \psi_{\alpha} \text{ も } \psi_{\alpha}^{-1} \text{ も連続写像} \\
+&amp;3. U_{\alpha} \cap U_{\beta} \neq \emptyset \text{ ならば写像 } \psi_{\beta} \circ \psi_{\alpha}^{-1} : \psi_{\alpha}(U_{\alpha} \cap U_{\beta} ) \rightarrow \psi_{\beta}(U_{\alpha} \cap U_{\beta})はC^{r}級
+\end{align*}
+</span></li>
+</ol>
+<p>図での説明 <img src="IMG_20260622_162720.jpg" class="img-fluid"> ### 1の条件について この定義は，病的な対象を排除するための要請であるので，説明を割愛する． ## 2の条件について</p>
+<p>まずここに登場するペア<span class="math inline">(U_{\alpha} , \psi_{\alpha})</span>を座標近傍またはチャート（地図）という．その全体<span class="math inline">\{  (U_{\alpha} , \psi_{\alpha}), \alpha \in A  \}</span>のことをアトラス（地図帳）という．また各写像<span class="math inline">\psi_{\alpha}</span>を局所座標系とよび，2-3に登場する写像 <span class="math inline">\psi_{\beta} \circ \psi_{\alpha}^{-1}</span>を座標変換という． 重要な点は，地球儀と，地図帳は一対一対応しているという点である． 地球儀の一部と地図を変換する関数が<span class="math inline">\psi</span>である． ここで，チャートの空間は<span class="math inline">\mathbb R^n</span>である． ### 多様体上の微分積分</p>
+<p>多様体<span class="math inline">M</span>上で定義された関数<span class="math inline">f : M \rightarrow \mathbb R</span> が<span class="math inline">C^r</span>級とは<span class="math inline">M</span>の任意の座標近傍<span class="math inline">(U_{\alpha},\psi _{\alpha})</span>に対し， <span class="math inline">f \circ \psi^{-1}_{\alpha} : \psi_{\alpha} (U_{\alpha}) \rightarrow \mathbb R</span>が<span class="math inline">C^r</span>級であることとする. <span class="math inline">n</span>次元多様体<span class="math inline">M</span>と<span class="math inline">k</span>次元多様体<span class="math inline">N</span>への写像<span class="math inline">f : M \rightarrow N</span>が<span class="math inline">C^r</span>級であるとは， <span class="math inline">M,N</span>のアトラスをそれぞれ<span class="math inline">\{ (U_{\alpha},\psi_{\alpha}) \},\{ (W_{\beta},\phi_{\beta}) \}</span>とするとき， <span class="math inline">f(U_{\alpha}) \cap W_{\beta} \neq \emptyset</span>なる全ての<span class="math inline">\alpha,\beta</span>について <span class="math inline">\phi_{\beta} \circ f \circ \psi^{-1}_{\alpha} : \psi_{\alpha}(U_{\alpha}) \rightarrow \phi_{\beta}(W_{\beta})</span>が<span class="math inline">C^r</span>級であることと定義する． だが，いちいちこう書くのはめんどくさいので，単に<span class="math inline">f</span>と書く． ## 接ベクトル</p>
+<p>多様体上で接ベクトルを考えることは簡単なことではない．接ベクトルとは，空間のある一点に接しているベクトルの集合だが，これは外側の世界を考えている．これではいけない．多様体の中で閉じた形で記述したい． どうするのが良いのか．いったん幾何学的イメージを捨てて，接ベクトルが満たすべき抽象的な性質を定義として採用する． ### 接ベクトルの定義(抽象的に) 多様体<span class="math inline">M</span>上の点<span class="math inline">p</span>における接ベクトル<span class="math inline">v</span>とは各<span class="math inline">f \in C^{\infty}(M)</span>に対し，実数<span class="math inline">v(f)</span> を対応させる写像であって，次の性質を満たす 1. 線型性 2. Leibniz則 <span class="math display">
+    v(fg) = v(f)g(p) + f(p)v(g)
+    </span> ではこの定義の背景には，接ベクトルとは，曲線に沿った方向微分のことであるという着想がある．<span class="math inline">p \in M</span>を通る<span class="math inline">M</span>上のなめらかな曲線<span class="math inline">C = {p(t) ; p(0) = p}</span>を考える．さらに<span class="math inline">M</span>上のなめらかな関数<span class="math inline">f</span>が任意に指定されたとすると，曲線<span class="math inline">C</span>と関数<span class="math inline">f</span>を合成することにより，<span class="math inline">C</span>上の一変数関数が定まり，したがってこの関数の<span class="math inline">t = 0</span>での変化率 <span class="math display">
+\left.  v(f) = \frac{d}{dt} f(p(t)) \right|_{t=0}
+</span> も定まる． ### 上の議論の疑問 さて，疑問としてなぜ急に曲線を考えるのかという話になってくる．それは多様体の微分を一変数微分に落とし込みたいという動機から生まれる． まず，多様体の微分を素直に書くと（次の式は定義できない） <span class="math display">
+\lim_{h \rightarrow 0} \frac{f(p + h) - f(p)}{h}
+</span> となるが，これは<span class="math inline">p + h</span>が定義できないので，この式は意味をなさない． ここで<span class="math inline">p(t)</span>という曲線を定義する，まず<span class="math inline">p(t)</span>は<span class="math inline">\mathbb R \rightarrow M</span>である．次に<span class="math inline">f</span>は多様体上の点を実数に写す関数である．すなわち<span class="math inline">f : M \rightarrow \mathbb R</span>．ここで合成関数<span class="math inline">f  \circ p</span>の写像を考えると<span class="math inline">\mathbb R \rightarrow \mathbb R</span>となるので，これは一変数関数である なので微分の定義を用いて微分を定義できる. <span class="math display">
+\left. \frac{d}{dt} f(p(t)) \right|_{t=0} = \lim_{h \to 0} \frac{f(p(h)) - f(p(0))}{h}
+</span></p>
+<p><span class="math inline">p</span>も<span class="math inline">f</span>もどちらも<span class="math inline">M</span>の中で定義している．なのでこれは<span class="math inline">M</span>で完結している接ベクトルの定義となる．</p>
 </section>
-<section id="n個の粒子の運動" class="level2">
-<h2 class="anchored" data-anchor-id="n個の粒子の運動">N個の粒子の運動</h2>
-<p>ある3次元の箱の中にN個の粒子が運動しているとする．このとき粒子が持っている情報は，位置と運動量である．一つの粒子に対して6次元の情報があるので，N個に対しては6N次元の情報がある．ここで6N次元位相空間上の一点は，箱の中の情報を意味している．箱の中はエネルギーが保存されているとする．すると6N-1次元上の超平面空間の軌跡（トラジェクトリー）として箱の中の状態が記述される．</p>
-<p>ここで，この位相空間における重要な定理であるリウビルの定理を下に記述する．</p>
-<p><span class="math display">
-    位相空間上の微小体積要素がカノニカル方程式に従うとき，その体積要素は一定である
-</span></p>
-<p>６N次元でこれを示すのは難しいので，一つの粒子かつ１次元運動のみで考えてみる． 微小体積要素が一定であるとは，微小時間が経過してもそのヤコビアンが1となることを意味している．微小時間<span class="math inline">\Delta t</span>経過したあとの位置と運動量を<span class="math inline">p_1^{'},位置をq_1^{'}</span> とする． ヤコビアンは</p>
-<p><span class="math display">
-\begin{vmatrix}
-\frac \partial {\partial p_1} p_1^{'}&amp; \frac \partial {\partial q_1} p_1^{'} \\   &nbsp;&nbsp;&nbsp;\frac \partial {\partial p_1} q_1^{'}&amp; \frac \partial {\partial q_1} q_1^{'}
-\end{vmatrix} = 1
-</span> を満たすことを示したい． まずそれぞれの関係は</p>
-<p><span class="math display">
-\begin{align}
-q_1^{'} &amp;= q_1 + \frac {d}{dt}q_1  \Delta t \\
-p_1^{'} &amp;= p_1 + \frac {d}{dt}p_1  \Delta t
-\end{align}
-</span> である．ここでカノニカル方程式を用いれば，それぞれの微分値を書き換えることができる．</p>
-<p><span class="math display">
-\begin{align}
-q_1^{'} &amp;= q_1 + \frac {\partial}{\partial p_1}H  \Delta t \\
-p_1^{'} &amp;= p_1 - \frac {\partial}{\partial q_1}H  \Delta t
-\end{align}
-</span></p>
-<p>この式をヤコビアンに代入すると</p>
-<p><span class="math display">
-\begin{vmatrix}
-\frac \partial {\partial p_1} {(p_1 - \frac {\partial}{\partial q_1}H  \Delta t)} &amp; \frac \partial {\partial q_1} (p_1 - \frac {\partial}{\partial q_1}H  \Delta t) \\   &nbsp;&nbsp;&nbsp;\frac \partial {\partial p_1} {(q_1 + \frac {\partial}{\partial p_1}H  \Delta t)}&amp; \frac \partial {\partial q_1} (q_1 + \frac {\partial}{\partial p_1}H  \Delta t)
-\end{vmatrix} = 1
-</span></p>
-<p>これを計算すると，<span class="math inline">(\Delta t)^2</span>の項が出てくるが，これを０とみなせばヤコビアンが1となることがわかる．</p>
-<p>これを次元を増やして同様の計算をすれば，6N次元でも同様の結論が得れることがわかる．</p>
+<section id="接空間" class="level2">
+<h2 class="anchored" data-anchor-id="接空間">接空間</h2>
+<p>接ベクトルを理解できたら，接空間の定義は理解できるはずである</p>
+<section id="定義" class="level3">
+<h3 class="anchored" data-anchor-id="定義">定義</h3>
+<p><span class="math inline">p \in M</span>における接ベクトル全体の集合を<span class="math inline">T_pM</span>と書くことにする．<span class="math inline">u,v \in T_pM</span> と<span class="math inline">a,b \in \mathbb R</span>に対し，<span class="math inline">au + bv</span>を <span class="math display">
+(au + bv)(f) = a u(f) + b v(f)
+</span> と定義すれば，これも <span class="math inline">p \in M</span>における接ベクトルである．なので<span class="math inline">T_pM</span>は<span class="math inline">\mathbb R</span>上の線形空間となる．これを<span class="math inline">p \in M</span>における接空間という． 前回の線形汎関数と双対空間の関係を考えると．<span class="math inline">f</span>は線形汎関数であり<span class="math inline">T_pM</span>は<span class="math inline">f</span>がなす空間の双対空間(<span class="math inline">f \in T^*_pM</span>)であるとわかる．</p>
 </section>
-<section id="不確定性原理と状態数" class="level2">
-<h2 class="anchored" data-anchor-id="不確定性原理と状態数">不確定性原理と状態数</h2>
-<p>原子スケールにおいて，位置と運動量はそれぞれ揺らいでいる．このゆらぎのスケールを述べているのが不確定性原理である．</p>
-<p><span class="math display">
-\Delta p \Delta q \sim h
+<section id="t_pmの基底" class="level3">
+<h3 class="anchored" data-anchor-id="t_pmの基底"><span class="math inline">T_pM</span>の基底</h3>
+<p>線形空間を考えたら，基底を考えたくなる．多様体<span class="math inline">M</span>は<span class="math inline">n</span>次元であるとして，<span class="math inline">p</span>の周りで局所座標系<span class="math inline">(x^1,x^2 ,...,x^n)</span>を一つ固定すると，写像 <span class="math display">
+\left( \frac{\partial } {\partial x^i} \right)_p : f \rightarrow
+\frac{\partial f} {\partial x^i}(p)
 </span></p>
-<p><span class="math inline">h</span>はプランク定数である． ここで，<span class="math inline">\Delta p と\Delta q</span>は<span class="math inline">d p, d q</span>よりもずっと小さいとする．すなわち超体積要素 <span class="math inline">dv</span>は極超小立体の立方体<span class="math inline">h^{3N}</span>で構成されていると考えられる． ここで <span class="math display">
-g = \frac {dv}{h^{3N}}
-</span> を考える．これは，<span class="math inline">dv</span>の中にどれだけ<span class="math inline">h^{3N}</span>が含まれているかを意味している． この<span class="math inline">g</span>は<span class="math inline">dv</span>の中にどれだけ微視的状態が含まれているかという状態数を意味している．</p>
+<p>が定まる． これはおかしいのでは，なぜなら<span class="math inline">f: M \rightarrow \mathbb R</span>なので，微分が定義できないのでは？先程の<span class="math inline">t</span>なら理解できるが． この疑問を解決しよう． <img src="IMG_20260622_202832.jpg" class="img-fluid"> ここでは省略されているものがある．それは関数<span class="math inline">\psi</span>である．省略せずに書くと， <span class="math display">
+\left( \frac{\partial } {\partial x^i} \right)_p : f \rightarrow
+\frac{\partial (f \circ \psi^{-1})} {\partial x^i}(\psi (p))
+</span> これで，次元としては偏微分を定義できるようになったが，具体的にどう定義してあげればよいか，それは先程使った<span class="math inline">t</span>を用いることで解決できる．画像にあるように<span class="math inline">c(t) = (x^1 + t, x^2)</span>と，局所座標系で定義する．ここで <span class="math inline">p(t) = \psi ^{-1}(x^1 + t , x^2)</span>となることがわかる．<span class="math inline">f</span>を合成すれば<span class="math inline">t</span>での微分を定義できるので <span class="math display">
+\left. \frac {d}{dt} f(p(t))\right |_{t=0} = \left.\frac{d } {dt}(f \circ \psi^{-1})(c(t)) \right |_{t=0}  = \left. \frac{d } {dt}(f \circ \psi^{-1})(x^1 + t, x^2) \right|_{t=0}
+</span> となる．ここでこの微分は<span class="math inline">x^1</span>の方向しかしていない．すなわちこの微分は<span class="math inline">x^1</span>についての偏微分であると定義できる．すなわちここで偏微分を $$ ( {x^i} )<em>p = . {dt}(f <sup>{-1})(x</sup>1 + t, x^2) |</em>{t=0}</p>
+<p>$$ と定義する．(厳密な定義は<span class="math inline">n</span>次元でするべきであるが) 教科書は<span class="math inline">(f \circ \psi^{-1})</span>を<span class="math inline">f</span>と省略していることがわかる． この偏微分の組が<span class="math inline">T_pM</span>の基底となることを示していく．</p>
+<p>定理 <span class="math display">
+\left \{  \left( \frac{\partial}{\partial x^i} \right)  \right \}^n_{i=1}はT_pMの一つの基底である
+</span> これを確認していく． まずこれが一次独立であることを示す． すなわち <span class="math display">
+a^i \left(\frac{\partial}{\partial x^i}\right)_p = 0
+</span> ですべての<span class="math inline">a^i</span>が<span class="math inline">0</span>になることを示せば良い． <span class="math display">
+a^i \frac {\partial f}{\partial x^i} (p) = 0
+</span> が任意関数<span class="math inline">f \in C^{\infty}(M)</span>で成立すれば良い． 任意関数でこの式が成立するときに，<span class="math inline">a^i  =0</span>であることを示せば良いので， ここで<span class="math inline">f</span>として<span class="math inline">x^j</span>をとれば（<span class="math inline">x^j</span>は部分空間<span class="math inline">U</span>で定義されているが，<span class="math inline">U</span>の周りだけ値をとるような関数にすれば<span class="math inline">M</span>でも定義できるのでよい） <span class="math display">
+0 = a^i \frac {\partial x^j}{\partial x^i} (p) = a^i \delta^j_i = a^j
+</span></p>
+<p>で，<span class="math inline">j</span>は任意だから一次独立性が示された． 次に，任意の接ベクトル<span class="math inline">v \in T_pM</span>が<span class="math inline">\left \{  \left( \frac{\partial}{\partial x^i} \right)  \right \}^n_{i=1}</span>の一次結合で書けることを示したい．まず多様体上に定義される定数関数<span class="math inline">c : M \rightarrow \mathbb R, c(p) = c</span>について<span class="math inline">v(c) = 0</span>であることを示す．トリックとして<span class="math inline">c = c \times 1</span>であることを用いる． <span class="math inline">v(c) = cv(1)</span>である．ここで<span class="math inline">1 = 1 \times 1</span>より Leibniz則を用いて <span class="math inline">v(1) = 2v(1)</span>となることとがわかる．よって<span class="math inline">v(1) = 0</span>であり．そこから<span class="math inline">v(c) = 0</span>であることが分かる．</p>
+<p>(ここまでで分かることだが，教科書は<span class="math inline">f</span>と<span class="math inline">f \circ \psi^{-1}</span>を同一視している．なのでここでも教科書に習ってこれらを同一視するが，入力が<span class="math inline">p \in M</span>ならば<span class="math inline">f</span>そのままだし，対して入力が<span class="math inline">x \in \psi_{\alpha}(U_{\alpha})</span>などであれば，<span class="math inline">f \circ \psi^{-1}_{\alpha}(x)</span>と考えれば良い)</p>
+<p>関数<span class="math inline">f</span>を任意に固定して，点<span class="math inline">p</span>の局所座標を<span class="math inline">x_0 = (x_0^1 , ..., x_0^n)</span>とすれば，Tayorの定理より<span class="math inline">p</span>の近傍で，</p>
+<p><span class="math display">
+f(x) = f(x_0) + \frac{\partial f}{\partial x^i} (x_0)(x^i - x^i_0) + G_{ij}(x)(x^i - x^i_0)(x^j - x^j_0)
+</span></p>
+<p>が成立する．ここで<span class="math inline">G_{ij}(x)</span>は<span class="math inline">p</span>の近傍で定義されたなだらかな関数である．</p>
+<p>ここで<span class="math inline">v</span>を作用させる．</p>
+<p><span class="math display">
+v(f(x)) = v(f(x_0)) + \frac{\partial f}{\partial x^i} (x_0)v(x^i - x^i_0) + v(G_{ij}(x)(x^i - x^i_0)(x^j - x^j_0))
+</span></p>
+<p>右辺第一項は0となる，第三項について考える， <span class="math inline">v</span>は点<span class="math inline">p</span>の接ベクトルなので，全体で作用を行えば，それは<span class="math inline">p</span>について考えることとなる．簡単に言い換えるなら <span class="math display">
+(fg)'(x_0) = f'(x_0)g(x_0) + f(x_0)g'(x_0)
+</span> と，微分されていない部分も<span class="math inline">x_0</span>が代入されている．<span class="math inline">v</span>とはこの<span class="math inline">p</span>への代入が隠れている． 第三項を具体的に計算してみると <span class="math display">
+\left[ v(G_{ij})(x^i - x^i_0)(x^j - x^j_0) + G_{ij}v(x^i - x^i_0)(x^j - x^j_0) G_{ij}(x^i - x^i_0)v(x^j - x^j_0)  \right]_{x = x_0 } = 0
+</span> となるので，線形性と<span class="math inline">v(x^i_0) = 0</span>を用いれば</p>
+<p><span class="math display">
+v(f) = \left( v(x^i) \frac{\partial}{\partial x^i} \right)_p(f)
+</span></p>
+<p>であることが分かるので定理は示された． なので偏微分が<span class="math inline">T_pM</span>の基底の一つになることが分かる． ## 双対空間<span class="math inline">T^*_pM</span> さて，<span class="math inline">T_pM</span>の双対空間について考える．<span class="math inline">T^*_pM</span>は余接空間と呼ばれる． 余接空間の基底は何だろうか．次の概念を導入する． ### 微分 <span class="math inline">f \in C^{\infty}(M)</span> が任意に与えられたとき</p>
+<p><span class="math display">
+(df)_p (v) = v(f)
+</span> で定まる線形汎関数<span class="math inline">(df)_p : T_pM \rightarrow \mathbb R</span>を<span class="math inline">p</span>における<span class="math inline">f</span>の微分という． <img src="IMG_20260623_145143.jpg" class="img-fluid">さて，はっきり言って謎である．なぜこれが急に微分としていいのか全くわからない．いったん抽象度を落として考えてみる． 平坦な2次元の座標空間 <span class="math inline">\mathbb{R}^2</span> において，関数 <span class="math inline">f</span> の変化を考える． 点 <span class="math inline">p</span> の座標を <span class="math inline">x^1(p)</span> と <span class="math inline">x^2(p)</span> とする．ここから位置を少し動かした点 <span class="math inline">p+h</span> を考え，このときのズレを表すベクトルを <span class="math inline">h = \begin{pmatrix} h^1 \\ h^2 \end{pmatrix}</span> とする．</p>
+<p>座標軸に沿ったそれぞれの増分 <span class="math inline">\Delta x^1, \Delta x^2</span> は，図のように座標関数の差として表される． <span class="math display">
+\Delta x^1 = x^1(p+h) - x^1(p) = h^1
+</span> <span class="math display">
+\Delta x^2 = x^2(p+h) - x^2(p) = h^2
+</span></p>
+<p>このとき，関数 <span class="math inline">f</span> の値の変化量 <span class="math inline">\Delta f</span> は次のようになる． <span class="math display">
+\Delta f = f(x^1(p+h), x^2(p+h)) - f(x^1(p), x^2(p))
+</span></p>
+<p>これをそれぞれの軸方向への部分的な変化 <span class="math inline">\Delta f_1, \Delta f_2</span> に分解して1次近似する． <span class="math display">
+\begin{align*}
+\Delta f &amp;= \Delta f_1 + \Delta f_2 \\
+&amp;\approx \left. \frac{\partial f}{\partial x^1} \right|_{x=p} \cdot \Delta x^1 + \left. \frac{\partial f}{\partial x^2} \right|_{x=p} \cdot \Delta x^2 \\
+&amp;= \left. \frac{\partial f}{\partial x^1} \right|_{x=p} \cdot h^1 + \left. \frac{\partial f}{\partial x^2} \right|_{x=p} \cdot h^2
+\end{align*}
+</span> これは古典的な方向微分に相当する．</p>
+<p>ここで，この式の <span class="math inline">h^1, h^2</span> という部分に注目する．入力されたベクトル <span class="math inline">h</span> から <span class="math inline">i</span> 番目の成分 <span class="math inline">h^i</span> を取り出す線形汎関数を <span class="math inline">dx^i</span> と定義する．すなわち， <span class="math display">
+dx^i(h) = h^i
+</span> である．この写像 <span class="math inline">dx^i</span> を使うと，先ほどの近似式は次のように書き直せる． <span class="math display">
+\Delta f \approx \left. \frac{\partial f}{\partial x^1} \right|_{x=p} dx^1(h) + \left. \frac{\partial f}{\partial x^2} \right|_{x=p} dx^2(h)
+</span></p>
+<p>この右辺をベクトル <span class="math inline">h</span> を入力して変化量 <span class="math inline">\Delta f</span> を出力する線形汎関数とみなし，これを <span class="math inline">(df)_p(h)</span> と書く． <span class="math display">
+(df)_p(h) = \left. \frac{\partial f}{\partial x^1} \right|_{x=p} dx^1(h) + \left. \frac{\partial f}{\partial x^2} \right|_{x=p} dx^2(h)
+</span></p>
+<p>この議論を多様体 <span class="math inline">M</span> の上へと拡張する． 多様体の上では，点 <span class="math inline">p</span> と <span class="math inline">p+h</span> を直接結ぶ平らなズレを定義することはできない．しかし，点 <span class="math inline">p</span> における微小なズレは，接空間 <span class="math inline">T_pM</span> の上の接ベクトル <span class="math inline">v</span> として厳密に定義できる．</p>
+<p>したがって，古典的なズレのベクトル <span class="math inline">h</span> を多様体上の接ベクトル <span class="math inline">v</span> に置き換える．また，古典的な方向微分の値 <span class="math inline">\Delta f</span> を，接ベクトル <span class="math inline">v</span> が関数 <span class="math inline">f</span> に作用した結果である <span class="math inline">v(f)</span> に置き換える．</p>
+<p>すると，古典的な関係式 <span class="math inline">(df)_p(h) = \Delta f</span> は，多様体の上で次のように表現される． <span class="math display">
+(df)_p(v) = v(f)
+</span> これが，多様体における微分の定義である．全微分にベクトルを代入すると方向微分が得られるという，古典的な微積分の原則を多様体の上で表現したものである．</p>
+<p>この定義をもとに，余接空間 <span class="math inline">T^*_pM</span> の基底について考える． 任意の関数 <span class="math inline">f</span> の微分 <span class="math inline">(df)_p</span> について，入力するベクトルを <span class="math inline">v</span> とすれば，次のように書ける． <span class="math display">
+(df)_p(v) = \sum_{i=1}^n \left. \frac{\partial f}{\partial x^i} \right|_p dx^i(v)
+</span></p>
+<p>両辺から入力の <span class="math inline">v</span> を取り外すと，写像としての等式が得られる． <span class="math display">
+(df)_p = \sum_{i=1}^n \left. \frac{\partial f}{\partial x^i} \right|_p (dx^i)_p
+</span> この式は，任意の関数 <span class="math inline">f</span> の微分 <span class="math inline">(df)_p</span> が，線形汎関数の組 <span class="math inline">(dx^1)_p, \dots, (dx^n)_p</span> の線形結合として表されることを示している．</p>
+<p>接空間 <span class="math inline">T_pM</span> の標準的な基底に対して <span class="math inline">(dx^i)_p</span> を作用させると， <span class="math display">
+(dx^i)_p \left( \left. \frac{\partial}{\partial x^j} \right|_p \right) = \delta^i_j
+</span> となり，<span class="math inline">(dx^1)_p, \dots, (dx^n)_p</span> は接空間の基底の双対基底をなしていることがわかる．</p>
+<p>したがって，余接空間 <span class="math inline">T^*_pM</span> の基底は， <span class="math display">
+(dx^1)_p, (dx^2)_p, \dots, (dx^n)_p
+</span> となる．</p>
 </section>
-<section id="等確率の原理とエルゴード性" class="level2">
-<h2 class="anchored" data-anchor-id="等確率の原理とエルゴード性">等確率の原理とエルゴード性</h2>
-<p>ここでリウビルの定理より，状態数<span class="math inline">g</span>は時間によって変化しないことがわかる． ここで重要な過程を置く．それはこの位相空間がエルゴード性を持つということである． ある物理量がエルゴード性を持つとは 対象としている物理量の時間平均と位相平均が等しい ということだが，これは暗黙に正しいものとして考える． イメージだが．代表点（<span class="math inline">h^{3N}</span>の大きさを持つとする）は，十分長い時間を経てば超平面上のすべての代表点を埋め尽くすはずであり，そうなればエルゴード性を満たすと考えれる．</p>
-<p>今回考えている位相空間がエルゴード性を持つならば，観測時に代表点がその領域に見出される確率は，リウビルの定理より時間が経過しても等しくなり,<span class="math inline">dv</span>に比例する． どの位相空間の部分空間においてそれが満たされるので，各微視的状態は，位相空間上で同じ体積ならば同じ確率で実現することがわかる． これを等確率の原理と呼ぶ．</p>
 </section>
 <section id="まとめ" class="level2">
 <h2 class="anchored" data-anchor-id="まとめ">まとめ</h2>
 <ul>
-<li>リウビルの定理が満たされていれば，時間が経過していても微小体積要素は変化しない</li>
-<li>エルゴード性とリウビルの定理から，各微視的状態は，位相空間上で同じ体積ならば同じ確率で実現するという等確率の原理が導かれる．</li>
+<li>多様体は地図と地球儀と地図帳で考えると良い</li>
+<li>接ベクトルを内的に定義できることが重要</li>
+<li>微分は接ベクトルから定義できる</li>
 </ul>
-<p>次回はボルツマンの原理を導出します．</p>
+</section>
+<section id="お気持ち表明" class="level2">
+<h2 class="anchored" data-anchor-id="お気持ち表明">お気持ち表明</h2>
+<p>めちゃくちゃ詰まりました．特に接ベクトルと微分の関係をイメージするのに時間がかなりかかってしまって丸１日かかりました．ここでこんなに詰まって大丈夫なのだろうか．．．と思いつつ勉強は続けていこうと思います．がんばります．</p>
 
 
 </section>
@@ -767,14 +843,11 @@ g = \frac {dv}{h^{3N}}
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../Published/bayesian_inference/4.html" class="pagination-link" aria-label="VB-EMアルゴリズム">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">VB-EMアルゴリズム</span>
+      <a href="../../Published/information_geometry/1.html" class="pagination-link" aria-label="双対空間">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">双対空間</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../Published/equilibrium_stat_mech/2.html" class="pagination-link" aria-label="ボルツマンの原理">
-        <span class="nav-page-text">ボルツマンの原理</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
