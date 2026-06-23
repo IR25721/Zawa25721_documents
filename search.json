@@ -4,14 +4,21 @@
     "href": "index.html",
     "title": "Zawaの勉強記録",
     "section": "",
-    "text": "はじめに"
+    "text": "2026-06-23: パターン認識コンテンツの作成予定"
+  },
+  {
+    "objectID": "index.html#お知らせ",
+    "href": "index.html#お知らせ",
+    "title": "Zawaの勉強記録",
+    "section": "",
+    "text": "2026-06-23: パターン認識コンテンツの作成予定"
   },
   {
     "objectID": "index.html#はじめに",
     "href": "index.html#はじめに",
     "title": "Zawaの勉強記録",
-    "section": "",
-    "text": "はじめに"
+    "section": "はじめに",
+    "text": "はじめに\nはじめに"
   },
   {
     "objectID": "index.html#githubページ",
@@ -297,6 +304,13 @@
       "ベイズ推論",
       "ベイズ推定におけるモデル選択"
     ]
+  },
+  {
+    "objectID": "News/pr.html",
+    "href": "News/pr.html",
+    "title": "パターン認識コンテンツの作成予定",
+    "section": "",
+    "text": "そろそろ大学のテストが近いので，パターン認識のメモと演習を一気に書いてアップロードしようと思います．あと最適化数学も近いのでこいつも一気に勉強します．（他にも色々分野はあるがまあ大丈夫やろ）"
   },
   {
     "objectID": "Published/bayesian_inference/3.html",
