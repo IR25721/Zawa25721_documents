@@ -2,6 +2,14 @@
 
 ::: {.g-col-12 .g-col-md-4}
 
+### EnglishStudy (記事なし)
+
+:::
+
+
+
+::: {.g-col-12 .g-col-md-4}
+
 ### [<img src='Published/bayesian_inference/bayesian_inference.gif' width='40' style='vertical-align: middle; border-radius: 50%; margin-right: 8px;'/>ベイズ推論](Published/bayesian_inference/1.md)
 
 :::

@@ -1,3 +1,4 @@
+- 2026-06-24: Revert Math directory restructuring
 - 2026-06-24: Sync local state: restructuring Published directories to Math and adding English News
 - 2026-06-23: add InProgress
 - 2026-06-23: Add News section and update pre-render script to ignore venv
@@ -7,4 +8,3 @@
 - 2026-06-21: Auto-convert Obsidian image links to standard markdown links and fix broken images
 - 2026-06-21: Fix YAML front-matter title format in 4.md
 - 2026-06-21: add title
-- 2026-06-21: 4
