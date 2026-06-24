@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>ボルツマンの原理 – Zawaの勉強記録</title>
+<title>リウビルの定理と等確率の原理 – Zawaの勉強記録</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,25 +26,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<link href="../../Published/information_geometry/1.html" rel="next">
-<link href="../../Published/equilibrium_stat_mech/1.html" rel="prev">
-<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-48d31611f1c1daf173a6ee5e3799dc94.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../Published/Math/equilibrium_stat_mech/2.html" rel="next">
+<link href="../../../Published/Math/bayesian_inference/4.html" rel="prev">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-48d31611f1c1daf173a6ee5e3799dc94.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -117,7 +117,7 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../../styles.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light">
@@ -127,7 +127,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Zawaの勉強記録</span>
     </a>
   </div>
@@ -138,11 +138,11 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html"> 
+    <a class="nav-link" href="../../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../intro.html"> 
+    <a class="nav-link" href="../../../intro.html"> 
 <span class="menu-text">はじめに</span></a>
   </li>  
 </ul>
@@ -163,7 +163,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/equilibrium_stat_mech/1.html">平衡系統計力学</a></li><li class="breadcrumb-item"><a href="../../Published/equilibrium_stat_mech/2.html">ボルツマンの原理</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Math</li><li class="breadcrumb-item"><a href="../../../Published/Math/equilibrium_stat_mech/1.html">平衡系統計力学</a></li><li class="breadcrumb-item"><a href="../../../Published/Math/equilibrium_stat_mech/1.html">リウビルの定理と等確率の原理</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -178,87 +178,94 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">ベイズ推論</span></a>
+ <span class="menu-text">Math</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">ベイズ推論</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Published/bayesian_inference/1.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../Published/Math/bayesian_inference/1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">モンテカルロ法</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Published/bayesian_inference/2.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../Published/Math/bayesian_inference/2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ベイズ推定におけるモデル選択</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Published/bayesian_inference/3.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../Published/Math/bayesian_inference/3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ベイズ推定におけるモデル選択（続き）</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Published/bayesian_inference/4.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../Published/Math/bayesian_inference/4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">VB-EMアルゴリズム</span></a>
   </div>
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
+          <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">平衡系統計力学</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Published/equilibrium_stat_mech/1.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../Published/Math/equilibrium_stat_mech/1.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">リウビルの定理と等確率の原理</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Published/equilibrium_stat_mech/2.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../../Published/Math/equilibrium_stat_mech/2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ボルツマンの原理</span></a>
   </div>
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
+          <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
  <span class="menu-text">情報幾何学</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Published/information_geometry/1.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../Published/Math/information_geometry/1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">双対空間</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Published/information_geometry/2.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../Published/Math/information_geometry/2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">多様体と接空間</span></a>
   </div>
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">最適化数学</span></span>
+      </ul>
   </li>
     </ul>
     </div>
@@ -270,10 +277,10 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#単原子分子理想気体の状態と状態数" id="toc-単原子分子理想気体の状態と状態数" class="nav-link active" data-scroll-target="#単原子分子理想気体の状態と状態数">単原子分子理想気体の状態と状態数</a></li>
-  <li><a href="#wを求める" id="toc-wを求める" class="nav-link" data-scroll-target="#wを求める"><span class="math inline">W</span>を求める</a></li>
-  <li><a href="#ボルツマンの原理" id="toc-ボルツマンの原理" class="nav-link" data-scroll-target="#ボルツマンの原理">ボルツマンの原理</a></li>
-  <li><a href="#エントロピーの示量性" id="toc-エントロピーの示量性" class="nav-link" data-scroll-target="#エントロピーの示量性">エントロピーの示量性</a></li>
+  <li><a href="#はじめに" id="toc-はじめに" class="nav-link active" data-scroll-target="#はじめに">はじめに</a></li>
+  <li><a href="#n個の粒子の運動" id="toc-n個の粒子の運動" class="nav-link" data-scroll-target="#n個の粒子の運動">N個の粒子の運動</a></li>
+  <li><a href="#不確定性原理と状態数" id="toc-不確定性原理と状態数" class="nav-link" data-scroll-target="#不確定性原理と状態数">不確定性原理と状態数</a></li>
+  <li><a href="#等確率の原理とエルゴード性" id="toc-等確率の原理とエルゴード性" class="nav-link" data-scroll-target="#等確率の原理とエルゴード性">等確率の原理とエルゴード性</a></li>
   <li><a href="#まとめ" id="toc-まとめ" class="nav-link" data-scroll-target="#まとめ">まとめ</a></li>
   </ul>
 </nav>
@@ -281,9 +288,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/equilibrium_stat_mech/1.html">平衡系統計力学</a></li><li class="breadcrumb-item"><a href="../../Published/equilibrium_stat_mech/2.html">ボルツマンの原理</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Math</li><li class="breadcrumb-item"><a href="../../../Published/Math/equilibrium_stat_mech/1.html">平衡系統計力学</a></li><li class="breadcrumb-item"><a href="../../../Published/Math/equilibrium_stat_mech/1.html">リウビルの定理と等確率の原理</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">ボルツマンの原理</h1>
+<h1 class="title">リウビルの定理と等確率の原理</h1>
 </div>
 
 
@@ -300,103 +307,66 @@ window.Quarto = {
 </header>
 
 
-<section id="単原子分子理想気体の状態と状態数" class="level2">
-<h2 class="anchored" data-anchor-id="単原子分子理想気体の状態と状態数">単原子分子理想気体の状態と状態数</h2>
-<p>ここでは，議論を完結にするために単原子分子理想気体で考える． ここで，これまで議論してきた微視的状態の数と，エネルギーの関係について考えてみる．エネルギーが小さいときは原子はあまり動かない，すなわち位相空間を占める割合が低くなる，すなわち等確率の原理から微視的状態の数が少ない． 逆にエネルギーが高いときは，同様に考えて微視的状態の数が多いと考えられる． ここで，あるエネルギー<span class="math inline">E</span>の場合についての状態数<span class="math inline">W</span>を考えたい．ただしこれは計算が難しい，なぜなら，この<span class="math inline">W</span>を計算することは，すなわち超球の表面を計算することに相当し，数学的に困難だからである， ここで<span class="math inline">[0,E]</span>までの状態数<span class="math inline">\Omega (E)</span>を計算することを考える．これは超球の体積を求めることに相当し，これは積分で求めることが可能である． <span class="math display">
-\frac{d \Omega}{d E} = W(E)
-</span> として<span class="math inline">W(E)</span>を定義する．これは熱力学的重率と呼ばれる．この熱力学的重率を用いると<span class="math inline">[E, E + \Delta E]</span>の場合の状態数は <span class="math display">
-W = W(E)\Delta E
-</span> となり，<span class="math inline">\Delta E \rightarrow 0</span>とすれば<span class="math inline">W</span>が求まる．</p>
+<section id="はじめに" class="level2">
+<h2 class="anchored" data-anchor-id="はじめに">はじめに</h2>
+<p>この記事群は統計力学の復習用ノートです．なぜ統計力学をやるんだという話ですが，まず機械学習と関わりがある部分があること，創発科学の一つであること，あとなにより第一原理から出発する学問をなにか一つ身につけたいと思ったからというのがあります．すなわち趣味です． とりあえず手元にあるマセマを一通りやってから，他の本に行こうと思っています．</p>
 </section>
-<section id="wを求める" class="level2">
-<h2 class="anchored" data-anchor-id="wを求める"><span class="math inline">W</span>を求める</h2>
-<p>まず，<span class="math inline">\Omega(E)</span>を求める．条件は体積がV，粒子数がN,粒子の質量は<span class="math inline">m</span>である． ハミルトニアンが<span class="math inline">E \ge H</span>を満たす<span class="math inline">6N</span>次元位相空間の超体積を求め，<span class="math inline">h^{3N}</span>で割ることによって求まる． (復習だが，ハミルトニアンが等しいとは，同じエネルギー面にいるということを意味している．その面を重ね合わせて，体積を求めるというイメージ)</p>
+<section id="n個の粒子の運動" class="level2">
+<h2 class="anchored" data-anchor-id="n個の粒子の運動">N個の粒子の運動</h2>
+<p>ある3次元の箱の中にN個の粒子が運動しているとする．このとき粒子が持っている情報は，位置と運動量である．一つの粒子に対して6次元の情報があるので，N個に対しては6N次元の情報がある．ここで6N次元位相空間上の一点は，箱の中の情報を意味している．箱の中はエネルギーが保存されているとする．すると6N-1次元上の超平面空間の軌跡（トラジェクトリー）として箱の中の状態が記述される．</p>
+<p>ここで，この位相空間における重要な定理であるリウビルの定理を下に記述する．</p>
 <p><span class="math display">
-\Omega(E) = \frac 1 {h^{3N}} \int\int ...\int dq_1dq_2 ...dq_{3N}dp_1 dp_2 ... dp_{3N}
-</span> の積分を求める．変形すると</p>
-<p><span class="math display">
-\Omega(E) = \frac 1 {h^{3N}} \int ... \int dq_1dq_2 ...dq_{3N} \int ...\int dp_1 dp_2 ... dp_{3N}
+    位相空間上の微小体積要素がカノニカル方程式に従うとき，その体積要素は一定である
 </span></p>
-<p>である．ここで<span class="math inline">q</span>についての積分は，3次元空間なので， <span class="math display">
-\int \int \int dq_1 dq_2 dq_3 = V
-</span> である．同様に考えると</p>
+<p>６N次元でこれを示すのは難しいので，一つの粒子かつ１次元運動のみで考えてみる． 微小体積要素が一定であるとは，微小時間が経過してもそのヤコビアンが1となることを意味している．微小時間<span class="math inline">\Delta t</span>経過したあとの位置と運動量を<span class="math inline">p_1^{'},位置をq_1^{'}</span> とする． ヤコビアンは</p>
 <p><span class="math display">
-\Omega(E) = \frac {V^N} {h^{3N}} \int ...\int dp_1 dp_2 ... dp_{3N}
-</span></p>
-<p>となることがわかる． ハミルトニアンを<span class="math inline">m</span>と<span class="math inline">p_i</span>を用いて表すと，mが十分小さいのでポテンシャルエネルギーを0として <span class="math display">
-H = \frac{1}{2m}\sum_i^{3N} p^2_i
-</span></p>
-<p>と表現される． <span class="math inline">H \le E</span>であるので代入すると．</p>
-<p><span class="math display">
-\frac{1}{2m}\sum_i^{3N} p^2_i  \le E
-</span> 式変形すると <span class="math display">
-\sum_i^{3N} p^2_i \le (\sqrt{2mE})^2
-</span> すなわち<span class="math inline">\int ...\int dp_1 dp_2 ... dp_{3N}</span>は半径<span class="math inline">\sqrt{2mE}</span>の<span class="math inline">N</span>次元球の体積である． <span class="math inline">N</span>次元球の体積の公式を用いて</p>
-<p><span class="math display">
-\int ...\int dp_1 dp_2 ... dp_{3N} = \frac{(2 \pi)^{\frac {3N}2}}{3N\Gamma(\frac {3N}2)} (2mE)^{\frac{3N}{2}}
-</span></p>
-<p>式をまとめて，定数項を<span class="math inline">C</span>と置くと</p>
-<p><span class="math display">
-\Omega(E) = C E^{\frac {3N} 2}
-</span></p>
-<p>である．これを微分して<span class="math inline">\Delta E</span>(定数)を掛けてやると，<span class="math inline">W</span>が求まる．よって <span class="math display">
-W = C E^{\frac{3N }{2} -1}
-</span></p>
-</section>
-<section id="ボルツマンの原理" class="level2">
-<h2 class="anchored" data-anchor-id="ボルツマンの原理">ボルツマンの原理</h2>
-<p>まずこれの対数をとると</p>
-<p><span class="math display">
-\log W = \log C + (\frac {3N}{2} -1)\log E
-</span> となる．これを<span class="math inline">E</span>で微分し，<span class="math inline">\frac {3N}{2} -1 \approx \frac {3N}{2}</span>とすると</p>
-<p><span class="math display">
-\frac{d}{dE} \log W = \frac {3N}{2E}
-</span> ここで気体分子運動論の結果から <span class="math display">
-E = \frac 3 2 N k T
-</span> となる，代入すると</p>
-<p><span class="math display">
-\frac d {dE} \log W = \frac 1 {kT}
-</span></p>
-<p>ここで熱力学第一法則より</p>
-<p><span class="math display">
-dE = T dS - pdV
-</span></p>
-<p><span class="math inline">dV = 0</span>なので <span class="math display">
-\frac {dS}{dE} = \frac 1 T
-</span> である．比較すると <span class="math display">
-S = k \log W
-</span> が導出される．この状態数とエントロピーの関係をボルツマンの原理と言う．</p>
-</section>
-<section id="エントロピーの示量性" class="level2">
-<h2 class="anchored" data-anchor-id="エントロピーの示量性">エントロピーの示量性</h2>
-<p>エントロピーは示量変数（物質の量に比例する変数）である．これを示したい．熱力学的重率<span class="math inline">W(E)</span>に粒子の区別はつかないものとして<span class="math inline">N!</span>で割る操作をすることでこの性質を示すことができる．</p>
-<p><span class="math display">
-W(E) = \frac{V^N}{N!} \bigg(\frac{2 \pi}{h^2}\bigg) ^{\frac {3N}2} \frac{1}{\Gamma(\frac {3N}2)} (2mE)^{\frac{3N}{2} -1}
-</span></p>
-<p>よって <span class="math display">
-W = \frac{V^N}{N!} \bigg(\frac{2 \pi}{h^2}\bigg) ^{\frac {3N}2} \frac{\Delta E}{\Gamma(\frac {3N}2)} (2mE)^{\frac{3N}{2} -1}
-</span></p>
-<p>この式をボルツマンの原理に代入すると</p>
-<p><span class="math display">
-S = k \log \left \{  \frac{V^N}{N!} \bigg(\frac{2 \pi}{h^2}\bigg) ^{\frac {3N}2} \frac{\Delta E}{\Gamma(\frac {3N}2)} (2mE)^{\frac{3N}{2} -1} \right \}
-</span></p>
-<p>粗いスターリング公式（<span class="math inline">\Gamma</span>関数でも同様に） <span class="math display">
-N! \approx N \log N - N
-</span> と，<span class="math inline">N &gt;&gt; 1</span>より</p>
+\begin{vmatrix}
+\frac \partial {\partial p_1} p_1^{'}&amp; \frac \partial {\partial q_1} p_1^{'} \\   &nbsp;&nbsp;&nbsp;\frac \partial {\partial p_1} q_1^{'}&amp; \frac \partial {\partial q_1} q_1^{'}
+\end{vmatrix} = 1
+</span> を満たすことを示したい． まずそれぞれの関係は</p>
 <p><span class="math display">
 \begin{align}
-S &amp;= k \left(   N \log V - N \log N + N + \frac 3 2 N \log \frac{2 \pi m E}{h^2} -\frac {3N} 2 \log \frac{3N}{2} + \frac {3N}{2}   \right) \\
-&amp;= Nk \left(\log \frac {V}{N} + \frac 3 2 \log \left( \frac{4 \pi m}{3h^2} \frac E N  \right) + \frac 5 2  \right)
-\end{align}  
-</span> ここで，<span class="math inline">V</span>は一定であり，<span class="math inline">E</span>は<span class="math inline">N</span>に比例するので<span class="math inline">\frac V N</span>と<span class="math inline">\frac E N</span>は定数となる． よってエントロピーは示量変数である．</p>
+q_1^{'} &amp;= q_1 + \frac {d}{dt}q_1  \Delta t \\
+p_1^{'} &amp;= p_1 + \frac {d}{dt}p_1  \Delta t
+\end{align}
+</span> である．ここでカノニカル方程式を用いれば，それぞれの微分値を書き換えることができる．</p>
+<p><span class="math display">
+\begin{align}
+q_1^{'} &amp;= q_1 + \frac {\partial}{\partial p_1}H  \Delta t \\
+p_1^{'} &amp;= p_1 - \frac {\partial}{\partial q_1}H  \Delta t
+\end{align}
+</span></p>
+<p>この式をヤコビアンに代入すると</p>
+<p><span class="math display">
+\begin{vmatrix}
+\frac \partial {\partial p_1} {(p_1 - \frac {\partial}{\partial q_1}H  \Delta t)} &amp; \frac \partial {\partial q_1} (p_1 - \frac {\partial}{\partial q_1}H  \Delta t) \\   &nbsp;&nbsp;&nbsp;\frac \partial {\partial p_1} {(q_1 + \frac {\partial}{\partial p_1}H  \Delta t)}&amp; \frac \partial {\partial q_1} (q_1 + \frac {\partial}{\partial p_1}H  \Delta t)
+\end{vmatrix} = 1
+</span></p>
+<p>これを計算すると，<span class="math inline">(\Delta t)^2</span>の項が出てくるが，これを０とみなせばヤコビアンが1となることがわかる．</p>
+<p>これを次元を増やして同様の計算をすれば，6N次元でも同様の結論が得れることがわかる．</p>
+</section>
+<section id="不確定性原理と状態数" class="level2">
+<h2 class="anchored" data-anchor-id="不確定性原理と状態数">不確定性原理と状態数</h2>
+<p>原子スケールにおいて，位置と運動量はそれぞれ揺らいでいる．このゆらぎのスケールを述べているのが不確定性原理である．</p>
+<p><span class="math display">
+\Delta p \Delta q \sim h
+</span></p>
+<p><span class="math inline">h</span>はプランク定数である． ここで，<span class="math inline">\Delta p と\Delta q</span>は<span class="math inline">d p, d q</span>よりもずっと小さいとする．すなわち超体積要素 <span class="math inline">dv</span>は極超小立体の立方体<span class="math inline">h^{3N}</span>で構成されていると考えられる． ここで <span class="math display">
+g = \frac {dv}{h^{3N}}
+</span> を考える．これは，<span class="math inline">dv</span>の中にどれだけ<span class="math inline">h^{3N}</span>が含まれているかを意味している． この<span class="math inline">g</span>は<span class="math inline">dv</span>の中にどれだけ微視的状態が含まれているかという状態数を意味している．</p>
+</section>
+<section id="等確率の原理とエルゴード性" class="level2">
+<h2 class="anchored" data-anchor-id="等確率の原理とエルゴード性">等確率の原理とエルゴード性</h2>
+<p>ここでリウビルの定理より，状態数<span class="math inline">g</span>は時間によって変化しないことがわかる． ここで重要な過程を置く．それはこの位相空間がエルゴード性を持つということである． ある物理量がエルゴード性を持つとは 対象としている物理量の時間平均と位相平均が等しい ということだが，これは暗黙に正しいものとして考える． イメージだが．代表点（<span class="math inline">h^{3N}</span>の大きさを持つとする）は，十分長い時間を経てば超平面上のすべての代表点を埋め尽くすはずであり，そうなればエルゴード性を満たすと考えれる．</p>
+<p>今回考えている位相空間がエルゴード性を持つならば，観測時に代表点がその領域に見出される確率は，リウビルの定理より時間が経過しても等しくなり,<span class="math inline">dv</span>に比例する． どの位相空間の部分空間においてそれが満たされるので，各微視的状態は，位相空間上で同じ体積ならば同じ確率で実現することがわかる． これを等確率の原理と呼ぶ．</p>
 </section>
 <section id="まとめ" class="level2">
 <h2 class="anchored" data-anchor-id="まとめ">まとめ</h2>
 <ul>
-<li>単原子分子理想気体の状態数<span class="math inline">W</span>は<span class="math inline">C E ^{\frac {3N}{2} -1}</span>である</li>
-<li>上の式と熱力学第一法則を使うことで，ボルツマンの原理が導出される</li>
-<li>エントロピーの示量性を示すには<span class="math inline">N!</span>で割る必要がある．</li>
+<li>リウビルの定理が満たされていれば，時間が経過していても微小体積要素は変化しない</li>
+<li>エルゴード性とリウビルの定理から，各微視的状態は，位相空間上で同じ体積ならば同じ確率で実現するという等確率の原理が導かれる．</li>
 </ul>
+<p>次回はボルツマンの原理を導出します．</p>
 
 
 </section>
@@ -804,13 +774,13 @@ S &amp;= k \left(   N \log V - N \log N + N + \frac 3 2 N \log \frac{2 \pi m E}{
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../Published/equilibrium_stat_mech/1.html" class="pagination-link" aria-label="リウビルの定理と等確率の原理">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">リウビルの定理と等確率の原理</span>
+      <a href="../../../Published/Math/bayesian_inference/4.html" class="pagination-link" aria-label="VB-EMアルゴリズム">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">VB-EMアルゴリズム</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../Published/information_geometry/1.html" class="pagination-link" aria-label="双対空間">
-        <span class="nav-page-text">双対空間</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../../Published/Math/equilibrium_stat_mech/2.html" class="pagination-link" aria-label="ボルツマンの原理">
+        <span class="nav-page-text">ボルツマンの原理</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
