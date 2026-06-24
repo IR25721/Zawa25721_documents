@@ -35,339 +35,313 @@
     "text": "日々の学習について\n「継続は力なり」ということで，毎日最低1記事は投稿することを目標にしています．調子が良い時や休日などで時間がある場合は，1日に複数記事を投稿することもあるかもしれません．当面は理論の学習を十分に進めてから演習に移る形を取るため，現在は演習カテゴリーを追加していません．学習の進捗に合わせて順次追加していく予定です．\n主に機械学習，統計力学，情報幾何学を学んでいきますが，興味のある分野が非常に多く，それぞれが相互に関わり合う分野でもあるため，何を優先して勉強すべきか常に模索しています． 現在の自身の数学レベルと関心の強さから優先順位をつけると，以下のようになります．\n\nとにかく身につけたい分野\n\n機械学習理論，パターン認識 (PRMLなど)\n平衡系統計力学 (マセマ，田崎先生の本，久保統計など)\n情報幾何学 (藤原先生の本)\n最適化数学 (金谷先生の本)\n機械学習実務 (Kaggleなど)\n\nいずれは身につけたいが時間がないので後回しになってしまっている分野\n\n一般相対性理論\n量子力学\n社会物理学\n力学系\n数理モデルの理論\n強化学習の理論\n偏微分方程式理論\n確率過程，確率微分方程式論\nテンソル解析\n深層学習モデル (拡散モデルなど)\n因果推論\n\n数学レベルが高すぎてまだ手を出せないが，いずれはやりたいと考えている分野\n\n渡辺澄夫ベイズ理論\n非平衡系統計力学\nゲージ理論\n\n\n今思いつくだけでもこれだけ多くの分野があります．そのため，しっかりと優先順位をつけて着実にレベルアップしていく必要があると考えています． まずは，上記「1」に挙げた分野をメインに勉強を進めていきます．"
   },
   {
-    "objectID": "Published/Math/information_geometry/2.html",
-    "href": "Published/Math/information_geometry/2.html",
+    "objectID": "Published/information_geometry/2.html",
+    "href": "Published/information_geometry/2.html",
     "title": "多様体と接空間",
     "section": "",
     "text": "さて，多様体の定義を書くが，私は数学科ではないので，この定義をほとんんど理解していない．というか理解する必要あるのだろうか．いちおうイメージでは理解はしているつもりだし，教科書もこれを丸暗記することはないというかそんな感じのことを言っているので，数学的に正しい定義よりも，イメージで覚えて行くほうが私にとっては大事なのかなと認識している． あと接ベクトルの抽象的な定義が出てくるが，これは初めて学ぶ人にとってみれば奇妙な考えだと思うので，疑問に思ったらAIと徹底的に議論したり教科書をじっくり読むなどすれば良いと思う．あとここからアインシュタイン縮約記法を使っていく．",
     "crumbs": [
       "Home",
-      "Math",
       "情報幾何学",
       "多様体と接空間"
     ]
   },
   {
-    "objectID": "Published/Math/information_geometry/2.html#はじめに",
-    "href": "Published/Math/information_geometry/2.html#はじめに",
+    "objectID": "Published/information_geometry/2.html#はじめに",
+    "href": "Published/information_geometry/2.html#はじめに",
     "title": "多様体と接空間",
     "section": "",
     "text": "さて，多様体の定義を書くが，私は数学科ではないので，この定義をほとんんど理解していない．というか理解する必要あるのだろうか．いちおうイメージでは理解はしているつもりだし，教科書もこれを丸暗記することはないというかそんな感じのことを言っているので，数学的に正しい定義よりも，イメージで覚えて行くほうが私にとっては大事なのかなと認識している． あと接ベクトルの抽象的な定義が出てくるが，これは初めて学ぶ人にとってみれば奇妙な考えだと思うので，疑問に思ったらAIと徹底的に議論したり教科書をじっくり読むなどすれば良いと思う．あとここからアインシュタイン縮約記法を使っていく．",
     "crumbs": [
       "Home",
-      "Math",
       "情報幾何学",
       "多様体と接空間"
     ]
   },
   {
-    "objectID": "Published/Math/information_geometry/2.html#多様体の数学的な定義",
-    "href": "Published/Math/information_geometry/2.html#多様体の数学的な定義",
+    "objectID": "Published/information_geometry/2.html#多様体の数学的な定義",
+    "href": "Published/information_geometry/2.html#多様体の数学的な定義",
     "title": "多様体と接空間",
     "section": "多様体の数学的な定義",
     "text": "多様体の数学的な定義\n集合Mが以下の条件を満たすとき，Mをn次元C^{r} 級可微分多様体と言う．\n\nMは可算基を持つHausdorff空間\n適当な集合Aを添え字集合とするMの開集合の族\\{ U_{\\alpha} , \\alpha \\in A\\}と写像 \\psi_{\\alpha} : U_{\\alpha} \\rightarrow \\mathbb R^nの族 \\{ \\psi_{\\alpha} \\}があって，以下の三条件を満たす \\begin{align*}\n& 1. M = \\bigcup_{\\alpha \\in A} U_{\\alpha} \\\\\n& 2.\\psi_{\\alpha} : U_{\\alpha} \\rightarrow \\psi_{\\alpha}(U_{\\alpha}) \\text{ は全単射で，} \\psi_{\\alpha} \\text{ も } \\psi_{\\alpha}^{-1} \\text{ も連続写像} \\\\\n&3. U_{\\alpha} \\cap U_{\\beta} \\neq \\emptyset \\text{ ならば写像 } \\psi_{\\beta} \\circ \\psi_{\\alpha}^{-1} : \\psi_{\\alpha}(U_{\\alpha} \\cap U_{\\beta} ) \\rightarrow \\psi_{\\beta}(U_{\\alpha} \\cap U_{\\beta})はC^{r}級\n\\end{align*}\n\n\n図での説明 \n\n1の条件について\nこの定義は，病的な対象を排除するための要請であるので，説明を割愛する．",
     "crumbs": [
       "Home",
-      "Math",
       "情報幾何学",
       "多様体と接空間"
     ]
   },
   {
-    "objectID": "Published/Math/information_geometry/2.html#の条件について-1",
-    "href": "Published/Math/information_geometry/2.html#の条件について-1",
+    "objectID": "Published/information_geometry/2.html#の条件について-1",
+    "href": "Published/information_geometry/2.html#の条件について-1",
     "title": "多様体と接空間",
     "section": "2の条件について",
     "text": "2の条件について\nまずここに登場するペア(U_{\\alpha} , \\psi_{\\alpha})を座標近傍またはチャート（地図）という．その全体\\{  (U_{\\alpha} , \\psi_{\\alpha}), \\alpha \\in A  \\}のことをアトラス（地図帳）という．また各写像\\psi_{\\alpha}を局所座標系とよび，2-3に登場する写像 \\psi_{\\beta} \\circ \\psi_{\\alpha}^{-1}を座標変換という． 重要な点は，地球儀と，地図帳は一対一対応しているという点である． 地球儀の一部と地図を変換する関数が\\psiである． ここで，チャートの空間は\\mathbb R^nである．\n\n多様体上の微分積分\n多様体M上で定義された関数f : M \\rightarrow \\mathbb R がC^r級とはMの任意の座標近傍(U_{\\alpha},\\psi _{\\alpha})に対し， f \\circ \\psi^{-1}_{\\alpha} : \\psi_{\\alpha} (U_{\\alpha}) \\rightarrow \\mathbb RがC^r級であることとする. n次元多様体Mとk次元多様体Nへの写像f : M \\rightarrow NがC^r級であるとは， M,Nのアトラスをそれぞれ\\{ (U_{\\alpha},\\psi_{\\alpha}) \\},\\{ (W_{\\beta},\\phi_{\\beta}) \\}とするとき， f(U_{\\alpha}) \\cap W_{\\beta} \\neq \\emptysetなる全ての\\alpha,\\betaについて \\phi_{\\beta} \\circ f \\circ \\psi^{-1}_{\\alpha} : \\psi_{\\alpha}(U_{\\alpha}) \\rightarrow \\phi_{\\beta}(W_{\\beta})がC^r級であることと定義する． だが，いちいちこう書くのはめんどくさいので，単にfと書く．",
     "crumbs": [
       "Home",
-      "Math",
       "情報幾何学",
       "多様体と接空間"
     ]
   },
   {
-    "objectID": "Published/Math/information_geometry/2.html#接ベクトル",
-    "href": "Published/Math/information_geometry/2.html#接ベクトル",
+    "objectID": "Published/information_geometry/2.html#接ベクトル",
+    "href": "Published/information_geometry/2.html#接ベクトル",
     "title": "多様体と接空間",
     "section": "接ベクトル",
     "text": "接ベクトル\n多様体上で接ベクトルを考えることは簡単なことではない．接ベクトルとは，空間のある一点に接しているベクトルの集合だが，これは外側の世界を考えている．これではいけない．多様体の中で閉じた形で記述したい． どうするのが良いのか．いったん幾何学的イメージを捨てて，接ベクトルが満たすべき抽象的な性質を定義として採用する．\n\n接ベクトルの定義(抽象的に)\n多様体M上の点pにおける接ベクトルvとは各f \\in C^{\\infty}(M)に対し，実数v(f) を対応させる写像であって，次の性質を満たす\n\n線型性\nLeibniz則 \nv(fg) = v(f)g(p) + f(p)v(g)\n ではこの定義の背景には，接ベクトルとは，曲線に沿った方向微分のことであるという着想がある．p \\in Mを通るM上のなめらかな曲線C = {p(t) ; p(0) = p}を考える．さらにM上のなめらかな関数fが任意に指定されたとすると，曲線Cと関数fを合成することにより，C上の一変数関数が定まり，したがってこの関数のt = 0での変化率 \n\\left.  v(f) = \\frac{d}{dt} f(p(t)) \\right|_{t=0}\n も定まる．\n\n\n\n上の議論の疑問\nさて，疑問としてなぜ急に曲線を考えるのかという話になってくる．それは多様体の微分を一変数微分に落とし込みたいという動機から生まれる． まず，多様体の微分を素直に書くと（次の式は定義できない） \n\\lim_{h \\rightarrow 0} \\frac{f(p + h) - f(p)}{h}\n となるが，これはp + hが定義できないので，この式は意味をなさない． ここでp(t)という曲線を定義する，まずp(t)は\\mathbb R \\rightarrow Mである．次にfは多様体上の点を実数に写す関数である．すなわちf : M \\rightarrow \\mathbb R．ここで合成関数f  \\circ pの写像を考えると\\mathbb R \\rightarrow \\mathbb Rとなるので，これは一変数関数である なので微分の定義を用いて微分を定義できる. \n\\left. \\frac{d}{dt} f(p(t)) \\right|_{t=0} = \\lim_{h \\to 0} \\frac{f(p(h)) - f(p(0))}{h}\n\npもfもどちらもMの中で定義している．なのでこれはMで完結している接ベクトルの定義となる．",
     "crumbs": [
       "Home",
-      "Math",
       "情報幾何学",
       "多様体と接空間"
     ]
   },
   {
-    "objectID": "Published/Math/information_geometry/2.html#接空間",
-    "href": "Published/Math/information_geometry/2.html#接空間",
+    "objectID": "Published/information_geometry/2.html#接空間",
+    "href": "Published/information_geometry/2.html#接空間",
     "title": "多様体と接空間",
     "section": "接空間",
     "text": "接空間\n接ベクトルを理解できたら，接空間の定義は理解できるはずである\n\n定義\np \\in Mにおける接ベクトル全体の集合をT_pMと書くことにする．u,v \\in T_pM とa,b \\in \\mathbb Rに対し，au + bvを \n(au + bv)(f) = a u(f) + b v(f)\n と定義すれば，これも p \\in Mにおける接ベクトルである．なのでT_pMは\\mathbb R上の線形空間となる．これをp \\in Mにおける接空間という． 前回の線形汎関数と双対空間の関係を考えると．fは線形汎関数でありT_pMはfがなす空間の双対空間(f \\in T^*_pM)であるとわかる．\n\n\nT_pMの基底\n線形空間を考えたら，基底を考えたくなる．多様体Mはn次元であるとして，pの周りで局所座標系(x^1,x^2 ,...,x^n)を一つ固定すると，写像 \n\\left( \\frac{\\partial } {\\partial x^i} \\right)_p : f \\rightarrow\n\\frac{\\partial f} {\\partial x^i}(p)\n\nが定まる． これはおかしいのでは，なぜならf: M \\rightarrow \\mathbb Rなので，微分が定義できないのでは？先程のtなら理解できるが． この疑問を解決しよう．  ここでは省略されているものがある．それは関数\\psiである．省略せずに書くと， \n\\left( \\frac{\\partial } {\\partial x^i} \\right)_p : f \\rightarrow\n\\frac{\\partial (f \\circ \\psi^{-1})} {\\partial x^i}(\\psi (p))\n これで，次元としては偏微分を定義できるようになったが，具体的にどう定義してあげればよいか，それは先程使ったtを用いることで解決できる．画像にあるようにc(t) = (x^1 + t, x^2)と，局所座標系で定義する．ここで p(t) = \\psi ^{-1}(x^1 + t , x^2)となることがわかる．fを合成すればtでの微分を定義できるので \n\\left. \\frac {d}{dt} f(p(t))\\right |_{t=0} = \\left.\\frac{d } {dt}(f \\circ \\psi^{-1})(c(t)) \\right |_{t=0}  = \\left. \\frac{d } {dt}(f \\circ \\psi^{-1})(x^1 + t, x^2) \\right|_{t=0}\n となる．ここでこの微分はx^1の方向しかしていない．すなわちこの微分はx^1についての偏微分であると定義できる．すなわちここで偏微分を $$ ( {x^i} )p = . {dt}(f {-1})(x1 + t, x^2) |{t=0}\n$$ と定義する．(厳密な定義はn次元でするべきであるが) 教科書は(f \\circ \\psi^{-1})をfと省略していることがわかる． この偏微分の組がT_pMの基底となることを示していく．\n定理 \n\\left \\{  \\left( \\frac{\\partial}{\\partial x^i} \\right)  \\right \\}^n_{i=1} \\text{は} T_pM \\text{の一つの基底である}\n\nこれを確認していく． まずこれが一次独立であることを示す． すなわち \na^i \\left(\\frac{\\partial}{\\partial x^i}\\right)_p = 0\n ですべてのa^iが0になることを示せば良い． \na^i \\frac {\\partial f}{\\partial x^i} (p) = 0\n が任意関数f \\in C^{\\infty}(M)で成立すれば良い． 任意関数でこの式が成立するときに，a^i  =0であることを示せば良いので， ここでfとしてx^jをとれば（x^jは部分空間Uで定義されているが，Uの周りだけ値をとるような関数にすればMでも定義できるのでよい） \n0 = a^i \\frac {\\partial x^j}{\\partial x^i} (p) = a^i \\delta^j_i = a^j\n\nで，jは任意だから一次独立性が示された． 次に，任意の接ベクトルv \\in T_pMが\\left \\{  \\left( \\frac{\\partial}{\\partial x^i} \\right)  \\right \\}^n_{i=1}の一次結合で書けることを示したい．まず多様体上に定義される定数関数c : M \\rightarrow \\mathbb R, c(p) = cについてv(c) = 0であることを示す．トリックとしてc = c \\times 1であることを用いる． v(c) = cv(1)である．ここで1 = 1 \\times 1より Leibniz則を用いて v(1) = 2v(1)となることとがわかる．よってv(1) = 0であり．そこからv(c) = 0であることが分かる．\n(ここまでで分かることだが，教科書はfとf \\circ \\psi^{-1}を同一視している．なのでここでも教科書に習ってこれらを同一視するが，入力がp \\in Mならばfそのままだし，対して入力がx \\in \\psi_{\\alpha}(U_{\\alpha})などであれば，f \\circ \\psi^{-1}_{\\alpha}(x)と考えれば良い)\n関数fを任意に固定して，点pの局所座標をx_0 = (x_0^1 , ..., x_0^n)とすれば，Tayorの定理よりpの近傍で，\n\nf(x) = f(x_0) + \\frac{\\partial f}{\\partial x^i} (x_0)(x^i - x^i_0) + G_{ij}(x)(x^i - x^i_0)(x^j - x^j_0)\n\nが成立する．ここでG_{ij}(x)はpの近傍で定義されたなだらかな関数である．\nここでvを作用させる．\n\nv(f(x)) = v(f(x_0)) + \\frac{\\partial f}{\\partial x^i} (x_0)v(x^i - x^i_0) + v(G_{ij}(x)(x^i - x^i_0)(x^j - x^j_0))\n\n右辺第一項は0となる，第三項について考える， vは点pの接ベクトルなので，全体で作用を行えば，それはpについて考えることとなる．簡単に言い換えるなら \n(fg)'(x_0) = f'(x_0)g(x_0) + f(x_0)g'(x_0)\n と，微分されていない部分もx_0が代入されている．vとはこのpへの代入が隠れている． 第三項を具体的に計算してみると \n\\left[ v(G_{ij})(x^i - x^i_0)(x^j - x^j_0) + G_{ij}v(x^i - x^i_0)(x^j - x^j_0) G_{ij}(x^i - x^i_0)v(x^j - x^j_0)  \\right]_{x = x_0 } = 0\n となるので，線形性とv(x^i_0) = 0を用いれば\n\nv(f) = \\left( v(x^i) \\frac{\\partial}{\\partial x^i} \\right)_p(f)\n\nであることが分かるので定理は示された． なので偏微分がT_pMの基底の一つになることが分かる．",
     "crumbs": [
       "Home",
-      "Math",
       "情報幾何学",
       "多様体と接空間"
     ]
   },
   {
-    "objectID": "Published/Math/information_geometry/2.html#双対空間t_pm",
-    "href": "Published/Math/information_geometry/2.html#双対空間t_pm",
+    "objectID": "Published/information_geometry/2.html#双対空間t_pm",
+    "href": "Published/information_geometry/2.html#双対空間t_pm",
     "title": "多様体と接空間",
     "section": "双対空間T^*_pM",
     "text": "双対空間T^*_pM\nさて，T_pMの双対空間について考える．T^*_pMは余接空間と呼ばれる． 余接空間の基底は何だろうか．次の概念を導入する．\n\n微分\nf \\in C^{\\infty}(M) が任意に与えられたとき\n\n(df)_p (v) = v(f)\n で定まる線形汎関数(df)_p : T_pM \\rightarrow \\mathbb Rをpにおけるfの微分という．\n\nさて，はっきり言って謎である．なぜこれが急に微分としていいのか全くわからない．いったん抽象度を落として考えてみる． 平坦な2次元の座標空間 \\mathbb{R}^2 において，関数 f の変化を考える． 点 p の座標を x^1(p) と x^2(p) とする．ここから位置を少し動かした点 p+h を考え，このときのズレを表すベクトルを h = \\begin{pmatrix} h^1 \\\\ h^2 \\end{pmatrix} とする．\n座標軸に沿ったそれぞれの増分 \\Delta x^1, \\Delta x^2 は，図のように座標関数の差として表される． \n\\Delta x^1 = x^1(p+h) - x^1(p) = h^1\n \n\\Delta x^2 = x^2(p+h) - x^2(p) = h^2\n\nこのとき，関数 f の値の変化量 \\Delta f は次のようになる． \n\\Delta f = f(x^1(p+h), x^2(p+h)) - f(x^1(p), x^2(p))\n\nこれをそれぞれの軸方向への部分的な変化 \\Delta f_1, \\Delta f_2 に分解して1次近似する． \n\\begin{align*}\n\\Delta f &= \\Delta f_1 + \\Delta f_2 \\\\\n&\\approx \\left. \\frac{\\partial f}{\\partial x^1} \\right|_{x=p} \\cdot \\Delta x^1 + \\left. \\frac{\\partial f}{\\partial x^2} \\right|_{x=p} \\cdot \\Delta x^2 \\\\\n&= \\left. \\frac{\\partial f}{\\partial x^1} \\right|_{x=p} \\cdot h^1 + \\left. \\frac{\\partial f}{\\partial x^2} \\right|_{x=p} \\cdot h^2\n\\end{align*}\n これは古典的な方向微分に相当する．\nここで，この式の h^1, h^2 という部分に注目する．入力されたベクトル h から i 番目の成分 h^i を取り出す線形汎関数を dx^i と定義する．すなわち， \ndx^i(h) = h^i\n である．この写像 dx^i を使うと，先ほどの近似式は次のように書き直せる． \n\\Delta f \\approx \\left. \\frac{\\partial f}{\\partial x^1} \\right|_{x=p} dx^1(h) + \\left. \\frac{\\partial f}{\\partial x^2} \\right|_{x=p} dx^2(h)\n\nこの右辺をベクトル h を入力して変化量 \\Delta f を出力する線形汎関数とみなし，これを (df)_p(h) と書く． \n(df)_p(h) = \\left. \\frac{\\partial f}{\\partial x^1} \\right|_{x=p} dx^1(h) + \\left. \\frac{\\partial f}{\\partial x^2} \\right|_{x=p} dx^2(h)\n\nこの議論を多様体 M の上へと拡張する． 多様体の上では，点 p と p+h を直接結ぶ平らなズレを定義することはできない．しかし，点 p における微小なズレは，接空間 T_pM の上の接ベクトル v として厳密に定義できる．\nしたがって，古典的なズレのベクトル h を多様体上の接ベクトル v に置き換える．また，古典的な方向微分の値 \\Delta f を，接ベクトル v が関数 f に作用した結果である v(f) に置き換える．\nすると，古典的な関係式 (df)_p(h) = \\Delta f は，多様体の上で次のように表現される． \n(df)_p(v) = v(f)\n これが，多様体における微分の定義である．全微分にベクトルを代入すると方向微分が得られるという，古典的な微積分の原則を多様体の上で表現したものである．\nこの定義をもとに，余接空間 T^*_pM の基底について考える． 任意の関数 f の微分 (df)_p について，入力するベクトルを v とすれば，次のように書ける． \n(df)_p(v) = \\sum_{i=1}^n \\left. \\frac{\\partial f}{\\partial x^i} \\right|_p dx^i(v)\n\n両辺から入力の v を取り外すと，写像としての等式が得られる． \n(df)_p = \\sum_{i=1}^n \\left. \\frac{\\partial f}{\\partial x^i} \\right|_p (dx^i)_p\n この式は，任意の関数 f の微分 (df)_p が，線形汎関数の組 (dx^1)_p, \\dots, (dx^n)_p の線形結合として表されることを示している．\n接空間 T_pM の標準的な基底に対して (dx^i)_p を作用させると， \n(dx^i)_p \\left( \\left. \\frac{\\partial}{\\partial x^j} \\right|_p \\right) = \\delta^i_j\n となり，(dx^1)_p, \\dots, (dx^n)_p は接空間の基底の双対基底をなしていることがわかる．\nしたがって，余接空間 T^*_pM の基底は， \n(dx^1)_p, (dx^2)_p, \\dots, (dx^n)_p\n となる．",
     "crumbs": [
       "Home",
-      "Math",
       "情報幾何学",
       "多様体と接空間"
     ]
   },
   {
-    "objectID": "Published/Math/information_geometry/2.html#まとめ",
-    "href": "Published/Math/information_geometry/2.html#まとめ",
+    "objectID": "Published/information_geometry/2.html#まとめ",
+    "href": "Published/information_geometry/2.html#まとめ",
     "title": "多様体と接空間",
     "section": "まとめ",
     "text": "まとめ\n\n多様体は地図と地球儀と地図帳で考えると良い\n接ベクトルを内的に定義できることが重要\n微分は接ベクトルから定義できる",
     "crumbs": [
       "Home",
-      "Math",
       "情報幾何学",
       "多様体と接空間"
     ]
   },
   {
-    "objectID": "Published/Math/information_geometry/2.html#お気持ち表明",
-    "href": "Published/Math/information_geometry/2.html#お気持ち表明",
+    "objectID": "Published/information_geometry/2.html#お気持ち表明",
+    "href": "Published/information_geometry/2.html#お気持ち表明",
     "title": "多様体と接空間",
     "section": "お気持ち表明",
     "text": "お気持ち表明\nめちゃくちゃ詰まりました．特に接ベクトルと微分の関係をイメージするのに時間がかなりかかってしまって丸１日かかりました．ここでこんなに詰まって大丈夫なのだろうか．．．と思いつつ勉強は続けていこうと思います．がんばります．",
     "crumbs": [
       "Home",
-      "Math",
       "情報幾何学",
       "多様体と接空間"
     ]
   },
   {
-    "objectID": "Published/Math/equilibrium_stat_mech/2.html",
-    "href": "Published/Math/equilibrium_stat_mech/2.html",
+    "objectID": "Published/equilibrium_stat_mech/2.html",
+    "href": "Published/equilibrium_stat_mech/2.html",
     "title": "ボルツマンの原理",
     "section": "",
     "text": "ここでは，議論を完結にするために単原子分子理想気体で考える． ここで，これまで議論してきた微視的状態の数と，エネルギーの関係について考えてみる．エネルギーが小さいときは原子はあまり動かない，すなわち位相空間を占める割合が低くなる，すなわち等確率の原理から微視的状態の数が少ない． 逆にエネルギーが高いときは，同様に考えて微視的状態の数が多いと考えられる． ここで，あるエネルギーEの場合についての状態数Wを考えたい．ただしこれは計算が難しい，なぜなら，このWを計算することは，すなわち超球の表面を計算することに相当し，数学的に困難だからである， ここで[0,E]までの状態数\\Omega (E)を計算することを考える．これは超球の体積を求めることに相当し，これは積分で求めることが可能である． \n\\frac{d \\Omega}{d E} = W(E)\n としてW(E)を定義する．これは熱力学的重率と呼ばれる．この熱力学的重率を用いると[E, E + \\Delta E]の場合の状態数は \nW = W(E)\\Delta E\n となり，\\Delta E \\rightarrow 0とすればWが求まる．",
     "crumbs": [
       "Home",
-      "Math",
       "平衡系統計力学",
       "ボルツマンの原理"
     ]
   },
   {
-    "objectID": "Published/Math/equilibrium_stat_mech/2.html#単原子分子理想気体の状態と状態数",
-    "href": "Published/Math/equilibrium_stat_mech/2.html#単原子分子理想気体の状態と状態数",
+    "objectID": "Published/equilibrium_stat_mech/2.html#単原子分子理想気体の状態と状態数",
+    "href": "Published/equilibrium_stat_mech/2.html#単原子分子理想気体の状態と状態数",
     "title": "ボルツマンの原理",
     "section": "",
     "text": "ここでは，議論を完結にするために単原子分子理想気体で考える． ここで，これまで議論してきた微視的状態の数と，エネルギーの関係について考えてみる．エネルギーが小さいときは原子はあまり動かない，すなわち位相空間を占める割合が低くなる，すなわち等確率の原理から微視的状態の数が少ない． 逆にエネルギーが高いときは，同様に考えて微視的状態の数が多いと考えられる． ここで，あるエネルギーEの場合についての状態数Wを考えたい．ただしこれは計算が難しい，なぜなら，このWを計算することは，すなわち超球の表面を計算することに相当し，数学的に困難だからである， ここで[0,E]までの状態数\\Omega (E)を計算することを考える．これは超球の体積を求めることに相当し，これは積分で求めることが可能である． \n\\frac{d \\Omega}{d E} = W(E)\n としてW(E)を定義する．これは熱力学的重率と呼ばれる．この熱力学的重率を用いると[E, E + \\Delta E]の場合の状態数は \nW = W(E)\\Delta E\n となり，\\Delta E \\rightarrow 0とすればWが求まる．",
     "crumbs": [
       "Home",
-      "Math",
       "平衡系統計力学",
       "ボルツマンの原理"
     ]
   },
   {
-    "objectID": "Published/Math/equilibrium_stat_mech/2.html#wを求める",
-    "href": "Published/Math/equilibrium_stat_mech/2.html#wを求める",
+    "objectID": "Published/equilibrium_stat_mech/2.html#wを求める",
+    "href": "Published/equilibrium_stat_mech/2.html#wを求める",
     "title": "ボルツマンの原理",
     "section": "Wを求める",
     "text": "Wを求める\nまず，\\Omega(E)を求める．条件は体積がV，粒子数がN,粒子の質量はmである． ハミルトニアンがE \\ge Hを満たす6N次元位相空間の超体積を求め，h^{3N}で割ることによって求まる． (復習だが，ハミルトニアンが等しいとは，同じエネルギー面にいるということを意味している．その面を重ね合わせて，体積を求めるというイメージ)\n\n\\Omega(E) = \\frac 1 {h^{3N}} \\int\\int ...\\int dq_1dq_2 ...dq_{3N}dp_1 dp_2 ... dp_{3N}\n の積分を求める．変形すると\n\n\\Omega(E) = \\frac 1 {h^{3N}} \\int ... \\int dq_1dq_2 ...dq_{3N} \\int ...\\int dp_1 dp_2 ... dp_{3N}\n\nである．ここでqについての積分は，3次元空間なので， \n\\int \\int \\int dq_1 dq_2 dq_3 = V\n である．同様に考えると\n\n\\Omega(E) = \\frac {V^N} {h^{3N}} \\int ...\\int dp_1 dp_2 ... dp_{3N}\n\nとなることがわかる． ハミルトニアンをmとp_iを用いて表すと，mが十分小さいのでポテンシャルエネルギーを0として \nH = \\frac{1}{2m}\\sum_i^{3N} p^2_i\n\nと表現される． H \\le Eであるので代入すると．\n\n\\frac{1}{2m}\\sum_i^{3N} p^2_i  \\le E\n 式変形すると \n\\sum_i^{3N} p^2_i \\le (\\sqrt{2mE})^2\n すなわち\\int ...\\int dp_1 dp_2 ... dp_{3N}は半径\\sqrt{2mE}のN次元球の体積である． N次元球の体積の公式を用いて\n\n\\int ...\\int dp_1 dp_2 ... dp_{3N} = \\frac{(2 \\pi)^{\\frac {3N}2}}{3N\\Gamma(\\frac {3N}2)} (2mE)^{\\frac{3N}{2}}\n\n式をまとめて，定数項をCと置くと\n\n\\Omega(E) = C E^{\\frac {3N} 2}\n\nである．これを微分して\\Delta E(定数)を掛けてやると，Wが求まる．よって \nW = C E^{\\frac{3N }{2} -1}",
     "crumbs": [
       "Home",
-      "Math",
       "平衡系統計力学",
       "ボルツマンの原理"
     ]
   },
   {
-    "objectID": "Published/Math/equilibrium_stat_mech/2.html#ボルツマンの原理",
-    "href": "Published/Math/equilibrium_stat_mech/2.html#ボルツマンの原理",
+    "objectID": "Published/equilibrium_stat_mech/2.html#ボルツマンの原理",
+    "href": "Published/equilibrium_stat_mech/2.html#ボルツマンの原理",
     "title": "ボルツマンの原理",
     "section": "ボルツマンの原理",
     "text": "ボルツマンの原理\nまずこれの対数をとると\n\n\\log W = \\log C + (\\frac {3N}{2} -1)\\log E\n となる．これをEで微分し，\\frac {3N}{2} -1 \\approx \\frac {3N}{2}とすると\n\n\\frac{d}{dE} \\log W = \\frac {3N}{2E}\n ここで気体分子運動論の結果から \nE = \\frac 3 2 N k T\n となる，代入すると\n\n\\frac d {dE} \\log W = \\frac 1 {kT}\n\nここで熱力学第一法則より\n\ndE = T dS - pdV\n\ndV = 0なので \n\\frac {dS}{dE} = \\frac 1 T\n である．比較すると \nS = k \\log W\n が導出される．この状態数とエントロピーの関係をボルツマンの原理と言う．",
     "crumbs": [
       "Home",
-      "Math",
       "平衡系統計力学",
       "ボルツマンの原理"
     ]
   },
   {
-    "objectID": "Published/Math/equilibrium_stat_mech/2.html#エントロピーの示量性",
-    "href": "Published/Math/equilibrium_stat_mech/2.html#エントロピーの示量性",
+    "objectID": "Published/equilibrium_stat_mech/2.html#エントロピーの示量性",
+    "href": "Published/equilibrium_stat_mech/2.html#エントロピーの示量性",
     "title": "ボルツマンの原理",
     "section": "エントロピーの示量性",
     "text": "エントロピーの示量性\nエントロピーは示量変数（物質の量に比例する変数）である．これを示したい．熱力学的重率W(E)に粒子の区別はつかないものとしてN!で割る操作をすることでこの性質を示すことができる．\n\nW(E) = \\frac{V^N}{N!} \\bigg(\\frac{2 \\pi}{h^2}\\bigg) ^{\\frac {3N}2} \\frac{1}{\\Gamma(\\frac {3N}2)} (2mE)^{\\frac{3N}{2} -1}\n\nよって \nW = \\frac{V^N}{N!} \\bigg(\\frac{2 \\pi}{h^2}\\bigg) ^{\\frac {3N}2} \\frac{\\Delta E}{\\Gamma(\\frac {3N}2)} (2mE)^{\\frac{3N}{2} -1}\n\nこの式をボルツマンの原理に代入すると\n\nS = k \\log \\left \\{  \\frac{V^N}{N!} \\bigg(\\frac{2 \\pi}{h^2}\\bigg) ^{\\frac {3N}2} \\frac{\\Delta E}{\\Gamma(\\frac {3N}2)} (2mE)^{\\frac{3N}{2} -1} \\right \\}\n\n粗いスターリング公式（\\Gamma関数でも同様に） \nN! \\approx N \\log N - N\n と，N &gt;&gt; 1より\n\n\\begin{align}\nS &= k \\left(   N \\log V - N \\log N + N + \\frac 3 2 N \\log \\frac{2 \\pi m E}{h^2} -\\frac {3N} 2 \\log \\frac{3N}{2} + \\frac {3N}{2}   \\right) \\\\\n&= Nk \\left(\\log \\frac {V}{N} + \\frac 3 2 \\log \\left( \\frac{4 \\pi m}{3h^2} \\frac E N  \\right) + \\frac 5 2  \\right)\n\\end{align}  \n ここで，Vは一定であり，EはNに比例するので\\frac V Nと\\frac E Nは定数となる． よってエントロピーは示量変数である．",
     "crumbs": [
       "Home",
-      "Math",
       "平衡系統計力学",
       "ボルツマンの原理"
     ]
   },
   {
-    "objectID": "Published/Math/equilibrium_stat_mech/2.html#まとめ",
-    "href": "Published/Math/equilibrium_stat_mech/2.html#まとめ",
+    "objectID": "Published/equilibrium_stat_mech/2.html#まとめ",
+    "href": "Published/equilibrium_stat_mech/2.html#まとめ",
     "title": "ボルツマンの原理",
     "section": "まとめ",
     "text": "まとめ\n\n単原子分子理想気体の状態数WはC E ^{\\frac {3N}{2} -1}である\n上の式と熱力学第一法則を使うことで，ボルツマンの原理が導出される\nエントロピーの示量性を示すにはN!で割る必要がある．",
     "crumbs": [
       "Home",
-      "Math",
       "平衡系統計力学",
       "ボルツマンの原理"
     ]
   },
   {
-    "objectID": "Published/Math/bayesian_inference/1.html",
-    "href": "Published/Math/bayesian_inference/1.html",
+    "objectID": "Published/bayesian_inference/1.html",
+    "href": "Published/bayesian_inference/1.html",
     "title": "モンテカルロ法",
     "section": "",
     "text": "はじめまして，Zawaと申します．最近様々な分野の勉強をしています．ですがOutputをする機会があまりなく本当に理解しているのか最近疑問に思うようになりました．また復習をしようとしてもメモの保存がどこかにいってしまうことがよくありました．そこで心機一転Zennに投稿することでOutputの機会を得れ，さらにメモを保存することで復習がしやすくなると考えたのでこれから記事を書いていこうと思います．",
     "crumbs": [
       "Home",
-      "Math",
       "ベイズ推論",
       "モンテカルロ法"
     ]
   },
   {
-    "objectID": "Published/Math/bayesian_inference/1.html#はじめに",
-    "href": "Published/Math/bayesian_inference/1.html#はじめに",
+    "objectID": "Published/bayesian_inference/1.html#はじめに",
+    "href": "Published/bayesian_inference/1.html#はじめに",
     "title": "モンテカルロ法",
     "section": "",
     "text": "はじめまして，Zawaと申します．最近様々な分野の勉強をしています．ですがOutputをする機会があまりなく本当に理解しているのか最近疑問に思うようになりました．また復習をしようとしてもメモの保存がどこかにいってしまうことがよくありました．そこで心機一転Zennに投稿することでOutputの機会を得れ，さらにメモを保存することで復習がしやすくなると考えたのでこれから記事を書いていこうと思います．",
     "crumbs": [
       "Home",
-      "Math",
       "ベイズ推論",
       "モンテカルロ法"
     ]
   },
   {
-    "objectID": "Published/Math/bayesian_inference/1.html#この記事群について",
-    "href": "Published/Math/bayesian_inference/1.html#この記事群について",
+    "objectID": "Published/bayesian_inference/1.html#この記事群について",
+    "href": "Published/bayesian_inference/1.html#この記事群について",
     "title": "モンテカルロ法",
     "section": "この記事群について",
     "text": "この記事群について\n勉強の復習用ノートです，ミスをしている部分もあるかもしれないのでコメントで教えてくださると幸いです．",
     "crumbs": [
       "Home",
-      "Math",
       "ベイズ推論",
       "モンテカルロ法"
     ]
   },
   {
-    "objectID": "Published/Math/bayesian_inference/1.html#モンテカルロ法",
-    "href": "Published/Math/bayesian_inference/1.html#モンテカルロ法",
+    "objectID": "Published/bayesian_inference/1.html#モンテカルロ法",
+    "href": "Published/bayesian_inference/1.html#モンテカルロ法",
     "title": "モンテカルロ法",
     "section": "モンテカルロ法",
     "text": "モンテカルロ法\n\nなぜモンテカルロ法をやるのか？\n機械学習の一種であるベイズ推論の主な目的とはなにか？ それは事後分布を求めることである．\n\np(\\theta | x) = \\frac{p(x|\\theta)p(\\theta)}{p(x)}\n この事後分布を求めることで，問題にしている分布についての最適なパラメータの分布を逐次的に求めることが出来る． 確率分布が解析的に扱いやすいものならこのまま計算すればよいが，残念ながら解析的に扱いにくい確率分布がほとんどである． なぜ解析的に解けない場合があるのか？ それは\n\np(x) = \\int_{-\\infty}^{\\infty} p(x|\\theta)p(\\theta) d\\theta\n の計算が難しい場合が多いためである．特に多次元での更新の場合は積分計算が困難となるので，その解析的な求積は困難を極める． そこでどうにか工夫をしてコンピュータで，数値的に事後分布を求めたいという動機が出てくる．その手法の一つがモンテカルロ法である．",
     "crumbs": [
       "Home",
-      "Math",
       "ベイズ推論",
       "モンテカルロ法"
     ]
   },
   {
-    "objectID": "Published/Math/bayesian_inference/1.html#モンテカルロ法その１逆関数法",
-    "href": "Published/Math/bayesian_inference/1.html#モンテカルロ法その１逆関数法",
+    "objectID": "Published/bayesian_inference/1.html#モンテカルロ法その１逆関数法",
+    "href": "Published/bayesian_inference/1.html#モンテカルロ法その１逆関数法",
     "title": "モンテカルロ法",
     "section": "モンテカルロ法その１：逆関数法",
     "text": "モンテカルロ法その１：逆関数法\n\n手法\n\nF(x) = \\int_{-\\infty}^x p(t) dt\n\n1 : 一様乱数 u \\sim U[0,1]をサンプリングする 2 : x = F^{-1}(u)をプロット これを繰り返して分布が得られる\n\n\n理論的根拠\nまずuとF^{-1}の範囲は一致する．これは累積確率分布の性質からわかる． X = F^{-1}の累積分布関数を考えると\n\n𝑃(𝑋 ≤ 𝑥) = 𝑃( 𝐹^{-1}(𝑈) ≤ 𝑥 ) = 𝑃( 𝑈 ≤ 𝐹(𝑥) ) = 𝐹(𝑥)\n すなわち，Xの累積分布関数はFとなる． よってXの密度関数はpとなりサンプリングが可能となる．",
     "crumbs": [
       "Home",
-      "Math",
       "ベイズ推論",
       "モンテカルロ法"
     ]
   },
   {
-    "objectID": "Published/Math/bayesian_inference/1.html#モンテカルロ法その2棄却サンプリング法",
-    "href": "Published/Math/bayesian_inference/1.html#モンテカルロ法その2棄却サンプリング法",
+    "objectID": "Published/bayesian_inference/1.html#モンテカルロ法その2棄却サンプリング法",
+    "href": "Published/bayesian_inference/1.html#モンテカルロ法その2棄却サンプリング法",
     "title": "モンテカルロ法",
     "section": "モンテカルロ法その2：棄却サンプリング法",
     "text": "モンテカルロ法その2：棄却サンプリング法\n\n逆関数法のデメリット\n\nFがそもそも解析的に書けない場合は使うことができない\nFは解析的に書けても，F^{-1}が解析的に書けない場合は使うことができない\n\n\n\n棄却サンプリング法のアイディア\n1 : まずサンプリングのしやすい代理関数を用意する 2 : 代理関数でサンプリングをする 3 : サンプリングした値を目標関数の値に合うように採択ないしは棄却する 4 : 結果として残ったものは目標関数となる\n\n\n手法\n1 : 代理関数 q(x)から候補点をサンプリング 2 : 一様乱数u \\sim U([0,1])を発生 3 : 採択判定 u \\le \\frac{p(\\theta)}{c q(\\theta)} なら採択，そうでなければ棄却 4 : ほしい数のサンプル数が集まるまで繰り返す\n\n\n理論的根拠\n\nu c q(\\theta)\\le p(\\theta)\n は，線x =cq(\\theta)上でランダムに点を打ってその値がpよりも小さくなる場合は採用する． 逆にpより大きい場合は棄却する．cは上界を決める重要因子である．上界を決めなければ完全な確率分布を求めることは困難である．\n\n\nモンテカルロ法その3 : MCMC法(MH法)\n\n\n直感的発想\n\n良いサンプル (採択される確率の高い領域)の周辺には，また良いサンプルがある可能性が高い\n現時点の近くを探ることで，効率よくサンプル出来るはずである．\n完全にランダムに飛ぶより，移動しながら次第に目標分布を覆っていく\n\n\n\n必要なもの\n\n目標分布に比例する関数fの値が計算できれば良い\n提案分布 : 現在の\\thetaから 次の候補を生成する分布\n\n\n\n手法\n1 : 現在の状態 \\theta_{t-1}から提案分布を用いて次の候補 \\theta_{t}を生成する ex) q(\\theta_t | \\theta_{t-1}) \\sim N(\\theta_{t-1}, \\sigma^2) 2 : 受理確率でその値を受容するか棄却するか決める. \\alpha(\\theta_t | \\theta_{t-1})は\\theta_{t-1}から\\theta_{t}へ遷移する確率を意味している．\n\n\\alpha(\\theta_t | \\theta_{t-1}) = \\min \\big( 1, \\frac{f(\\theta_t)q(\\theta_{t-1} | \\theta_t)}{f(\\theta_{t-1})q(\\theta_{t} | \\theta_{t-1})} \\big)\n\n\n\n理論的根拠\nMCMC法が正しく昨日するためには，マルコフ連鎖を十分に長く走らせた後に，サンプルが目的の分布から得れるようになる必要がある．これを定常分布に達したという． マルコフ連鎖が目的分布を定常分布として持つための十分条件が詳細釣り合い条件と呼ばれる．\n p(\\theta_{t-1}) T(\\theta_{t-1} \\to \\theta_t) = p(\\theta_t) T(\\theta_t \\to \\theta_{t-1})  ここでTは提案確率と，採択確率の積として表される\n T(\\theta_{t-1} \\to \\theta_t) = q(\\theta_t | \\theta_{t-1}) \\alpha(\\theta_t | \\theta_{t-1}) \nすなわち次の等式を満たす必要がある  \\frac{\\alpha(\\theta_t | \\theta_{t-1})}{\\alpha(\\theta_{t-1} | \\theta_t)} = \\frac{p(\\theta_t)q(\\theta_{t-1} | \\theta_t)}{p(\\theta_{t-1})q(\\theta_t | \\theta_{t-1})}  右辺を rと簡略化する \n\\frac{\\alpha(\\theta_t | \\theta_{t-1})}{\\alpha(\\theta_{t-1} | \\theta_t)} = r\n\nここでなるべく遷移したい（サンプリング効率を高めたい）．この比率rを満たしながら，採択確率を可能な限り大きな値に設定する．\n\nr &gt;1 のとき\n\n\\alpha(\\theta_t | \\theta_{t-1}) &gt; \\alpha(\\theta_{t-1} | \\theta_{t})\n を満たす．ここで大きい方を1と設定すれば，もう一方も確率的に正しい値 1/rとなるので 条件を満たす\n\n\nr &lt;=1 のとき\n同様に考えれば良い\nこう考えると，r&gt;1なら1, r \\le 1なら rになる よってまとめると\n\n\\alpha(\\theta_t | \\theta_{t-1}) = \\min \\big( 1, \\frac{f(\\theta_t)q(\\theta_{t-1} | \\theta_t)}{f(\\theta_{t-1})q(\\theta_{t} | \\theta_{t-1})} \\big)\n\nとなる．",
     "crumbs": [
       "Home",
-      "Math",
       "ベイズ推論",
       "モンテカルロ法"
     ]
   },
   {
-    "objectID": "Published/Math/bayesian_inference/1.html#結論",
-    "href": "Published/Math/bayesian_inference/1.html#結論",
+    "objectID": "Published/bayesian_inference/1.html#結論",
+    "href": "Published/bayesian_inference/1.html#結論",
     "title": "モンテカルロ法",
     "section": "結論",
     "text": "結論\n逆関数法は式が解析的にわかっていたら出来る． 棄却サンプリング法は棄却域を決めないといけないが，その問題が難しい場合が一般である． MH法は棄却サンプリング法の棄却域を決めないといけない問題を回避出来る，",
     "crumbs": [
       "Home",
-      "Math",
       "ベイズ推論",
       "モンテカルロ法"
     ]
   },
   {
-    "objectID": "Published/Math/bayesian_inference/3.html",
-    "href": "Published/Math/bayesian_inference/3.html",
+    "objectID": "Published/bayesian_inference/3.html",
+    "href": "Published/bayesian_inference/3.html",
     "title": "ベイズ推定におけるモデル選択（続き）",
     "section": "",
     "text": "前回のラプラス近似の結果を考える\n\n\\log (X; \\beta) \\approx \\log p(X | \\theta_{MAP}) + \\log p(\\theta_{MAP} ; \\beta) + \\frac t 2 \\log(2 \\pi) - \\frac 1 2 \\log |-H|\n ここで，ヘッセ行列の計算量はO(t^3) である．これは重い計算である． なのでもっと軽い近似がほしい．なので，ヘッセ項を更に近似したものがほしい．これがBICとなる．\n\n\n\nまず，対数尤度の式は，i.i.d.からn個の標本を得れるとして(\\theta \\in \\mathbb R^t)\n\n\\log p(X | \\theta) = \\sum_i^n \\log q(x_i | \\theta)\n これの二回微分がヘッセ行列なので，微分の線形性から \n\\nabla ^2 \\log p(X | \\theta) =  \\sum_i^n \\nabla^2\\log q(x_i | \\theta)\n\nここで，\n\nY_H(X) = \\frac 1 n \\sum_i^n \\nabla^2\\log q(x_i | \\theta)\n とY_Hを定義すると，\n\nH = n Y_H(X)\n が成立する． ここで，サンプルサイズを無限に飛ばすと，対数の法則より期待値に確率収束する．(フィッシャー情報量の逆符号)\n\nY_H(X) \\xrightarrow{p} \\bar Y_H\n すなわちサンプル数が十分に大きいとき次の近似が成立する．\n\nH \\approx n \\bar Y_H\n\n行列の多重共線性より\n\n|n (-\\bar Y_H)| = n^t |-\\bar Y_H |\n が成立する．なので\n\n\\log |-H| \\approx t \\log n + \\log |-\\bar Y_H|\n ここで，nが大きいときは定数項を無視できるので\n\n\\log p(X; \\beta) \\approx \\log p(X | \\theta_{MAP}) + \\log p(\\theta_{MAP} ; \\beta) - \\frac 1 2 t\\log n + O(1)\n\nさらに，事前分布の影響もnが大きいと小さくなる また\\theta_{MAP} \\approx \\theta_{ML}に漸近するので\n\n\\log p(X; \\beta) \\approx \\log p(X | \\theta_{ML})  - \\frac 1 2 t\\log n\n ここで，周辺尤度はその\\betaを与えたときにどれだけ妥当かを意味しているので，情報量基準として使える．\n\nBIC = - \\log p(X | \\theta_{ML})  + \\frac 1 2 t\\log n\n\nこれがBICの定義である．",
     "crumbs": [
       "Home",
-      "Math",
       "ベイズ推論",
       "ベイズ推定におけるモデル選択（続き）"
     ]
   },
   {
-    "objectID": "Published/Math/bayesian_inference/3.html#bic",
-    "href": "Published/Math/bayesian_inference/3.html#bic",
+    "objectID": "Published/bayesian_inference/3.html#bic",
+    "href": "Published/bayesian_inference/3.html#bic",
     "title": "ベイズ推定におけるモデル選択（続き）",
     "section": "",
     "text": "前回のラプラス近似の結果を考える\n\n\\log (X; \\beta) \\approx \\log p(X | \\theta_{MAP}) + \\log p(\\theta_{MAP} ; \\beta) + \\frac t 2 \\log(2 \\pi) - \\frac 1 2 \\log |-H|\n ここで，ヘッセ行列の計算量はO(t^3) である．これは重い計算である． なのでもっと軽い近似がほしい．なので，ヘッセ項を更に近似したものがほしい．これがBICとなる．\n\n\n\nまず，対数尤度の式は，i.i.d.からn個の標本を得れるとして(\\theta \\in \\mathbb R^t)\n\n\\log p(X | \\theta) = \\sum_i^n \\log q(x_i | \\theta)\n これの二回微分がヘッセ行列なので，微分の線形性から \n\\nabla ^2 \\log p(X | \\theta) =  \\sum_i^n \\nabla^2\\log q(x_i | \\theta)\n\nここで，\n\nY_H(X) = \\frac 1 n \\sum_i^n \\nabla^2\\log q(x_i | \\theta)\n とY_Hを定義すると，\n\nH = n Y_H(X)\n が成立する． ここで，サンプルサイズを無限に飛ばすと，対数の法則より期待値に確率収束する．(フィッシャー情報量の逆符号)\n\nY_H(X) \\xrightarrow{p} \\bar Y_H\n すなわちサンプル数が十分に大きいとき次の近似が成立する．\n\nH \\approx n \\bar Y_H\n\n行列の多重共線性より\n\n|n (-\\bar Y_H)| = n^t |-\\bar Y_H |\n が成立する．なので\n\n\\log |-H| \\approx t \\log n + \\log |-\\bar Y_H|\n ここで，nが大きいときは定数項を無視できるので\n\n\\log p(X; \\beta) \\approx \\log p(X | \\theta_{MAP}) + \\log p(\\theta_{MAP} ; \\beta) - \\frac 1 2 t\\log n + O(1)\n\nさらに，事前分布の影響もnが大きいと小さくなる また\\theta_{MAP} \\approx \\theta_{ML}に漸近するので\n\n\\log p(X; \\beta) \\approx \\log p(X | \\theta_{ML})  - \\frac 1 2 t\\log n\n ここで，周辺尤度はその\\betaを与えたときにどれだけ妥当かを意味しているので，情報量基準として使える．\n\nBIC = - \\log p(X | \\theta_{ML})  + \\frac 1 2 t\\log n\n\nこれがBICの定義である．",
     "crumbs": [
       "Home",
-      "Math",
       "ベイズ推論",
       "ベイズ推定におけるモデル選択（続き）"
     ]
   },
   {
-    "objectID": "Published/Math/bayesian_inference/3.html#変分ベイズ法",
-    "href": "Published/Math/bayesian_inference/3.html#変分ベイズ法",
+    "objectID": "Published/bayesian_inference/3.html#変分ベイズ法",
+    "href": "Published/bayesian_inference/3.html#変分ベイズ法",
     "title": "ベイズ推定におけるモデル選択（続き）",
     "section": "変分ベイズ法",
     "text": "変分ベイズ法\nラプラス近似では，事後分布が多峰性，歪んだ分布では不適合となる． もっと柔軟な近似分布を用いてKLダイバージェンスを最小化する．\n\nJensen不等式\n\n\\log E[f] \\ge E[\\log f]\n\nが成立する．重要不等式である． 周辺尤度を，近似分布を用いたパラメータ\\eta, \\theta で分解する．またJensen不等式で下限をとる．\n\n\n平均場近似\nJensen不等式を使いたいが，この式はパラメーターが複雑に絡み合っている．だが近似として\n\nq(\\eta, \\theta) \\approx q(\\eta) q(\\theta)\n をする．これは平均場近似と呼ばれる近似である． これは変数の次元が増加するにつれて，それぞれの変数がもつ個別のノイズは足し合わされることで，大数の法則により打ち消される． なので周囲からの影響はほぼ一定であるとみなせるので，平均場近似は妥当な近似として作用する． \\eta,\\thetaは存在するだろうと，仮定しておいているに過ぎない．\n\n\\begin{align}\n\\log p(X; \\beta) &= \\log \\int \\int p(X,\\eta,\\theta;\\beta) d\\eta d\\theta \\\\\n&= \\log \\int \\int q(\\eta,\\theta; \\beta) \\frac{p(X,\\eta,\\theta;\\beta)}{ q(\\eta,\\theta; \\beta) } d\\eta d\\theta \\\\\n&\\approx\\log \\int \\int  q(\\eta) q(\\theta)\\frac{p(X,\\eta,\\theta;\\beta)}{q(\\eta) q(\\theta)} d\\eta d\\theta \\\\\n& \\ge \\int \\int q(\\eta)q(\\theta) \\log \\frac{p(X,\\eta,\\theta;\\beta)}{q(\\eta) q(\\theta)} d\\eta d\\theta \\\\\n&= F(q(\\eta), q(\\theta))\n\\end{align}\n ここでFをそれぞれの変数で変分して解くと，それぞれの分布が何に比例するのかがわかる． このFは対数周辺尤度の下界，ELBOと呼ばれる量である． このELBOを最大化させることさせることで，対数周辺尤度を最大化させることができる． ELBOは計算可能である．なぜなら積分の中身はすべて計算可能（事前に形を設定している）であるためである． このELBOを最大化させるにはq(\\theta),q(\\eta)を動かす必要がある． これらを動かしてELBOを最大化させる手法をVB-EMアルゴリズムという． 今日は時間が無いので次回VB-EMアルゴリズムを説明する．",
     "crumbs": [
       "Home",
-      "Math",
       "ベイズ推論",
       "ベイズ推定におけるモデル選択（続き）"
     ]
   },
   {
-    "objectID": "Published/Math/bayesian_inference/3.html#まとめ",
-    "href": "Published/Math/bayesian_inference/3.html#まとめ",
+    "objectID": "Published/bayesian_inference/3.html#まとめ",
+    "href": "Published/bayesian_inference/3.html#まとめ",
     "title": "ベイズ推定におけるモデル選択（続き）",
     "section": "まとめ",
     "text": "まとめ\n\nヘッシアンを求めることは時間がかかるので，さらに近似してBICでモデルパラメータを決定する\nラプラス近似は不適合な場合が多いので，より柔軟な分布を用いてELBOを最大化させる方法を採用する手法をとる．",
     "crumbs": [
       "Home",
-      "Math",
       "ベイズ推論",
       "ベイズ推定におけるモデル選択（続き）"
     ]
@@ -387,287 +361,265 @@
     "text": "そろそろ大学のテストが近いので，パターン認識のメモと演習を一気に書いてアップロードしようと思います．あと最適化数学も近いのでこいつも一気に勉強します．（他にも色々分野はあるがまあ大丈夫やろ）"
   },
   {
-    "objectID": "Published/Math/bayesian_inference/2.html",
-    "href": "Published/Math/bayesian_inference/2.html",
+    "objectID": "Published/bayesian_inference/2.html",
+    "href": "Published/bayesian_inference/2.html",
     "title": "ベイズ推定におけるモデル選択",
     "section": "",
     "text": "ベイズの定理 \np(\\theta | X) = \\frac{p(X | \\theta) p(\\theta)}{p(X)}\n のp(\\theta)は自分で設定する必要がある．この事前分布によって結果が変わってくるので重要である．\n\n\n\np(\\theta) = p(\\theta;\\beta)\n と書く．\n\np(\\theta | X ; \\beta) = \\frac{p(X | \\theta) p(\\theta;\\beta)}{p(X;\\beta)}\n となる（周辺尤度も\\betaに依存する） なので良い\\betaを選ぶことがモデル選択において重要である．\n\n\n\nMAP推定 \n\\begin{align}\n\\theta_{MAP} &= \\arg\\max_{\\theta}p(X|\\theta)p(\\theta;\\beta) \\\\\n            &=  \\arg\\max_{\\theta} [\\log p(X| \\theta) + \\log p(\\theta; \\beta)]\n\\end{align}\n\n第一項は，対数尤度である．第二項の意味を考えたい． 具体例として，事前分布が正規分布の場合を考える．\n\n\\begin{align}\n\\log p(\\theta) &= -\\frac{1}{2 \\sigma^2} \\theta^2 +C \\\\\n            & \\propto -\\frac \\beta 2 \\theta^2\n\\end{align}\n\nこれは，パラメータをなるべく0に近づけたいということ，すなわちパラメータを大きくすることへのペナルティ と解釈出来る．いわゆるRidge回帰．\nすなわちMAP推定とは，\\thetaの値を大きくして過学習を起こさないようにするために罰則項を追加した最尤推定という見方もできる．",
     "crumbs": [
       "Home",
-      "Math",
       "ベイズ推論",
       "ベイズ推定におけるモデル選択"
     ]
   },
   {
-    "objectID": "Published/Math/bayesian_inference/2.html#事前分布の設定",
-    "href": "Published/Math/bayesian_inference/2.html#事前分布の設定",
+    "objectID": "Published/bayesian_inference/2.html#事前分布の設定",
+    "href": "Published/bayesian_inference/2.html#事前分布の設定",
     "title": "ベイズ推定におけるモデル選択",
     "section": "",
     "text": "ベイズの定理 \np(\\theta | X) = \\frac{p(X | \\theta) p(\\theta)}{p(X)}\n のp(\\theta)は自分で設定する必要がある．この事前分布によって結果が変わってくるので重要である．\n\n\n\np(\\theta) = p(\\theta;\\beta)\n と書く．\n\np(\\theta | X ; \\beta) = \\frac{p(X | \\theta) p(\\theta;\\beta)}{p(X;\\beta)}\n となる（周辺尤度も\\betaに依存する） なので良い\\betaを選ぶことがモデル選択において重要である．\n\n\n\nMAP推定 \n\\begin{align}\n\\theta_{MAP} &= \\arg\\max_{\\theta}p(X|\\theta)p(\\theta;\\beta) \\\\\n            &=  \\arg\\max_{\\theta} [\\log p(X| \\theta) + \\log p(\\theta; \\beta)]\n\\end{align}\n\n第一項は，対数尤度である．第二項の意味を考えたい． 具体例として，事前分布が正規分布の場合を考える．\n\n\\begin{align}\n\\log p(\\theta) &= -\\frac{1}{2 \\sigma^2} \\theta^2 +C \\\\\n            & \\propto -\\frac \\beta 2 \\theta^2\n\\end{align}\n\nこれは，パラメータをなるべく0に近づけたいということ，すなわちパラメータを大きくすることへのペナルティ と解釈出来る．いわゆるRidge回帰．\nすなわちMAP推定とは，\\thetaの値を大きくして過学習を起こさないようにするために罰則項を追加した最尤推定という見方もできる．",
     "crumbs": [
       "Home",
-      "Math",
       "ベイズ推論",
       "ベイズ推定におけるモデル選択"
     ]
   },
   {
-    "objectID": "Published/Math/bayesian_inference/2.html#ハイパーパラメータをどう決定するか",
-    "href": "Published/Math/bayesian_inference/2.html#ハイパーパラメータをどう決定するか",
+    "objectID": "Published/bayesian_inference/2.html#ハイパーパラメータをどう決定するか",
+    "href": "Published/bayesian_inference/2.html#ハイパーパラメータをどう決定するか",
     "title": "ベイズ推定におけるモデル選択",
     "section": "ハイパーパラメータをどう決定するか",
     "text": "ハイパーパラメータをどう決定するか\n\n手動\n交差検証による比較\n経験ベイズ法 等が挙げられる 今回は経験ベイズ法に進む\n\n\n経験ベイズ法\np(X ; \\beta) を最大化する手法である 周辺尤度とは，\\betaを与えたときに訓練標本が生成される確率のことを指している． これはなるべく高い方が良いので，この手法は適切である． なぜ，p(X;\\beta)の最大化で過学習が起こらないのか．それは周辺尤度が，\\thetaについての全領域積分を行っているため，ある偏ったパラメータ（過学習するパラメータ）があったとしても，その影響をあまり受けない堅固な指標だからである．\n\n\nAIC との関係\nハイパーパラメータを決定するものとして，AICがある． AICは事前情報を入れることができないが，MAP推定と経験ベイズ法を用いればそれが可能となる．\n\n\nエビデンス近似\n本来のベイズ推論ならば\\betaについても周辺化を行うべきである． \np(\\theta | X) = \\int p(\\theta|X;\\beta) p(\\beta | X) d\\beta\n\nだが，\\betaの分布はほとんどの場合複雑すぎるので，この積分を解析的に実行することは現実的ではない．そこである\\beta^*でp(\\beta | X)が最大値をとりさらにそれが鋭く（デルタ関数で近似できるほど）分布していると仮定する． するとこれは積分は必要なく，代入するだけでよくなる．（デルタ関数の性質を参照）\nすなわち \np(\\theta | X) \\approx p(\\theta | X ; \\beta^*)",
     "crumbs": [
       "Home",
-      "Math",
       "ベイズ推論",
       "ベイズ推定におけるモデル選択"
     ]
   },
   {
-    "objectID": "Published/Math/bayesian_inference/2.html#周辺尤度のラプラス近似",
-    "href": "Published/Math/bayesian_inference/2.html#周辺尤度のラプラス近似",
+    "objectID": "Published/bayesian_inference/2.html#周辺尤度のラプラス近似",
+    "href": "Published/bayesian_inference/2.html#周辺尤度のラプラス近似",
     "title": "ベイズ推定におけるモデル選択",
     "section": "周辺尤度のラプラス近似",
     "text": "周辺尤度のラプラス近似\nそもそも前回を思い出すと，このp(X;\\beta)の計算は非常に複雑である． 前回学んだモンテカルロ法（特にMCMC法）を用いれば周辺尤度を求めることは可能だが，計算コストが高いという問題がある． 今回は計算コストが低いラプラス近似という手法を学んでいく．\n\nアイディア\nMAP点のまわりで，ガウス分布としてp(X;\\beta)を近似する．すなわち，MAP点の周りで二次のテイラー展開を行う．\n\n\nなぜMAP点なのか？\n思い出すとMAP点とは \n\\begin{align}\n\\theta_{MAP} &= \\arg\\max_{\\theta} p(X|\\theta)p(\\theta;\\beta) \\\\\n\\end{align}\n\nである．これは\\log p(\\theta | X)が極大値を取ることと言い換えれるので \\nabla \\log p(\\theta|X) = 0と言い換えれる．\nテイラー展開の四季は以下の通りである． \\log p(\\theta | X) \\approx \\log p(\\theta_0 | X) + \\nabla \\log p(\\theta_0 | X)(\\theta - \\theta_0) + \\frac{1}{2}(\\theta - \\theta_0)^T H (\\theta - \\theta_0)\n一方で、ガウス分布の対数をとった式は以下の構造を持つ\n\\log \\mathcal{N}(\\mu, \\Sigma) = -\\frac{1}{2}(x - \\mu)^T \\Sigma^{-1} (x - \\mu) + C\n一次の項を持たないので，これは \n\\nabla \\log p(\\theta_0 | X) = 0\n でないといけない．これはMAP点の条件と一致する．",
     "crumbs": [
       "Home",
-      "Math",
       "ベイズ推論",
       "ベイズ推定におけるモデル選択"
     ]
   },
   {
-    "objectID": "Published/Math/bayesian_inference/2.html#まとめ",
-    "href": "Published/Math/bayesian_inference/2.html#まとめ",
+    "objectID": "Published/bayesian_inference/2.html#まとめ",
+    "href": "Published/bayesian_inference/2.html#まとめ",
     "title": "ベイズ推定におけるモデル選択",
     "section": "まとめ",
     "text": "まとめ\n\nMAP推定は罰則項付き最尤推定を拡張したものである．\nモデル選択にはハイパーパラメータが必要であり，ハイパーパラメータを決める手法の一つとして経験ベイズ法がある．\nラプラス近似を使うことで計算量少なくp(X; \\beta)を計算できる．",
     "crumbs": [
       "Home",
-      "Math",
       "ベイズ推論",
       "ベイズ推定におけるモデル選択"
     ]
   },
   {
-    "objectID": "Published/Math/bayesian_inference/4.html",
-    "href": "Published/Math/bayesian_inference/4.html",
+    "objectID": "Published/bayesian_inference/4.html",
+    "href": "Published/bayesian_inference/4.html",
     "title": "VB-EMアルゴリズム",
     "section": "",
     "text": "ラプラス近似では，事後分布が非ガウス分布のときに不適合なので，より柔軟な分布q(\\theta)を用いて近似したいという動機がある．そこで，対数周辺尤度の下限，いわれるELBOを最大化する qを求めたくなる． そこでVB-EMアルゴリズムを使う．",
     "crumbs": [
       "Home",
-      "Math",
       "ベイズ推論",
       "VB-EMアルゴリズム"
     ]
   },
   {
-    "objectID": "Published/Math/bayesian_inference/4.html#復習",
-    "href": "Published/Math/bayesian_inference/4.html#復習",
+    "objectID": "Published/bayesian_inference/4.html#復習",
+    "href": "Published/bayesian_inference/4.html#復習",
     "title": "VB-EMアルゴリズム",
     "section": "",
     "text": "ラプラス近似では，事後分布が非ガウス分布のときに不適合なので，より柔軟な分布q(\\theta)を用いて近似したいという動機がある．そこで，対数周辺尤度の下限，いわれるELBOを最大化する qを求めたくなる． そこでVB-EMアルゴリズムを使う．",
     "crumbs": [
       "Home",
-      "Math",
       "ベイズ推論",
       "VB-EMアルゴリズム"
     ]
   },
   {
-    "objectID": "Published/Math/bayesian_inference/4.html#elbo最大化と変分微分",
-    "href": "Published/Math/bayesian_inference/4.html#elbo最大化と変分微分",
+    "objectID": "Published/bayesian_inference/4.html#elbo最大化と変分微分",
+    "href": "Published/bayesian_inference/4.html#elbo最大化と変分微分",
     "title": "VB-EMアルゴリズム",
     "section": "ELBO最大化と変分微分",
     "text": "ELBO最大化と変分微分\n変分ベイズにおける目標は，真の事後分布 p(\\theta, \\eta | X) を近似する分布 q(\\theta, \\eta) を求めることである．まず q(\\theta,\\eta) = p'(\\eta)p''(\\theta)と平均場近似する．\nこのとき，私たちが解くべきは「確率密度関数としての制約条件を満たしつつ，ELBOを最大化する」という制約付き最適化問題である． すなわち，\n\n\\max_{p', p''} \\text{ELBO} \\quad \\text{subject to} \\quad \\int p'(\\eta) d\\eta = 1, \\ \\int p''(\\theta) d\\theta = 1\n\nという問題を解くことを考える．この制約付き最適化問題を解くために，まずはパラメータ \\theta を固定した状態で，潜在変数 \\eta の分布 p'(\\eta) について最適化を行う．\nここでどう更新するのかという話になってくるが，p''(\\theta)を固定した状態でELBOを最大化するということなので，まずは制約条件を脇に置いて，極値条件\n\n\\frac \\partial{\\partial p'(\\eta)}ELBO = 0\n\nを満たすような p'(\\eta)の形を調べていく．\nまずELBOを分解すると（積分変数を\\eta 'としている）\n\n\\begin{align} \\text{ELBO} &= \\int \\int p'(\\eta') p''(\\theta) \\left( \\log p(X, \\eta', \\theta; \\beta) - \\log p'(\\eta') - \\log p''(\\theta) \\right) d\\eta' d\\theta \\\\ &= \\int p'(\\eta') \\left[ \\int p''(\\theta) \\log p(X, \\eta', \\theta; \\beta) d\\theta \\right] d\\eta' \\\\ &\\quad - \\int p'(\\eta') \\log p'(\\eta') \\underbrace{\\left[ \\int p''(\\theta) d\\theta \\right]}_{= 1} d\\eta' \\\\ &\\quad - \\underbrace{\\left[ \\int p'(\\eta') d\\eta' \\right]}_{= 1} \\int p''(\\theta) \\log p''(\\theta) d\\theta \\\\ &= \\int p'(\\eta') \\left[ \\int p''(\\theta) \\log p(X, \\eta', \\theta; \\beta) d\\theta \\right] d\\eta' - \\int p'(\\eta') \\log p'(\\eta') d\\eta' - \\text{Const} \\end{align}\n\nこのELBOをある点\\etaにおけるp(\\eta)で関数偏微分，いわゆる変分微分をする．\n\n変分微分\n汎関数を関数で微分することを変分微分という．汎関数とは，関数を入力して数値を返すシステムのことである．今回のELBOは汎関数である．\n定義はいったん置いておいて(いずれどこかで書きたいが)，今回は計算ができれば良いので，変分微分のルールを以下に記述する．\n\n基本となる恒等式\n\n普通の微分 \n  \\frac {\\partial x_i}{\\partial x_j} = \\delta_{ij}\n (余談だがこれは(0,2)型テンソルの単位である．(1,1)型テンソル，すなわち行列にしたかったらx^iにしないといけない．)\n変分微分 \\deltaで書く \n  \\frac{\\delta p(x')}{\\delta p(x)} = \\delta(x' - x)\n これはイメージとしては，変数が無限にあるベクトルの一点をクロネッカーデルタとして取ると，ディラックのデルタになるということである．\n\n線型性が成立する（微分なので）\nライプニッツルールが成立する（微分なので）\nチェーンルール 1. 汎関数が普通の関数に包まれているとき \n     \\frac \\delta{\\delta p(x)} f(I[p]) = f'(I[p]) \\frac {\\delta I[p]}{\\delta p(x)}\n      具体例 \n     \\frac{\\delta}{\\delta p(x)} \\exp\\left( \\int p(t) \\, dt \\right) = \\exp\\left( \\int p(t) \\, dt \\right) \\cdot 1\n      2. 積分の内側で関数が変換されている場合 \n     \\frac \\delta{\\delta p(x)} \\int f(p(t)) dt = f'(p(t))\n      具体例 \n         \\frac \\delta {\\delta p(x)} \\int p(t)\\log p(t) dt = \\log p(x) + 1\n          これらを用いてELBOの変分微分を行う．\n\n\n\n続き\np'(\\eta)でELBOを変分微分をする．\n\n\\begin{align}\n\\frac \\delta {\\delta p'(\\eta)} ELBO\n& = \\frac \\delta {\\delta p'(\\eta)} \\bigg( \\int p'(\\eta') \\left[ \\int p''(\\theta) \\log p(X, \\eta', \\theta; \\beta) d\\theta \\right] d\\eta' - \\int p'(\\eta') \\log p'(\\eta') d\\eta' - \\text{Const} \\bigg) \\\\\n&= \\int \\delta(\\eta' - \\eta)\\left[ \\int p''(\\theta) \\log p(X, \\eta', \\theta; \\beta) d\\theta \\right] d \\eta' -\\log p'(\\eta) -1 \\\\\n& =  \\int p''(\\theta) \\log p(X, \\eta, \\theta; \\beta) d\\theta -\\log p'(\\eta) -1\n\\end{align}\n\nとなる．ここで，確率密度関数としての制約条件 \\int p'(\\eta) d\\eta = 1 を満たしつつ極値を求めるために，ラグランジュの未定乗数法を用いる．\nラグランジュ乗数 \\lambda を用いて，以下のようにラグランジュ関数 L を構成する．\n\nL = \\text{ELBO} + \\lambda \\left( \\int p'(\\eta) d\\eta - 1 \\right)\n\n制約付き最適化問題の極値条件は， \\frac{\\delta L}{\\delta p'(\\eta)} = 0 となることなので，\n\n\\frac{\\delta L}{\\delta p'(\\eta)} = \\frac{\\delta \\text{ELBO}}{\\delta p'(\\eta)} + \\lambda = 0\n\nに先ほどの変分微分の結果を代入すると，\n\n\\int p''(\\theta) \\log p(X, \\eta, \\theta; \\beta) d\\theta -\\log p'(\\eta) -1 + \\lambda = 0\n\nとなる．これを \\log p'(\\eta) について整理すると，\n\n\\log p'(\\eta) = \\int p''(\\theta) \\log p(X, \\eta, \\theta; \\beta) d\\theta + \\lambda - 1\n\n両辺の指数（ \\exp ）をとることで， p'(\\eta) の最適解の条件が得られる．\n\np'(\\eta) = e^{\\lambda - 1} \\exp\\left( \\int p''(\\theta) \\log p(X, \\eta, \\theta; \\beta) d\\theta \\right)\n\nここで， e^{\\lambda - 1} は変数 \\eta に依存しない定数（規格化定数）であるため，これを比例記号 \\propto に置き換えて，以下の形に整理できる．\n\np'(\\eta) \\propto \\exp\\left( \\int p''(\\theta) \\log p(X, \\eta, \\theta; \\beta) d\\theta \\right)\n\n全く同様の手続きを p''(\\theta) に対しても行うと，以下の最適解が得られる．\n\np''(\\theta) \\propto \\exp\\left( \\int p'(\\eta) \\log p(X, \\eta, \\theta; \\beta) d\\eta \\right)\n\nここで，数学的な矛盾に直面する． 制約条件を満たす最適解として得られたこの2つの式は，互いの分布を必要としている．すなわち， p'(\\eta) を決定するためには p''(\\theta) が必要であり， p''(\\theta) を決定するためには p'(\\eta) が必要というデッドロック状態にあり，この2つの方程式を同時に解くことはできない．\nこの矛盾を回避し，最適化問題を実際に解くための具体的な手法として提案されるのが，VB-EMアルゴリズムである．",
     "crumbs": [
       "Home",
-      "Math",
       "ベイズ推論",
       "VB-EMアルゴリズム"
     ]
   },
   {
-    "objectID": "Published/Math/bayesian_inference/4.html#vb-emアルゴリズム",
-    "href": "Published/Math/bayesian_inference/4.html#vb-emアルゴリズム",
+    "objectID": "Published/bayesian_inference/4.html#vb-emアルゴリズム",
+    "href": "Published/bayesian_inference/4.html#vb-emアルゴリズム",
     "title": "VB-EMアルゴリズム",
     "section": "VB-EMアルゴリズム",
     "text": "VB-EMアルゴリズム\nやっていることは簡単で， ステップ数をtとしたとき\n\n1．VB-Eステップ（潜在変数 \\eta の更新）  p'^{(t+1)}(\\eta) = \\frac{\\exp\\left( \\int p''^{(t)}(\\theta) \\log p(X, \\eta, \\theta; \\beta) \\, d\\theta \\right)}{\\int \\exp\\left( \\int p''^{(t)}(\\theta) \\log p(X, \\eta', \\theta; \\beta) \\, d\\theta \\right) d\\eta'} \n\n\n2．VB-Mステップ（パラメータ \\theta の更新）  p''^{(t+1)}(\\theta) = \\frac{\\exp\\left( \\int p'^{(t+1)}(\\eta) \\log p(X, \\eta, \\theta; \\beta) \\, d\\eta \\right)}{\\int \\exp\\left( \\int p'^{(t+1)}(\\eta) \\log p(X, \\eta, \\theta'; \\beta) \\, d\\eta \\right) d\\theta'} \nを満たすように確率密度関数を更新するだけである．\nELBOには上限が存在するため，局所最適に収束する．またこの交互更新によって単調増加していくことも知られている．",
     "crumbs": [
       "Home",
-      "Math",
       "ベイズ推論",
       "VB-EMアルゴリズム"
     ]
   },
   {
-    "objectID": "Published/Math/bayesian_inference/4.html#具体例",
-    "href": "Published/Math/bayesian_inference/4.html#具体例",
+    "objectID": "Published/bayesian_inference/4.html#具体例",
+    "href": "Published/bayesian_inference/4.html#具体例",
     "title": "VB-EMアルゴリズム",
     "section": "具体例",
     "text": "具体例\n流石に具体例がないとわかりにくいのでコードをGeminiに書いてもらった．\n\n尤度\n\n各データ x_n は，未知の平均 \\mu と精度 \\tau（分散の逆数）を持つ正規分布から発生すると仮定する．\n p(x_n \\mid \\mu, \\tau) = \\mathcal{N}(x_n \\mid \\mu, \\tau^{-1}) \n\n\n事前分布 計算相性が良い分布を採用する．\n\n\n平均 \\mu の事前分布  p(\\mu) = \\mathcal{N}(\\mu \\mid \\mu_0, \\lambda_0^{-1}) \n精度 \\tau の事前分布  p(\\tau) = \\text{Gam}(\\tau \\mid a_0, b_0) \n\n\n\n更新式とコードの対応\n\n共役事前分布の関係となっているので解析的に更新式が求まる．\n\nVB-Eステップ\n \\lambda*N = \\lambda_0 + N \\cdot E[\\tau]   \\mu_N = \\frac{\\lambda_0 \\mu_0 + E[\\tau]\\sum*{n=1}^N x_n}{\\lambda_N} \n\n\nVB-Mステップ\n a*N = a_0 + \\frac{N}{2}   b_N = b_0 + \\frac{1}{2}\\sum*{n=1}^N (x_n - \\mu_N)^2 + \\frac{N}{2\\lambda_N} \n\n\nコード\nステップ数は１０回である．\nimport matplotlib.pyplot as plt\n\nimport numpy as np\n\nfrom scipy.stats import gamma, norm\n\n\n\n\ndef vb_e_step(X, E_tau, mu_0, lambda_0):\n\nN = len(X)\n\nlambda_N = lambda_0 + N * E_tau\n\nmu_N = (lambda_0 * mu_0 + E_tau * np.sum(X)) / lambda_N\n\nreturn mu_N, lambda_N\n\n\n\n\ndef vb_m_step(X, mu_N, lambda_N, a_0, b_0):\n\nN = len(X)\n\na_N = a_0 + N / 2.0\n\nb_N = b_0 + 0.5 * np.sum((X - mu_N) ** 2) + N / (2.0 * lambda_N)\n\nE_tau = a_N / b_N\n\nreturn a_N, b_N, E_tau\n\n\n\n\ndef plot_results(X, mu_N, lambda_N, a_N, b_N):\n\nfig, axes = plt.subplots(1, 3, figsize=(15, 4))\n\n\n\nmu_axis = np.linspace(\n\nmu_N - 4 / np.sqrt(lambda_N), mu_N + 4 / np.sqrt(lambda_N), 500\n\n)\n\naxes[0].plot(mu_axis, norm.pdf(mu_axis, mu_N, 1 / np.sqrt(lambda_N)))\n\naxes[0].set_title(\"q(mu)\")\n\n\n\ntau_axis = np.linspace(\n\nmax(0.01, a_N / b_N - 4 * np.sqrt(a_N) / b_N),\n\na_N / b_N + 4 * np.sqrt(a_N) / b_N,\n\n500,\n\n)\n\naxes[1].plot(tau_axis, gamma.pdf(tau_axis, a_N, scale=1 / b_N))\n\naxes[1].set_title(\"q(tau)\")\n\n\n\nx_axis = np.linspace(min(X) - 2, max(X) + 2, 500)\n\nE_tau = a_N / b_N\n\nstd_dev = 1 / np.sqrt(E_tau)\n\naxes[2].plot(x_axis, norm.pdf(x_axis, mu_N, std_dev), label='Estimated dist')\n\naxes[2].scatter(X, np.zeros_like(X), color='red', marker='x', label='Data X')\n\naxes[2].set_title(\"Data and Estimated Distribution\")\n\naxes[2].legend()\n\n\n\nplt.show()\n\n\n\n\nX = np.array([1.2, 1.8, 2.2, 2.8, 3.0])\n\nmu_0, lambda_0 = 0.0, 1.0\n\na_0, b_0 = 1.0, 1.0\n\n\n\nE_tau = a_0 / b_0\n\n\n\nfor _ in range(10):\n\nmu_N, lambda_N = vb_e_step(X, E_tau, mu_0, lambda_0)\n\na_N, b_N, E_tau = vb_m_step(X, mu_N, lambda_N, a_0, b_0)\n\n\n\nplot_results(X, mu_N, lambda_N, a_N, b_N)\n\n実行結果  尤もらしい分布になっている．\nELBOの推移 \n\n単調増加し，収束していることがわかる．",
     "crumbs": [
       "Home",
-      "Math",
       "ベイズ推論",
       "VB-EMアルゴリズム"
     ]
   },
   {
-    "objectID": "Published/Math/bayesian_inference/4.html#まとめ",
-    "href": "Published/Math/bayesian_inference/4.html#まとめ",
+    "objectID": "Published/bayesian_inference/4.html#まとめ",
+    "href": "Published/bayesian_inference/4.html#まとめ",
     "title": "VB-EMアルゴリズム",
     "section": "まとめ",
     "text": "まとめ\n\nELBOを最大化する近似分布を求めるために，変分微分をする必要がある．\n直接求めることは不可能なので，一つを固定して更新，もう一方を固定して更新…と繰り返してELBOを段階的に大きくしていくことで最適な近似関数を求める．",
     "crumbs": [
       "Home",
-      "Math",
       "ベイズ推論",
       "VB-EMアルゴリズム"
     ]
   },
   {
-    "objectID": "Published/Math/bayesian_inference/4.html#感想おまけ",
-    "href": "Published/Math/bayesian_inference/4.html#感想おまけ",
+    "objectID": "Published/bayesian_inference/4.html#感想おまけ",
+    "href": "Published/bayesian_inference/4.html#感想おまけ",
     "title": "VB-EMアルゴリズム",
     "section": "感想(おまけ)",
     "text": "感想(おまけ)\n授業でやって，ちょこちょこ飛ばしているところがあったので頑張って自分で補いながらこの文章を書いていたらかなり時間がかかってしまった．内容が深いということにしておこう． あとベイズ推論が思っていたよりも深い分野なのかもしれないと考えるようになった．どのようにして事前分布を決めるかがまだ理解していない．いちおう共役事前分布なら計算しやすいというのは，数理統計学を勉強したときに学んだが，もっと具体的にどういったときに何を使うべきなのかは全然覚えていないというか勉強していないので．やはりPRMLをじっくり読んで，そういったところに詳しくならないといけないなと実感した．あとやっぱりベイズ推論と深層学習は全く異なる分野であると捉えているし，私が好きなのはこっちの計算をガリガリする方なのだなと思っている．まあ，深層学習も深層学習で面白いが． ところで最近機械学習系論文のAbstract, Introduction, Conclusionを英語の勉強で読んでいる．そこでMCMCや変分ベイズより良い手法が紹介されていた(https://arxiv.org/abs/2606.20538 ，どうやらすでに学習されたモデルを再利用することで計算量を削減しつつ，真のモデルに近い性能となれるらしい)．これを読んで，ああ，まだまだベイズ推論は研究されているのだなあと印象に残ったのである．",
     "crumbs": [
       "Home",
-      "Math",
       "ベイズ推論",
       "VB-EMアルゴリズム"
     ]
   },
   {
-    "objectID": "Published/Math/equilibrium_stat_mech/1.html",
-    "href": "Published/Math/equilibrium_stat_mech/1.html",
+    "objectID": "Published/equilibrium_stat_mech/1.html",
+    "href": "Published/equilibrium_stat_mech/1.html",
     "title": "リウビルの定理と等確率の原理",
     "section": "",
     "text": "この記事群は統計力学の復習用ノートです．なぜ統計力学をやるんだという話ですが，まず機械学習と関わりがある部分があること，創発科学の一つであること，あとなにより第一原理から出発する学問をなにか一つ身につけたいと思ったからというのがあります．すなわち趣味です． とりあえず手元にあるマセマを一通りやってから，他の本に行こうと思っています．",
     "crumbs": [
       "Home",
-      "Math",
       "平衡系統計力学",
       "リウビルの定理と等確率の原理"
     ]
   },
   {
-    "objectID": "Published/Math/equilibrium_stat_mech/1.html#はじめに",
-    "href": "Published/Math/equilibrium_stat_mech/1.html#はじめに",
+    "objectID": "Published/equilibrium_stat_mech/1.html#はじめに",
+    "href": "Published/equilibrium_stat_mech/1.html#はじめに",
     "title": "リウビルの定理と等確率の原理",
     "section": "",
     "text": "この記事群は統計力学の復習用ノートです．なぜ統計力学をやるんだという話ですが，まず機械学習と関わりがある部分があること，創発科学の一つであること，あとなにより第一原理から出発する学問をなにか一つ身につけたいと思ったからというのがあります．すなわち趣味です． とりあえず手元にあるマセマを一通りやってから，他の本に行こうと思っています．",
     "crumbs": [
       "Home",
-      "Math",
       "平衡系統計力学",
       "リウビルの定理と等確率の原理"
     ]
   },
   {
-    "objectID": "Published/Math/equilibrium_stat_mech/1.html#n個の粒子の運動",
-    "href": "Published/Math/equilibrium_stat_mech/1.html#n個の粒子の運動",
+    "objectID": "Published/equilibrium_stat_mech/1.html#n個の粒子の運動",
+    "href": "Published/equilibrium_stat_mech/1.html#n個の粒子の運動",
     "title": "リウビルの定理と等確率の原理",
     "section": "N個の粒子の運動",
     "text": "N個の粒子の運動\nある3次元の箱の中にN個の粒子が運動しているとする．このとき粒子が持っている情報は，位置と運動量である．一つの粒子に対して6次元の情報があるので，N個に対しては6N次元の情報がある．ここで6N次元位相空間上の一点は，箱の中の情報を意味している．箱の中はエネルギーが保存されているとする．すると6N-1次元上の超平面空間の軌跡（トラジェクトリー）として箱の中の状態が記述される．\nここで，この位相空間における重要な定理であるリウビルの定理を下に記述する．\n\n    位相空間上の微小体積要素がカノニカル方程式に従うとき，その体積要素は一定である\n\n６N次元でこれを示すのは難しいので，一つの粒子かつ１次元運動のみで考えてみる． 微小体積要素が一定であるとは，微小時間が経過してもそのヤコビアンが1となることを意味している．微小時間\\Delta t経過したあとの位置と運動量をp_1^{'},位置をq_1^{'} とする． ヤコビアンは\n\n\\begin{vmatrix}\n\\frac \\partial {\\partial p_1} p_1^{'}& \\frac \\partial {\\partial q_1} p_1^{'} \\\\      \\frac \\partial {\\partial p_1} q_1^{'}& \\frac \\partial {\\partial q_1} q_1^{'}\n\\end{vmatrix} = 1\n を満たすことを示したい． まずそれぞれの関係は\n\n\\begin{align}\nq_1^{'} &= q_1 + \\frac {d}{dt}q_1  \\Delta t \\\\\np_1^{'} &= p_1 + \\frac {d}{dt}p_1  \\Delta t\n\\end{align}\n である．ここでカノニカル方程式を用いれば，それぞれの微分値を書き換えることができる．\n\n\\begin{align}\nq_1^{'} &= q_1 + \\frac {\\partial}{\\partial p_1}H  \\Delta t \\\\\np_1^{'} &= p_1 - \\frac {\\partial}{\\partial q_1}H  \\Delta t\n\\end{align}\n\nこの式をヤコビアンに代入すると\n\n\\begin{vmatrix}\n\\frac \\partial {\\partial p_1} {(p_1 - \\frac {\\partial}{\\partial q_1}H  \\Delta t)} & \\frac \\partial {\\partial q_1} (p_1 - \\frac {\\partial}{\\partial q_1}H  \\Delta t) \\\\      \\frac \\partial {\\partial p_1} {(q_1 + \\frac {\\partial}{\\partial p_1}H  \\Delta t)}& \\frac \\partial {\\partial q_1} (q_1 + \\frac {\\partial}{\\partial p_1}H  \\Delta t)\n\\end{vmatrix} = 1\n\nこれを計算すると，(\\Delta t)^2の項が出てくるが，これを０とみなせばヤコビアンが1となることがわかる．\nこれを次元を増やして同様の計算をすれば，6N次元でも同様の結論が得れることがわかる．",
     "crumbs": [
       "Home",
-      "Math",
       "平衡系統計力学",
       "リウビルの定理と等確率の原理"
     ]
   },
   {
-    "objectID": "Published/Math/equilibrium_stat_mech/1.html#不確定性原理と状態数",
-    "href": "Published/Math/equilibrium_stat_mech/1.html#不確定性原理と状態数",
+    "objectID": "Published/equilibrium_stat_mech/1.html#不確定性原理と状態数",
+    "href": "Published/equilibrium_stat_mech/1.html#不確定性原理と状態数",
     "title": "リウビルの定理と等確率の原理",
     "section": "不確定性原理と状態数",
     "text": "不確定性原理と状態数\n原子スケールにおいて，位置と運動量はそれぞれ揺らいでいる．このゆらぎのスケールを述べているのが不確定性原理である．\n\n\\Delta p \\Delta q \\sim h\n\nhはプランク定数である． ここで，\\Delta p と\\Delta qはd p, d qよりもずっと小さいとする．すなわち超体積要素 dvは極超小立体の立方体h^{3N}で構成されていると考えられる． ここで \ng = \\frac {dv}{h^{3N}}\n を考える．これは，dvの中にどれだけh^{3N}が含まれているかを意味している． このgはdvの中にどれだけ微視的状態が含まれているかという状態数を意味している．",
     "crumbs": [
       "Home",
-      "Math",
       "平衡系統計力学",
       "リウビルの定理と等確率の原理"
     ]
   },
   {
-    "objectID": "Published/Math/equilibrium_stat_mech/1.html#等確率の原理とエルゴード性",
-    "href": "Published/Math/equilibrium_stat_mech/1.html#等確率の原理とエルゴード性",
+    "objectID": "Published/equilibrium_stat_mech/1.html#等確率の原理とエルゴード性",
+    "href": "Published/equilibrium_stat_mech/1.html#等確率の原理とエルゴード性",
     "title": "リウビルの定理と等確率の原理",
     "section": "等確率の原理とエルゴード性",
     "text": "等確率の原理とエルゴード性\nここでリウビルの定理より，状態数gは時間によって変化しないことがわかる． ここで重要な過程を置く．それはこの位相空間がエルゴード性を持つということである． ある物理量がエルゴード性を持つとは 対象としている物理量の時間平均と位相平均が等しい ということだが，これは暗黙に正しいものとして考える． イメージだが．代表点（h^{3N}の大きさを持つとする）は，十分長い時間を経てば超平面上のすべての代表点を埋め尽くすはずであり，そうなればエルゴード性を満たすと考えれる．\n今回考えている位相空間がエルゴード性を持つならば，観測時に代表点がその領域に見出される確率は，リウビルの定理より時間が経過しても等しくなり,dvに比例する． どの位相空間の部分空間においてそれが満たされるので，各微視的状態は，位相空間上で同じ体積ならば同じ確率で実現することがわかる． これを等確率の原理と呼ぶ．",
     "crumbs": [
       "Home",
-      "Math",
       "平衡系統計力学",
       "リウビルの定理と等確率の原理"
     ]
   },
   {
-    "objectID": "Published/Math/equilibrium_stat_mech/1.html#まとめ",
-    "href": "Published/Math/equilibrium_stat_mech/1.html#まとめ",
+    "objectID": "Published/equilibrium_stat_mech/1.html#まとめ",
+    "href": "Published/equilibrium_stat_mech/1.html#まとめ",
     "title": "リウビルの定理と等確率の原理",
     "section": "まとめ",
     "text": "まとめ\n\nリウビルの定理が満たされていれば，時間が経過していても微小体積要素は変化しない\nエルゴード性とリウビルの定理から，各微視的状態は，位相空間上で同じ体積ならば同じ確率で実現するという等確率の原理が導かれる．\n\n次回はボルツマンの原理を導出します．",
     "crumbs": [
       "Home",
-      "Math",
       "平衡系統計力学",
       "リウビルの定理と等確率の原理"
     ]
   },
   {
-    "objectID": "Published/Math/information_geometry/1.html",
-    "href": "Published/Math/information_geometry/1.html",
+    "objectID": "Published/information_geometry/1.html",
+    "href": "Published/information_geometry/1.html",
     "title": "双対空間",
     "section": "",
     "text": "数理統計学，統計力学，機械学習を一つの視点で解釈できる情報幾何学を学ぶことで統一的視点を持てるのではないかと考えました．教科書（藤原先生の「情報幾何学の基礎」）を一通り読みましたが．ざっと流しただけなので，今の段階ではあまり理解はしていません．なので復習用というよりかは勉強ノートの側面のほうがずっと強いです． 情報幾何学は私が今勉強している分野で頭一つ抜けて難しく，間違えてしまう可能性が高いと思われます．教科書で確認をしたりAIに聞いたりはしますが，間違っているところがあればぜひ教えていただければありがたいです．",
     "crumbs": [
       "Home",
-      "Math",
       "情報幾何学",
       "双対空間"
     ]
   },
   {
-    "objectID": "Published/Math/information_geometry/1.html#はじめに",
-    "href": "Published/Math/information_geometry/1.html#はじめに",
+    "objectID": "Published/information_geometry/1.html#はじめに",
+    "href": "Published/information_geometry/1.html#はじめに",
     "title": "双対空間",
     "section": "",
     "text": "数理統計学，統計力学，機械学習を一つの視点で解釈できる情報幾何学を学ぶことで統一的視点を持てるのではないかと考えました．教科書（藤原先生の「情報幾何学の基礎」）を一通り読みましたが．ざっと流しただけなので，今の段階ではあまり理解はしていません．なので復習用というよりかは勉強ノートの側面のほうがずっと強いです． 情報幾何学は私が今勉強している分野で頭一つ抜けて難しく，間違えてしまう可能性が高いと思われます．教科書で確認をしたりAIに聞いたりはしますが，間違っているところがあればぜひ教えていただければありがたいです．",
     "crumbs": [
       "Home",
-      "Math",
       "情報幾何学",
       "双対空間"
     ]
   },
   {
-    "objectID": "Published/Math/information_geometry/1.html#線形汎関数",
-    "href": "Published/Math/information_geometry/1.html#線形汎関数",
+    "objectID": "Published/information_geometry/1.html#線形汎関数",
+    "href": "Published/information_geometry/1.html#線形汎関数",
     "title": "双対空間",
     "section": "線形汎関数",
     "text": "線形汎関数\nVを\\mathbb R 上の有限次元線形空間とする．Vから\\mathbb Rへの線形写像をV上の線形汎関数という．\n\n具体例\nV = \\mathbb Rとし，f : V \\rightarrow \\mathbb Rを\n\nf(x) = cx\n と定義する．このfは線形汎関数である．",
     "crumbs": [
       "Home",
-      "Math",
       "情報幾何学",
       "双対空間"
     ]
   },
   {
-    "objectID": "Published/Math/information_geometry/1.html#双対空間",
-    "href": "Published/Math/information_geometry/1.html#双対空間",
+    "objectID": "Published/information_geometry/1.html#双対空間",
+    "href": "Published/information_geometry/1.html#双対空間",
     "title": "双対空間",
     "section": "双対空間",
     "text": "双対空間\n\n定義\n先程出てきた線形汎関数をVについてすべて集める．この集合をV^*と書くことにする． f,g \\in V^*とa,b \\in \\mathbb Rに対し．写像af + bgを \n(af + bg)(x) := af(x) + bg(x)\n で定義すれば，これもV上の線形汎関数である．V^*も\\mathbb R上の線形空間になる．線形空間V^*をVの双対空間という．\n\n\n具体例\nV = \\mathbb R^2, \\boldsymbol x \\in Vとする．線形汎関数を \nf(\\boldsymbol x ) =  {\\boldsymbol a}^T\\boldsymbol x\n と定義する．すなわちf \\in V^*である． \\alpha ,\\beta \\in \\mathbb Rとしf,g \\in V^*とする．ここで写像\\alpha f + \\beta gを適応すると \n\\begin{align}\n(\\alpha f + \\beta g)(\\boldsymbol x) &= \\alpha \\boldsymbol a^T \\boldsymbol x +  \\beta \\boldsymbol b^T \\boldsymbol x \\\\\n&= (\\alpha \\boldsymbol a +  \\beta \\boldsymbol b )^T\\boldsymbol x\n\\end{align}\n より，確かにV^*は演算について閉じている．したがって双対空間 V^*は\\mathbb R上の線形空間となる． 噛み砕いて言うならば，双対空間の要素である線形汎関数を足し合わせたり実数倍したりしてもそれは双対空間の要素となるので，それは実数上の線形空間であるということである． 言いたいことはおそらく，関数にも演算をきちんと定義できますよということだろう．\n\n\n双対基底\nVはn次元とし，\\{ e_1,e_2 , ... , e_n \\} をVの一つの基底とする.V^*の元 f^iを \nf^i(e_j) = \\delta ^ i_j\n を満たすように定める．ただし\\delta ^i _ jはクロネッカーデルタである． v \\in Vとすると \nv = \\sum_i v^i e_i\n ただしv^i \\in \\mathbb Rである．なぜv^iのように上付きにしたのかは，今は気にしなくて良い．暗黙に受け入れるべきである．（なるべくこういうことはしたくはないが，どう頑張ってもここで説明できることではないと判断した．） このv について基底f^iを作用してみる．すると\n\n\\begin{align}\nf^i(\\sum_j v^j e_j) &= \\sum_j v^j f^i (e_j)\\\\\n&= \\sum_j v^j \\delta^i_j \\\\\n&= v^i\n\\end{align}\n\nとなる．これは線型結合から基底e_iに対応する要素をとって来ていることを意味している． ## テンソル\n\n\nテンソルという概念について\nこのテンソルという概念は，今思えばシンプルな考えであるがなんにせよ定義が様々あり， 私が知っている限りでは 1. 座標変換による定義 2. 多重線形写像による定義 3. 代数学の立場による定義 の３通りあり，よく知られているのは1の定義である．だが教科書によっては２や３から入ることがあるので，読者が混乱するのは自明である． 具体的に計算するには1の定義が最も良いが，この情報幾何においては座標系に依存しない記述を目指しているので，2の定義を用いてテンソルを定義する． （ちなみにゲージ理論においてはリー代数などを使うので，３の定義から入ることが多い．）\n\n\n多重線形写像\n大まかにいうなら多変数関数において，個別に線型性が成り立つ写像のことである． 厳密な定義は教科書を参照してもらうとして，T: \\mathbb R^2 \\times \\mathbb R^2 \\rightarrow \\mathbb R を考える．このとき\n\n1つ目の入力に対する線形性（v を固定する）：  T(a u_1 + b u_2, v) = a T(u_1, v) + b T(u_2, v) \n2つ目の入力に対する線形性（u を固定する）：  T(u, c v_1 + d v_2) = c T(u, v_1) + d T(u, v_2)  を満たすようなTを一般に多重線形写像という．\n\n\n\nテンソルの定義\nベクトル空間Vとその双対空間V^*を用意する． このとき写像\n T : \\underbrace{V^* \\times \\dots \\times V^*}_{r \\text{個}} \\times \\underbrace{V \\times \\dots \\times V}_{s \\text{個}} \\to \\mathbb{R}  が多重線形写像であるとき，Tを(r,s)型テンソルと定義する．\n\n\n具体例\n(1,1)型テンソルを考える．T(f,v), f \\in V^*, v \\in V f,vを成分に分解するとTも基底T^i_j = T(f^i, e_j)を用いて\n\n\\begin{align}\nT(f, v) &= T\\left( \\sum_i w_i f^i, \\sum_j v^j e_j \\right) \\\\ &= \\sum_{i,j} w_i v^j T(f^i, e_j)\n\\\\ &= \\sum_{i,j} T^i_j w_i v^j\n\\end{align}\n と表される．これをw_iでくくり直してみる\n\n\\sum_{i,j} T^i_j w_i v^j = \\sum_i w_i \\bigg(\\sum_j T^i_j v^j \\bigg)\n \\sum_j T^i_j v^jはベクトルである．これの第i成分をu^iとおく． すなわち元の式は次のように書き換えれる \nT(f,v) = f(u)\n この式の意味を考えてみる． u^i = \\sum_j T^i_j v^jをよく観察すると，これは行列と列ベクトルの積そのものを意味している．\n \\begin{pmatrix} u^1 \\\\ \\vdots \\\\ u^n \\end{pmatrix} = \\begin{pmatrix} T^1_1 & \\dots & T^1_n \\\\ \\vdots & \\ddots & \\vdots \\\\ T^n_1 & \\dots & T^n_n \\end{pmatrix} \\begin{pmatrix} v^1 \\\\ \\vdots \\\\ v^n \\end{pmatrix} \nテンソルの成分を並べたものは，ベクトルを変換する行列として機能することがわかる． また \nT(f,v) = w^T A v\n と同じ意味であることもわかる．",
     "crumbs": [
       "Home",
-      "Math",
       "情報幾何学",
       "双対空間"
     ]
@@ -705,7 +657,7 @@
     "href": "index.html#公開済みコンテンツ",
     "title": "Zawaの勉強記録",
     "section": "公開済みコンテンツ",
-    "text": "公開済みコンテンツ\n\n\nMath\n\nベイズ推論\n平衡系統計力学\n情報幾何学"
+    "text": "公開済みコンテンツ\n\n\nベイズ推論\n\n\n平衡系統計力学\n\n\n情報幾何学\n\n\n最適化数学 (記事なし)"
   },
   {
     "objectID": "index.html#執筆中コンテンツ",
