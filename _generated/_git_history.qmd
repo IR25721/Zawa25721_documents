@@ -1,3 +1,5 @@
+- 2026-06-23: add InProgress
+- 2026-06-23: Add News section and update pre-render script to ignore venv
 - 2026-06-23: edit 2
 - 2026-06-23: IG 2
 - 2026-06-21: add 2
@@ -6,5 +8,3 @@
 - 2026-06-21: add title
 - 2026-06-21: 4
 - 2026-06-20: zikken3
-- 2026-06-20: Update pre_render.py to explicitly set sidebar titles
-- 2026-06-20: zikken2
