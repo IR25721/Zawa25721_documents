@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>双対空間 – Zawaの勉強記録</title>
+<title>識別部の設計 – Zawaの勉強記録</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -33,8 +33,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../Published/information_geometry/2.html" rel="next">
-<link href="../../Published/equilibrium_stat_mech/2.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -163,7 +161,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/information_geometry/1.html">情報幾何学</a></li><li class="breadcrumb-item"><a href="../../Published/information_geometry/1.html">双対空間</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">識別部の設計</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -277,7 +275,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Published/information_geometry/1.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../Published/information_geometry/1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">双対空間</span></a>
   </div>
 </li>
@@ -303,20 +301,10 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#はじめに" id="toc-はじめに" class="nav-link active" data-scroll-target="#はじめに">はじめに</a></li>
-  <li><a href="#線形汎関数" id="toc-線形汎関数" class="nav-link" data-scroll-target="#線形汎関数">線形汎関数</a>
+  <li><a href="#ベイズ決定則" id="toc-ベイズ決定則" class="nav-link active" data-scroll-target="#ベイズ決定則">ベイズ決定則</a></li>
+  <li><a href="#識別関数の設計" id="toc-識別関数の設計" class="nav-link" data-scroll-target="#識別関数の設計">識別関数の設計</a>
   <ul class="collapse">
-  <li><a href="#具体例" id="toc-具体例" class="nav-link" data-scroll-target="#具体例">具体例</a></li>
-  </ul></li>
-  <li><a href="#双対空間" id="toc-双対空間" class="nav-link" data-scroll-target="#双対空間">双対空間</a>
-  <ul class="collapse">
-  <li><a href="#定義" id="toc-定義" class="nav-link" data-scroll-target="#定義">定義</a></li>
-  <li><a href="#具体例-1" id="toc-具体例-1" class="nav-link" data-scroll-target="#具体例-1">具体例</a></li>
-  <li><a href="#双対基底" id="toc-双対基底" class="nav-link" data-scroll-target="#双対基底">双対基底</a></li>
-  <li><a href="#テンソルという概念について" id="toc-テンソルという概念について" class="nav-link" data-scroll-target="#テンソルという概念について">テンソルという概念について</a></li>
-  <li><a href="#多重線形写像" id="toc-多重線形写像" class="nav-link" data-scroll-target="#多重線形写像">多重線形写像</a></li>
-  <li><a href="#テンソルの定義" id="toc-テンソルの定義" class="nav-link" data-scroll-target="#テンソルの定義">テンソルの定義</a></li>
-  <li><a href="#具体例-2" id="toc-具体例-2" class="nav-link" data-scroll-target="#具体例-2">具体例</a></li>
+  <li><a href="#線形識別関数の設計" id="toc-線形識別関数の設計" class="nav-link" data-scroll-target="#線形識別関数の設計">線形識別関数の設計</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -324,9 +312,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/information_geometry/1.html">情報幾何学</a></li><li class="breadcrumb-item"><a href="../../Published/information_geometry/1.html">双対空間</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">双対空間</h1>
+<h1 class="title">識別部の設計</h1>
 </div>
 
 
@@ -343,91 +331,45 @@ window.Quarto = {
 </header>
 
 
-<section id="はじめに" class="level2">
-<h2 class="anchored" data-anchor-id="はじめに">はじめに</h2>
-<p>数理統計学，統計力学，機械学習を一つの視点で解釈できる情報幾何学を学ぶことで統一的視点を持てるのではないかと考えました．教科書（藤原先生の「情報幾何学の基礎」）を一通り読みましたが．ざっと流しただけなので，今の段階ではあまり理解はしていません．なので復習用というよりかは勉強ノートの側面のほうがずっと強いです． 情報幾何学は私が今勉強している分野で頭一つ抜けて難しく，間違えてしまう可能性が高いと思われます．教科書で確認をしたりAIに聞いたりはしますが，間違っているところがあればぜひ教えていただければありがたいです．</p>
-</section>
-<section id="線形汎関数" class="level2">
-<h2 class="anchored" data-anchor-id="線形汎関数">線形汎関数</h2>
-<p><span class="math inline">V</span>を<span class="math inline">\mathbb R</span> 上の有限次元線形空間とする．<span class="math inline">V</span>から<span class="math inline">\mathbb R</span>への線形写像を<span class="math inline">V</span>上の線形汎関数という．</p>
-<section id="具体例" class="level3">
-<h3 class="anchored" data-anchor-id="具体例">具体例</h3>
-<p><span class="math inline">V = \mathbb R</span>とし，<span class="math inline">f : V \rightarrow \mathbb R</span>を</p>
+<section id="ベイズ決定則" class="level2">
+<h2 class="anchored" data-anchor-id="ベイズ決定則">ベイズ決定則</h2>
+<p><span class="math inline">P(\omega_i | x)</span>は未知パターン<span class="math inline">x</span>が入力されたとき，その所属するクラスが<span class="math inline">\omega_i</span>である確からさを示している．したがって<span class="math inline">x</span>を識別する際に事後確率<span class="math inline">P(\omega_i | x)</span>が最大となる<span class="math inline">\omega_i</span>を識別結果として出力するのが最も自然である． <span class="math display">
+\max_{i = 1 ,...,c} \{ P(\omega_i | x) \} =P(\omega_k | x) , x\in \omega_k
+</span> が識別方となる．このような識別法をベイズ決定則と呼ぶ． NN法に当てはめて考えると<span class="math inline">D</span>を<span class="math inline">P(\omega_i | x)</span>に変えたと解釈できる ベイズの定理を用いると <span class="math display">
+g_i(x) = p(x | \omega_i) p(\omega_i)
+</span> となる，あるいは対数をとって <span class="math display">
+g_i(x) = \log p(x | \omega_i) + \log p(\omega_i)
+</span> としてもよい． ## ベイズ決定則の具体例：多次元正規分布 ベイズ決定則の具体例として，尤度が多次元正規分布の場合を考える．</p>
 <p><span class="math display">
-f(x) = cx
-</span> と定義する．この<span class="math inline">f</span>は線形汎関数である．</p>
-</section>
-</section>
-<section id="双対空間" class="level2">
-<h2 class="anchored" data-anchor-id="双対空間">双対空間</h2>
-<section id="定義" class="level3">
-<h3 class="anchored" data-anchor-id="定義">定義</h3>
-<p>先程出てきた線形汎関数を<span class="math inline">V</span>についてすべて集める．この集合を<span class="math inline">V^*</span>と書くことにする． <span class="math inline">f,g \in V^*</span>と<span class="math inline">a,b \in \mathbb R</span>に対し．写像<span class="math inline">af + bg</span>を <span class="math display">
-(af + bg)(x) := af(x) + bg(x)
-</span> で定義すれば，これも<span class="math inline">V</span>上の線形汎関数である．<span class="math inline">V^*</span>も<span class="math inline">\mathbb R</span>上の線形空間になる．線形空間<span class="math inline">V^*</span>を<span class="math inline">V</span>の双対空間という．</p>
-</section>
-<section id="具体例-1" class="level3">
-<h3 class="anchored" data-anchor-id="具体例-1">具体例</h3>
-<p><span class="math inline">V = \mathbb R^2, \boldsymbol x \in V</span>とする．線形汎関数を <span class="math display">
-f(\boldsymbol x ) =  {\boldsymbol a}^T\boldsymbol x
-</span> と定義する．すなわち<span class="math inline">f \in V^*</span>である． <span class="math inline">\alpha ,\beta \in \mathbb R</span>とし<span class="math inline">f,g \in V^*</span>とする．ここで写像<span class="math inline">\alpha f + \beta g</span>を適応すると <span class="math display">
-\begin{align}
-(\alpha f + \beta g)(\boldsymbol x) &amp;= \alpha \boldsymbol a^T \boldsymbol x +  \beta \boldsymbol b^T \boldsymbol x \\
-&amp;= (\alpha \boldsymbol a +  \beta \boldsymbol b )^T\boldsymbol x
-\end{align}
-</span> より，確かに<span class="math inline">V^*は</span>演算について閉じている．したがって双対空間 <span class="math inline">V^*</span>は<span class="math inline">\mathbb R</span>上の線形空間となる． 噛み砕いて言うならば，双対空間の要素である線形汎関数を足し合わせたり実数倍したりしてもそれは双対空間の要素となるので，それは実数上の線形空間であるということである． 言いたいことはおそらく，関数にも演算をきちんと定義できますよということだろう．</p>
-</section>
-<section id="双対基底" class="level3">
-<h3 class="anchored" data-anchor-id="双対基底">双対基底</h3>
-<p><span class="math inline">V</span>は<span class="math inline">n</span>次元とし，<span class="math inline">\{ e_1,e_2 , ... , e_n \}</span> を<span class="math inline">V</span>の一つの基底とする.<span class="math inline">V^*</span>の元 <span class="math inline">f^i</span>を <span class="math display">
-f^i(e_j) = \delta ^ i_j
-</span> を満たすように定める．ただし<span class="math inline">\delta ^i _ j</span>はクロネッカーデルタである． <span class="math inline">v \in V</span>とすると <span class="math display">
-v = \sum_i v^i e_i
-</span> ただし<span class="math inline">v^i \in \mathbb R</span>である．なぜ<span class="math inline">v^i</span>のように上付きにしたのかは，今は気にしなくて良い．暗黙に受け入れるべきである．（なるべくこういうことはしたくはないが，どう頑張ってもここで説明できることではないと判断した．） この<span class="math inline">v</span> について基底<span class="math inline">f^i</span>を作用してみる．すると</p>
+p(x | \omega_i) = \frac{1}{(2\pi)^{\frac d 2} |\Sigma_i|^{\frac 1 2}} \exp{\left( -\frac 1 2 (x - m_i)^T\Sigma_i^{-1}(x - m_i) \right)}
+</span> これを識別関数の式に代入し,さらに比較に関係のない項を省くと</p>
 <p><span class="math display">
-\begin{align}
-f^i(\sum_j v^j e_j) &amp;= \sum_j v^j f^i (e_j)\\
-&amp;= \sum_j v^j \delta^i_j \\
-&amp;= v^i
-\end{align}
+g_i(x) = (x - m_i)^T \Sigma_i^{-1}(x - m_i) - \frac 12\log|\Sigma_i|+ p(w_i)  
+</span> となり，識別関数は<span class="math inline">x</span>についての二次関数になることが分かる． <span class="math display">
+D^2_M =  (x - m_i)^T \Sigma_i^{-1}(x - m_i)
 </span></p>
-<p>となる．これは線型結合から基底<span class="math inline">e_i</span>に対応する要素をとって来ていることを意味している． ## テンソル</p>
+<p>とすると<span class="math inline">D_M</span>はマハラノビス汎距離と呼ばれる．</p>
+<p>次に全クラスで分散共分散行列が等しい場合を考える． <span class="math display">
+\Sigma_i = \Sigma_0
+</span> とおき，比較に関係のない項を省略すると <span class="math display">
+g_i(x) = x^T\Sigma_0^{-1} m_i - \frac 1 2 m_i^T \Sigma_0^{-1}m_i + \log p(\omega_i)
+</span> となる．これは明らかに線形識別関数である．</p>
+<p>ここで，<span class="math inline">\Sigma_0</span>を特徴量同士には相関がなく，分散が等しいとする．さらに，事前確率が各クラスで等しいとする(<span class="math inline">p(w_i) = \frac 1 c</span>). そうするならば <span class="math display">
+g_i = m_i^T x - \frac 1 2 |m_i|^2
+</span> としてよい．これはNN法で用いた最小距離識別法と一致する．</p>
+<p>教科書にある最尤推定法はよく知られているので省略する．</p>
 </section>
-<section id="テンソルという概念について" class="level3">
-<h3 class="anchored" data-anchor-id="テンソルという概念について">テンソルという概念について</h3>
-<p>このテンソルという概念は，今思えばシンプルな考えであるがなんにせよ定義が様々あり， 私が知っている限りでは 1. 座標変換による定義 2. 多重線形写像による定義 3. 代数学の立場による定義 の３通りあり，よく知られているのは1の定義である．だが教科書によっては２や３から入ることがあるので，読者が混乱するのは自明である． 具体的に計算するには1の定義が最も良いが，この情報幾何においては座標系に依存しない記述を目指しているので，2の定義を用いてテンソルを定義する． （ちなみにゲージ理論においてはリー代数などを使うので，３の定義から入ることが多い．）</p>
-</section>
-<section id="多重線形写像" class="level3">
-<h3 class="anchored" data-anchor-id="多重線形写像">多重線形写像</h3>
-<p>大まかにいうなら多変数関数において，個別に線型性が成り立つ写像のことである． 厳密な定義は教科書を参照してもらうとして，<span class="math inline">T: \mathbb R^2 \times \mathbb R^2 \rightarrow \mathbb R</span> を考える．このとき</p>
-<ol type="1">
-<li>1つ目の入力に対する線形性（<span class="math inline">v</span> を固定する）： <span class="math display"> T(a u_1 + b u_2, v) = a T(u_1, v) + b T(u_2, v) </span></li>
-<li>2つ目の入力に対する線形性（<span class="math inline">u</span> を固定する）： <span class="math display"> T(u, c v_1 + d v_2) = c T(u, v_1) + d T(u, v_2) </span> を満たすような<span class="math inline">T</span>を一般に多重線形写像という．</li>
-</ol>
-</section>
-<section id="テンソルの定義" class="level3">
-<h3 class="anchored" data-anchor-id="テンソルの定義">テンソルの定義</h3>
-<p>ベクトル空間<span class="math inline">V</span>とその双対空間<span class="math inline">V^*</span>を用意する． このとき写像</p>
-<p><span class="math display"> T : \underbrace{V^* \times \dots \times V^*}_{r \text{個}} \times \underbrace{V \times \dots \times V}_{s \text{個}} \to \mathbb{R} </span> が多重線形写像であるとき，<span class="math inline">T</span>を<span class="math inline">(r,s)</span>型テンソルと定義する．</p>
-</section>
-<section id="具体例-2" class="level3">
-<h3 class="anchored" data-anchor-id="具体例-2">具体例</h3>
-<p><span class="math inline">(1,1)</span>型テンソルを考える．<span class="math inline">T(f,v), f \in V^*, v \in V</span> <span class="math inline">f,v</span>を成分に分解すると<span class="math inline">T</span>も基底<span class="math inline">T^i_j = T(f^i, e_j)</span>を用いて</p>
-<p><span class="math display">
-\begin{align}
-T(f, v) &amp;= T\left( \sum_i w_i f^i, \sum_j v^j e_j \right) \\ &amp;= \sum_{i,j} w_i v^j T(f^i, e_j)
-\\ &amp;= \sum_{i,j} T^i_j w_i v^j
-\end{align}
-</span> と表される．これを<span class="math inline">w_i</span>でくくり直してみる</p>
-<p><span class="math display">
-\sum_{i,j} T^i_j w_i v^j = \sum_i w_i \bigg(\sum_j T^i_j v^j \bigg)
-</span> <span class="math inline">\sum_j T^i_j v^j</span>はベクトルである．これの第<span class="math inline">i</span>成分を<span class="math inline">u^i</span>とおく． すなわち元の式は次のように書き換えれる <span class="math display">
-T(f,v) = f(u)
-</span> この式の意味を考えてみる． <span class="math inline">u^i = \sum_j T^i_j v^j</span>をよく観察すると，これは行列と列ベクトルの積そのものを意味している．</p>
-<p><span class="math display"> \begin{pmatrix} u^1 \\ \vdots \\ u^n \end{pmatrix} = \begin{pmatrix} T^1_1 &amp; \dots &amp; T^1_n \\ \vdots &amp; \ddots &amp; \vdots \\ T^n_1 &amp; \dots &amp; T^n_n \end{pmatrix} \begin{pmatrix} v^1 \\ \vdots \\ v^n \end{pmatrix} </span></p>
-<p>テンソルの成分を並べたものは，ベクトルを変換する行列として機能することがわかる． また <span class="math display">
-T(f,v) = w^T A v
-</span> と同じ意味であることもわかる．</p>
+<section id="識別関数の設計" class="level2">
+<h2 class="anchored" data-anchor-id="識別関数の設計">識別関数の設計</h2>
+<section id="線形識別関数の設計" class="level3">
+<h3 class="anchored" data-anchor-id="線形識別関数の設計">線形識別関数の設計</h3>
+<p>まず識別関数に対する評価を表す関数を<span class="math inline">J</span>とおく．境界となる超平面を定めることは，その法線ベクトルで表される軸と軸上の境界点を定めることと等価である．だが，超平面の評価は難しいので，その軸によって表される１次元空間上での各クラス<span class="math inline">\omega_i</span> の平均と分散をそれぞれ<span class="math inline">\tilde m_i , \tilde \sigma_i</span>とする. <img src="IMG_20260627_170711.jpg" class="img-fluid"> クラス数が2の場合を考えると <span class="math display">
+J = J(\tilde m_1 , \tilde m_2 , \tilde \sigma_1, \tilde \sigma_2)
+</span> である．これを最大化しよう． 計算は省略するが，チェーンルールを用いると <span class="math display">
+w \propto (s \Sigma_1 + (1 - s)\Sigma_2)^{-1} (m_1 - m_2)
+</span> ただし <span class="math display">
+s = \frac{ \frac{ \partial J}{\partial \tilde\sigma_1^2}}{\frac{ \partial J}{\partial \tilde\sigma_1^2}  + \frac{ \partial J}{\partial \tilde\sigma_2^2} }
+</span> である．</p>
 
 
 </section>
@@ -834,18 +776,6 @@ T(f,v) = w^T A v
     }
   });
   </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../../Published/equilibrium_stat_mech/2.html" class="pagination-link" aria-label="ボルツマンの原理">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">ボルツマンの原理</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../../Published/information_geometry/2.html" class="pagination-link" aria-label="多様体と接空間">
-        <span class="nav-page-text">多様体と接空間</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 
 

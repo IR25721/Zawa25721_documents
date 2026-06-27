@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>双対空間 – Zawaの勉強記録</title>
+<title>誤差評価に基づく学習 – Zawaの勉強記録</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -33,8 +33,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../Published/information_geometry/2.html" rel="next">
-<link href="../../Published/equilibrium_stat_mech/2.html" rel="prev">
+<link href="../../Published/bayesian_inference/1.html" rel="next">
+<link href="../../Published/PR/2.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -163,7 +163,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/information_geometry/1.html">情報幾何学</a></li><li class="breadcrumb-item"><a href="../../Published/information_geometry/1.html">双対空間</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/PR/1.html">PR</a></li><li class="breadcrumb-item"><a href="../../Published/PR/3.html">誤差評価に基づく学習</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -202,7 +202,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Published/PR/3.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/PR/3.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">誤差評価に基づく学習</span></a>
   </div>
 </li>
@@ -277,7 +277,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Published/information_geometry/1.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../Published/information_geometry/1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">双対空間</span></a>
   </div>
 </li>
@@ -303,20 +303,15 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#はじめに" id="toc-はじめに" class="nav-link active" data-scroll-target="#はじめに">はじめに</a></li>
-  <li><a href="#線形汎関数" id="toc-線形汎関数" class="nav-link" data-scroll-target="#線形汎関数">線形汎関数</a>
+  <li><a href="#二乗誤差最小化学習" id="toc-二乗誤差最小化学習" class="nav-link active" data-scroll-target="#二乗誤差最小化学習">二乗誤差最小化学習</a>
   <ul class="collapse">
-  <li><a href="#具体例" id="toc-具体例" class="nav-link" data-scroll-target="#具体例">具体例</a></li>
+  <li><a href="#最急降下法" id="toc-最急降下法" class="nav-link" data-scroll-target="#最急降下法">最急降下法</a></li>
+  <li><a href="#オンライン学習とバッチ学習" id="toc-オンライン学習とバッチ学習" class="nav-link" data-scroll-target="#オンライン学習とバッチ学習">オンライン学習とバッチ学習</a></li>
   </ul></li>
-  <li><a href="#双対空間" id="toc-双対空間" class="nav-link" data-scroll-target="#双対空間">双対空間</a>
+  <li><a href="#widrow-hoff-の学習規則" id="toc-widrow-hoff-の学習規則" class="nav-link" data-scroll-target="#widrow-hoff-の学習規則">Widrow-Hoff の学習規則</a></li>
+  <li><a href="#誤差評価とパーセプトロン" id="toc-誤差評価とパーセプトロン" class="nav-link" data-scroll-target="#誤差評価とパーセプトロン">誤差評価とパーセプトロン</a>
   <ul class="collapse">
-  <li><a href="#定義" id="toc-定義" class="nav-link" data-scroll-target="#定義">定義</a></li>
-  <li><a href="#具体例-1" id="toc-具体例-1" class="nav-link" data-scroll-target="#具体例-1">具体例</a></li>
-  <li><a href="#双対基底" id="toc-双対基底" class="nav-link" data-scroll-target="#双対基底">双対基底</a></li>
-  <li><a href="#テンソルという概念について" id="toc-テンソルという概念について" class="nav-link" data-scroll-target="#テンソルという概念について">テンソルという概念について</a></li>
-  <li><a href="#多重線形写像" id="toc-多重線形写像" class="nav-link" data-scroll-target="#多重線形写像">多重線形写像</a></li>
-  <li><a href="#テンソルの定義" id="toc-テンソルの定義" class="nav-link" data-scroll-target="#テンソルの定義">テンソルの定義</a></li>
-  <li><a href="#具体例-2" id="toc-具体例-2" class="nav-link" data-scroll-target="#具体例-2">具体例</a></li>
+  <li><a href="#おわりに" id="toc-おわりに" class="nav-link" data-scroll-target="#おわりに">おわりに</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -324,9 +319,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/information_geometry/1.html">情報幾何学</a></li><li class="breadcrumb-item"><a href="../../Published/information_geometry/1.html">双対空間</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/PR/1.html">PR</a></li><li class="breadcrumb-item"><a href="../../Published/PR/3.html">誤差評価に基づく学習</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">双対空間</h1>
+<h1 class="title">誤差評価に基づく学習</h1>
 </div>
 
 
@@ -343,91 +338,98 @@ window.Quarto = {
 </header>
 
 
-<section id="はじめに" class="level2">
-<h2 class="anchored" data-anchor-id="はじめに">はじめに</h2>
-<p>数理統計学，統計力学，機械学習を一つの視点で解釈できる情報幾何学を学ぶことで統一的視点を持てるのではないかと考えました．教科書（藤原先生の「情報幾何学の基礎」）を一通り読みましたが．ざっと流しただけなので，今の段階ではあまり理解はしていません．なので復習用というよりかは勉強ノートの側面のほうがずっと強いです． 情報幾何学は私が今勉強している分野で頭一つ抜けて難しく，間違えてしまう可能性が高いと思われます．教科書で確認をしたりAIに聞いたりはしますが，間違っているところがあればぜひ教えていただければありがたいです．</p>
+<section id="二乗誤差最小化学習" class="level2">
+<h2 class="anchored" data-anchor-id="二乗誤差最小化学習">二乗誤差最小化学習</h2>
+<p>前回で解説したパーセプトロンの学習規則の欠点は線形分離可能であること，すなわち誤識別を０にする線形識別関数が存在するkとを前提としなければならない点にある．線形分離不可能な学習パターンに対しては誤り訂正の手続きを無限に繰り返し，解に到達できない． そこで線形分離不可能な場合にも適応できる一般的な学習アルゴリズムをこれから学んでいく．この基本的な枠組みは評価関数を定義し，それを最小化するという考えに基づいている．極めて重要な事実として以下で述べる学習アルゴリズムはいずれもベイズ決定則と密接に関係していることを書いておく．</p>
+<p>学習パターンが<span class="math inline">n</span>個のパターン<span class="math inline">x_1 ,..., x_n</span>からなるとする．今，<span class="math inline">p</span>番目のパターン<span class="math inline">x_p</span>を入力したときの<span class="math inline">i</span>番目の識別関数の望ましい出力を<span class="math inline">b_{ip}</span>として定めておく．この<span class="math inline">b_{ip}</span>を教師信号と呼ぶ．さらに<span class="math inline">c</span>個の識別関数の出力値をベクトル<span class="math inline">(g_1(x_p), g_2(x_p) ,..., g_c(x_p))^T</span>で表すと<span class="math inline">(b_{1p},b_{2p} ,..., b_{cp})^T</span>と表される．このベクトルで表された教師信号を教師ベクトルと呼ぶ．</p>
+<p>識別関数の性質から， <span class="math display">
+b_{ip} &gt; b_{jp} , (j \ne i , x_p \in \omega_i)
+</span> となるように設定されなければならない．（値が大きいほうが採用されるので．） クラス<span class="math inline">\omega_i</span>に属するすべてのパターンに対して同一の教師ベクトル<span class="math inline">t_i = (b_1 ,..., b_i , ... , b_c)</span>を割り当てることにすれば，教師ベクトルとしては，<span class="math inline">c</span>個を用意すればよい．このベクトルにはワンホットベクトルなどがあげられる．</p>
+<p>入力パターン<span class="math inline">x_p</span>に対する実際の出力と教師信号との誤差<span class="math inline">\epsilon_{ip}</span>は <span class="math display">
+\epsilon_{ip} = g_i(x_p) - b_{ip}
+</span> であり，この二乗和を評価関数<span class="math inline">J_p</span>として定義する． <span class="math inline">\sum_{p=1}^n J_{p}</span>を最小化する手法を二乗誤差最小学習という．</p>
+<p>これの解は，<span class="math inline">X = (x_1 , x_2 , ... ,x_n)^T , b_i = (b_{i1} , ... , b_{in})^T</span>を用いると <span class="math display">
+w_i = (X^TX)^{-1} X^T b_i
+</span> となる．これは厳密解だが，<span class="math inline">X^{T}X</span>が正則でない場合には適応できず，また特徴量数<span class="math inline">d</span>(<span class="math inline">x</span>の次元数)が大きい場合には計算量が膨大になるので，実用的ではない． そこで代わりの手法として，逐次近似によって重みを決定する方法について述べる．この種の方法で最もよく用いられるのは最急降下法である．</p>
+<section id="最急降下法" class="level3">
+<h3 class="anchored" data-anchor-id="最急降下法">最急降下法</h3>
+<p>最急降下法とは重みを <span class="math display">
+w^{(k+1)} = w^{(k)} - \eta \nabla J(w^{(k)}))
+</span> と更新することだが，これがなぜうまくいくのかを説明する． <span class="math inline">J(w^{(k+1)}) &lt; J(w^{(k)})</span>であることを示せば良い． <span class="math inline">J(w  + \Delta w)</span>を一次テイラー近似すると <span class="math display">
+J(w + \Delta w) \approx J(w) + \nabla J(w)^T \Delta w
+</span> であるが，<span class="math inline">\Delta w = - \eta \nabla J(w)</span>を代入すると <span class="math display">
+J(w - \eta \nabla J(w)) \approx J(w) - |\nabla J(w)|^2
+</span> となる．このとき<span class="math inline">\eta |\nabla J(w)|^2</span>は<span class="math inline">\eta &gt; 0</span> のとき必ず正になるので 適切な学習率をやれば必ず損失関数は減ることがわかる．</p>
 </section>
-<section id="線形汎関数" class="level2">
-<h2 class="anchored" data-anchor-id="線形汎関数">線形汎関数</h2>
-<p><span class="math inline">V</span>を<span class="math inline">\mathbb R</span> 上の有限次元線形空間とする．<span class="math inline">V</span>から<span class="math inline">\mathbb R</span>への線形写像を<span class="math inline">V</span>上の線形汎関数という．</p>
-<section id="具体例" class="level3">
-<h3 class="anchored" data-anchor-id="具体例">具体例</h3>
-<p><span class="math inline">V = \mathbb R</span>とし，<span class="math inline">f : V \rightarrow \mathbb R</span>を</p>
+<section id="オンライン学習とバッチ学習" class="level3">
+<h3 class="anchored" data-anchor-id="オンライン学習とバッチ学習">オンライン学習とバッチ学習</h3>
 <p><span class="math display">
-f(x) = cx
-</span> と定義する．この<span class="math inline">f</span>は線形汎関数である．</p>
+w_i^{(k+1)} = w_i^{(k)} - \frac 1 n\sum_j ^n \eta \nabla J_j(w_i^{(k)}))
+</span> と一括で更新する手法がバッチ学習である． これに対して <span class="math display">
+w_i^{(k+1)} = w_i^{(k)} - \eta \nabla J_p(w_i^{(k)}))
+</span> とパターンが示されるたびに更新することも可能である．この場合オンライン学習と呼ばれる．</p>
+<p>中間的な手法としてミニバッチ学習がある．</p>
 </section>
 </section>
-<section id="双対空間" class="level2">
-<h2 class="anchored" data-anchor-id="双対空間">双対空間</h2>
-<section id="定義" class="level3">
-<h3 class="anchored" data-anchor-id="定義">定義</h3>
-<p>先程出てきた線形汎関数を<span class="math inline">V</span>についてすべて集める．この集合を<span class="math inline">V^*</span>と書くことにする． <span class="math inline">f,g \in V^*</span>と<span class="math inline">a,b \in \mathbb R</span>に対し．写像<span class="math inline">af + bg</span>を <span class="math display">
-(af + bg)(x) := af(x) + bg(x)
-</span> で定義すれば，これも<span class="math inline">V</span>上の線形汎関数である．<span class="math inline">V^*</span>も<span class="math inline">\mathbb R</span>上の線形空間になる．線形空間<span class="math inline">V^*</span>を<span class="math inline">V</span>の双対空間という．</p>
+<section id="widrow-hoff-の学習規則" class="level2">
+<h2 class="anchored" data-anchor-id="widrow-hoff-の学習規則">Widrow-Hoff の学習規則</h2>
+<p><span class="math inline">J</span>を具体的な形として示し，それをこの最急降下法に代入したものを Widrow-Hoffの学習規則という．</p>
+<p>具体的には <span class="math display">
+w_i \leftarrow w - \eta \frac 1 n \sum_j^n (w_i^T x_j - b_{ij})x_j
+</span> が更新法則である．</p>
 </section>
-<section id="具体例-1" class="level3">
-<h3 class="anchored" data-anchor-id="具体例-1">具体例</h3>
-<p><span class="math inline">V = \mathbb R^2, \boldsymbol x \in V</span>とする．線形汎関数を <span class="math display">
-f(\boldsymbol x ) =  {\boldsymbol a}^T\boldsymbol x
-</span> と定義する．すなわち<span class="math inline">f \in V^*</span>である． <span class="math inline">\alpha ,\beta \in \mathbb R</span>とし<span class="math inline">f,g \in V^*</span>とする．ここで写像<span class="math inline">\alpha f + \beta g</span>を適応すると <span class="math display">
-\begin{align}
-(\alpha f + \beta g)(\boldsymbol x) &amp;= \alpha \boldsymbol a^T \boldsymbol x +  \beta \boldsymbol b^T \boldsymbol x \\
-&amp;= (\alpha \boldsymbol a +  \beta \boldsymbol b )^T\boldsymbol x
-\end{align}
-</span> より，確かに<span class="math inline">V^*は</span>演算について閉じている．したがって双対空間 <span class="math inline">V^*</span>は<span class="math inline">\mathbb R</span>上の線形空間となる． 噛み砕いて言うならば，双対空間の要素である線形汎関数を足し合わせたり実数倍したりしてもそれは双対空間の要素となるので，それは実数上の線形空間であるということである． 言いたいことはおそらく，関数にも演算をきちんと定義できますよということだろう．</p>
-</section>
-<section id="双対基底" class="level3">
-<h3 class="anchored" data-anchor-id="双対基底">双対基底</h3>
-<p><span class="math inline">V</span>は<span class="math inline">n</span>次元とし，<span class="math inline">\{ e_1,e_2 , ... , e_n \}</span> を<span class="math inline">V</span>の一つの基底とする.<span class="math inline">V^*</span>の元 <span class="math inline">f^i</span>を <span class="math display">
-f^i(e_j) = \delta ^ i_j
-</span> を満たすように定める．ただし<span class="math inline">\delta ^i _ j</span>はクロネッカーデルタである． <span class="math inline">v \in V</span>とすると <span class="math display">
-v = \sum_i v^i e_i
-</span> ただし<span class="math inline">v^i \in \mathbb R</span>である．なぜ<span class="math inline">v^i</span>のように上付きにしたのかは，今は気にしなくて良い．暗黙に受け入れるべきである．（なるべくこういうことはしたくはないが，どう頑張ってもここで説明できることではないと判断した．） この<span class="math inline">v</span> について基底<span class="math inline">f^i</span>を作用してみる．すると</p>
+<section id="誤差評価とパーセプトロン" class="level2">
+<h2 class="anchored" data-anchor-id="誤差評価とパーセプトロン">誤差評価とパーセプトロン</h2>
+<p>Widrow-Hoffの学習規則とパーセプトロンを比較してみよう． まず，重みの修正は誤差 <span class="math inline">\epsilon_{ip} = g_i(x_p) - b_{ip}</span> に比例して行われる（最急降下法に基づく更新式は <span class="math inline">w_i \leftarrow w_i - \eta \epsilon_{ip} x_p</span> となる）．ここで，しきい値関数 <span class="math inline">T</span> による処理を <span class="math inline">g_i(x_p)</span> に施すと，<span class="math inline">g_i(x_p)</span> の出力は1または0の2値となる．この線形加重和としきい値処理という単位はしきい値論理ユニットと呼ばれ，パーセプトロンを始めとする学習機能を持つ多層ネットワークの基本的構成要素と考えられる．</p>
 <p><span class="math display">
-\begin{align}
-f^i(\sum_j v^j e_j) &amp;= \sum_j v^j f^i (e_j)\\
-&amp;= \sum_j v^j \delta^i_j \\
-&amp;= v^i
-\end{align}
+\begin{equation}
+  \left\{
+  \begin{alignedat}{2}   
+    w_i^T x &gt; 0  , (x \in \omega_i)\\
+    w_i^T x &lt; 0 , (x \notin \omega_i)
+  \end{alignedat}
+  \right.
+\end{equation}
 </span></p>
-<p>となる．これは線型結合から基底<span class="math inline">e_i</span>に対応する要素をとって来ていることを意味している． ## テンソル</p>
-</section>
-<section id="テンソルという概念について" class="level3">
-<h3 class="anchored" data-anchor-id="テンソルという概念について">テンソルという概念について</h3>
-<p>このテンソルという概念は，今思えばシンプルな考えであるがなんにせよ定義が様々あり， 私が知っている限りでは 1. 座標変換による定義 2. 多重線形写像による定義 3. 代数学の立場による定義 の３通りあり，よく知られているのは1の定義である．だが教科書によっては２や３から入ることがあるので，読者が混乱するのは自明である． 具体的に計算するには1の定義が最も良いが，この情報幾何においては座標系に依存しない記述を目指しているので，2の定義を用いてテンソルを定義する． （ちなみにゲージ理論においてはリー代数などを使うので，３の定義から入ることが多い．）</p>
-</section>
-<section id="多重線形写像" class="level3">
-<h3 class="anchored" data-anchor-id="多重線形写像">多重線形写像</h3>
-<p>大まかにいうなら多変数関数において，個別に線型性が成り立つ写像のことである． 厳密な定義は教科書を参照してもらうとして，<span class="math inline">T: \mathbb R^2 \times \mathbb R^2 \rightarrow \mathbb R</span> を考える．このとき</p>
-<ol type="1">
-<li>1つ目の入力に対する線形性（<span class="math inline">v</span> を固定する）： <span class="math display"> T(a u_1 + b u_2, v) = a T(u_1, v) + b T(u_2, v) </span></li>
-<li>2つ目の入力に対する線形性（<span class="math inline">u</span> を固定する）： <span class="math display"> T(u, c v_1 + d v_2) = c T(u, v_1) + d T(u, v_2) </span> を満たすような<span class="math inline">T</span>を一般に多重線形写像という．</li>
-</ol>
-</section>
-<section id="テンソルの定義" class="level3">
-<h3 class="anchored" data-anchor-id="テンソルの定義">テンソルの定義</h3>
-<p>ベクトル空間<span class="math inline">V</span>とその双対空間<span class="math inline">V^*</span>を用意する． このとき写像</p>
-<p><span class="math display"> T : \underbrace{V^* \times \dots \times V^*}_{r \text{個}} \times \underbrace{V \times \dots \times V}_{s \text{個}} \to \mathbb{R} </span> が多重線形写像であるとき，<span class="math inline">T</span>を<span class="math inline">(r,s)</span>型テンソルと定義する．</p>
-</section>
-<section id="具体例-2" class="level3">
-<h3 class="anchored" data-anchor-id="具体例-2">具体例</h3>
-<p><span class="math inline">(1,1)</span>型テンソルを考える．<span class="math inline">T(f,v), f \in V^*, v \in V</span> <span class="math inline">f,v</span>を成分に分解すると<span class="math inline">T</span>も基底<span class="math inline">T^i_j = T(f^i, e_j)</span>を用いて</p>
+<p>となるように重みベクトルを設定すれば，しきい値処理後の出力は</p>
 <p><span class="math display">
-\begin{align}
-T(f, v) &amp;= T\left( \sum_i w_i f^i, \sum_j v^j e_j \right) \\ &amp;= \sum_{i,j} w_i v^j T(f^i, e_j)
-\\ &amp;= \sum_{i,j} T^i_j w_i v^j
-\end{align}
-</span> と表される．これを<span class="math inline">w_i</span>でくくり直してみる</p>
+\begin{equation}
+  \left\{
+  \begin{alignedat}{2}   
+    g_i(x) = 1  , (x \in \omega_i)\\
+    g_i(x) = 0 , (x \notin \omega_i)
+  \end{alignedat}
+  \right.
+\end{equation}
+</span></p>
+<p>となる．これは最後に最大値を選択するので（マルチクラス・パーセプトロンの場合），これで判別はできる． このとき教師信号をワンホットベクトルとすると，誤認識した場合（本来クラス <span class="math inline">\omega_i</span> に属するパターン <span class="math inline">x_p</span> を，誤ってクラス <span class="math inline">\omega_j</span> と判定した場合）は</p>
 <p><span class="math display">
-\sum_{i,j} T^i_j w_i v^j = \sum_i w_i \bigg(\sum_j T^i_j v^j \bigg)
-</span> <span class="math inline">\sum_j T^i_j v^j</span>はベクトルである．これの第<span class="math inline">i</span>成分を<span class="math inline">u^i</span>とおく． すなわち元の式は次のように書き換えれる <span class="math display">
-T(f,v) = f(u)
-</span> この式の意味を考えてみる． <span class="math inline">u^i = \sum_j T^i_j v^j</span>をよく観察すると，これは行列と列ベクトルの積そのものを意味している．</p>
-<p><span class="math display"> \begin{pmatrix} u^1 \\ \vdots \\ u^n \end{pmatrix} = \begin{pmatrix} T^1_1 &amp; \dots &amp; T^1_n \\ \vdots &amp; \ddots &amp; \vdots \\ T^n_1 &amp; \dots &amp; T^n_n \end{pmatrix} \begin{pmatrix} v^1 \\ \vdots \\ v^n \end{pmatrix} </span></p>
-<p>テンソルの成分を並べたものは，ベクトルを変換する行列として機能することがわかる． また <span class="math display">
-T(f,v) = w^T A v
-</span> と同じ意味であることもわかる．</p>
+\begin{equation}
+  \left\{
+  \begin{alignedat}{2}   
+    g_i(x_p) = 0 , \quad b_{ip} = 1 \quad (\text{正解クラス } i) \\
+    g_j(x_p) = 1 , \quad b_{jp} = 0 \quad (\text{誤って選択されたクラス } j)
+  \end{alignedat}
+  \right.
+\end{equation}
+</span></p>
+<p>となる． それぞれの誤差を計算すると， * クラス <span class="math inline">i</span> においては，<span class="math inline">\epsilon_{ip} = g_i(x_p) - b_{ip} = 0 - 1 = -1</span> * クラス <span class="math inline">j</span> においては，<span class="math inline">\epsilon_{jp} = g_j(x_p) - b_{jp} = 1 - 0 = 1</span></p>
+<p>となるので，これを最急降下法に基づく Widrow-Hoff の更新式 <span class="math inline">w \leftarrow w - \eta \epsilon x_p</span> に当てはめると</p>
+<p><span class="math display">
+\begin{equation}
+  \left\{
+  \begin{alignedat}{2}   
+w_i \leftarrow w_i - \eta (-1) x_p = w_i + \eta x_p \\
+w_j \leftarrow w_j - \eta (1) x_p = w_j - \eta x_p
+  \end{alignedat}
+  \right.
+\end{equation}
+</span></p>
+<p>が得られる．これは誤り訂正学習に基づくパーセプトロンの学習規則そのものである． したがって，しきい値処理を導入したWidrow-Hoffの学習規則は，パーセプトロンの学習規則を内包している（その一種である）と考えられる．</p>
+<p>（逆にパーセプトロンの学習規則も評価関数最小化のアルゴリズムとして導けるが，省略する．）</p>
+<section id="おわりに" class="level3">
+<h3 class="anchored" data-anchor-id="おわりに">おわりに</h3>
+<p>教科書ではニューラルネットワークについて述べられているが，ここでは説明しない．知っているのとMLPの方で紹介したほうが良いと判断したためである．まあこの次の章のベイズ決定則を早くやりたいからというのが主な理由だが．</p>
 
 
 </section>
@@ -836,13 +838,13 @@ T(f,v) = w^T A v
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../Published/equilibrium_stat_mech/2.html" class="pagination-link" aria-label="ボルツマンの原理">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">ボルツマンの原理</span>
+      <a href="../../Published/PR/2.html" class="pagination-link" aria-label="学習と識別関数">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">学習と識別関数</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../Published/information_geometry/2.html" class="pagination-link" aria-label="多様体と接空間">
-        <span class="nav-page-text">多様体と接空間</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../Published/bayesian_inference/1.html" class="pagination-link" aria-label="モンテカルロ法">
+        <span class="nav-page-text">モンテカルロ法</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
