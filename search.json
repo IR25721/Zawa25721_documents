@@ -1,66 +1,74 @@
 [
   {
-    "objectID": "InProgress/PR/4.html",
-    "href": "InProgress/PR/4.html",
-    "title": "識別部の設計",
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "はじめに",
     "section": "",
-    "text": "P(\\omega_i | x)は未知パターンxが入力されたとき，その所属するクラスが\\omega_iである確からさを示している．したがってxを識別する際に事後確率P(\\omega_i | x)が最大となる\\omega_iを識別結果として出力するのが最も自然である． \n\\max_{i = 1 ,...,c} \\{ P(\\omega_i | x) \\} =P(\\omega_k | x) , x\\in \\omega_k\n が識別方となる．このような識別法をベイズ決定則と呼ぶ． NN法に当てはめて考えるとDをP(\\omega_i | x)に変えたと解釈できる ベイズの定理を用いると \ng_i(x) = p(x | \\omega_i) p(\\omega_i)\n となる，あるいは対数をとって \ng_i(x) = \\log p(x | \\omega_i) + \\log p(\\omega_i)\n としてもよい． ## ベイズ決定則の具体例：多次元正規分布 ベイズ決定則の具体例として，尤度が多次元正規分布の場合を考える．\n\np(x | \\omega_i) = \\frac{1}{(2\\pi)^{\\frac d 2} |\\Sigma_i|^{\\frac 1 2}} \\exp{\\left( -\\frac 1 2 (x - m_i)^T\\Sigma_i^{-1}(x - m_i) \\right)}\n これを識別関数の式に代入し,さらに比較に関係のない項を省くと\n\ng_i(x) = (x - m_i)^T \\Sigma_i^{-1}(x - m_i) - \\frac 12\\log|\\Sigma_i|+ p(w_i)  \n となり，識別関数はxについての二次関数になることが分かる． \nD^2_M =  (x - m_i)^T \\Sigma_i^{-1}(x - m_i)\n\nとするとD_Mはマハラノビス汎距離と呼ばれる．\n次に全クラスで分散共分散行列が等しい場合を考える． \n\\Sigma_i = \\Sigma_0\n とおき，比較に関係のない項を省略すると \ng_i(x) = x^T\\Sigma_0^{-1} m_i - \\frac 1 2 m_i^T \\Sigma_0^{-1}m_i + \\log p(\\omega_i)\n となる．これは明らかに線形識別関数である．\nここで，\\Sigma_0を特徴量同士には相関がなく，分散が等しいとする．さらに，事前確率が各クラスで等しいとする(p(w_i) = \\frac 1 c). そうするならば \ng_i = m_i^T x - \\frac 1 2 |m_i|^2\n としてよい．これはNN法で用いた最小距離識別法と一致する．\n教科書にある最尤推定法はよく知られているので省略する．"
+    "text": "はじめまして，Zawaと申します．現在は情報理工学部の3回生で，機械学習をメインに学習しています．それ以外にも物理学，特に統計力学に興味があり，独自に学習を進めています．最近は情報幾何学や量子科学にも関心を持っています．将来は創発現象に関連する分野の研究を行いたいと考えています．"
   },
   {
-    "objectID": "InProgress/PR/4.html#ベイズ決定則",
-    "href": "InProgress/PR/4.html#ベイズ決定則",
-    "title": "識別部の設計",
+    "objectID": "intro.html#自己紹介",
+    "href": "intro.html#自己紹介",
+    "title": "はじめに",
     "section": "",
-    "text": "P(\\omega_i | x)は未知パターンxが入力されたとき，その所属するクラスが\\omega_iである確からさを示している．したがってxを識別する際に事後確率P(\\omega_i | x)が最大となる\\omega_iを識別結果として出力するのが最も自然である． \n\\max_{i = 1 ,...,c} \\{ P(\\omega_i | x) \\} =P(\\omega_k | x) , x\\in \\omega_k\n が識別方となる．このような識別法をベイズ決定則と呼ぶ． NN法に当てはめて考えるとDをP(\\omega_i | x)に変えたと解釈できる ベイズの定理を用いると \ng_i(x) = p(x | \\omega_i) p(\\omega_i)\n となる，あるいは対数をとって \ng_i(x) = \\log p(x | \\omega_i) + \\log p(\\omega_i)\n としてもよい． ## ベイズ決定則の具体例：多次元正規分布 ベイズ決定則の具体例として，尤度が多次元正規分布の場合を考える．\n\np(x | \\omega_i) = \\frac{1}{(2\\pi)^{\\frac d 2} |\\Sigma_i|^{\\frac 1 2}} \\exp{\\left( -\\frac 1 2 (x - m_i)^T\\Sigma_i^{-1}(x - m_i) \\right)}\n これを識別関数の式に代入し,さらに比較に関係のない項を省くと\n\ng_i(x) = (x - m_i)^T \\Sigma_i^{-1}(x - m_i) - \\frac 12\\log|\\Sigma_i|+ p(w_i)  \n となり，識別関数はxについての二次関数になることが分かる． \nD^2_M =  (x - m_i)^T \\Sigma_i^{-1}(x - m_i)\n\nとするとD_Mはマハラノビス汎距離と呼ばれる．\n次に全クラスで分散共分散行列が等しい場合を考える． \n\\Sigma_i = \\Sigma_0\n とおき，比較に関係のない項を省略すると \ng_i(x) = x^T\\Sigma_0^{-1} m_i - \\frac 1 2 m_i^T \\Sigma_0^{-1}m_i + \\log p(\\omega_i)\n となる．これは明らかに線形識別関数である．\nここで，\\Sigma_0を特徴量同士には相関がなく，分散が等しいとする．さらに，事前確率が各クラスで等しいとする(p(w_i) = \\frac 1 c). そうするならば \ng_i = m_i^T x - \\frac 1 2 |m_i|^2\n としてよい．これはNN法で用いた最小距離識別法と一致する．\n教科書にある最尤推定法はよく知られているので省略する．"
+    "text": "はじめまして，Zawaと申します．現在は情報理工学部の3回生で，機械学習をメインに学習しています．それ以外にも物理学，特に統計力学に興味があり，独自に学習を進めています．最近は情報幾何学や量子科学にも関心を持っています．将来は創発現象に関連する分野の研究を行いたいと考えています．"
   },
   {
-    "objectID": "InProgress/PR/4.html#識別関数の設計",
-    "href": "InProgress/PR/4.html#識別関数の設計",
-    "title": "識別部の設計",
-    "section": "識別関数の設計",
-    "text": "識別関数の設計\n\n線形識別関数の設計\nまず識別関数に対する評価を表す関数をJとおく．境界となる超平面を定めることは，その法線ベクトルで表される軸と軸上の境界点を定めることと等価である．だが，超平面の評価は難しいので，その軸によって表される１次元空間上での各クラス\\omega_i の平均と分散をそれぞれ\\tilde m_i , \\tilde \\sigma_iとする.  クラス数が2の場合を考えると \nJ = J(\\tilde m_1 , \\tilde m_2 , \\tilde \\sigma_1, \\tilde \\sigma_2)\n である．これを最大化しよう． 計算は省略するが，チェーンルールを用いると \nw \\propto (s \\Sigma_1 + (1 - s)\\Sigma_2)^{-1} (m_1 - m_2)\n ただし \ns = \\frac{ \\frac{ \\partial J}{\\partial \\tilde\\sigma_1^2}}{\\frac{ \\partial J}{\\partial \\tilde\\sigma_1^2}  + \\frac{ \\partial J}{\\partial \\tilde\\sigma_2^2} }\n である．"
+    "objectID": "intro.html#なぜこのサイトを作ろうと考えたのか",
+    "href": "intro.html#なぜこのサイトを作ろうと考えたのか",
+    "title": "はじめに",
+    "section": "なぜこのサイトを作ろうと考えたのか",
+    "text": "なぜこのサイトを作ろうと考えたのか\n当初はZennでの投稿を検討していましたが，1日の投稿数に制限があり，頻繁に勉強記録を残したい自分のスタイルには合わないと感じました．また，関心分野が多岐にわたるため，特定の専門分野に特化したプラットフォームよりも，自身の裁量で自由にまとめることができる個人サイトの方が適していると考えました．\nさらに，情報理工学部に在籍しコンピュータクラブに所属していることもあり，「自分自身のWebサイトを持っておきたい」と考えたのも理由の一つです．高校時代から『EMANの物理学』(https://eman-physics.net/) で物理学を学んできた背景もあり，「あのような充実したサイトをいつか自分でも作ってみたい」と憧れていたことが，今回のサイト開設の大きなモチベーションになっています．\n現在の環境は，先輩の研究や同期のKaggleへの取り組みなど，機械学習分野を学ぶには非常に恵まれています．一方で，物理学や情報幾何学などの分野に関しては周囲に同じ関心を持つ人が少なく，どうしても独学にならざるを得ません．しかし，高度な物理・数学分野を独学で進めると，どうしても理解が独りよがりになりがちです．そこで，日々の復習や演習，学習中の疑問点をこのサイトで公開し，「ここが間違っている」「その認識は少し違う」「こんなおすすめの書籍がある」といったフィードバックをいただける場を作ることで，より客観的で深い学習へと繋げたいと考えています．"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Zawaの勉強記録",
+    "objectID": "intro.html#このサイトについて",
+    "href": "intro.html#このサイトについて",
+    "title": "はじめに",
+    "section": "このサイトについて",
+    "text": "このサイトについて\n日々の学習のメモ，まとめ，演習，疑問点などを投稿する場所です．基本的には分野ごとにカテゴリーを分け，理論と演習も分けて整理する予定ですが，詳細はまだ未定です．記事に対するご指摘や疑問点などは，GitHubのIssueにてお気軽にお寄せください．"
+  },
+  {
+    "objectID": "intro.html#日々の学習について",
+    "href": "intro.html#日々の学習について",
+    "title": "はじめに",
+    "section": "日々の学習について",
+    "text": "日々の学習について\n「継続は力なり」ということで，毎日最低1記事は投稿することを目標にしています．調子が良い時や休日などで時間がある場合は，1日に複数記事を投稿することもあるかもしれません．当面は理論の学習を十分に進めてから演習に移る形を取るため，現在は演習カテゴリーを追加していません．学習の進捗に合わせて順次追加していく予定です．\n主に機械学習，統計力学，情報幾何学を学んでいきますが，興味のある分野が非常に多く，それぞれが相互に関わり合う分野でもあるため，何を優先して勉強すべきか常に模索しています． 現在の自身の数学レベルと関心の強さから優先順位をつけると，以下のようになります．\n\nとにかく身につけたい分野\n\n機械学習理論，パターン認識 (PRMLなど)\n平衡系統計力学 (マセマ，田崎先生の本，久保統計など)\n情報幾何学 (藤原先生の本)\n最適化数学 (金谷先生の本)\n機械学習実務 (Kaggleなど)\n\nいずれは身につけたいが時間がないので後回しになってしまっている分野\n\n一般相対性理論\n量子力学\n社会物理学\n力学系\n数理モデルの理論\n強化学習の理論\n偏微分方程式理論\n確率過程，確率微分方程式論\nテンソル解析\n深層学習モデル (拡散モデルなど)\n因果推論\n\n数学レベルが高すぎてまだ手を出せないが，いずれはやりたいと考えている分野\n\n渡辺澄夫ベイズ理論\n非平衡系統計力学\nゲージ理論\n\n\n今思いつくだけでもこれだけ多くの分野があります．そのため，しっかりと優先順位をつけて着実にレベルアップしていく必要があると考えています． まずは，上記「1」に挙げた分野をメインに勉強を進めていきます．"
+  },
+  {
+    "objectID": "Published/CalculusOfVariations/1.html",
+    "href": "Published/CalculusOfVariations/1.html",
+    "title": "変分法の基本",
     "section": "",
-    "text": "2026-06-27: パターン認識コンテンツの作成予定\n2026-06-27: 英語カテゴリーの追加"
+    "text": "様々な分野の勉強をしていて気づいたことがあるが私の興味ある分野は 1. 最小化したいものを導出する（定性的理由によることが多い） 2. 最適化問題として解く（値による最小化なら通常の最適化問題，関数による最小化なら変分法を用いる） 1. 方程式として書けるならその方程式を用いて解析する 2. 書けないなら学習を通じて解析する が主なルートである．ここで直接的に解けないから機械学習が発展したのだろうと考察している．いずれにせよ一旦最適化問題を解くことから始まるわけだが，値による最小化は極論高校数学のレベルでもほぼ解けるので良い．だが関数による最小化はまだ慣れていないせいか，毎回公式を忘れてしまってAIに答えを聞いてしまうことが多いので自分で１から導出できない．これではこの先のレベルに到達できないだろうと考えたので．ここで変分法による最適化を一旦道具として十分使える程度にはしようという発想に至った．\n構成としては，まず基本的な変分法の原理，基本公式，例題を第一回（この記事）に書いて，第二回以降は機械学習，物理学で重要な式を変分法で導出していこうと計画している．登場が確定しているのは変分ベイズとハミルトンの原理の２つであるが，それ以外にも（今知らないもの）を導出していこうと考えている．",
+    "crumbs": [
+      "Home",
+      "CalculusOfVariations",
+      "変分法の基本"
+    ]
   },
   {
-    "objectID": "index.html#お知らせ",
-    "href": "index.html#お知らせ",
-    "title": "Zawaの勉強記録",
+    "objectID": "Published/CalculusOfVariations/1.html#はじめに",
+    "href": "Published/CalculusOfVariations/1.html#はじめに",
+    "title": "変分法の基本",
     "section": "",
-    "text": "2026-06-27: パターン認識コンテンツの作成予定\n2026-06-27: 英語カテゴリーの追加"
+    "text": "様々な分野の勉強をしていて気づいたことがあるが私の興味ある分野は 1. 最小化したいものを導出する（定性的理由によることが多い） 2. 最適化問題として解く（値による最小化なら通常の最適化問題，関数による最小化なら変分法を用いる） 1. 方程式として書けるならその方程式を用いて解析する 2. 書けないなら学習を通じて解析する が主なルートである．ここで直接的に解けないから機械学習が発展したのだろうと考察している．いずれにせよ一旦最適化問題を解くことから始まるわけだが，値による最小化は極論高校数学のレベルでもほぼ解けるので良い．だが関数による最小化はまだ慣れていないせいか，毎回公式を忘れてしまってAIに答えを聞いてしまうことが多いので自分で１から導出できない．これではこの先のレベルに到達できないだろうと考えたので．ここで変分法による最適化を一旦道具として十分使える程度にはしようという発想に至った．\n構成としては，まず基本的な変分法の原理，基本公式，例題を第一回（この記事）に書いて，第二回以降は機械学習，物理学で重要な式を変分法で導出していこうと計画している．登場が確定しているのは変分ベイズとハミルトンの原理の２つであるが，それ以外にも（今知らないもの）を導出していこうと考えている．",
+    "crumbs": [
+      "Home",
+      "CalculusOfVariations",
+      "変分法の基本"
+    ]
   },
   {
-    "objectID": "index.html#はじめに",
-    "href": "index.html#はじめに",
-    "title": "Zawaの勉強記録",
-    "section": "はじめに",
-    "text": "はじめに\nはじめに"
-  },
-  {
-    "objectID": "index.html#githubページ",
-    "href": "index.html#githubページ",
-    "title": "Zawaの勉強記録",
-    "section": "GitHubページ",
-    "text": "GitHubページ\nGitHub Repository：指摘などはここからIssueを立ててください．"
-  },
-  {
-    "objectID": "index.html#公開済みコンテンツ",
-    "href": "index.html#公開済みコンテンツ",
-    "title": "Zawaの勉強記録",
-    "section": "公開済みコンテンツ",
-    "text": "公開済みコンテンツ\n\n\nEnglishStudy (記事なし)\n\n\nPR\n\n\nベイズ推論\n\n\n平衡系統計力学\n\n\n情報幾何学\n\n\n最適化数学 (記事なし)"
-  },
-  {
-    "objectID": "index.html#執筆中コンテンツ",
-    "href": "index.html#執筆中コンテンツ",
-    "title": "Zawaの勉強記録",
-    "section": "執筆中コンテンツ",
-    "text": "執筆中コンテンツ\n\n【PR】 誤差評価に基づく学習\n【PR】 識別部の設計\n【平衡系統計力学】 (3.md タイトル未設定)\n【最適化数学】 最適化の基礎"
+    "objectID": "Published/CalculusOfVariations/1.html#変分法の原理",
+    "href": "Published/CalculusOfVariations/1.html#変分法の原理",
+    "title": "変分法の基本",
+    "section": "変分法の原理",
+    "text": "変分法の原理\n知ってはいるが，一応書いておく ### 汎関数 #### 定義\nある関数空間をV，実数の集合を\\mathbb R とするとき，汎関数Jは次のような写像として定義される． \nJ : V \\rightarrow \\mathbb R\n 通常の関数と区別するために，汎関数の引数はJ[f]のように角括弧を用いる．\n\n具体例\n\n定積分 区間[a,b]における関数y(x)の定積分は，関数を入力として一つの実数を出力するため，汎関数である． \nI[y] = \\int_a^b y(x)dx\n\n曲線の長さ 定積分には含まれるが，座標平面上で2点(a,y(a)),(b,y(b))を結ぶ曲線y(x)の長さLは，関数に依存して決まる数値である．\n\n\n\n変分\n\n定義（関数変分）\nある関数y(x)に対し，その定義域を[a,b]とする． ここで十分小さな実数のパラメータ\\epsilonと，境界条件を満たす任意の微分可能な関数\\eta(x)を導入し，次のような関数の族を考える． \n\\bar y = y(x) + \\epsilon \\eta(x)\n このとき，関数の変分\\delta yは，パラメータ\\epsilonに関する１次の無限小変化として次のように定義される．\n\n\\delta y :=\\left. \\frac{\\partial \\bar y}{\\partial \\epsilon} \\right|_{\\epsilon =0} d\\epsilon = \\eta(x) d\\epsilon\n #### 具体例 イメージ優先で考えてみる． - 区間 : [0,\\pi] - 基準となる元の関数 : y = x - 変化させる関数: \\eta = \\sin(x), この関数は境界条件を満たす（ここにおいて境界条件とは，端点で0になることである．） - 微小パラメータ : \\epsilon = 0.01とする 変分を加える前と後は次のようになる． \n\n\n\n定義(汎関数変分)\n汎関数J[y]に対し，関数y(x)をy(x) + \\epsilon \\eta(x)へ変化させたときの汎関数の変化量を\\Delta Jとする．この\\Delta Jを\\epsilonでマクローリン展開を行う． マクローリン展開はJ[y + \\epsilon \\eta]について次のように定義される．\n\nJ[y + \\epsilon \\eta] = J[y] + \\sum_{n = 1}^\\infty  \\left. \\frac{\\epsilon^n}{n!} J[y + \\epsilon \\eta]\\right|_{\\epsilon  = 0}\n 具体的に考えてみないと理解が難しいので簡単な例で考える． ##### マクローリン展開の例 J[y] = \\int_a^b y^2 dxで，マクローリン展開をしてみる． まず \nJ[y + \\epsilon \\eta] = \\int_a^b y^2 + 2y \\epsilon \\eta + \\epsilon^2 \\eta^2 dx\n 次に，こいつを\\epsilon で1階微分と2階微分を行う．(3階以上は0になるので省略) \n\\frac {d}{d\\epsilon}J = \\int_a^b  2y \\eta + 2 \\epsilon \\eta^2 dx\n \n\\frac {d^2}{d\\epsilon^2}J = \\int_a^b  2  \\eta^2 dx\n\nそしてこいつらに\\epsilon = 0を代入する． \n\\left. \\frac {d}{d\\epsilon}J \\right |_{\\epsilon = 0}= \\int_a^b  2y \\eta  dx\n\n\n\\left. \\frac {d^2}{d\\epsilon^2}J \\right|_{\\epsilon = 0} = \\int_a^b  2  \\eta^2 dx\n\nこれで係数（数と言っていいのか？）が求まったので，代入すると \nJ[y + \\epsilon \\eta] = J[y] + \\epsilon\\int_a^b 2y\\eta dx + \\frac{\\epsilon^2}{2} \\int_a^b 2 \\eta^2 dx\n となってテイラー展開が求まる．\n戻ってこのマクローリン展開の\\epsilonのn次の項をn次変分と定義し\\delta^n Jとする． 特に1次変分\\delta Jが重要である．\n\n\n変分の公式\nまず，だいたい普通の微分公式と同じである． tは変数であるとして \n\\delta t = 0\n \n\\delta f(u,v) = \\frac{\\partial f}{\\partial u} \\delta u+ \\frac{\\partial f}{\\partial  v} \\delta v\n 重要なのは，変分記号\\deltaは微分と積分の順序と交換できるということである． \n\\delta \\left( \\frac{du}{dx} \\right) = \\frac{d}{dx} (\\delta u)\n \n\\delta \\int_a^b u(x) dx = \\int_a^b \\delta u(x) dx\n そして，この関数の変分公式を用いて，汎関数の変分を求めていく． ### 変分の具体例 物理的な意味は次回やるとして今はただの計算問題として \nJ[x] = \\int_a^b F(x , \\dot x , t)dt\n の変分を求めることを考える． まず，交換できるので \n\\delta J = \\int_a^b \\delta F dt\n\nチェーンルールにより \n\\delta J = \\int_a^b \\frac{\\partial F}{\\partial x} \\delta x +\\frac{\\partial F}{\\partial \\dot x} \\delta \\dot x + \\frac{\\partial F}{\\partial t} \\delta t dt\n が成立する．ここで第三項については\\delta t = 0であることと，第二項については微分と変分を交換することで \n\\delta J = \\int_a^b \\frac{\\partial F}{\\partial x} \\delta x +\\frac{\\partial F}{\\partial \\dot x} \\frac{d}{d t}\\delta x dt\n となる．ここで第二項について，部分積分を行うと \n\\int_a^b \\frac{\\partial F}{\\partial \\dot x} \\frac{d}{d t}\\delta x dt = \\left. \\frac{\\partial F}{\\partial x} \\right|^a_b - \\int_a^b \\frac{d}{dt} \\frac{\\partial F}{\\partial \\dot x} \\delta x dt\n\nここにおける第一項は，端点の境界条件を考えると0になる． この結果を元の式に代入すると \n\\delta J = \\int_a^b \\frac{\\partial F}{\\partial x} \\delta x -\\frac{d}{dt} \\frac{\\partial F}{\\partial \\dot x} \\delta x dt\n\nである．これで汎関数の変分を求めることができた． 冒頭でも述べた通り，次回からはこの公式たちを使って有名な結果を導出していく．",
+    "crumbs": [
+      "Home",
+      "CalculusOfVariations",
+      "変分法の基本"
+    ]
   },
   {
     "objectID": "Published/information_geometry/1.html",
@@ -111,135 +119,111 @@
     ]
   },
   {
-    "objectID": "Published/equilibrium_stat_mech/1.html",
-    "href": "Published/equilibrium_stat_mech/1.html",
-    "title": "リウビルの定理と等確率の原理",
+    "objectID": "Published/information_geometry/2.html",
+    "href": "Published/information_geometry/2.html",
+    "title": "多様体と接空間",
     "section": "",
-    "text": "この記事群は統計力学の復習用ノートです．なぜ統計力学をやるんだという話ですが，まず機械学習と関わりがある部分があること，創発科学の一つであること，あとなにより第一原理から出発する学問をなにか一つ身につけたいと思ったからというのがあります．すなわち趣味です． とりあえず手元にあるマセマを一通りやってから，他の本に行こうと思っています．",
+    "text": "さて，多様体の定義を書くが，私は数学科ではないので，この定義をほとんんど理解していない．というか理解する必要あるのだろうか．いちおうイメージでは理解はしているつもりだし，教科書もこれを丸暗記することはないというかそんな感じのことを言っているので，数学的に正しい定義よりも，イメージで覚えて行くほうが私にとっては大事なのかなと認識している． あと接ベクトルの抽象的な定義が出てくるが，これは初めて学ぶ人にとってみれば奇妙な考えだと思うので，疑問に思ったらAIと徹底的に議論したり教科書をじっくり読むなどすれば良いと思う．あとここからアインシュタイン縮約記法を使っていく．",
     "crumbs": [
       "Home",
-      "平衡系統計力学",
-      "リウビルの定理と等確率の原理"
+      "情報幾何学",
+      "多様体と接空間"
     ]
   },
   {
-    "objectID": "Published/equilibrium_stat_mech/1.html#はじめに",
-    "href": "Published/equilibrium_stat_mech/1.html#はじめに",
-    "title": "リウビルの定理と等確率の原理",
+    "objectID": "Published/information_geometry/2.html#はじめに",
+    "href": "Published/information_geometry/2.html#はじめに",
+    "title": "多様体と接空間",
     "section": "",
-    "text": "この記事群は統計力学の復習用ノートです．なぜ統計力学をやるんだという話ですが，まず機械学習と関わりがある部分があること，創発科学の一つであること，あとなにより第一原理から出発する学問をなにか一つ身につけたいと思ったからというのがあります．すなわち趣味です． とりあえず手元にあるマセマを一通りやってから，他の本に行こうと思っています．",
+    "text": "さて，多様体の定義を書くが，私は数学科ではないので，この定義をほとんんど理解していない．というか理解する必要あるのだろうか．いちおうイメージでは理解はしているつもりだし，教科書もこれを丸暗記することはないというかそんな感じのことを言っているので，数学的に正しい定義よりも，イメージで覚えて行くほうが私にとっては大事なのかなと認識している． あと接ベクトルの抽象的な定義が出てくるが，これは初めて学ぶ人にとってみれば奇妙な考えだと思うので，疑問に思ったらAIと徹底的に議論したり教科書をじっくり読むなどすれば良いと思う．あとここからアインシュタイン縮約記法を使っていく．",
     "crumbs": [
       "Home",
-      "平衡系統計力学",
-      "リウビルの定理と等確率の原理"
+      "情報幾何学",
+      "多様体と接空間"
     ]
   },
   {
-    "objectID": "Published/equilibrium_stat_mech/1.html#n個の粒子の運動",
-    "href": "Published/equilibrium_stat_mech/1.html#n個の粒子の運動",
-    "title": "リウビルの定理と等確率の原理",
-    "section": "N個の粒子の運動",
-    "text": "N個の粒子の運動\nある3次元の箱の中にN個の粒子が運動しているとする．このとき粒子が持っている情報は，位置と運動量である．一つの粒子に対して6次元の情報があるので，N個に対しては6N次元の情報がある．ここで6N次元位相空間上の一点は，箱の中の情報を意味している．箱の中はエネルギーが保存されているとする．すると6N-1次元上の超平面空間の軌跡（トラジェクトリー）として箱の中の状態が記述される．\nここで，この位相空間における重要な定理であるリウビルの定理を下に記述する．\n\n    位相空間上の微小体積要素がカノニカル方程式に従うとき，その体積要素は一定である\n\n６N次元でこれを示すのは難しいので，一つの粒子かつ１次元運動のみで考えてみる． 微小体積要素が一定であるとは，微小時間が経過してもそのヤコビアンが1となることを意味している．微小時間\\Delta t経過したあとの位置と運動量をp_1^{'},位置をq_1^{'} とする． ヤコビアンは\n\n\\begin{vmatrix}\n\\frac \\partial {\\partial p_1} p_1^{'}& \\frac \\partial {\\partial q_1} p_1^{'} \\\\      \\frac \\partial {\\partial p_1} q_1^{'}& \\frac \\partial {\\partial q_1} q_1^{'}\n\\end{vmatrix} = 1\n を満たすことを示したい． まずそれぞれの関係は\n\n\\begin{align}\nq_1^{'} &= q_1 + \\frac {d}{dt}q_1  \\Delta t \\\\\np_1^{'} &= p_1 + \\frac {d}{dt}p_1  \\Delta t\n\\end{align}\n である．ここでカノニカル方程式を用いれば，それぞれの微分値を書き換えることができる．\n\n\\begin{align}\nq_1^{'} &= q_1 + \\frac {\\partial}{\\partial p_1}H  \\Delta t \\\\\np_1^{'} &= p_1 - \\frac {\\partial}{\\partial q_1}H  \\Delta t\n\\end{align}\n\nこの式をヤコビアンに代入すると\n\n\\begin{vmatrix}\n\\frac \\partial {\\partial p_1} {(p_1 - \\frac {\\partial}{\\partial q_1}H  \\Delta t)} & \\frac \\partial {\\partial q_1} (p_1 - \\frac {\\partial}{\\partial q_1}H  \\Delta t) \\\\      \\frac \\partial {\\partial p_1} {(q_1 + \\frac {\\partial}{\\partial p_1}H  \\Delta t)}& \\frac \\partial {\\partial q_1} (q_1 + \\frac {\\partial}{\\partial p_1}H  \\Delta t)\n\\end{vmatrix} = 1\n\nこれを計算すると，(\\Delta t)^2の項が出てくるが，これを０とみなせばヤコビアンが1となることがわかる．\nこれを次元を増やして同様の計算をすれば，6N次元でも同様の結論が得れることがわかる．",
+    "objectID": "Published/information_geometry/2.html#多様体の数学的な定義",
+    "href": "Published/information_geometry/2.html#多様体の数学的な定義",
+    "title": "多様体と接空間",
+    "section": "多様体の数学的な定義",
+    "text": "多様体の数学的な定義\n集合Mが以下の条件を満たすとき，Mをn次元C^{r} 級可微分多様体と言う．\n\nMは可算基を持つHausdorff空間\n適当な集合Aを添え字集合とするMの開集合の族\\{ U_{\\alpha} , \\alpha \\in A\\}と写像 \\psi_{\\alpha} : U_{\\alpha} \\rightarrow \\mathbb R^nの族 \\{ \\psi_{\\alpha} \\}があって，以下の三条件を満たす \\begin{align*}\n& 1. M = \\bigcup_{\\alpha \\in A} U_{\\alpha} \\\\\n& 2.\\psi_{\\alpha} : U_{\\alpha} \\rightarrow \\psi_{\\alpha}(U_{\\alpha}) \\text{ は全単射で，} \\psi_{\\alpha} \\text{ も } \\psi_{\\alpha}^{-1} \\text{ も連続写像} \\\\\n&3. U_{\\alpha} \\cap U_{\\beta} \\neq \\emptyset \\text{ ならば写像 } \\psi_{\\beta} \\circ \\psi_{\\alpha}^{-1} : \\psi_{\\alpha}(U_{\\alpha} \\cap U_{\\beta} ) \\rightarrow \\psi_{\\beta}(U_{\\alpha} \\cap U_{\\beta})はC^{r}級\n\\end{align*}\n\n\n図での説明 \n\n1の条件について\nこの定義は，病的な対象を排除するための要請であるので，説明を割愛する．",
     "crumbs": [
       "Home",
-      "平衡系統計力学",
-      "リウビルの定理と等確率の原理"
+      "情報幾何学",
+      "多様体と接空間"
     ]
   },
   {
-    "objectID": "Published/equilibrium_stat_mech/1.html#不確定性原理と状態数",
-    "href": "Published/equilibrium_stat_mech/1.html#不確定性原理と状態数",
-    "title": "リウビルの定理と等確率の原理",
-    "section": "不確定性原理と状態数",
-    "text": "不確定性原理と状態数\n原子スケールにおいて，位置と運動量はそれぞれ揺らいでいる．このゆらぎのスケールを述べているのが不確定性原理である．\n\n\\Delta p \\Delta q \\sim h\n\nhはプランク定数である． ここで，\\Delta p と\\Delta qはd p, d qよりもずっと小さいとする．すなわち超体積要素 dvは極超小立体の立方体h^{3N}で構成されていると考えられる． ここで \ng = \\frac {dv}{h^{3N}}\n を考える．これは，dvの中にどれだけh^{3N}が含まれているかを意味している． このgはdvの中にどれだけ微視的状態が含まれているかという状態数を意味している．",
+    "objectID": "Published/information_geometry/2.html#の条件について-1",
+    "href": "Published/information_geometry/2.html#の条件について-1",
+    "title": "多様体と接空間",
+    "section": "2の条件について",
+    "text": "2の条件について\nまずここに登場するペア(U_{\\alpha} , \\psi_{\\alpha})を座標近傍またはチャート（地図）という．その全体\\{  (U_{\\alpha} , \\psi_{\\alpha}), \\alpha \\in A  \\}のことをアトラス（地図帳）という．また各写像\\psi_{\\alpha}を局所座標系とよび，2-3に登場する写像 \\psi_{\\beta} \\circ \\psi_{\\alpha}^{-1}を座標変換という． 重要な点は，地球儀と，地図帳は一対一対応しているという点である． 地球儀の一部と地図を変換する関数が\\psiである． ここで，チャートの空間は\\mathbb R^nである．\n\n多様体上の微分積分\n多様体M上で定義された関数f : M \\rightarrow \\mathbb R がC^r級とはMの任意の座標近傍(U_{\\alpha},\\psi _{\\alpha})に対し， f \\circ \\psi^{-1}_{\\alpha} : \\psi_{\\alpha} (U_{\\alpha}) \\rightarrow \\mathbb RがC^r級であることとする. n次元多様体Mとk次元多様体Nへの写像f : M \\rightarrow NがC^r級であるとは， M,Nのアトラスをそれぞれ\\{ (U_{\\alpha},\\psi_{\\alpha}) \\},\\{ (W_{\\beta},\\phi_{\\beta}) \\}とするとき， f(U_{\\alpha}) \\cap W_{\\beta} \\neq \\emptysetなる全ての\\alpha,\\betaについて \\phi_{\\beta} \\circ f \\circ \\psi^{-1}_{\\alpha} : \\psi_{\\alpha}(U_{\\alpha}) \\rightarrow \\phi_{\\beta}(W_{\\beta})がC^r級であることと定義する． だが，いちいちこう書くのはめんどくさいので，単にfと書く．",
     "crumbs": [
       "Home",
-      "平衡系統計力学",
-      "リウビルの定理と等確率の原理"
+      "情報幾何学",
+      "多様体と接空間"
     ]
   },
   {
-    "objectID": "Published/equilibrium_stat_mech/1.html#等確率の原理とエルゴード性",
-    "href": "Published/equilibrium_stat_mech/1.html#等確率の原理とエルゴード性",
-    "title": "リウビルの定理と等確率の原理",
-    "section": "等確率の原理とエルゴード性",
-    "text": "等確率の原理とエルゴード性\nここでリウビルの定理より，状態数gは時間によって変化しないことがわかる． ここで重要な過程を置く．それはこの位相空間がエルゴード性を持つということである． ある物理量がエルゴード性を持つとは 対象としている物理量の時間平均と位相平均が等しい ということだが，これは暗黙に正しいものとして考える． イメージだが．代表点（h^{3N}の大きさを持つとする）は，十分長い時間を経てば超平面上のすべての代表点を埋め尽くすはずであり，そうなればエルゴード性を満たすと考えれる．\n今回考えている位相空間がエルゴード性を持つならば，観測時に代表点がその領域に見出される確率は，リウビルの定理より時間が経過しても等しくなり,dvに比例する． どの位相空間の部分空間においてそれが満たされるので，各微視的状態は，位相空間上で同じ体積ならば同じ確率で実現することがわかる． これを等確率の原理と呼ぶ．",
+    "objectID": "Published/information_geometry/2.html#接ベクトル",
+    "href": "Published/information_geometry/2.html#接ベクトル",
+    "title": "多様体と接空間",
+    "section": "接ベクトル",
+    "text": "接ベクトル\n多様体上で接ベクトルを考えることは簡単なことではない．接ベクトルとは，空間のある一点に接しているベクトルの集合だが，これは外側の世界を考えている．これではいけない．多様体の中で閉じた形で記述したい． どうするのが良いのか．いったん幾何学的イメージを捨てて，接ベクトルが満たすべき抽象的な性質を定義として採用する．\n\n接ベクトルの定義(抽象的に)\n多様体M上の点pにおける接ベクトルvとは各f \\in C^{\\infty}(M)に対し，実数v(f) を対応させる写像であって，次の性質を満たす\n\n線型性\nLeibniz則 \nv(fg) = v(f)g(p) + f(p)v(g)\n ではこの定義の背景には，接ベクトルとは，曲線に沿った方向微分のことであるという着想がある．p \\in Mを通るM上のなめらかな曲線C = {p(t) ; p(0) = p}を考える．さらにM上のなめらかな関数fが任意に指定されたとすると，曲線Cと関数fを合成することにより，C上の一変数関数が定まり，したがってこの関数のt = 0での変化率 \n\\left.  v(f) = \\frac{d}{dt} f(p(t)) \\right|_{t=0}\n も定まる．\n\n\n\n上の議論の疑問\nさて，疑問としてなぜ急に曲線を考えるのかという話になってくる．それは多様体の微分を一変数微分に落とし込みたいという動機から生まれる． まず，多様体の微分を素直に書くと（次の式は定義できない） \n\\lim_{h \\rightarrow 0} \\frac{f(p + h) - f(p)}{h}\n となるが，これはp + hが定義できないので，この式は意味をなさない． ここでp(t)という曲線を定義する，まずp(t)は\\mathbb R \\rightarrow Mである．次にfは多様体上の点を実数に写す関数である．すなわちf : M \\rightarrow \\mathbb R．ここで合成関数f  \\circ pの写像を考えると\\mathbb R \\rightarrow \\mathbb Rとなるので，これは一変数関数である なので微分の定義を用いて微分を定義できる. \n\\left. \\frac{d}{dt} f(p(t)) \\right|_{t=0} = \\lim_{h \\to 0} \\frac{f(p(h)) - f(p(0))}{h}\n\npもfもどちらもMの中で定義している．なのでこれはMで完結している接ベクトルの定義となる．",
     "crumbs": [
       "Home",
-      "平衡系統計力学",
-      "リウビルの定理と等確率の原理"
+      "情報幾何学",
+      "多様体と接空間"
     ]
   },
   {
-    "objectID": "Published/equilibrium_stat_mech/1.html#まとめ",
-    "href": "Published/equilibrium_stat_mech/1.html#まとめ",
-    "title": "リウビルの定理と等確率の原理",
+    "objectID": "Published/information_geometry/2.html#接空間",
+    "href": "Published/information_geometry/2.html#接空間",
+    "title": "多様体と接空間",
+    "section": "接空間",
+    "text": "接空間\n接ベクトルを理解できたら，接空間の定義は理解できるはずである\n\n定義\np \\in Mにおける接ベクトル全体の集合をT_pMと書くことにする．u,v \\in T_pM とa,b \\in \\mathbb Rに対し，au + bvを \n(au + bv)(f) = a u(f) + b v(f)\n と定義すれば，これも p \\in Mにおける接ベクトルである．なのでT_pMは\\mathbb R上の線形空間となる．これをp \\in Mにおける接空間という． 前回の線形汎関数と双対空間の関係を考えると．fは線形汎関数でありT_pMはfがなす空間の双対空間(f \\in T^*_pM)であるとわかる．\n\n\nT_pMの基底\n線形空間を考えたら，基底を考えたくなる．多様体Mはn次元であるとして，pの周りで局所座標系(x^1,x^2 ,...,x^n)を一つ固定すると，写像 \n\\left( \\frac{\\partial } {\\partial x^i} \\right)_p : f \\rightarrow\n\\frac{\\partial f} {\\partial x^i}(p)\n\nが定まる． これはおかしいのでは，なぜならf: M \\rightarrow \\mathbb Rなので，微分が定義できないのでは？先程のtなら理解できるが． この疑問を解決しよう．  ここでは省略されているものがある．それは関数\\psiである．省略せずに書くと， \n\\left( \\frac{\\partial } {\\partial x^i} \\right)_p : f \\rightarrow\n\\frac{\\partial (f \\circ \\psi^{-1})} {\\partial x^i}(\\psi (p))\n これで，次元としては偏微分を定義できるようになったが，具体的にどう定義してあげればよいか，それは先程使ったtを用いることで解決できる．画像にあるようにc(t) = (x^1 + t, x^2)と，局所座標系で定義する．ここで p(t) = \\psi ^{-1}(x^1 + t , x^2)となることがわかる．fを合成すればtでの微分を定義できるので \n\\left. \\frac {d}{dt} f(p(t))\\right |_{t=0} = \\left.\\frac{d } {dt}(f \\circ \\psi^{-1})(c(t)) \\right |_{t=0}  = \\left. \\frac{d } {dt}(f \\circ \\psi^{-1})(x^1 + t, x^2) \\right|_{t=0}\n となる．ここでこの微分はx^1の方向しかしていない．すなわちこの微分はx^1についての偏微分であると定義できる．すなわちここで偏微分を $$ ( {x^i} )p = . {dt}(f {-1})(x1 + t, x^2) |{t=0}\n$$ と定義する．(厳密な定義はn次元でするべきであるが) 教科書は(f \\circ \\psi^{-1})をfと省略していることがわかる． この偏微分の組がT_pMの基底となることを示していく．\n定理 \n\\left \\{  \\left( \\frac{\\partial}{\\partial x^i} \\right)  \\right \\}^n_{i=1} \\text{は} T_pM \\text{の一つの基底である}\n\nこれを確認していく． まずこれが一次独立であることを示す． すなわち \na^i \\left(\\frac{\\partial}{\\partial x^i}\\right)_p = 0\n ですべてのa^iが0になることを示せば良い． \na^i \\frac {\\partial f}{\\partial x^i} (p) = 0\n が任意関数f \\in C^{\\infty}(M)で成立すれば良い． 任意関数でこの式が成立するときに，a^i  =0であることを示せば良いので， ここでfとしてx^jをとれば（x^jは部分空間Uで定義されているが，Uの周りだけ値をとるような関数にすればMでも定義できるのでよい） \n0 = a^i \\frac {\\partial x^j}{\\partial x^i} (p) = a^i \\delta^j_i = a^j\n\nで，jは任意だから一次独立性が示された． 次に，任意の接ベクトルv \\in T_pMが\\left \\{  \\left( \\frac{\\partial}{\\partial x^i} \\right)  \\right \\}^n_{i=1}の一次結合で書けることを示したい．まず多様体上に定義される定数関数c : M \\rightarrow \\mathbb R, c(p) = cについてv(c) = 0であることを示す．トリックとしてc = c \\times 1であることを用いる． v(c) = cv(1)である．ここで1 = 1 \\times 1より Leibniz則を用いて v(1) = 2v(1)となることとがわかる．よってv(1) = 0であり．そこからv(c) = 0であることが分かる．\n(ここまでで分かることだが，教科書はfとf \\circ \\psi^{-1}を同一視している．なのでここでも教科書に習ってこれらを同一視するが，入力がp \\in Mならばfそのままだし，対して入力がx \\in \\psi_{\\alpha}(U_{\\alpha})などであれば，f \\circ \\psi^{-1}_{\\alpha}(x)と考えれば良い)\n関数fを任意に固定して，点pの局所座標をx_0 = (x_0^1 , ..., x_0^n)とすれば，Tayorの定理よりpの近傍で，\n\nf(x) = f(x_0) + \\frac{\\partial f}{\\partial x^i} (x_0)(x^i - x^i_0) + G_{ij}(x)(x^i - x^i_0)(x^j - x^j_0)\n\nが成立する．ここでG_{ij}(x)はpの近傍で定義されたなだらかな関数である．\nここでvを作用させる．\n\nv(f(x)) = v(f(x_0)) + \\frac{\\partial f}{\\partial x^i} (x_0)v(x^i - x^i_0) + v(G_{ij}(x)(x^i - x^i_0)(x^j - x^j_0))\n\n右辺第一項は0となる，第三項について考える， vは点pの接ベクトルなので，全体で作用を行えば，それはpについて考えることとなる．簡単に言い換えるなら \n(fg)'(x_0) = f'(x_0)g(x_0) + f(x_0)g'(x_0)\n と，微分されていない部分もx_0が代入されている．vとはこのpへの代入が隠れている． 第三項を具体的に計算してみると \n\\left[ v(G_{ij})(x^i - x^i_0)(x^j - x^j_0) + G_{ij}v(x^i - x^i_0)(x^j - x^j_0) G_{ij}(x^i - x^i_0)v(x^j - x^j_0)  \\right]_{x = x_0 } = 0\n となるので，線形性とv(x^i_0) = 0を用いれば\n\nv(f) = \\left( v(x^i) \\frac{\\partial}{\\partial x^i} \\right)_p(f)\n\nであることが分かるので定理は示された． なので偏微分がT_pMの基底の一つになることが分かる．",
+    "crumbs": [
+      "Home",
+      "情報幾何学",
+      "多様体と接空間"
+    ]
+  },
+  {
+    "objectID": "Published/information_geometry/2.html#双対空間t_pm",
+    "href": "Published/information_geometry/2.html#双対空間t_pm",
+    "title": "多様体と接空間",
+    "section": "双対空間T^*_pM",
+    "text": "双対空間T^*_pM\nさて，T_pMの双対空間について考える．T^*_pMは余接空間と呼ばれる． 余接空間の基底は何だろうか．次の概念を導入する．\n\n微分\nf \\in C^{\\infty}(M) が任意に与えられたとき\n\n(df)_p (v) = v(f)\n で定まる線形汎関数(df)_p : T_pM \\rightarrow \\mathbb Rをpにおけるfの微分という．\n\nさて，はっきり言って謎である．なぜこれが急に微分としていいのか全くわからない．いったん抽象度を落として考えてみる． 平坦な2次元の座標空間 \\mathbb{R}^2 において，関数 f の変化を考える． 点 p の座標を x^1(p) と x^2(p) とする．ここから位置を少し動かした点 p+h を考え，このときのズレを表すベクトルを h = \\begin{pmatrix} h^1 \\\\ h^2 \\end{pmatrix} とする．\n座標軸に沿ったそれぞれの増分 \\Delta x^1, \\Delta x^2 は，図のように座標関数の差として表される． \n\\Delta x^1 = x^1(p+h) - x^1(p) = h^1\n \n\\Delta x^2 = x^2(p+h) - x^2(p) = h^2\n\nこのとき，関数 f の値の変化量 \\Delta f は次のようになる． \n\\Delta f = f(x^1(p+h), x^2(p+h)) - f(x^1(p), x^2(p))\n\nこれをそれぞれの軸方向への部分的な変化 \\Delta f_1, \\Delta f_2 に分解して1次近似する． \n\\begin{align*}\n\\Delta f &= \\Delta f_1 + \\Delta f_2 \\\\\n&\\approx \\left. \\frac{\\partial f}{\\partial x^1} \\right|_{x=p} \\cdot \\Delta x^1 + \\left. \\frac{\\partial f}{\\partial x^2} \\right|_{x=p} \\cdot \\Delta x^2 \\\\\n&= \\left. \\frac{\\partial f}{\\partial x^1} \\right|_{x=p} \\cdot h^1 + \\left. \\frac{\\partial f}{\\partial x^2} \\right|_{x=p} \\cdot h^2\n\\end{align*}\n これは古典的な方向微分に相当する．\nここで，この式の h^1, h^2 という部分に注目する．入力されたベクトル h から i 番目の成分 h^i を取り出す線形汎関数を dx^i と定義する．すなわち， \ndx^i(h) = h^i\n である．この写像 dx^i を使うと，先ほどの近似式は次のように書き直せる． \n\\Delta f \\approx \\left. \\frac{\\partial f}{\\partial x^1} \\right|_{x=p} dx^1(h) + \\left. \\frac{\\partial f}{\\partial x^2} \\right|_{x=p} dx^2(h)\n\nこの右辺をベクトル h を入力して変化量 \\Delta f を出力する線形汎関数とみなし，これを (df)_p(h) と書く． \n(df)_p(h) = \\left. \\frac{\\partial f}{\\partial x^1} \\right|_{x=p} dx^1(h) + \\left. \\frac{\\partial f}{\\partial x^2} \\right|_{x=p} dx^2(h)\n\nこの議論を多様体 M の上へと拡張する． 多様体の上では，点 p と p+h を直接結ぶ平らなズレを定義することはできない．しかし，点 p における微小なズレは，接空間 T_pM の上の接ベクトル v として厳密に定義できる．\nしたがって，古典的なズレのベクトル h を多様体上の接ベクトル v に置き換える．また，古典的な方向微分の値 \\Delta f を，接ベクトル v が関数 f に作用した結果である v(f) に置き換える．\nすると，古典的な関係式 (df)_p(h) = \\Delta f は，多様体の上で次のように表現される． \n(df)_p(v) = v(f)\n これが，多様体における微分の定義である．全微分にベクトルを代入すると方向微分が得られるという，古典的な微積分の原則を多様体の上で表現したものである． ### 補足 (2026 7/24) 私は最近汎関数について色々と勉強したので，ここについても新しい疑問がでてきた．それはdf : T_pM \\rightarrow \\mathbb Rについてである．v : C^{\\infty} \\rightarrow \\mathbb Rは汎関数である．なのでそれを入力して，実数を出力しているdfは汎汎関数のような，そういう感じのものなのではないかと考えたが，ここではそういうような言及はなく，線形写像として扱っている．これはなぜなのだろう．\nまずひとつ目の理由は，vの定義域が無限次元であるが，dfの定義域は有限次元であるからである．そして定義域が無限次元の場合汎関数という言葉が使われるらしい．それを先言ってほしい．\n２つ目の理由は，T_pMがベクトル空間であるため，単にベクトルして扱うことができ，dfはvというベクトルを入力とした単なる関数であると考えることができる． ### 双対空間の基底 この定義をもとに，余接空間 T^*_pM の基底について考える． 任意の関数 f の微分 (df)_p について，入力するベクトルを v とすれば，次のように書ける． \n(df)_p(v) = \\sum_{i=1}^n \\left. \\frac{\\partial f}{\\partial x^i} \\right|_p dx^i(v)\n\n両辺から入力の v を取り外すと，写像としての等式が得られる． \n(df)_p = \\sum_{i=1}^n \\left. \\frac{\\partial f}{\\partial x^i} \\right|_p (dx^i)_p\n この式は，任意の関数 f の微分 (df)_p が，線形汎関数の組 (dx^1)_p, \\dots, (dx^n)_p の線形結合として表されることを示している．\n接空間 T_pM の標準的な基底に対して (dx^i)_p を作用させると， \n(dx^i)_p \\left( \\left. \\frac{\\partial}{\\partial x^j} \\right|_p \\right) = \\delta^i_j\n となり，(dx^1)_p, \\dots, (dx^n)_p は接空間の基底の双対基底をなしていることがわかる．\nしたがって，余接空間 T^*_pM の基底は， \n(dx^1)_p, (dx^2)_p, \\dots, (dx^n)_p\n となる．",
+    "crumbs": [
+      "Home",
+      "情報幾何学",
+      "多様体と接空間"
+    ]
+  },
+  {
+    "objectID": "Published/information_geometry/2.html#まとめ",
+    "href": "Published/information_geometry/2.html#まとめ",
+    "title": "多様体と接空間",
     "section": "まとめ",
-    "text": "まとめ\n\nリウビルの定理が満たされていれば，時間が経過していても微小体積要素は変化しない\nエルゴード性とリウビルの定理から，各微視的状態は，位相空間上で同じ体積ならば同じ確率で実現するという等確率の原理が導かれる．\n\n次回はボルツマンの原理を導出します．",
+    "text": "まとめ\n\n多様体は地図と地球儀と地図帳で考えると良い\n接ベクトルを内的に定義できることが重要\n微分は接ベクトルから定義できる",
     "crumbs": [
       "Home",
-      "平衡系統計力学",
-      "リウビルの定理と等確率の原理"
+      "情報幾何学",
+      "多様体と接空間"
     ]
   },
   {
-    "objectID": "Published/PR/1.html",
-    "href": "Published/PR/1.html",
-    "title": "パターン認識とは",
-    "section": "",
-    "text": "これはテスト勉強用に残すやつです．時間があまりないので，細かい式変形などは飛ばします（疑問に思ったところはかきますが ）．教科書は「わかりやすいパターン認識」を使います．（結構古典的名著って感じがする．コードを書いてほしい．） ## パターン認識とはなにか\nパターン認識とは，観測されたパターンを予め定められた複数の概念のうちの一つに対応させる処理のことである． 例をあげるなら，アルファベットの認識であれば，画像データから26個のクラスのいずれかに対応させる処理ということになる．\n機械でパターン認識系を構成するとき\nflowchart LR\n入力パターン --&gt; 前処理部\n前処理部 --&gt; 特徴抽出部\n特徴抽出部 --&gt; 識別演算部\n識別演算部 --&gt; 出力\n\nsubgraph 識別部\n     識別演算部 &lt;--&gt;|照合| 識別辞書\nend\nという流れの形を取ることが多い． 前処理と特徴抽出は理解できるので置いておいて， 識別演算部と識別辞書について考える，識別演算部はどのクラスに一番近いかを計算するところである．それはスコアでもいいし，確率的でも良い． その識別演算部にデータを渡す（相対的な距離を測るためのもの）ものが辞書部である．",
+    "objectID": "Published/information_geometry/2.html#お気持ち表明",
+    "href": "Published/information_geometry/2.html#お気持ち表明",
+    "title": "多様体と接空間",
+    "section": "お気持ち表明",
+    "text": "お気持ち表明\nめちゃくちゃ詰まりました．特に接ベクトルと微分の関係をイメージするのに時間がかなりかかってしまって丸１日かかりました．ここでこんなに詰まって大丈夫なのだろうか．．．と思いつつ勉強は続けていこうと思います．がんばります．",
     "crumbs": [
       "Home",
-      "PR",
-      "パターン認識とは"
-    ]
-  },
-  {
-    "objectID": "Published/PR/1.html#はじめに",
-    "href": "Published/PR/1.html#はじめに",
-    "title": "パターン認識とは",
-    "section": "",
-    "text": "これはテスト勉強用に残すやつです．時間があまりないので，細かい式変形などは飛ばします（疑問に思ったところはかきますが ）．教科書は「わかりやすいパターン認識」を使います．（結構古典的名著って感じがする．コードを書いてほしい．） ## パターン認識とはなにか\nパターン認識とは，観測されたパターンを予め定められた複数の概念のうちの一つに対応させる処理のことである． 例をあげるなら，アルファベットの認識であれば，画像データから26個のクラスのいずれかに対応させる処理ということになる．\n機械でパターン認識系を構成するとき\nflowchart LR\n入力パターン --&gt; 前処理部\n前処理部 --&gt; 特徴抽出部\n特徴抽出部 --&gt; 識別演算部\n識別演算部 --&gt; 出力\n\nsubgraph 識別部\n     識別演算部 &lt;--&gt;|照合| 識別辞書\nend\nという流れの形を取ることが多い． 前処理と特徴抽出は理解できるので置いておいて， 識別演算部と識別辞書について考える，識別演算部はどのクラスに一番近いかを計算するところである．それはスコアでもいいし，確率的でも良い． その識別演算部にデータを渡す（相対的な距離を測るためのもの）ものが辞書部である．",
-    "crumbs": [
-      "Home",
-      "PR",
-      "パターン認識とは"
-    ]
-  },
-  {
-    "objectID": "Published/PR/1.html#特徴ベクトルと特徴空間",
-    "href": "Published/PR/1.html#特徴ベクトルと特徴空間",
-    "title": "パターン認識とは",
-    "section": "特徴ベクトルと特徴空間",
-    "text": "特徴ベクトルと特徴空間\n識別部にデータを通すためにはまず特徴を数値化しないといけない．例えば文字認識の場合は，文字線の傾き，幅，曲率などが用いられたりする． これらを組にしたベクトルを識別部に入れる．いまd個の特徴を用いることにすると，パターンは次の式のようなd次元ベクトルxとして表される．\n\nx = (x_1, ... x_d)^t\n\n上のベクトルを特徴ベクトル，特徴ベクトルによってはられる空間を特徴空間と呼ぶ． c個のクラスが与えられていて．各クラスを\\omega_1 ,... , \\omega_cで表す． 同じクラスに属していれば，特徴が近いということなので，それは特徴空間において距離の近いところにいると解釈できる．このベクトルで構成される塊をクラスタと呼ぶ．\n例として手書き文字数字認識に適応してみる． 5 \\times 5のメッシュを特徴とする． 特徴ベクトルの要素は黒のとき1,白のとき0とする． パターンの数は合計して2^{25}ある.最も単純な識別系の構成法はすべてのパターンを，クラス名とともに識別辞書として格納することである． このパターンは１，このパターンは７みたいな感じで． ただし，この全パターンのうちには，数字として意味をなさないものも多数含まれている．このようなパターンに対しては11番目のパターンとして，リジェクトを割り当てれば良い．\nしかしこの手法は記憶容量，識別時間の点で非現実的である． 策として，すべての可能性を網羅する代わりに代表的なパターンのみを記憶する方法が考えられる．この代表的なパターンのことをプロトタイプと呼ぶ． 代表的とかいてあるので，あたかもクラスにつき1つだけのように見えるが，プロトタイプはクラスにつき複数定義できるし，それが一般的である． 入力パターンは特徴空間上でこれらのプロトタイプと比較され，最も距離が近いプロトタイプ，すなわち最近傍の属するクラスを識別結果として出力する．この手法のことをNN法(Nearest Neighbor rule)という．\n\nNN法の定式化\n今n個のパターンがその所属するクラスとともに(x_1,\\theta_1), ..., (x_n , \\theta_n)で与えられている．ただし\\{ \\omega_1 ,..., \\omega_c \\}．一般にc \\ll nである．(数字識別ならc=10だが，n = 100000など大量のパターンを用意する．) ここでD(x,x_p)をxとx_pの距離とすると \n\\theta_p = \\arg \\min_{p = 1,2,...n} {D(x,x_p)}\n \\theta_pがxのクラスとなる．\nこれを拡張したもので，距離をすべて測って，上位k個のプロトタイプを取り，多数決した結果を識別結果として出力する方法がある．これをk-NN法と呼ぶ．上のNN法は1-NN法である．",
-    "crumbs": [
-      "Home",
-      "PR",
-      "パターン認識とは"
-    ]
-  },
-  {
-    "objectID": "Published/PR/1.html#特徴空間の分割",
-    "href": "Published/PR/1.html#特徴空間の分割",
-    "title": "パターン認識とは",
-    "section": "特徴空間の分割",
-    "text": "特徴空間の分割\nそれでは機械にパターン認識機能を持たせるためにプロトタイプをどのようにして設定すればよいのか．もっとも単純な方法は収集した全パターンをプロトタイプとすることである．これは全数記憶方式と呼ばれる．上で紹介したn = 100000すべてのデータの距離を測るNN法は全数記憶方式である．だがこれは少し効率が悪い．もう少し効率のよい手法として，少数のパターンをプロトタイプとして設定する方法が考えられる． 例えば特徴空間の重心をプロトタイプとして選べば，効率よく分離できるのではないか．クラス間を分断する境界を決定境界と呼ぶ． 決定境界はd次元特徴空間の際はd-1次元部分空間である．この部分空間を超平面とよぶことが多い．",
-    "crumbs": [
-      "Home",
-      "PR",
-      "パターン認識とは"
-    ]
-  },
-  {
-    "objectID": "Published/PR/1.html#おわりに",
-    "href": "Published/PR/1.html#おわりに",
-    "title": "パターン認識とは",
-    "section": "おわりに",
-    "text": "おわりに\n全数記憶方式ってなんだろうなって初めて勉強したとき考えました．けっこう省略している部分が多いので教科書を読んだほうが良いと思います．",
-    "crumbs": [
-      "Home",
-      "PR",
-      "パターン認識とは"
+      "情報幾何学",
+      "多様体と接空間"
     ]
   },
   {
@@ -375,128 +359,6 @@
     ]
   },
   {
-    "objectID": "Published/bayesian_inference/3.html",
-    "href": "Published/bayesian_inference/3.html",
-    "title": "ベイズ推定におけるモデル選択（続き）",
-    "section": "",
-    "text": "前回のラプラス近似の結果を考える\n\n\\log (X; \\beta) \\approx \\log p(X | \\theta_{MAP}) + \\log p(\\theta_{MAP} ; \\beta) + \\frac t 2 \\log(2 \\pi) - \\frac 1 2 \\log |-H|\n ここで，ヘッセ行列の計算量はO(t^3) である．これは重い計算である． なのでもっと軽い近似がほしい．なので，ヘッセ項を更に近似したものがほしい．これがBICとなる．\n\n\n\nまず，対数尤度の式は，i.i.d.からn個の標本を得れるとして(\\theta \\in \\mathbb R^t)\n\n\\log p(X | \\theta) = \\sum_i^n \\log q(x_i | \\theta)\n これの二回微分がヘッセ行列なので，微分の線形性から \n\\nabla ^2 \\log p(X | \\theta) =  \\sum_i^n \\nabla^2\\log q(x_i | \\theta)\n\nここで，\n\nY_H(X) = \\frac 1 n \\sum_i^n \\nabla^2\\log q(x_i | \\theta)\n とY_Hを定義すると，\n\nH = n Y_H(X)\n が成立する． ここで，サンプルサイズを無限に飛ばすと，対数の法則より期待値に確率収束する．(フィッシャー情報量の逆符号)\n\nY_H(X) \\xrightarrow{p} \\bar Y_H\n すなわちサンプル数が十分に大きいとき次の近似が成立する．\n\nH \\approx n \\bar Y_H\n\n行列の多重共線性より\n\n|n (-\\bar Y_H)| = n^t |-\\bar Y_H |\n が成立する．なので\n\n\\log |-H| \\approx t \\log n + \\log |-\\bar Y_H|\n ここで，nが大きいときは定数項を無視できるので\n\n\\log p(X; \\beta) \\approx \\log p(X | \\theta_{MAP}) + \\log p(\\theta_{MAP} ; \\beta) - \\frac 1 2 t\\log n + O(1)\n\nさらに，事前分布の影響もnが大きいと小さくなる また\\theta_{MAP} \\approx \\theta_{ML}に漸近するので\n\n\\log p(X; \\beta) \\approx \\log p(X | \\theta_{ML})  - \\frac 1 2 t\\log n\n ここで，周辺尤度はその\\betaを与えたときにどれだけ妥当かを意味しているので，情報量基準として使える．\n\nBIC = - \\log p(X | \\theta_{ML})  + \\frac 1 2 t\\log n\n\nこれがBICの定義である．",
-    "crumbs": [
-      "Home",
-      "ベイズ推論",
-      "ベイズ推定におけるモデル選択（続き）"
-    ]
-  },
-  {
-    "objectID": "Published/bayesian_inference/3.html#bic",
-    "href": "Published/bayesian_inference/3.html#bic",
-    "title": "ベイズ推定におけるモデル選択（続き）",
-    "section": "",
-    "text": "前回のラプラス近似の結果を考える\n\n\\log (X; \\beta) \\approx \\log p(X | \\theta_{MAP}) + \\log p(\\theta_{MAP} ; \\beta) + \\frac t 2 \\log(2 \\pi) - \\frac 1 2 \\log |-H|\n ここで，ヘッセ行列の計算量はO(t^3) である．これは重い計算である． なのでもっと軽い近似がほしい．なので，ヘッセ項を更に近似したものがほしい．これがBICとなる．\n\n\n\nまず，対数尤度の式は，i.i.d.からn個の標本を得れるとして(\\theta \\in \\mathbb R^t)\n\n\\log p(X | \\theta) = \\sum_i^n \\log q(x_i | \\theta)\n これの二回微分がヘッセ行列なので，微分の線形性から \n\\nabla ^2 \\log p(X | \\theta) =  \\sum_i^n \\nabla^2\\log q(x_i | \\theta)\n\nここで，\n\nY_H(X) = \\frac 1 n \\sum_i^n \\nabla^2\\log q(x_i | \\theta)\n とY_Hを定義すると，\n\nH = n Y_H(X)\n が成立する． ここで，サンプルサイズを無限に飛ばすと，対数の法則より期待値に確率収束する．(フィッシャー情報量の逆符号)\n\nY_H(X) \\xrightarrow{p} \\bar Y_H\n すなわちサンプル数が十分に大きいとき次の近似が成立する．\n\nH \\approx n \\bar Y_H\n\n行列の多重共線性より\n\n|n (-\\bar Y_H)| = n^t |-\\bar Y_H |\n が成立する．なので\n\n\\log |-H| \\approx t \\log n + \\log |-\\bar Y_H|\n ここで，nが大きいときは定数項を無視できるので\n\n\\log p(X; \\beta) \\approx \\log p(X | \\theta_{MAP}) + \\log p(\\theta_{MAP} ; \\beta) - \\frac 1 2 t\\log n + O(1)\n\nさらに，事前分布の影響もnが大きいと小さくなる また\\theta_{MAP} \\approx \\theta_{ML}に漸近するので\n\n\\log p(X; \\beta) \\approx \\log p(X | \\theta_{ML})  - \\frac 1 2 t\\log n\n ここで，周辺尤度はその\\betaを与えたときにどれだけ妥当かを意味しているので，情報量基準として使える．\n\nBIC = - \\log p(X | \\theta_{ML})  + \\frac 1 2 t\\log n\n\nこれがBICの定義である．",
-    "crumbs": [
-      "Home",
-      "ベイズ推論",
-      "ベイズ推定におけるモデル選択（続き）"
-    ]
-  },
-  {
-    "objectID": "Published/bayesian_inference/3.html#変分ベイズ法",
-    "href": "Published/bayesian_inference/3.html#変分ベイズ法",
-    "title": "ベイズ推定におけるモデル選択（続き）",
-    "section": "変分ベイズ法",
-    "text": "変分ベイズ法\nラプラス近似では，事後分布が多峰性，歪んだ分布では不適合となる． もっと柔軟な近似分布を用いてKLダイバージェンスを最小化する．\n\nJensen不等式\n\n\\log E[f] \\ge E[\\log f]\n\nが成立する．重要不等式である． 周辺尤度を，近似分布を用いたパラメータ\\eta, \\theta で分解する．またJensen不等式で下限をとる．\n\n\n平均場近似\nJensen不等式を使いたいが，この式はパラメーターが複雑に絡み合っている．だが近似として\n\nq(\\eta, \\theta) \\approx q(\\eta) q(\\theta)\n をする．これは平均場近似と呼ばれる近似である． これは変数の次元が増加するにつれて，それぞれの変数がもつ個別のノイズは足し合わされることで，大数の法則により打ち消される． なので周囲からの影響はほぼ一定であるとみなせるので，平均場近似は妥当な近似として作用する． \\eta,\\thetaは存在するだろうと，仮定しておいているに過ぎない．\n\n\\begin{align}\n\\log p(X; \\beta) &= \\log \\int \\int p(X,\\eta,\\theta;\\beta) d\\eta d\\theta \\\\\n&= \\log \\int \\int q(\\eta,\\theta; \\beta) \\frac{p(X,\\eta,\\theta;\\beta)}{ q(\\eta,\\theta; \\beta) } d\\eta d\\theta \\\\\n&\\approx\\log \\int \\int  q(\\eta) q(\\theta)\\frac{p(X,\\eta,\\theta;\\beta)}{q(\\eta) q(\\theta)} d\\eta d\\theta \\\\\n& \\ge \\int \\int q(\\eta)q(\\theta) \\log \\frac{p(X,\\eta,\\theta;\\beta)}{q(\\eta) q(\\theta)} d\\eta d\\theta \\\\\n&= F(q(\\eta), q(\\theta))\n\\end{align}\n ここでFをそれぞれの変数で変分して解くと，それぞれの分布が何に比例するのかがわかる． このFは対数周辺尤度の下界，ELBOと呼ばれる量である． このELBOを最大化させることさせることで，対数周辺尤度を最大化させることができる． ELBOは計算可能である．なぜなら積分の中身はすべて計算可能（事前に形を設定している）であるためである． このELBOを最大化させるにはq(\\theta),q(\\eta)を動かす必要がある． これらを動かしてELBOを最大化させる手法をVB-EMアルゴリズムという． 今日は時間が無いので次回VB-EMアルゴリズムを説明する．",
-    "crumbs": [
-      "Home",
-      "ベイズ推論",
-      "ベイズ推定におけるモデル選択（続き）"
-    ]
-  },
-  {
-    "objectID": "Published/bayesian_inference/3.html#まとめ",
-    "href": "Published/bayesian_inference/3.html#まとめ",
-    "title": "ベイズ推定におけるモデル選択（続き）",
-    "section": "まとめ",
-    "text": "まとめ\n\nヘッシアンを求めることは時間がかかるので，さらに近似してBICでモデルパラメータを決定する\nラプラス近似は不適合な場合が多いので，より柔軟な分布を用いてELBOを最大化させる方法を採用する手法をとる．",
-    "crumbs": [
-      "Home",
-      "ベイズ推論",
-      "ベイズ推定におけるモデル選択（続き）"
-    ]
-  },
-  {
-    "objectID": "News/English.html",
-    "href": "News/English.html",
-    "title": "英語カテゴリーの追加",
-    "section": "",
-    "text": "最近毎日英語を勉強しており，サークルのDiscordサーバーにその学習記録をあげていますが - 過去の記録が埋もれてしまうこと - やることが多くなってきて占領してしまっていること が主な理由となって，こちらに学習記録を移すことにしました． 数学とは違って，学習メモというよりかは，毎日の学習の記録をアップロードすることで学習を継続させていくという目的が大きいです． 今やっていることは\n\nTOEFL3800\nhttps://dailydictation.com/exercises\nhttps://www.bbc.co.uk/learningenglish/english/home\nhttps://writeandimprove.com/workbooks#/wi-workbooks\nAnki\nDuolingo\n\nを毎日（ディクテーションとライティングは最近はじめましたが）\n\nMLの論文の要約\n\nを２日に１回やっています．今の英語力がかなり低い（特にWritingとSpeaking）ので色々詰め込んでやっています． ちなみに目標はTOEFLで８０点取ることです．まだまだ足りていませんが． とりあえずそれぞれ毎日勉強記録をあげていくので，監視しといてください．"
-  },
-  {
-    "objectID": "News/pr.html",
-    "href": "News/pr.html",
-    "title": "パターン認識コンテンツの作成予定",
-    "section": "",
-    "text": "そろそろ大学のテストが近いので，パターン認識のメモと演習を一気に書いてアップロードしようと思います．あと最適化数学も近いのでこいつも一気に勉強します．（他にも色々分野はあるがまあ大丈夫やろ）"
-  },
-  {
-    "objectID": "Published/bayesian_inference/2.html",
-    "href": "Published/bayesian_inference/2.html",
-    "title": "ベイズ推定におけるモデル選択",
-    "section": "",
-    "text": "ベイズの定理 \np(\\theta | X) = \\frac{p(X | \\theta) p(\\theta)}{p(X)}\n のp(\\theta)は自分で設定する必要がある．この事前分布によって結果が変わってくるので重要である．\n\n\n\np(\\theta) = p(\\theta;\\beta)\n と書く．\n\np(\\theta | X ; \\beta) = \\frac{p(X | \\theta) p(\\theta;\\beta)}{p(X;\\beta)}\n となる（周辺尤度も\\betaに依存する） なので良い\\betaを選ぶことがモデル選択において重要である．\n\n\n\nMAP推定 \n\\begin{align}\n\\theta_{MAP} &= \\arg\\max_{\\theta}p(X|\\theta)p(\\theta;\\beta) \\\\\n            &=  \\arg\\max_{\\theta} [\\log p(X| \\theta) + \\log p(\\theta; \\beta)]\n\\end{align}\n\n第一項は，対数尤度である．第二項の意味を考えたい． 具体例として，事前分布が正規分布の場合を考える．\n\n\\begin{align}\n\\log p(\\theta) &= -\\frac{1}{2 \\sigma^2} \\theta^2 +C \\\\\n            & \\propto -\\frac \\beta 2 \\theta^2\n\\end{align}\n\nこれは，パラメータをなるべく0に近づけたいということ，すなわちパラメータを大きくすることへのペナルティ と解釈出来る．いわゆるRidge回帰．\nすなわちMAP推定とは，\\thetaの値を大きくして過学習を起こさないようにするために罰則項を追加した最尤推定という見方もできる．",
-    "crumbs": [
-      "Home",
-      "ベイズ推論",
-      "ベイズ推定におけるモデル選択"
-    ]
-  },
-  {
-    "objectID": "Published/bayesian_inference/2.html#事前分布の設定",
-    "href": "Published/bayesian_inference/2.html#事前分布の設定",
-    "title": "ベイズ推定におけるモデル選択",
-    "section": "",
-    "text": "ベイズの定理 \np(\\theta | X) = \\frac{p(X | \\theta) p(\\theta)}{p(X)}\n のp(\\theta)は自分で設定する必要がある．この事前分布によって結果が変わってくるので重要である．\n\n\n\np(\\theta) = p(\\theta;\\beta)\n と書く．\n\np(\\theta | X ; \\beta) = \\frac{p(X | \\theta) p(\\theta;\\beta)}{p(X;\\beta)}\n となる（周辺尤度も\\betaに依存する） なので良い\\betaを選ぶことがモデル選択において重要である．\n\n\n\nMAP推定 \n\\begin{align}\n\\theta_{MAP} &= \\arg\\max_{\\theta}p(X|\\theta)p(\\theta;\\beta) \\\\\n            &=  \\arg\\max_{\\theta} [\\log p(X| \\theta) + \\log p(\\theta; \\beta)]\n\\end{align}\n\n第一項は，対数尤度である．第二項の意味を考えたい． 具体例として，事前分布が正規分布の場合を考える．\n\n\\begin{align}\n\\log p(\\theta) &= -\\frac{1}{2 \\sigma^2} \\theta^2 +C \\\\\n            & \\propto -\\frac \\beta 2 \\theta^2\n\\end{align}\n\nこれは，パラメータをなるべく0に近づけたいということ，すなわちパラメータを大きくすることへのペナルティ と解釈出来る．いわゆるRidge回帰．\nすなわちMAP推定とは，\\thetaの値を大きくして過学習を起こさないようにするために罰則項を追加した最尤推定という見方もできる．",
-    "crumbs": [
-      "Home",
-      "ベイズ推論",
-      "ベイズ推定におけるモデル選択"
-    ]
-  },
-  {
-    "objectID": "Published/bayesian_inference/2.html#ハイパーパラメータをどう決定するか",
-    "href": "Published/bayesian_inference/2.html#ハイパーパラメータをどう決定するか",
-    "title": "ベイズ推定におけるモデル選択",
-    "section": "ハイパーパラメータをどう決定するか",
-    "text": "ハイパーパラメータをどう決定するか\n\n手動\n交差検証による比較\n経験ベイズ法 等が挙げられる 今回は経験ベイズ法に進む\n\n\n経験ベイズ法\np(X ; \\beta) を最大化する手法である 周辺尤度とは，\\betaを与えたときに訓練標本が生成される確率のことを指している． これはなるべく高い方が良いので，この手法は適切である． なぜ，p(X;\\beta)の最大化で過学習が起こらないのか．それは周辺尤度が，\\thetaについての全領域積分を行っているため，ある偏ったパラメータ（過学習するパラメータ）があったとしても，その影響をあまり受けない堅固な指標だからである．\n\n\nAIC との関係\nハイパーパラメータを決定するものとして，AICがある． AICは事前情報を入れることができないが，MAP推定と経験ベイズ法を用いればそれが可能となる．\n\n\nエビデンス近似\n本来のベイズ推論ならば\\betaについても周辺化を行うべきである． \np(\\theta | X) = \\int p(\\theta|X;\\beta) p(\\beta | X) d\\beta\n\nだが，\\betaの分布はほとんどの場合複雑すぎるので，この積分を解析的に実行することは現実的ではない．そこである\\beta^*でp(\\beta | X)が最大値をとりさらにそれが鋭く（デルタ関数で近似できるほど）分布していると仮定する． するとこれは積分は必要なく，代入するだけでよくなる．（デルタ関数の性質を参照）\nすなわち \np(\\theta | X) \\approx p(\\theta | X ; \\beta^*)",
-    "crumbs": [
-      "Home",
-      "ベイズ推論",
-      "ベイズ推定におけるモデル選択"
-    ]
-  },
-  {
-    "objectID": "Published/bayesian_inference/2.html#周辺尤度のラプラス近似",
-    "href": "Published/bayesian_inference/2.html#周辺尤度のラプラス近似",
-    "title": "ベイズ推定におけるモデル選択",
-    "section": "周辺尤度のラプラス近似",
-    "text": "周辺尤度のラプラス近似\nそもそも前回を思い出すと，このp(X;\\beta)の計算は非常に複雑である． 前回学んだモンテカルロ法（特にMCMC法）を用いれば周辺尤度を求めることは可能だが，計算コストが高いという問題がある． 今回は計算コストが低いラプラス近似という手法を学んでいく．\n\nアイディア\nMAP点のまわりで，ガウス分布としてp(X;\\beta)を近似する．すなわち，MAP点の周りで二次のテイラー展開を行う．\n\n\nなぜMAP点なのか？\n思い出すとMAP点とは \n\\begin{align}\n\\theta_{MAP} &= \\arg\\max_{\\theta} p(X|\\theta)p(\\theta;\\beta) \\\\\n\\end{align}\n\nである．これは\\log p(\\theta | X)が極大値を取ることと言い換えれるので \\nabla \\log p(\\theta|X) = 0と言い換えれる．\nテイラー展開の四季は以下の通りである． \\log p(\\theta | X) \\approx \\log p(\\theta_0 | X) + \\nabla \\log p(\\theta_0 | X)(\\theta - \\theta_0) + \\frac{1}{2}(\\theta - \\theta_0)^T H (\\theta - \\theta_0)\n一方で、ガウス分布の対数をとった式は以下の構造を持つ\n\\log \\mathcal{N}(\\mu, \\Sigma) = -\\frac{1}{2}(x - \\mu)^T \\Sigma^{-1} (x - \\mu) + C\n一次の項を持たないので，これは \n\\nabla \\log p(\\theta_0 | X) = 0\n でないといけない．これはMAP点の条件と一致する．",
-    "crumbs": [
-      "Home",
-      "ベイズ推論",
-      "ベイズ推定におけるモデル選択"
-    ]
-  },
-  {
-    "objectID": "Published/bayesian_inference/2.html#まとめ",
-    "href": "Published/bayesian_inference/2.html#まとめ",
-    "title": "ベイズ推定におけるモデル選択",
-    "section": "まとめ",
-    "text": "まとめ\n\nMAP推定は罰則項付き最尤推定を拡張したものである．\nモデル選択にはハイパーパラメータが必要であり，ハイパーパラメータを決める手法の一つとして経験ベイズ法がある．\nラプラス近似を使うことで計算量少なくp(X; \\beta)を計算できる．",
-    "crumbs": [
-      "Home",
-      "ベイズ推論",
-      "ベイズ推定におけるモデル選択"
-    ]
-  },
-  {
     "objectID": "Published/bayesian_inference/4.html",
     "href": "Published/bayesian_inference/4.html",
     "title": "VB-EMアルゴリズム",
@@ -578,6 +440,384 @@
       "Home",
       "ベイズ推論",
       "VB-EMアルゴリズム"
+    ]
+  },
+  {
+    "objectID": "Published/equilibrium_stat_mech/1.html",
+    "href": "Published/equilibrium_stat_mech/1.html",
+    "title": "リウビルの定理と等確率の原理",
+    "section": "",
+    "text": "この記事群は統計力学の復習用ノートです．なぜ統計力学をやるんだという話ですが，まず機械学習と関わりがある部分があること，創発科学の一つであること，あとなにより第一原理から出発する学問をなにか一つ身につけたいと思ったからというのがあります．すなわち趣味です． とりあえず手元にあるマセマを一通りやってから，他の本に行こうと思っています．",
+    "crumbs": [
+      "Home",
+      "平衡系統計力学",
+      "リウビルの定理と等確率の原理"
+    ]
+  },
+  {
+    "objectID": "Published/equilibrium_stat_mech/1.html#はじめに",
+    "href": "Published/equilibrium_stat_mech/1.html#はじめに",
+    "title": "リウビルの定理と等確率の原理",
+    "section": "",
+    "text": "この記事群は統計力学の復習用ノートです．なぜ統計力学をやるんだという話ですが，まず機械学習と関わりがある部分があること，創発科学の一つであること，あとなにより第一原理から出発する学問をなにか一つ身につけたいと思ったからというのがあります．すなわち趣味です． とりあえず手元にあるマセマを一通りやってから，他の本に行こうと思っています．",
+    "crumbs": [
+      "Home",
+      "平衡系統計力学",
+      "リウビルの定理と等確率の原理"
+    ]
+  },
+  {
+    "objectID": "Published/equilibrium_stat_mech/1.html#n個の粒子の運動",
+    "href": "Published/equilibrium_stat_mech/1.html#n個の粒子の運動",
+    "title": "リウビルの定理と等確率の原理",
+    "section": "N個の粒子の運動",
+    "text": "N個の粒子の運動\nある3次元の箱の中にN個の粒子が運動しているとする．このとき粒子が持っている情報は，位置と運動量である．一つの粒子に対して6次元の情報があるので，N個に対しては6N次元の情報がある．ここで6N次元位相空間上の一点は，箱の中の情報を意味している．箱の中はエネルギーが保存されているとする．すると6N-1次元上の超平面空間の軌跡（トラジェクトリー）として箱の中の状態が記述される．\nここで，この位相空間における重要な定理であるリウビルの定理を下に記述する．\n\n    位相空間上の微小体積要素がカノニカル方程式に従うとき，その体積要素は一定である\n\n６N次元でこれを示すのは難しいので，一つの粒子かつ１次元運動のみで考えてみる． 微小体積要素が一定であるとは，微小時間が経過してもそのヤコビアンが1となることを意味している．微小時間\\Delta t経過したあとの位置と運動量をp_1^{'},位置をq_1^{'} とする． ヤコビアンは\n\n\\begin{vmatrix}\n\\frac \\partial {\\partial p_1} p_1^{'}& \\frac \\partial {\\partial q_1} p_1^{'} \\\\      \\frac \\partial {\\partial p_1} q_1^{'}& \\frac \\partial {\\partial q_1} q_1^{'}\n\\end{vmatrix} = 1\n を満たすことを示したい． まずそれぞれの関係は\n\n\\begin{align}\nq_1^{'} &= q_1 + \\frac {d}{dt}q_1  \\Delta t \\\\\np_1^{'} &= p_1 + \\frac {d}{dt}p_1  \\Delta t\n\\end{align}\n である．ここでカノニカル方程式を用いれば，それぞれの微分値を書き換えることができる．\n\n\\begin{align}\nq_1^{'} &= q_1 + \\frac {\\partial}{\\partial p_1}H  \\Delta t \\\\\np_1^{'} &= p_1 - \\frac {\\partial}{\\partial q_1}H  \\Delta t\n\\end{align}\n\nこの式をヤコビアンに代入すると\n\n\\begin{vmatrix}\n\\frac \\partial {\\partial p_1} {(p_1 - \\frac {\\partial}{\\partial q_1}H  \\Delta t)} & \\frac \\partial {\\partial q_1} (p_1 - \\frac {\\partial}{\\partial q_1}H  \\Delta t) \\\\      \\frac \\partial {\\partial p_1} {(q_1 + \\frac {\\partial}{\\partial p_1}H  \\Delta t)}& \\frac \\partial {\\partial q_1} (q_1 + \\frac {\\partial}{\\partial p_1}H  \\Delta t)\n\\end{vmatrix} = 1\n\nこれを計算すると，(\\Delta t)^2の項が出てくるが，これを０とみなせばヤコビアンが1となることがわかる．\nこれを次元を増やして同様の計算をすれば，6N次元でも同様の結論が得れることがわかる．",
+    "crumbs": [
+      "Home",
+      "平衡系統計力学",
+      "リウビルの定理と等確率の原理"
+    ]
+  },
+  {
+    "objectID": "Published/equilibrium_stat_mech/1.html#不確定性原理と状態数",
+    "href": "Published/equilibrium_stat_mech/1.html#不確定性原理と状態数",
+    "title": "リウビルの定理と等確率の原理",
+    "section": "不確定性原理と状態数",
+    "text": "不確定性原理と状態数\n原子スケールにおいて，位置と運動量はそれぞれ揺らいでいる．このゆらぎのスケールを述べているのが不確定性原理である．\n\n\\Delta p \\Delta q \\sim h\n\nhはプランク定数である． ここで，\\Delta p と\\Delta qはd p, d qよりもずっと小さいとする．すなわち超体積要素 dvは極超小立体の立方体h^{3N}で構成されていると考えられる． ここで \ng = \\frac {dv}{h^{3N}}\n を考える．これは，dvの中にどれだけh^{3N}が含まれているかを意味している． このgはdvの中にどれだけ微視的状態が含まれているかという状態数を意味している．",
+    "crumbs": [
+      "Home",
+      "平衡系統計力学",
+      "リウビルの定理と等確率の原理"
+    ]
+  },
+  {
+    "objectID": "Published/equilibrium_stat_mech/1.html#等確率の原理とエルゴード性",
+    "href": "Published/equilibrium_stat_mech/1.html#等確率の原理とエルゴード性",
+    "title": "リウビルの定理と等確率の原理",
+    "section": "等確率の原理とエルゴード性",
+    "text": "等確率の原理とエルゴード性\nここでリウビルの定理より，状態数gは時間によって変化しないことがわかる． ここで重要な過程を置く．それはこの位相空間がエルゴード性を持つということである． ある物理量がエルゴード性を持つとは 対象としている物理量の時間平均と位相平均が等しい ということだが，これは暗黙に正しいものとして考える． イメージだが．代表点（h^{3N}の大きさを持つとする）は，十分長い時間を経てば超平面上のすべての代表点を埋め尽くすはずであり，そうなればエルゴード性を満たすと考えれる．\n今回考えている位相空間がエルゴード性を持つならば，観測時に代表点がその領域に見出される確率は，リウビルの定理より時間が経過しても等しくなり,dvに比例する． どの位相空間の部分空間においてそれが満たされるので，各微視的状態は，位相空間上で同じ体積ならば同じ確率で実現することがわかる． これを等確率の原理と呼ぶ．",
+    "crumbs": [
+      "Home",
+      "平衡系統計力学",
+      "リウビルの定理と等確率の原理"
+    ]
+  },
+  {
+    "objectID": "Published/equilibrium_stat_mech/1.html#まとめ",
+    "href": "Published/equilibrium_stat_mech/1.html#まとめ",
+    "title": "リウビルの定理と等確率の原理",
+    "section": "まとめ",
+    "text": "まとめ\n\nリウビルの定理が満たされていれば，時間が経過していても微小体積要素は変化しない\nエルゴード性とリウビルの定理から，各微視的状態は，位相空間上で同じ体積ならば同じ確率で実現するという等確率の原理が導かれる．\n\n次回はボルツマンの原理を導出します．",
+    "crumbs": [
+      "Home",
+      "平衡系統計力学",
+      "リウビルの定理と等確率の原理"
+    ]
+  },
+  {
+    "objectID": "InProgress/CalculusOfVariations/1.html",
+    "href": "InProgress/CalculusOfVariations/1.html",
+    "title": "変分法の基本",
+    "section": "",
+    "text": "様々な分野の勉強をしていて気づいたことがあるが私の興味ある分野は 1. 最小化したいものを導出する（定性的理由によることが多い） 2. 最適化問題として解く（値による最小化なら通常の最適化問題，関数による最小化なら変分法を用いる） 1. 方程式として書けるならその方程式を用いて解析する 2. 書けないなら学習を通じて解析する が主なルートである．ここで直接的に解けないから機械学習が発展したのだろうと考察している．いずれにせよ一旦最適化問題を解くことから始まるわけだが，値による最小化は極論高校数学のレベルでもほぼ解けるので良い．だが関数による最小化はまだ慣れていないせいか，毎回公式を忘れてしまってAIに答えを聞いてしまうことが多いので自分で１から導出できない．これではこの先のレベルに到達できないだろうと考えたので．ここで変分法による最適化を一旦道具として十分使える程度にはしようという発想に至った．\n構成としては，まず基本的な変分法の原理，基本公式，例題を第一回（この記事）に書いて，第二回以降は機械学習，物理学で重要な式を変分法で導出していこうと計画している．登場が確定しているのは変分ベイズとハミルトンの原理の２つであるが，それ以外にも（今知らないもの）を導出していこうと考えている．"
+  },
+  {
+    "objectID": "InProgress/CalculusOfVariations/1.html#はじめに",
+    "href": "InProgress/CalculusOfVariations/1.html#はじめに",
+    "title": "変分法の基本",
+    "section": "",
+    "text": "様々な分野の勉強をしていて気づいたことがあるが私の興味ある分野は 1. 最小化したいものを導出する（定性的理由によることが多い） 2. 最適化問題として解く（値による最小化なら通常の最適化問題，関数による最小化なら変分法を用いる） 1. 方程式として書けるならその方程式を用いて解析する 2. 書けないなら学習を通じて解析する が主なルートである．ここで直接的に解けないから機械学習が発展したのだろうと考察している．いずれにせよ一旦最適化問題を解くことから始まるわけだが，値による最小化は極論高校数学のレベルでもほぼ解けるので良い．だが関数による最小化はまだ慣れていないせいか，毎回公式を忘れてしまってAIに答えを聞いてしまうことが多いので自分で１から導出できない．これではこの先のレベルに到達できないだろうと考えたので．ここで変分法による最適化を一旦道具として十分使える程度にはしようという発想に至った．\n構成としては，まず基本的な変分法の原理，基本公式，例題を第一回（この記事）に書いて，第二回以降は機械学習，物理学で重要な式を変分法で導出していこうと計画している．登場が確定しているのは変分ベイズとハミルトンの原理の２つであるが，それ以外にも（今知らないもの）を導出していこうと考えている．"
+  },
+  {
+    "objectID": "InProgress/CalculusOfVariations/1.html#変分法の原理",
+    "href": "InProgress/CalculusOfVariations/1.html#変分法の原理",
+    "title": "変分法の基本",
+    "section": "変分法の原理",
+    "text": "変分法の原理\n知ってはいるが，一応書いておく ### 汎関数 #### 定義\nある関数空間をV，実数の集合を\\mathbb R とするとき，汎関数Jは次のような写像として定義される． \nJ : V \\rightarrow \\mathbb R\n 通常の関数と区別するために，汎関数の引数はJ[f]のように角括弧を用いる．\n\n具体例\n\n定積分 区間[a,b]における関数y(x)の定積分は，関数を入力として一つの実数を出力するため，汎関数である． \nI[y] = \\int_a^b y(x)dx\n\n曲線の長さ 定積分には含まれるが，座標平面上で2点(a,y(a)),(b,y(b))を結ぶ曲線y(x)の長さLは，関数に依存して決まる数値である．\n\n\n\n変分\n\n定義（関数変分）\nある関数y(x)に対し，その定義域を[a,b]とする． ここで十分小さな実数のパラメータ\\epsilonと，境界条件を満たす任意の微分可能な関数\\eta(x)を導入し，次のような関数の族を考える． \n\\bar y = y(x) + \\epsilon \\eta(x)\n このとき，関数の変分\\delta yは，パラメータ\\epsilonに関する１次の無限小変化として次のように定義される．\n\n\\delta y :=\\left. \\frac{\\partial \\bar y}{\\partial \\epsilon} \\right|_{\\epsilon =0} d\\epsilon = \\eta(x) d\\epsilon\n #### 具体例 イメージ優先で考えてみる． - 区間 : [0,\\pi] - 基準となる元の関数 : y = x - 変化させる関数: \\eta = \\sin(x), この関数は境界条件を満たす（ここにおいて境界条件とは，端点で0になることである．） - 微小パラメータ : \\epsilon = 0.01とする 変分を加える前と後は次のようになる． \n\n\n\n定義(汎関数変分)\n汎関数J[y]に対し，関数y(x)をy(x) + \\epsilon \\eta(x)へ変化させたときの汎関数の変化量を\\Delta Jとする．この\\Delta Jを\\epsilonでマクローリン展開を行う． マクローリン展開はJ[y + \\epsilon \\eta]について次のように定義される．\n\nJ[y + \\epsilon \\eta] = J[y] + \\sum_{n = 1}^\\infty  \\left. \\frac{\\epsilon^n}{n!} J[y + \\epsilon \\eta]\\right|_{\\epsilon  = 0}\n 具体的に考えてみないと理解が難しいので簡単な例で考える． ##### マクローリン展開の例 J[y] = \\int_a^b y^2 dxで，マクローリン展開をしてみる． まず \nJ[y + \\epsilon \\eta] = \\int_a^b y^2 + 2y \\epsilon \\eta + \\epsilon^2 \\eta^2 dx\n 次に，こいつを\\epsilon で1階微分と2階微分を行う．(3階以上は0になるので省略) \n\\frac {d}{d\\epsilon}J = \\int_a^b  2y \\eta + 2 \\epsilon \\eta^2 dx\n \n\\frac {d^2}{d\\epsilon^2}J = \\int_a^b  2  \\eta^2 dx\n\nそしてこいつらに\\epsilon = 0を代入する． \n\\left. \\frac {d}{d\\epsilon}J \\right |_{\\epsilon = 0}= \\int_a^b  2y \\eta  dx\n\n\n\\left. \\frac {d^2}{d\\epsilon^2}J \\right|_{\\epsilon = 0} = \\int_a^b  2  \\eta^2 dx\n\nこれで係数（数と言っていいのか？）が求まったので，代入すると \nJ[y + \\epsilon \\eta] = J[y] + \\epsilon\\int_a^b 2y\\eta dx + \\frac{\\epsilon^2}{2} \\int_a^b 2 \\eta^2 dx\n となってテイラー展開が求まる．\n戻ってこのマクローリン展開の\\epsilonのn次の項をn次変分と定義し\\delta^n Jとする． 特に1次変分\\delta Jが重要である．\n\n\n変分の公式\nまず，だいたい普通の微分公式と同じである． tは変数であるとして \n\\delta t = 0\n \n\\delta f(u,v) = \\frac{\\partial f}{\\partial u} \\delta u+ \\frac{\\partial f}{\\partial  v} \\delta v\n 重要なのは，変分記号\\deltaは微分と積分の順序と交換できるということである． \n\\delta \\left( \\frac{du}{dx} \\right) = \\frac{d}{dx} (\\delta u)\n \n\\delta \\int_a^b u(x) dx = \\int_a^b \\delta u(x) dx\n そして，この関数の変分公式を用いて，汎関数の変分を求めていく． ### 変分の具体例 物理的な意味は次回やるとして今はただの計算問題として \nJ[x] = \\int_a^b F(x , \\dot x , t)dt\n の変分を求めることを考える． まず，交換できるので \n\\delta J = \\int_a^b \\delta F dt\n\nチェーンルールにより \n\\delta J = \\int_a^b \\frac{\\partial F}{\\partial x} \\delta x +\\frac{\\partial F}{\\partial \\dot x} \\delta \\dot x + \\frac{\\partial F}{\\partial t} \\delta t dt\n が成立する．ここで第三項については\\delta t = 0であることと，第二項については微分と変分を交換することで \n\\delta J = \\int_a^b \\frac{\\partial F}{\\partial x} \\delta x +\\frac{\\partial F}{\\partial \\dot x} \\frac{d}{d t}\\delta x dt\n となる．ここで第二項について，部分積分を行うと \n\\int_a^b \\frac{\\partial F}{\\partial \\dot x} \\frac{d}{d t}\\delta x dt = \\left. \\frac{\\partial F}{\\partial x} \\right|^a_b - \\int_a^b \\frac{d}{dt} \\frac{\\partial F}{\\partial \\dot x} \\delta x dt\n\nここにおける第一項は，端点の境界条件を考えると0になる． この結果を元の式に代入すると \n\\delta J = \\int_a^b \\frac{\\partial F}{\\partial x} \\delta x -\\frac{d}{dt} \\frac{\\partial F}{\\partial \\dot x} \\delta x dt\n\nである．これで汎関数の変分を求めることができた． 冒頭でも述べた通り，次回からはこの公式たちを使って有名な結果を導出していく．"
+  },
+  {
+    "objectID": "InProgress/CalculusOfVariations/2.html",
+    "href": "InProgress/CalculusOfVariations/2.html",
+    "title": "古典力学における変分",
+    "section": "",
+    "text": "この問題は古典力学において伝統的な問題である． 任意の二点間を結ぶすべての曲線のうち，曲線上に軌道を束縛された物体に対して重力のみが作用する仮定の元，物体が速度0でポテンシャルが高い方の点を出発してからもう一方の点に達するまでの所要時間が最も短いような曲線を求めよ．\n\n\n\nまずこの所要時間は曲線をqとしたときT[q]と汎関数で表現できる．まずこのT[q]がどのような式なのかを求め，それを変分法によって最小値を求めることが大まかな流れである．\n\n\n\nまずTは微小時間dtの積分だと考えれる． \nT[q] = \\int_0^T dt[q]\n ではこのdt[q]を求める． 座標系は鉛直下向きをx軸，水平方向にq(x)軸をとることを考える． 微小時間移動なので，微小区間を移動していると考えられる．そこで(x,q(x))から(x + dx , q(x + dx))までにかかった時間をdtと考える． これは微小区間なので二点間は直線で結べる．より正確には \nq(x + dx) = q(x) + \\frac{\\partial q}{\\partial x} dx + O((dx)^2)\n と記述できる．（O記法についても書かないと） ここで(dx)^2は無視する. エネルギー保存則より \n\\frac{1}{2} m v^2 = mgx\n が成立するので \nv = \\sqrt{2gx}\n また進む距離は三平方の定理より \nds = dx\\sqrt{1 + \\left(\\frac{\\partial q}{\\partial x}\\right)^2}\n となる．微小区間と微小時間において \ndt = \\frac{ds}{v}\n であるので \ndt = \\sqrt{\\frac{1 + \\left(\\frac{\\partial q}{\\partial x}\\right)^2}{2gx}}dx\n\nである．よって，これをL(x,q')とおくと \nT[q] = \\int_a^b dx L(x,q')\n となることが分かる． これを前回求めた変分の式\n\n\\delta J = \\int_a^b \\frac{\\partial F}{\\partial x} \\delta x -\\frac{d}{dt} \\frac{\\partial F}{\\partial \\dot x} \\delta x dt\n を用いてやると\n\n\\delta T = \\int_a^b -\\frac{d}{dx} \\frac{\\partial L}{\\partial q' } \\delta q dx\n\nである． \\frac{\\partial L}{\\partial q' }  = \\frac{1}{\\sqrt{2g}} \\frac{q'}{\\sqrt{x(1+q'^2)}}\nとなることが計算によって確かめられる．\n\\delta T = 0となるようなqを探しているので \n-\\frac{d}{dx} \\frac{\\partial L }{\\partial q'} = 0\n すなわち， \n\\frac{\\partial L}{\\partial q'} = C\n\nが成立する．\n結局 \nq' = C\\sqrt{x(1 + q'^2)}\n という常微分方程式を満たすようなqが解であることが分かる． ここから先は専門外なので(ここでは微分方程式を導出することが目的である)ので，解析的には解かないが，数値的に解いていこうと思う． 式変形を色々繰り返していくと \n\\frac{dq}{dx} = \\sqrt{\\frac{x}{D -x}}\n を解く必要がある．オイラー法でこの曲線を表示すると\n となる．(一応解析解はサイクロイドなので，それにほぼ一致するような曲線になっていることが分かる．)"
+  },
+  {
+    "objectID": "InProgress/CalculusOfVariations/2.html#最速降下問題",
+    "href": "InProgress/CalculusOfVariations/2.html#最速降下問題",
+    "title": "古典力学における変分",
+    "section": "",
+    "text": "この問題は古典力学において伝統的な問題である． 任意の二点間を結ぶすべての曲線のうち，曲線上に軌道を束縛された物体に対して重力のみが作用する仮定の元，物体が速度0でポテンシャルが高い方の点を出発してからもう一方の点に達するまでの所要時間が最も短いような曲線を求めよ．\n\n\n\nまずこの所要時間は曲線をqとしたときT[q]と汎関数で表現できる．まずこのT[q]がどのような式なのかを求め，それを変分法によって最小値を求めることが大まかな流れである．\n\n\n\nまずTは微小時間dtの積分だと考えれる． \nT[q] = \\int_0^T dt[q]\n ではこのdt[q]を求める． 座標系は鉛直下向きをx軸，水平方向にq(x)軸をとることを考える． 微小時間移動なので，微小区間を移動していると考えられる．そこで(x,q(x))から(x + dx , q(x + dx))までにかかった時間をdtと考える． これは微小区間なので二点間は直線で結べる．より正確には \nq(x + dx) = q(x) + \\frac{\\partial q}{\\partial x} dx + O((dx)^2)\n と記述できる．（O記法についても書かないと） ここで(dx)^2は無視する. エネルギー保存則より \n\\frac{1}{2} m v^2 = mgx\n が成立するので \nv = \\sqrt{2gx}\n また進む距離は三平方の定理より \nds = dx\\sqrt{1 + \\left(\\frac{\\partial q}{\\partial x}\\right)^2}\n となる．微小区間と微小時間において \ndt = \\frac{ds}{v}\n であるので \ndt = \\sqrt{\\frac{1 + \\left(\\frac{\\partial q}{\\partial x}\\right)^2}{2gx}}dx\n\nである．よって，これをL(x,q')とおくと \nT[q] = \\int_a^b dx L(x,q')\n となることが分かる． これを前回求めた変分の式\n\n\\delta J = \\int_a^b \\frac{\\partial F}{\\partial x} \\delta x -\\frac{d}{dt} \\frac{\\partial F}{\\partial \\dot x} \\delta x dt\n を用いてやると\n\n\\delta T = \\int_a^b -\\frac{d}{dx} \\frac{\\partial L}{\\partial q' } \\delta q dx\n\nである． \\frac{\\partial L}{\\partial q' }  = \\frac{1}{\\sqrt{2g}} \\frac{q'}{\\sqrt{x(1+q'^2)}}\nとなることが計算によって確かめられる．\n\\delta T = 0となるようなqを探しているので \n-\\frac{d}{dx} \\frac{\\partial L }{\\partial q'} = 0\n すなわち， \n\\frac{\\partial L}{\\partial q'} = C\n\nが成立する．\n結局 \nq' = C\\sqrt{x(1 + q'^2)}\n という常微分方程式を満たすようなqが解であることが分かる． ここから先は専門外なので(ここでは微分方程式を導出することが目的である)ので，解析的には解かないが，数値的に解いていこうと思う． 式変形を色々繰り返していくと \n\\frac{dq}{dx} = \\sqrt{\\frac{x}{D -x}}\n を解く必要がある．オイラー法でこの曲線を表示すると\n となる．(一応解析解はサイクロイドなので，それにほぼ一致するような曲線になっていることが分かる．)"
+  },
+  {
+    "objectID": "InProgress/CalculusOfVariations/2.html#newtonの運動方程式",
+    "href": "InProgress/CalculusOfVariations/2.html#newtonの運動方程式",
+    "title": "古典力学における変分",
+    "section": "Newtonの運動方程式",
+    "text": "Newtonの運動方程式\nNewtonの運動方程式も作用の変分から導出可能である．（歴史的にはNewtonの方程式に合わせるために作用を次のように定義したが，どちらから出発しても問題はないだろう．） まず力学現象を観察すると次のような普遍的な法則があることが分かるだろう． 1. どの時刻でも同じ原因なら同じ力学現象が起こる 2. どの場所でも同じ原因なら同じ力学現象が起こる 3. どの向きでも同じ原因なら同じ力学現象が起こる 4. ある粒子の状態は位置と速度を与えれば完全に指定される 5. お互いに等速直線運動をしているどの観測者から見ても、同じ原因なら同じ力学現象が起こる(相対性原理)\n（余談だが，量子力学では4が成立せず，相対性理論では5が成立しない）\nさて，物体が運動しているとき物体はある意味の無駄を嫌い，なにか特定の物理量をなるべく少なくしようとするような経路を選択しているように思われる．物体が最小化しようとしているなにかを作用Sと定義する． すなわち物体は\\delta S =0を満たす経路を移動すると考えられる．\nここでSは経路を引数とした汎関数である．このLをラグラジアンと呼ぶ． \nS[q] = \\int_{t_1}^{t_2} dt L\n まずラグラジアンはある時刻において粒子の状態を決定づけるものなので法則4より， \nL = L(q,\\dot q,t)\n の関数であることが分かる． まず，もっと単純な他から一切力を受けない粒子を考える． まず法則１により，環境の直接的な時間変化は存在しない(q,\\dot qが含む) なので \nL = L(q,\\dot q)\n が成立する．\n法則２によりどの場所にいても自由粒子の物理的性質は不変である．なのでLはqを明示的に依存しない．したがって \nL = L(\\dot q)\n となる．\n法則３により，空間のすべての方向は等価であるため，ラグラジアンは回転に対して不変でなければならない．これは単に速度ベクトルではなく，速度ベクトルの大きさ，すなわち速さでラグラジアンが構成されることを意味している． すなわち \nL = L(\\dot q^T \\dot q)\n が成立する．\nさて法則5を使いたいので，お互いに等速直線運動をしている別の観測者からこの粒子を見る．この観測者から見た粒子の速度を\\dot q' = q' + \\epsilonとする（微小な差である） 物体が選択する経路を決定するのは作用の変分であった，したがって２つの観測者における作用S とS'が結果として同じ経路を選択する必要がある．すなわちこれは \n\\delta(S' - S) = 0\n を満たすことである． \nS' - S = \\int_{t_1}^{t_2} L' - L dt\n であるので，もしラグラジアンが \nL' - L = \\frac{d}{dt} f(q,t)\n という形をしていれば 作用の差は定数となる．なのでその変分は0になる．\nさて左辺をテイラー展開し，二次以降を無視すると \nL' - L = \\frac{\\partial L}{\\partial q'^2}(2\\dot q \\epsilon) = \\frac{d}{dt} f(q,t)\n となる． ここで，この等式を満たされるためには速度に寄る偏微分が定数ではないといけない．この定数を\\frac{1}{2} mとする．これは質量と呼ばれるパラメータである． これによって \n\\frac{\\partial L}{\\partial q'^2} = \\frac{1}{2}m\n\nこれを積分することで，自由粒子のラグラジアンが決定される \nL = \\frac{1}{2}m \\dot q^2\n\nこれは物体の持つ運動エネルギーと呼ばれる．\n次に重力から受ける他から力を受ける一般的な粒子について考える． 他から受ける影響が粒子の位置のみに依存し，速度には依存しないと仮定する（保存力）．空間の一様性を保ちつつこの効果をラグラジアンに取り込む最も単純な方法は、自由粒子のラグラジアンから．位置のみに依存する関数である位置エネルギーを差し引くことである.（マイナスになるのは，時間対称性から導出される）\n\nL = \\frac{1}{2} m \\dot q^2 - V(q)\n\nこれをオイラーラグランジュ方程式に代入すると\n\nm \\ddot q = -\\frac{\\partial V}{\\partial q}\n\nとなり力を \nF  := -\\frac{\\partial V}{\\partial q}\n\nと定義するとこれはNewtonの運動方程式ma = Fである． このようにNewtonの運動方程式も作用の変分により導出される．"
+  },
+  {
+    "objectID": "InProgress/CalculusOfVariations/2.html#懸垂線問題",
+    "href": "InProgress/CalculusOfVariations/2.html#懸垂線問題",
+    "title": "古典力学における変分",
+    "section": "懸垂線問題",
+    "text": "懸垂線問題\n紐の両端を持ってぶら下げたときにできる曲線を求める．まず紐は持っている位置エネルギーを最小化するような曲線であると考えられるので，紐の長さb,重力加速度g,線密度\\rho ,長さb,線素dsとしたとき，横軸をx, [0,a],縦軸をq(x)としたとき，線素がもつ位置エネルギーは \ndV = \\rho \\times ds \\times g \\times q(x)\n である．これを積分すれば作用は求まる \nV = \\rho g\\int_0^b q(x)ds = \\rho g \\int_0^a q(x) \\sqrt{1 + \\left(\\frac{\\partial q}{\\partial x}\\right )^2} dx\n ただし制約条件として $$\nb = _0^a{ }dx\n$$\nが入る．これはラグランジュ未定乗数法で解く，未定乗数を\\lambdaとすると L(q, q’) = g (q - ’) \n\nとなる．オイラーラグランジュ方程式に代入し整理すると\n\n(q - \\lambda') q'' = 1 + q'^2\n が方程式となる. これの解は次のようになる．"
+  },
+  {
+    "objectID": "InProgress/CalculusOfVariations/2.html#まとめ",
+    "href": "InProgress/CalculusOfVariations/2.html#まとめ",
+    "title": "古典力学における変分",
+    "section": "まとめ",
+    "text": "まとめ\n今回は古典力学における有名な問題で変分法で解けるものを紹介した． 次回は少し発展的な内容をしようと考えている．"
+  },
+  {
+    "objectID": "InProgress/PR/4.html",
+    "href": "InProgress/PR/4.html",
+    "title": "識別部の設計",
+    "section": "",
+    "text": "P(\\omega_i | x)は未知パターンxが入力されたとき，その所属するクラスが\\omega_iである確からさを示している．したがってxを識別する際に事後確率P(\\omega_i | x)が最大となる\\omega_iを識別結果として出力するのが最も自然である． \n\\max_{i = 1 ,...,c} \\{ P(\\omega_i | x) \\} =P(\\omega_k | x) , x\\in \\omega_k\n が識別方となる．このような識別法をベイズ決定則と呼ぶ． NN法に当てはめて考えるとDをP(\\omega_i | x)に変えたと解釈できる ベイズの定理を用いると \ng_i(x) = p(x | \\omega_i) p(\\omega_i)\n となる，あるいは対数をとって \ng_i(x) = \\log p(x | \\omega_i) + \\log p(\\omega_i)\n としてもよい． ## ベイズ決定則の具体例：多次元正規分布 ベイズ決定則の具体例として，尤度が多次元正規分布の場合を考える．\n\np(x | \\omega_i) = \\frac{1}{(2\\pi)^{\\frac d 2} |\\Sigma_i|^{\\frac 1 2}} \\exp{\\left( -\\frac 1 2 (x - m_i)^T\\Sigma_i^{-1}(x - m_i) \\right)}\n これを識別関数の式に代入し,さらに比較に関係のない項を省くと\n\ng_i(x) = (x - m_i)^T \\Sigma_i^{-1}(x - m_i) - \\frac 12\\log|\\Sigma_i|+ p(w_i)  \n となり，識別関数はxについての二次関数になることが分かる． \nD^2_M =  (x - m_i)^T \\Sigma_i^{-1}(x - m_i)\n\nとするとD_Mはマハラノビス汎距離と呼ばれる．\n次に全クラスで分散共分散行列が等しい場合を考える． \n\\Sigma_i = \\Sigma_0\n とおき，比較に関係のない項を省略すると \ng_i(x) = x^T\\Sigma_0^{-1} m_i - \\frac 1 2 m_i^T \\Sigma_0^{-1}m_i + \\log p(\\omega_i)\n となる．これは明らかに線形識別関数である．\nここで，\\Sigma_0を特徴量同士には相関がなく，分散が等しいとする．さらに，事前確率が各クラスで等しいとする(p(w_i) = \\frac 1 c). そうするならば \ng_i = m_i^T x - \\frac 1 2 |m_i|^2\n としてよい．これはNN法で用いた最小距離識別法と一致する．\n教科書にある最尤推定法はよく知られているので省略する．"
+  },
+  {
+    "objectID": "InProgress/PR/4.html#ベイズ決定則",
+    "href": "InProgress/PR/4.html#ベイズ決定則",
+    "title": "識別部の設計",
+    "section": "",
+    "text": "P(\\omega_i | x)は未知パターンxが入力されたとき，その所属するクラスが\\omega_iである確からさを示している．したがってxを識別する際に事後確率P(\\omega_i | x)が最大となる\\omega_iを識別結果として出力するのが最も自然である． \n\\max_{i = 1 ,...,c} \\{ P(\\omega_i | x) \\} =P(\\omega_k | x) , x\\in \\omega_k\n が識別方となる．このような識別法をベイズ決定則と呼ぶ． NN法に当てはめて考えるとDをP(\\omega_i | x)に変えたと解釈できる ベイズの定理を用いると \ng_i(x) = p(x | \\omega_i) p(\\omega_i)\n となる，あるいは対数をとって \ng_i(x) = \\log p(x | \\omega_i) + \\log p(\\omega_i)\n としてもよい． ## ベイズ決定則の具体例：多次元正規分布 ベイズ決定則の具体例として，尤度が多次元正規分布の場合を考える．\n\np(x | \\omega_i) = \\frac{1}{(2\\pi)^{\\frac d 2} |\\Sigma_i|^{\\frac 1 2}} \\exp{\\left( -\\frac 1 2 (x - m_i)^T\\Sigma_i^{-1}(x - m_i) \\right)}\n これを識別関数の式に代入し,さらに比較に関係のない項を省くと\n\ng_i(x) = (x - m_i)^T \\Sigma_i^{-1}(x - m_i) - \\frac 12\\log|\\Sigma_i|+ p(w_i)  \n となり，識別関数はxについての二次関数になることが分かる． \nD^2_M =  (x - m_i)^T \\Sigma_i^{-1}(x - m_i)\n\nとするとD_Mはマハラノビス汎距離と呼ばれる．\n次に全クラスで分散共分散行列が等しい場合を考える． \n\\Sigma_i = \\Sigma_0\n とおき，比較に関係のない項を省略すると \ng_i(x) = x^T\\Sigma_0^{-1} m_i - \\frac 1 2 m_i^T \\Sigma_0^{-1}m_i + \\log p(\\omega_i)\n となる．これは明らかに線形識別関数である．\nここで，\\Sigma_0を特徴量同士には相関がなく，分散が等しいとする．さらに，事前確率が各クラスで等しいとする(p(w_i) = \\frac 1 c). そうするならば \ng_i = m_i^T x - \\frac 1 2 |m_i|^2\n としてよい．これはNN法で用いた最小距離識別法と一致する．\n教科書にある最尤推定法はよく知られているので省略する．"
+  },
+  {
+    "objectID": "InProgress/PR/4.html#識別関数の設計",
+    "href": "InProgress/PR/4.html#識別関数の設計",
+    "title": "識別部の設計",
+    "section": "識別関数の設計",
+    "text": "識別関数の設計\n\n線形識別関数の設計\nまず識別関数に対する評価を表す関数をJとおく．境界となる超平面を定めることは，その法線ベクトルで表される軸と軸上の境界点を定めることと等価である．だが，超平面の評価は難しいので，その軸によって表される１次元空間上での各クラス\\omega_i の平均と分散をそれぞれ\\tilde m_i , \\tilde \\sigma_iとする.  クラス数が2の場合を考えると \nJ = J(\\tilde m_1 , \\tilde m_2 , \\tilde \\sigma_1, \\tilde \\sigma_2)\n である．これを最大化しよう． 計算は省略するが，チェーンルールを用いると \nw \\propto (s \\Sigma_1 + (1 - s)\\Sigma_2)^{-1} (m_1 - m_2)\n ただし \ns = \\frac{ \\frac{ \\partial J}{\\partial \\tilde\\sigma_1^2}}{\\frac{ \\partial J}{\\partial \\tilde\\sigma_1^2}  + \\frac{ \\partial J}{\\partial \\tilde\\sigma_2^2} }\n である．\n### 線形識別関数を用いた多クラスの認識\n多クラス識別について考える 1. 任意のクラス\\omega_i , \\omega_jが線形分離可能な場合 このときクラス\\omega_iと\\omega_jを識別する線形識別関数g_{ij}(x)が存在し \n\\begin{equation}\n  \\left\\{\n  \\begin{alignedat}{2}   \n    x \\in \\omega_i \\rightarrow g_{ij} &gt; 0  \\\\\n    x \\in \\omega_j \\rightarrow g_{ij} &lt; 0\n  \\end{alignedat}\n  \\right.\n\\end{equation}\n を満たす.同様にして\\frac {c(c-1)}{2}個の識別関数を定義できる．\nまたこの変法として，多数決法もよく知られている．まずすべてのi (i = 1,...,c)について \ng_{ij} &gt; 0\n が成り立つj (j = 1 ,...,c)の個数を求め，これを得票数N(i)として識別則を \nN(i) &gt; N(j) \\rightarrow x \\in \\omega_i\n\n\n\n具体例\nクラスの総数を3とし，それぞれをクラス \\omega_1 ，クラス \\omega_2 ，クラス \\omega_3 とする． ある入力 x に対し，1対1の識別関数の出力に関して，次の関係が得られた状況を考える．\n\\omega_1 と \\omega_2 の比較において，g_{12} &gt; 0 が成り立つとする． \\omega_1 と \\omega_3 の比較において，g_{13} &gt; 0 が成り立つとする． \\omega_2 と \\omega_1 の比較において，g_{21} &gt; 0 は成り立たないとする． \\omega_2 と \\omega_3 の比較において，g_{23} &gt; 0 が成り立つとする． \\omega_3 と \\omega_1 の比較において，g_{31} &gt; 0 は成り立たないとする． \\omega_3 と \\omega_2 の比較において，g_{32} &gt; 0 は成り立たないとする．\nなお，同一クラスの比較である g_{11} ， g_{22} ， g_{33} はすべて 0 であり，これらも正にはならないとする．\nこのとき，各クラス i について，g_{ij} &gt; 0 が成り立つ j の個数，すなわち得票数 N(i) を算出する． \\omega_1 については，g_{12} &gt; 0 と g_{13} &gt; 0 の2つが成り立つため，得票数 N(1) は 2 となる． \\omega_2 については，g_{23} &gt; 0 の1つのみが成り立つため，得票数 N(2) は 1 となる． \\omega_3 については，条件を満たす j が存在しないため，得票数 N(3) は 0 となる． 得票数の結果を比較すると，N(1) &gt; N(2) および N(1) &gt; N(3) が成り立つため，N(1) が最大となる．したがって，識別則に基づいて，この入力 x はクラス \\omega_1 に属すると判定される．"
+  },
+  {
+    "objectID": "News/pr.html",
+    "href": "News/pr.html",
+    "title": "パターン認識コンテンツの作成予定",
+    "section": "",
+    "text": "そろそろ大学のテストが近いので，パターン認識のメモと演習を一気に書いてアップロードしようと思います．あと最適化数学も近いのでこいつも一気に勉強します．（他にも色々分野はあるがまあ大丈夫やろ）"
+  },
+  {
+    "objectID": "News/English.html",
+    "href": "News/English.html",
+    "title": "英語カテゴリーの追加",
+    "section": "",
+    "text": "最近毎日英語を勉強しており，サークルのDiscordサーバーにその学習記録をあげていますが - 過去の記録が埋もれてしまうこと - やることが多くなってきて占領してしまっていること が主な理由となって，こちらに学習記録を移すことにしました． 数学とは違って，学習メモというよりかは，毎日の学習の記録をアップロードすることで学習を継続させていくという目的が大きいです． 今やっていることは\n\nTOEFL3800\nhttps://dailydictation.com/exercises\nhttps://www.bbc.co.uk/learningenglish/english/home\nhttps://writeandimprove.com/workbooks#/wi-workbooks\nAnki\nDuolingo\n\nを毎日（ディクテーションとライティングは最近はじめましたが）\n\nMLの論文の要約\n\nを２日に１回やっています．今の英語力がかなり低い（特にWritingとSpeaking）ので色々詰め込んでやっています． ちなみに目標はTOEFLで８０点取ることです．まだまだ足りていませんが． とりあえずそれぞれ毎日勉強記録をあげていくので，監視しといてください．"
+  },
+  {
+    "objectID": "InProgress/PR/3.html",
+    "href": "InProgress/PR/3.html",
+    "title": "誤差評価に基づく学習",
+    "section": "",
+    "text": "前回で解説したパーセプトロンの学習規則の欠点は線形分離可能であること，すなわち誤識別を０にする線形識別関数が存在するkとを前提としなければならない点にある．線形分離不可能な学習パターンに対しては誤り訂正の手続きを無限に繰り返し，解に到達できない． そこで線形分離不可能な場合にも適応できる一般的な学習アルゴリズムをこれから学んでいく．この基本的な枠組みは評価関数を定義し，それを最小化するという考えに基づいている．極めて重要な事実として以下で述べる学習アルゴリズムはいずれもベイズ決定則と密接に関係していることを書いておく．\n学習パターンがn個のパターンx_1 ,..., x_nからなるとする．今，p番目のパターンx_pを入力したときのi番目の識別関数の望ましい出力をb_{ip}として定めておく．このb_{ip}を教師信号と呼ぶ．さらにc個の識別関数の出力値をベクトル(g_1(x_p), g_2(x_p) ,..., g_c(x_p))^Tで表すと(b_{1p},b_{2p} ,..., b_{cp})^Tと表される．このベクトルで表された教師信号を教師ベクトルと呼ぶ．\n識別関数の性質から， \nb_{ip} &gt; b_{jp} , (j \\ne i , x_p \\in \\omega_i)\n となるように設定されなければならない．（値が大きいほうが採用されるので．） クラス\\omega_iに属するすべてのパターンに対して同一の教師ベクトルt_i = (b_1 ,..., b_i , ... , b_c)を割り当てることにすれば，教師ベクトルとしては，c個を用意すればよい．このベクトルにはワンホットベクトルなどがあげられる．\n入力パターンx_pに対する実際の出力と教師信号との誤差\\epsilon_{ip}は \n\\epsilon_{ip} = g_i(x_p) - b_{ip}\n であり，この二乗和を評価関数J_pとして定義する． \\sum_{p=1}^n J_{p}を最小化する手法を二乗誤差最小学習という．\nこれの解は，X = (x_1 , x_2 , ... ,x_n)^T , b_i = (b_{i1} , ... , b_{in})^Tを用いると \nw_i = (X^TX)^{-1} X^T b_i\n となる．これは厳密解だが，X^{T}Xが正則でない場合には適応できず，また特徴量数d(xの次元数)が大きい場合には計算量が膨大になるので，実用的ではない． そこで代わりの手法として，逐次近似によって重みを決定する方法について述べる．この種の方法で最もよく用いられるのは最急降下法である．\n\n\n最急降下法とは重みを \nw^{(k+1)} = w^{(k)} - \\eta \\nabla J(w^{(k)}))\n と更新することだが，これがなぜうまくいくのかを説明する． J(w^{(k+1)}) &lt; J(w^{(k)})であることを示せば良い． J(w  + \\Delta w)を一次テイラー近似すると \nJ(w + \\Delta w) \\approx J(w) + \\nabla J(w)^T \\Delta w\n であるが，\\Delta w = - \\eta \\nabla J(w)を代入すると \nJ(w - \\eta \\nabla J(w)) \\approx J(w) - |\\nabla J(w)|^2\n となる．このとき\\eta |\\nabla J(w)|^2は\\eta &gt; 0 のとき必ず正になるので 適切な学習率をやれば必ず損失関数は減ることがわかる．\n\n\n\n\nw_i^{(k+1)} = w_i^{(k)} - \\frac 1 n\\sum_j ^n \\eta \\nabla J_j(w_i^{(k)}))\n と一括で更新する手法がバッチ学習である． これに対して \nw_i^{(k+1)} = w_i^{(k)} - \\eta \\nabla J_p(w_i^{(k)}))\n とパターンが示されるたびに更新することも可能である．この場合オンライン学習と呼ばれる．\n中間的な手法としてミニバッチ学習がある．"
+  },
+  {
+    "objectID": "InProgress/PR/3.html#二乗誤差最小化学習",
+    "href": "InProgress/PR/3.html#二乗誤差最小化学習",
+    "title": "誤差評価に基づく学習",
+    "section": "",
+    "text": "前回で解説したパーセプトロンの学習規則の欠点は線形分離可能であること，すなわち誤識別を０にする線形識別関数が存在するkとを前提としなければならない点にある．線形分離不可能な学習パターンに対しては誤り訂正の手続きを無限に繰り返し，解に到達できない． そこで線形分離不可能な場合にも適応できる一般的な学習アルゴリズムをこれから学んでいく．この基本的な枠組みは評価関数を定義し，それを最小化するという考えに基づいている．極めて重要な事実として以下で述べる学習アルゴリズムはいずれもベイズ決定則と密接に関係していることを書いておく．\n学習パターンがn個のパターンx_1 ,..., x_nからなるとする．今，p番目のパターンx_pを入力したときのi番目の識別関数の望ましい出力をb_{ip}として定めておく．このb_{ip}を教師信号と呼ぶ．さらにc個の識別関数の出力値をベクトル(g_1(x_p), g_2(x_p) ,..., g_c(x_p))^Tで表すと(b_{1p},b_{2p} ,..., b_{cp})^Tと表される．このベクトルで表された教師信号を教師ベクトルと呼ぶ．\n識別関数の性質から， \nb_{ip} &gt; b_{jp} , (j \\ne i , x_p \\in \\omega_i)\n となるように設定されなければならない．（値が大きいほうが採用されるので．） クラス\\omega_iに属するすべてのパターンに対して同一の教師ベクトルt_i = (b_1 ,..., b_i , ... , b_c)を割り当てることにすれば，教師ベクトルとしては，c個を用意すればよい．このベクトルにはワンホットベクトルなどがあげられる．\n入力パターンx_pに対する実際の出力と教師信号との誤差\\epsilon_{ip}は \n\\epsilon_{ip} = g_i(x_p) - b_{ip}\n であり，この二乗和を評価関数J_pとして定義する． \\sum_{p=1}^n J_{p}を最小化する手法を二乗誤差最小学習という．\nこれの解は，X = (x_1 , x_2 , ... ,x_n)^T , b_i = (b_{i1} , ... , b_{in})^Tを用いると \nw_i = (X^TX)^{-1} X^T b_i\n となる．これは厳密解だが，X^{T}Xが正則でない場合には適応できず，また特徴量数d(xの次元数)が大きい場合には計算量が膨大になるので，実用的ではない． そこで代わりの手法として，逐次近似によって重みを決定する方法について述べる．この種の方法で最もよく用いられるのは最急降下法である．\n\n\n最急降下法とは重みを \nw^{(k+1)} = w^{(k)} - \\eta \\nabla J(w^{(k)}))\n と更新することだが，これがなぜうまくいくのかを説明する． J(w^{(k+1)}) &lt; J(w^{(k)})であることを示せば良い． J(w  + \\Delta w)を一次テイラー近似すると \nJ(w + \\Delta w) \\approx J(w) + \\nabla J(w)^T \\Delta w\n であるが，\\Delta w = - \\eta \\nabla J(w)を代入すると \nJ(w - \\eta \\nabla J(w)) \\approx J(w) - |\\nabla J(w)|^2\n となる．このとき\\eta |\\nabla J(w)|^2は\\eta &gt; 0 のとき必ず正になるので 適切な学習率をやれば必ず損失関数は減ることがわかる．\n\n\n\n\nw_i^{(k+1)} = w_i^{(k)} - \\frac 1 n\\sum_j ^n \\eta \\nabla J_j(w_i^{(k)}))\n と一括で更新する手法がバッチ学習である． これに対して \nw_i^{(k+1)} = w_i^{(k)} - \\eta \\nabla J_p(w_i^{(k)}))\n とパターンが示されるたびに更新することも可能である．この場合オンライン学習と呼ばれる．\n中間的な手法としてミニバッチ学習がある．"
+  },
+  {
+    "objectID": "InProgress/PR/3.html#widrow-hoff-の学習規則",
+    "href": "InProgress/PR/3.html#widrow-hoff-の学習規則",
+    "title": "誤差評価に基づく学習",
+    "section": "Widrow-Hoff の学習規則",
+    "text": "Widrow-Hoff の学習規則\nJを具体的な形として示し，それをこの最急降下法に代入したものを Widrow-Hoffの学習規則という．\n具体的には \nw_i \\leftarrow w - \\eta \\frac 1 n \\sum_j^n (w_i^T x_j - b_{ij})x_j\n が更新法則である．"
+  },
+  {
+    "objectID": "InProgress/PR/3.html#誤差評価とパーセプトロン",
+    "href": "InProgress/PR/3.html#誤差評価とパーセプトロン",
+    "title": "誤差評価に基づく学習",
+    "section": "誤差評価とパーセプトロン",
+    "text": "誤差評価とパーセプトロン\nWidrow-Hoffの学習規則とパーセプトロンを比較してみよう． まず，重みの修正は誤差 \\epsilon_{ip} = g_i(x_p) - b_{ip} に比例して行われる（最急降下法に基づく更新式は w_i \\leftarrow w_i - \\eta \\epsilon_{ip} x_p となる）．ここで，しきい値関数 T による処理を g_i(x_p) に施すと，g_i(x_p) の出力は1または0の2値となる．この線形加重和としきい値処理という単位はしきい値論理ユニットと呼ばれ，パーセプトロンを始めとする学習機能を持つ多層ネットワークの基本的構成要素と考えられる．\n\n\\begin{equation}\n  \\left\\{\n  \\begin{alignedat}{2}   \n    w_i^T x &gt; 0  , (x \\in \\omega_i)\\\\\n    w_i^T x &lt; 0 , (x \\notin \\omega_i)\n  \\end{alignedat}\n  \\right.\n\\end{equation}\n\nとなるように重みベクトルを設定すれば，しきい値処理後の出力は\n\n\\begin{equation}\n  \\left\\{\n  \\begin{alignedat}{2}   \n    g_i(x) = 1  , (x \\in \\omega_i)\\\\\n    g_i(x) = 0 , (x \\notin \\omega_i)\n  \\end{alignedat}\n  \\right.\n\\end{equation}\n\nとなる．これは最後に最大値を選択するので（マルチクラス・パーセプトロンの場合），これで判別はできる． このとき教師信号をワンホットベクトルとすると，誤認識した場合（本来クラス \\omega_i に属するパターン x_p を，誤ってクラス \\omega_j と判定した場合）は\n\n\\begin{equation}\n  \\left\\{\n  \\begin{alignedat}{2}   \n    g_i(x_p) = 0 , \\quad b_{ip} = 1 \\quad (\\text{正解クラス } i) \\\\\n    g_j(x_p) = 1 , \\quad b_{jp} = 0 \\quad (\\text{誤って選択されたクラス } j)\n  \\end{alignedat}\n  \\right.\n\\end{equation}\n\nとなる． それぞれの誤差を計算すると， * クラス i においては，\\epsilon_{ip} = g_i(x_p) - b_{ip} = 0 - 1 = -1 * クラス j においては，\\epsilon_{jp} = g_j(x_p) - b_{jp} = 1 - 0 = 1\nとなるので，これを最急降下法に基づく Widrow-Hoff の更新式 w \\leftarrow w - \\eta \\epsilon x_p に当てはめると\n\n\\begin{equation}\n  \\left\\{\n  \\begin{alignedat}{2}   \nw_i \\leftarrow w_i - \\eta (-1) x_p = w_i + \\eta x_p \\\\\nw_j \\leftarrow w_j - \\eta (1) x_p = w_j - \\eta x_p\n  \\end{alignedat}\n  \\right.\n\\end{equation}\n\nが得られる．これは誤り訂正学習に基づくパーセプトロンの学習規則そのものである． したがって，しきい値処理を導入したWidrow-Hoffの学習規則は，パーセプトロンの学習規則を内包している（その一種である）と考えられる．\n（逆にパーセプトロンの学習規則も評価関数最小化のアルゴリズムとして導けるが，省略する．）\n\nおわりに\n教科書ではニューラルネットワークについて述べられているが，ここでは説明しない．知っているのとMLPの方で紹介したほうが良いと判断したためである．まあこの次の章のベイズ決定則を早くやりたいからというのが主な理由だが．"
+  },
+  {
+    "objectID": "InProgress/information_geometry/4.html",
+    "href": "InProgress/information_geometry/4.html",
+    "title": "ベクトル場，テンソル場",
+    "section": "",
+    "text": "引き続き具体例を多用していく． ## ベクトル場"
+  },
+  {
+    "objectID": "Published/equilibrium_stat_mech/2.html",
+    "href": "Published/equilibrium_stat_mech/2.html",
+    "title": "ボルツマンの原理",
+    "section": "",
+    "text": "ここでは，議論を完結にするために単原子分子理想気体で考える． ここで，これまで議論してきた微視的状態の数と，エネルギーの関係について考えてみる．エネルギーが小さいときは原子はあまり動かない，すなわち位相空間を占める割合が低くなる，すなわち等確率の原理から微視的状態の数が少ない． 逆にエネルギーが高いときは，同様に考えて微視的状態の数が多いと考えられる． ここで，あるエネルギーEの場合についての状態数Wを考えたい．ただしこれは計算が難しい，なぜなら，このWを計算することは，すなわち超球の表面を計算することに相当し，数学的に困難だからである， ここで[0,E]までの状態数\\Omega (E)を計算することを考える．これは超球の体積を求めることに相当し，これは積分で求めることが可能である． \n\\frac{d \\Omega}{d E} = W(E)\n としてW(E)を定義する．これは熱力学的重率と呼ばれる．この熱力学的重率を用いると[E, E + \\Delta E]の場合の状態数は \nW = W(E)\\Delta E\n となり，\\Delta E \\rightarrow 0とすればWが求まる．",
+    "crumbs": [
+      "Home",
+      "平衡系統計力学",
+      "ボルツマンの原理"
+    ]
+  },
+  {
+    "objectID": "Published/equilibrium_stat_mech/2.html#単原子分子理想気体の状態と状態数",
+    "href": "Published/equilibrium_stat_mech/2.html#単原子分子理想気体の状態と状態数",
+    "title": "ボルツマンの原理",
+    "section": "",
+    "text": "ここでは，議論を完結にするために単原子分子理想気体で考える． ここで，これまで議論してきた微視的状態の数と，エネルギーの関係について考えてみる．エネルギーが小さいときは原子はあまり動かない，すなわち位相空間を占める割合が低くなる，すなわち等確率の原理から微視的状態の数が少ない． 逆にエネルギーが高いときは，同様に考えて微視的状態の数が多いと考えられる． ここで，あるエネルギーEの場合についての状態数Wを考えたい．ただしこれは計算が難しい，なぜなら，このWを計算することは，すなわち超球の表面を計算することに相当し，数学的に困難だからである， ここで[0,E]までの状態数\\Omega (E)を計算することを考える．これは超球の体積を求めることに相当し，これは積分で求めることが可能である． \n\\frac{d \\Omega}{d E} = W(E)\n としてW(E)を定義する．これは熱力学的重率と呼ばれる．この熱力学的重率を用いると[E, E + \\Delta E]の場合の状態数は \nW = W(E)\\Delta E\n となり，\\Delta E \\rightarrow 0とすればWが求まる．",
+    "crumbs": [
+      "Home",
+      "平衡系統計力学",
+      "ボルツマンの原理"
+    ]
+  },
+  {
+    "objectID": "Published/equilibrium_stat_mech/2.html#wを求める",
+    "href": "Published/equilibrium_stat_mech/2.html#wを求める",
+    "title": "ボルツマンの原理",
+    "section": "Wを求める",
+    "text": "Wを求める\nまず，\\Omega(E)を求める．条件は体積がV，粒子数がN,粒子の質量はmである． ハミルトニアンがE \\ge Hを満たす6N次元位相空間の超体積を求め，h^{3N}で割ることによって求まる． (復習だが，ハミルトニアンが等しいとは，同じエネルギー面にいるということを意味している．その面を重ね合わせて，体積を求めるというイメージ)\n\n\\Omega(E) = \\frac 1 {h^{3N}} \\int\\int ...\\int dq_1dq_2 ...dq_{3N}dp_1 dp_2 ... dp_{3N}\n の積分を求める．変形すると\n\n\\Omega(E) = \\frac 1 {h^{3N}} \\int ... \\int dq_1dq_2 ...dq_{3N} \\int ...\\int dp_1 dp_2 ... dp_{3N}\n\nである．ここでqについての積分は，3次元空間なので， \n\\int \\int \\int dq_1 dq_2 dq_3 = V\n である．同様に考えると\n\n\\Omega(E) = \\frac {V^N} {h^{3N}} \\int ...\\int dp_1 dp_2 ... dp_{3N}\n\nとなることがわかる． ハミルトニアンをmとp_iを用いて表すと，mが十分小さいのでポテンシャルエネルギーを0として \nH = \\frac{1}{2m}\\sum_i^{3N} p^2_i\n\nと表現される． H \\le Eであるので代入すると．\n\n\\frac{1}{2m}\\sum_i^{3N} p^2_i  \\le E\n 式変形すると \n\\sum_i^{3N} p^2_i \\le (\\sqrt{2mE})^2\n すなわち\\int ...\\int dp_1 dp_2 ... dp_{3N}は半径\\sqrt{2mE}のN次元球の体積である． N次元球の体積の公式を用いて\n\n\\int ...\\int dp_1 dp_2 ... dp_{3N} = \\frac{(2 \\pi)^{\\frac {3N}2}}{3N\\Gamma(\\frac {3N}2)} (2mE)^{\\frac{3N}{2}}\n\n式をまとめて，定数項をCと置くと\n\n\\Omega(E) = C E^{\\frac {3N} 2}\n\nである．これを微分して\\Delta E(定数)を掛けてやると，Wが求まる．よって \nW = C E^{\\frac{3N }{2} -1}",
+    "crumbs": [
+      "Home",
+      "平衡系統計力学",
+      "ボルツマンの原理"
+    ]
+  },
+  {
+    "objectID": "Published/equilibrium_stat_mech/2.html#ボルツマンの原理",
+    "href": "Published/equilibrium_stat_mech/2.html#ボルツマンの原理",
+    "title": "ボルツマンの原理",
+    "section": "ボルツマンの原理",
+    "text": "ボルツマンの原理\nまずこれの対数をとると\n\n\\log W = \\log C + (\\frac {3N}{2} -1)\\log E\n となる．これをEで微分し，\\frac {3N}{2} -1 \\approx \\frac {3N}{2}とすると\n\n\\frac{d}{dE} \\log W = \\frac {3N}{2E}\n ここで気体分子運動論の結果から \nE = \\frac 3 2 N k T\n となる，代入すると\n\n\\frac d {dE} \\log W = \\frac 1 {kT}\n\nここで熱力学第一法則より\n\ndE = T dS - pdV\n\ndV = 0なので \n\\frac {dS}{dE} = \\frac 1 T\n である．比較すると \nS = k \\log W\n が導出される．この状態数とエントロピーの関係をボルツマンの原理と言う．",
+    "crumbs": [
+      "Home",
+      "平衡系統計力学",
+      "ボルツマンの原理"
+    ]
+  },
+  {
+    "objectID": "Published/equilibrium_stat_mech/2.html#エントロピーの示量性",
+    "href": "Published/equilibrium_stat_mech/2.html#エントロピーの示量性",
+    "title": "ボルツマンの原理",
+    "section": "エントロピーの示量性",
+    "text": "エントロピーの示量性\nエントロピーは示量変数（物質の量に比例する変数）である．これを示したい．熱力学的重率W(E)に粒子の区別はつかないものとしてN!で割る操作をすることでこの性質を示すことができる．\n\nW(E) = \\frac{V^N}{N!} \\bigg(\\frac{2 \\pi}{h^2}\\bigg) ^{\\frac {3N}2} \\frac{1}{\\Gamma(\\frac {3N}2)} (2mE)^{\\frac{3N}{2} -1}\n\nよって \nW = \\frac{V^N}{N!} \\bigg(\\frac{2 \\pi}{h^2}\\bigg) ^{\\frac {3N}2} \\frac{\\Delta E}{\\Gamma(\\frac {3N}2)} (2mE)^{\\frac{3N}{2} -1}\n\nこの式をボルツマンの原理に代入すると\n\nS = k \\log \\left \\{  \\frac{V^N}{N!} \\bigg(\\frac{2 \\pi}{h^2}\\bigg) ^{\\frac {3N}2} \\frac{\\Delta E}{\\Gamma(\\frac {3N}2)} (2mE)^{\\frac{3N}{2} -1} \\right \\}\n\n粗いスターリング公式（\\Gamma関数でも同様に） \nN! \\approx N \\log N - N\n と，N &gt;&gt; 1より\n\n\\begin{align}\nS &= k \\left(   N \\log V - N \\log N + N + \\frac 3 2 N \\log \\frac{2 \\pi m E}{h^2} -\\frac {3N} 2 \\log \\frac{3N}{2} + \\frac {3N}{2}   \\right) \\\\\n&= Nk \\left(\\log \\frac {V}{N} + \\frac 3 2 \\log \\left( \\frac{4 \\pi m}{3h^2} \\frac E N  \\right) + \\frac 5 2  \\right)\n\\end{align}  \n ここで，Vは一定であり，EはNに比例するので\\frac V Nと\\frac E Nは定数となる． よってエントロピーは示量変数である．",
+    "crumbs": [
+      "Home",
+      "平衡系統計力学",
+      "ボルツマンの原理"
+    ]
+  },
+  {
+    "objectID": "Published/equilibrium_stat_mech/2.html#まとめ",
+    "href": "Published/equilibrium_stat_mech/2.html#まとめ",
+    "title": "ボルツマンの原理",
+    "section": "まとめ",
+    "text": "まとめ\n\n単原子分子理想気体の状態数WはC E ^{\\frac {3N}{2} -1}である\n上の式と熱力学第一法則を使うことで，ボルツマンの原理が導出される\nエントロピーの示量性を示すにはN!で割る必要がある．",
+    "crumbs": [
+      "Home",
+      "平衡系統計力学",
+      "ボルツマンの原理"
+    ]
+  },
+  {
+    "objectID": "Published/bayesian_inference/2.html",
+    "href": "Published/bayesian_inference/2.html",
+    "title": "ベイズ推定におけるモデル選択",
+    "section": "",
+    "text": "ベイズの定理 \np(\\theta | X) = \\frac{p(X | \\theta) p(\\theta)}{p(X)}\n のp(\\theta)は自分で設定する必要がある．この事前分布によって結果が変わってくるので重要である．\n\n\n\np(\\theta) = p(\\theta;\\beta)\n と書く．\n\np(\\theta | X ; \\beta) = \\frac{p(X | \\theta) p(\\theta;\\beta)}{p(X;\\beta)}\n となる（周辺尤度も\\betaに依存する） なので良い\\betaを選ぶことがモデル選択において重要である．\n\n\n\nMAP推定 \n\\begin{align}\n\\theta_{MAP} &= \\arg\\max_{\\theta}p(X|\\theta)p(\\theta;\\beta) \\\\\n            &=  \\arg\\max_{\\theta} [\\log p(X| \\theta) + \\log p(\\theta; \\beta)]\n\\end{align}\n\n第一項は，対数尤度である．第二項の意味を考えたい． 具体例として，事前分布が正規分布の場合を考える．\n\n\\begin{align}\n\\log p(\\theta) &= -\\frac{1}{2 \\sigma^2} \\theta^2 +C \\\\\n            & \\propto -\\frac \\beta 2 \\theta^2\n\\end{align}\n\nこれは，パラメータをなるべく0に近づけたいということ，すなわちパラメータを大きくすることへのペナルティ と解釈出来る．いわゆるRidge回帰．\nすなわちMAP推定とは，\\thetaの値を大きくして過学習を起こさないようにするために罰則項を追加した最尤推定という見方もできる．",
+    "crumbs": [
+      "Home",
+      "ベイズ推論",
+      "ベイズ推定におけるモデル選択"
+    ]
+  },
+  {
+    "objectID": "Published/bayesian_inference/2.html#事前分布の設定",
+    "href": "Published/bayesian_inference/2.html#事前分布の設定",
+    "title": "ベイズ推定におけるモデル選択",
+    "section": "",
+    "text": "ベイズの定理 \np(\\theta | X) = \\frac{p(X | \\theta) p(\\theta)}{p(X)}\n のp(\\theta)は自分で設定する必要がある．この事前分布によって結果が変わってくるので重要である．\n\n\n\np(\\theta) = p(\\theta;\\beta)\n と書く．\n\np(\\theta | X ; \\beta) = \\frac{p(X | \\theta) p(\\theta;\\beta)}{p(X;\\beta)}\n となる（周辺尤度も\\betaに依存する） なので良い\\betaを選ぶことがモデル選択において重要である．\n\n\n\nMAP推定 \n\\begin{align}\n\\theta_{MAP} &= \\arg\\max_{\\theta}p(X|\\theta)p(\\theta;\\beta) \\\\\n            &=  \\arg\\max_{\\theta} [\\log p(X| \\theta) + \\log p(\\theta; \\beta)]\n\\end{align}\n\n第一項は，対数尤度である．第二項の意味を考えたい． 具体例として，事前分布が正規分布の場合を考える．\n\n\\begin{align}\n\\log p(\\theta) &= -\\frac{1}{2 \\sigma^2} \\theta^2 +C \\\\\n            & \\propto -\\frac \\beta 2 \\theta^2\n\\end{align}\n\nこれは，パラメータをなるべく0に近づけたいということ，すなわちパラメータを大きくすることへのペナルティ と解釈出来る．いわゆるRidge回帰．\nすなわちMAP推定とは，\\thetaの値を大きくして過学習を起こさないようにするために罰則項を追加した最尤推定という見方もできる．",
+    "crumbs": [
+      "Home",
+      "ベイズ推論",
+      "ベイズ推定におけるモデル選択"
+    ]
+  },
+  {
+    "objectID": "Published/bayesian_inference/2.html#ハイパーパラメータをどう決定するか",
+    "href": "Published/bayesian_inference/2.html#ハイパーパラメータをどう決定するか",
+    "title": "ベイズ推定におけるモデル選択",
+    "section": "ハイパーパラメータをどう決定するか",
+    "text": "ハイパーパラメータをどう決定するか\n\n手動\n交差検証による比較\n経験ベイズ法 等が挙げられる 今回は経験ベイズ法に進む\n\n\n経験ベイズ法\np(X ; \\beta) を最大化する手法である 周辺尤度とは，\\betaを与えたときに訓練標本が生成される確率のことを指している． これはなるべく高い方が良いので，この手法は適切である． なぜ，p(X;\\beta)の最大化で過学習が起こらないのか．それは周辺尤度が，\\thetaについての全領域積分を行っているため，ある偏ったパラメータ（過学習するパラメータ）があったとしても，その影響をあまり受けない堅固な指標だからである．\n\n\nAIC との関係\nハイパーパラメータを決定するものとして，AICがある． AICは事前情報を入れることができないが，MAP推定と経験ベイズ法を用いればそれが可能となる．\n\n\nエビデンス近似\n本来のベイズ推論ならば\\betaについても周辺化を行うべきである． \np(\\theta | X) = \\int p(\\theta|X;\\beta) p(\\beta | X) d\\beta\n\nだが，\\betaの分布はほとんどの場合複雑すぎるので，この積分を解析的に実行することは現実的ではない．そこである\\beta^*でp(\\beta | X)が最大値をとりさらにそれが鋭く（デルタ関数で近似できるほど）分布していると仮定する． するとこれは積分は必要なく，代入するだけでよくなる．（デルタ関数の性質を参照）\nすなわち \np(\\theta | X) \\approx p(\\theta | X ; \\beta^*)",
+    "crumbs": [
+      "Home",
+      "ベイズ推論",
+      "ベイズ推定におけるモデル選択"
+    ]
+  },
+  {
+    "objectID": "Published/bayesian_inference/2.html#周辺尤度のラプラス近似",
+    "href": "Published/bayesian_inference/2.html#周辺尤度のラプラス近似",
+    "title": "ベイズ推定におけるモデル選択",
+    "section": "周辺尤度のラプラス近似",
+    "text": "周辺尤度のラプラス近似\nそもそも前回を思い出すと，このp(X;\\beta)の計算は非常に複雑である． 前回学んだモンテカルロ法（特にMCMC法）を用いれば周辺尤度を求めることは可能だが，計算コストが高いという問題がある． 今回は計算コストが低いラプラス近似という手法を学んでいく．\n\nアイディア\nMAP点のまわりで，ガウス分布としてp(X;\\beta)を近似する．すなわち，MAP点の周りで二次のテイラー展開を行う．\n\n\nなぜMAP点なのか？\n思い出すとMAP点とは \n\\begin{align}\n\\theta_{MAP} &= \\arg\\max_{\\theta} p(X|\\theta)p(\\theta;\\beta) \\\\\n\\end{align}\n\nである．これは\\log p(\\theta | X)が極大値を取ることと言い換えれるので \\nabla \\log p(\\theta|X) = 0と言い換えれる．\nテイラー展開の四季は以下の通りである． \\log p(\\theta | X) \\approx \\log p(\\theta_0 | X) + \\nabla \\log p(\\theta_0 | X)(\\theta - \\theta_0) + \\frac{1}{2}(\\theta - \\theta_0)^T H (\\theta - \\theta_0)\n一方で、ガウス分布の対数をとった式は以下の構造を持つ\n\\log \\mathcal{N}(\\mu, \\Sigma) = -\\frac{1}{2}(x - \\mu)^T \\Sigma^{-1} (x - \\mu) + C\n一次の項を持たないので，これは \n\\nabla \\log p(\\theta_0 | X) = 0\n でないといけない．これはMAP点の条件と一致する．",
+    "crumbs": [
+      "Home",
+      "ベイズ推論",
+      "ベイズ推定におけるモデル選択"
+    ]
+  },
+  {
+    "objectID": "Published/bayesian_inference/2.html#まとめ",
+    "href": "Published/bayesian_inference/2.html#まとめ",
+    "title": "ベイズ推定におけるモデル選択",
+    "section": "まとめ",
+    "text": "まとめ\n\nMAP推定は罰則項付き最尤推定を拡張したものである．\nモデル選択にはハイパーパラメータが必要であり，ハイパーパラメータを決める手法の一つとして経験ベイズ法がある．\nラプラス近似を使うことで計算量少なくp(X; \\beta)を計算できる．",
+    "crumbs": [
+      "Home",
+      "ベイズ推論",
+      "ベイズ推定におけるモデル選択"
+    ]
+  },
+  {
+    "objectID": "Published/bayesian_inference/3.html",
+    "href": "Published/bayesian_inference/3.html",
+    "title": "ベイズ推定におけるモデル選択（続き）",
+    "section": "",
+    "text": "前回のラプラス近似の結果を考える\n\n\\log (X; \\beta) \\approx \\log p(X | \\theta_{MAP}) + \\log p(\\theta_{MAP} ; \\beta) + \\frac t 2 \\log(2 \\pi) - \\frac 1 2 \\log |-H|\n ここで，ヘッセ行列の計算量はO(t^3) である．これは重い計算である． なのでもっと軽い近似がほしい．なので，ヘッセ項を更に近似したものがほしい．これがBICとなる．\n\n\n\nまず，対数尤度の式は，i.i.d.からn個の標本を得れるとして(\\theta \\in \\mathbb R^t)\n\n\\log p(X | \\theta) = \\sum_i^n \\log q(x_i | \\theta)\n これの二回微分がヘッセ行列なので，微分の線形性から \n\\nabla ^2 \\log p(X | \\theta) =  \\sum_i^n \\nabla^2\\log q(x_i | \\theta)\n\nここで，\n\nY_H(X) = \\frac 1 n \\sum_i^n \\nabla^2\\log q(x_i | \\theta)\n とY_Hを定義すると，\n\nH = n Y_H(X)\n が成立する． ここで，サンプルサイズを無限に飛ばすと，対数の法則より期待値に確率収束する．(フィッシャー情報量の逆符号)\n\nY_H(X) \\xrightarrow{p} \\bar Y_H\n すなわちサンプル数が十分に大きいとき次の近似が成立する．\n\nH \\approx n \\bar Y_H\n\n行列の多重共線性より\n\n|n (-\\bar Y_H)| = n^t |-\\bar Y_H |\n が成立する．なので\n\n\\log |-H| \\approx t \\log n + \\log |-\\bar Y_H|\n ここで，nが大きいときは定数項を無視できるので\n\n\\log p(X; \\beta) \\approx \\log p(X | \\theta_{MAP}) + \\log p(\\theta_{MAP} ; \\beta) - \\frac 1 2 t\\log n + O(1)\n\nさらに，事前分布の影響もnが大きいと小さくなる また\\theta_{MAP} \\approx \\theta_{ML}に漸近するので\n\n\\log p(X; \\beta) \\approx \\log p(X | \\theta_{ML})  - \\frac 1 2 t\\log n\n ここで，周辺尤度はその\\betaを与えたときにどれだけ妥当かを意味しているので，情報量基準として使える．\n\nBIC = - \\log p(X | \\theta_{ML})  + \\frac 1 2 t\\log n\n\nこれがBICの定義である．",
+    "crumbs": [
+      "Home",
+      "ベイズ推論",
+      "ベイズ推定におけるモデル選択（続き）"
+    ]
+  },
+  {
+    "objectID": "Published/bayesian_inference/3.html#bic",
+    "href": "Published/bayesian_inference/3.html#bic",
+    "title": "ベイズ推定におけるモデル選択（続き）",
+    "section": "",
+    "text": "前回のラプラス近似の結果を考える\n\n\\log (X; \\beta) \\approx \\log p(X | \\theta_{MAP}) + \\log p(\\theta_{MAP} ; \\beta) + \\frac t 2 \\log(2 \\pi) - \\frac 1 2 \\log |-H|\n ここで，ヘッセ行列の計算量はO(t^3) である．これは重い計算である． なのでもっと軽い近似がほしい．なので，ヘッセ項を更に近似したものがほしい．これがBICとなる．\n\n\n\nまず，対数尤度の式は，i.i.d.からn個の標本を得れるとして(\\theta \\in \\mathbb R^t)\n\n\\log p(X | \\theta) = \\sum_i^n \\log q(x_i | \\theta)\n これの二回微分がヘッセ行列なので，微分の線形性から \n\\nabla ^2 \\log p(X | \\theta) =  \\sum_i^n \\nabla^2\\log q(x_i | \\theta)\n\nここで，\n\nY_H(X) = \\frac 1 n \\sum_i^n \\nabla^2\\log q(x_i | \\theta)\n とY_Hを定義すると，\n\nH = n Y_H(X)\n が成立する． ここで，サンプルサイズを無限に飛ばすと，対数の法則より期待値に確率収束する．(フィッシャー情報量の逆符号)\n\nY_H(X) \\xrightarrow{p} \\bar Y_H\n すなわちサンプル数が十分に大きいとき次の近似が成立する．\n\nH \\approx n \\bar Y_H\n\n行列の多重共線性より\n\n|n (-\\bar Y_H)| = n^t |-\\bar Y_H |\n が成立する．なので\n\n\\log |-H| \\approx t \\log n + \\log |-\\bar Y_H|\n ここで，nが大きいときは定数項を無視できるので\n\n\\log p(X; \\beta) \\approx \\log p(X | \\theta_{MAP}) + \\log p(\\theta_{MAP} ; \\beta) - \\frac 1 2 t\\log n + O(1)\n\nさらに，事前分布の影響もnが大きいと小さくなる また\\theta_{MAP} \\approx \\theta_{ML}に漸近するので\n\n\\log p(X; \\beta) \\approx \\log p(X | \\theta_{ML})  - \\frac 1 2 t\\log n\n ここで，周辺尤度はその\\betaを与えたときにどれだけ妥当かを意味しているので，情報量基準として使える．\n\nBIC = - \\log p(X | \\theta_{ML})  + \\frac 1 2 t\\log n\n\nこれがBICの定義である．",
+    "crumbs": [
+      "Home",
+      "ベイズ推論",
+      "ベイズ推定におけるモデル選択（続き）"
+    ]
+  },
+  {
+    "objectID": "Published/bayesian_inference/3.html#変分ベイズ法",
+    "href": "Published/bayesian_inference/3.html#変分ベイズ法",
+    "title": "ベイズ推定におけるモデル選択（続き）",
+    "section": "変分ベイズ法",
+    "text": "変分ベイズ法\nラプラス近似では，事後分布が多峰性，歪んだ分布では不適合となる． もっと柔軟な近似分布を用いてKLダイバージェンスを最小化する．\n\nJensen不等式\n\n\\log E[f] \\ge E[\\log f]\n\nが成立する．重要不等式である． 周辺尤度を，近似分布を用いたパラメータ\\eta, \\theta で分解する．またJensen不等式で下限をとる．\n\n\n平均場近似\nJensen不等式を使いたいが，この式はパラメーターが複雑に絡み合っている．だが近似として\n\nq(\\eta, \\theta) \\approx q(\\eta) q(\\theta)\n をする．これは平均場近似と呼ばれる近似である． これは変数の次元が増加するにつれて，それぞれの変数がもつ個別のノイズは足し合わされることで，大数の法則により打ち消される． なので周囲からの影響はほぼ一定であるとみなせるので，平均場近似は妥当な近似として作用する． \\eta,\\thetaは存在するだろうと，仮定しておいているに過ぎない．\n\n\\begin{align}\n\\log p(X; \\beta) &= \\log \\int \\int p(X,\\eta,\\theta;\\beta) d\\eta d\\theta \\\\\n&= \\log \\int \\int q(\\eta,\\theta; \\beta) \\frac{p(X,\\eta,\\theta;\\beta)}{ q(\\eta,\\theta; \\beta) } d\\eta d\\theta \\\\\n&\\approx\\log \\int \\int  q(\\eta) q(\\theta)\\frac{p(X,\\eta,\\theta;\\beta)}{q(\\eta) q(\\theta)} d\\eta d\\theta \\\\\n& \\ge \\int \\int q(\\eta)q(\\theta) \\log \\frac{p(X,\\eta,\\theta;\\beta)}{q(\\eta) q(\\theta)} d\\eta d\\theta \\\\\n&= F(q(\\eta), q(\\theta))\n\\end{align}\n ここでFをそれぞれの変数で変分して解くと，それぞれの分布が何に比例するのかがわかる． このFは対数周辺尤度の下界，ELBOと呼ばれる量である． このELBOを最大化させることさせることで，対数周辺尤度を最大化させることができる． ELBOは計算可能である．なぜなら積分の中身はすべて計算可能（事前に形を設定している）であるためである． このELBOを最大化させるにはq(\\theta),q(\\eta)を動かす必要がある． これらを動かしてELBOを最大化させる手法をVB-EMアルゴリズムという． 今日は時間が無いので次回VB-EMアルゴリズムを説明する．",
+    "crumbs": [
+      "Home",
+      "ベイズ推論",
+      "ベイズ推定におけるモデル選択（続き）"
+    ]
+  },
+  {
+    "objectID": "Published/bayesian_inference/3.html#まとめ",
+    "href": "Published/bayesian_inference/3.html#まとめ",
+    "title": "ベイズ推定におけるモデル選択（続き）",
+    "section": "まとめ",
+    "text": "まとめ\n\nヘッシアンを求めることは時間がかかるので，さらに近似してBICでモデルパラメータを決定する\nラプラス近似は不適合な場合が多いので，より柔軟な分布を用いてELBOを最大化させる方法を採用する手法をとる．",
+    "crumbs": [
+      "Home",
+      "ベイズ推論",
+      "ベイズ推定におけるモデル選択（続き）"
     ]
   },
   {
@@ -689,246 +929,237 @@
     ]
   },
   {
-    "objectID": "Published/equilibrium_stat_mech/2.html",
-    "href": "Published/equilibrium_stat_mech/2.html",
-    "title": "ボルツマンの原理",
+    "objectID": "Published/PR/1.html",
+    "href": "Published/PR/1.html",
+    "title": "パターン認識とは",
     "section": "",
-    "text": "ここでは，議論を完結にするために単原子分子理想気体で考える． ここで，これまで議論してきた微視的状態の数と，エネルギーの関係について考えてみる．エネルギーが小さいときは原子はあまり動かない，すなわち位相空間を占める割合が低くなる，すなわち等確率の原理から微視的状態の数が少ない． 逆にエネルギーが高いときは，同様に考えて微視的状態の数が多いと考えられる． ここで，あるエネルギーEの場合についての状態数Wを考えたい．ただしこれは計算が難しい，なぜなら，このWを計算することは，すなわち超球の表面を計算することに相当し，数学的に困難だからである， ここで[0,E]までの状態数\\Omega (E)を計算することを考える．これは超球の体積を求めることに相当し，これは積分で求めることが可能である． \n\\frac{d \\Omega}{d E} = W(E)\n としてW(E)を定義する．これは熱力学的重率と呼ばれる．この熱力学的重率を用いると[E, E + \\Delta E]の場合の状態数は \nW = W(E)\\Delta E\n となり，\\Delta E \\rightarrow 0とすればWが求まる．",
+    "text": "これはテスト勉強用に残すやつです．時間があまりないので，細かい式変形などは飛ばします（疑問に思ったところはかきますが ）．教科書は「わかりやすいパターン認識」を使います．（結構古典的名著って感じがする．コードを書いてほしい．） ## パターン認識とはなにか\nパターン認識とは，観測されたパターンを予め定められた複数の概念のうちの一つに対応させる処理のことである． 例をあげるなら，アルファベットの認識であれば，画像データから26個のクラスのいずれかに対応させる処理ということになる．\n機械でパターン認識系を構成するとき\nflowchart LR\n入力パターン --&gt; 前処理部\n前処理部 --&gt; 特徴抽出部\n特徴抽出部 --&gt; 識別演算部\n識別演算部 --&gt; 出力\n\nsubgraph 識別部\n     識別演算部 &lt;--&gt;|照合| 識別辞書\nend\nという流れの形を取ることが多い． 前処理と特徴抽出は理解できるので置いておいて， 識別演算部と識別辞書について考える，識別演算部はどのクラスに一番近いかを計算するところである．それはスコアでもいいし，確率的でも良い． その識別演算部にデータを渡す（相対的な距離を測るためのもの）ものが辞書部である．",
     "crumbs": [
       "Home",
-      "平衡系統計力学",
-      "ボルツマンの原理"
+      "PR",
+      "パターン認識とは"
     ]
   },
   {
-    "objectID": "Published/equilibrium_stat_mech/2.html#単原子分子理想気体の状態と状態数",
-    "href": "Published/equilibrium_stat_mech/2.html#単原子分子理想気体の状態と状態数",
-    "title": "ボルツマンの原理",
+    "objectID": "Published/PR/1.html#はじめに",
+    "href": "Published/PR/1.html#はじめに",
+    "title": "パターン認識とは",
     "section": "",
-    "text": "ここでは，議論を完結にするために単原子分子理想気体で考える． ここで，これまで議論してきた微視的状態の数と，エネルギーの関係について考えてみる．エネルギーが小さいときは原子はあまり動かない，すなわち位相空間を占める割合が低くなる，すなわち等確率の原理から微視的状態の数が少ない． 逆にエネルギーが高いときは，同様に考えて微視的状態の数が多いと考えられる． ここで，あるエネルギーEの場合についての状態数Wを考えたい．ただしこれは計算が難しい，なぜなら，このWを計算することは，すなわち超球の表面を計算することに相当し，数学的に困難だからである， ここで[0,E]までの状態数\\Omega (E)を計算することを考える．これは超球の体積を求めることに相当し，これは積分で求めることが可能である． \n\\frac{d \\Omega}{d E} = W(E)\n としてW(E)を定義する．これは熱力学的重率と呼ばれる．この熱力学的重率を用いると[E, E + \\Delta E]の場合の状態数は \nW = W(E)\\Delta E\n となり，\\Delta E \\rightarrow 0とすればWが求まる．",
+    "text": "これはテスト勉強用に残すやつです．時間があまりないので，細かい式変形などは飛ばします（疑問に思ったところはかきますが ）．教科書は「わかりやすいパターン認識」を使います．（結構古典的名著って感じがする．コードを書いてほしい．） ## パターン認識とはなにか\nパターン認識とは，観測されたパターンを予め定められた複数の概念のうちの一つに対応させる処理のことである． 例をあげるなら，アルファベットの認識であれば，画像データから26個のクラスのいずれかに対応させる処理ということになる．\n機械でパターン認識系を構成するとき\nflowchart LR\n入力パターン --&gt; 前処理部\n前処理部 --&gt; 特徴抽出部\n特徴抽出部 --&gt; 識別演算部\n識別演算部 --&gt; 出力\n\nsubgraph 識別部\n     識別演算部 &lt;--&gt;|照合| 識別辞書\nend\nという流れの形を取ることが多い． 前処理と特徴抽出は理解できるので置いておいて， 識別演算部と識別辞書について考える，識別演算部はどのクラスに一番近いかを計算するところである．それはスコアでもいいし，確率的でも良い． その識別演算部にデータを渡す（相対的な距離を測るためのもの）ものが辞書部である．",
     "crumbs": [
       "Home",
-      "平衡系統計力学",
-      "ボルツマンの原理"
+      "PR",
+      "パターン認識とは"
     ]
   },
   {
-    "objectID": "Published/equilibrium_stat_mech/2.html#wを求める",
-    "href": "Published/equilibrium_stat_mech/2.html#wを求める",
-    "title": "ボルツマンの原理",
-    "section": "Wを求める",
-    "text": "Wを求める\nまず，\\Omega(E)を求める．条件は体積がV，粒子数がN,粒子の質量はmである． ハミルトニアンがE \\ge Hを満たす6N次元位相空間の超体積を求め，h^{3N}で割ることによって求まる． (復習だが，ハミルトニアンが等しいとは，同じエネルギー面にいるということを意味している．その面を重ね合わせて，体積を求めるというイメージ)\n\n\\Omega(E) = \\frac 1 {h^{3N}} \\int\\int ...\\int dq_1dq_2 ...dq_{3N}dp_1 dp_2 ... dp_{3N}\n の積分を求める．変形すると\n\n\\Omega(E) = \\frac 1 {h^{3N}} \\int ... \\int dq_1dq_2 ...dq_{3N} \\int ...\\int dp_1 dp_2 ... dp_{3N}\n\nである．ここでqについての積分は，3次元空間なので， \n\\int \\int \\int dq_1 dq_2 dq_3 = V\n である．同様に考えると\n\n\\Omega(E) = \\frac {V^N} {h^{3N}} \\int ...\\int dp_1 dp_2 ... dp_{3N}\n\nとなることがわかる． ハミルトニアンをmとp_iを用いて表すと，mが十分小さいのでポテンシャルエネルギーを0として \nH = \\frac{1}{2m}\\sum_i^{3N} p^2_i\n\nと表現される． H \\le Eであるので代入すると．\n\n\\frac{1}{2m}\\sum_i^{3N} p^2_i  \\le E\n 式変形すると \n\\sum_i^{3N} p^2_i \\le (\\sqrt{2mE})^2\n すなわち\\int ...\\int dp_1 dp_2 ... dp_{3N}は半径\\sqrt{2mE}のN次元球の体積である． N次元球の体積の公式を用いて\n\n\\int ...\\int dp_1 dp_2 ... dp_{3N} = \\frac{(2 \\pi)^{\\frac {3N}2}}{3N\\Gamma(\\frac {3N}2)} (2mE)^{\\frac{3N}{2}}\n\n式をまとめて，定数項をCと置くと\n\n\\Omega(E) = C E^{\\frac {3N} 2}\n\nである．これを微分して\\Delta E(定数)を掛けてやると，Wが求まる．よって \nW = C E^{\\frac{3N }{2} -1}",
+    "objectID": "Published/PR/1.html#特徴ベクトルと特徴空間",
+    "href": "Published/PR/1.html#特徴ベクトルと特徴空間",
+    "title": "パターン認識とは",
+    "section": "特徴ベクトルと特徴空間",
+    "text": "特徴ベクトルと特徴空間\n識別部にデータを通すためにはまず特徴を数値化しないといけない．例えば文字認識の場合は，文字線の傾き，幅，曲率などが用いられたりする． これらを組にしたベクトルを識別部に入れる．いまd個の特徴を用いることにすると，パターンは次の式のようなd次元ベクトルxとして表される．\n\nx = (x_1, ... x_d)^t\n\n上のベクトルを特徴ベクトル，特徴ベクトルによってはられる空間を特徴空間と呼ぶ． c個のクラスが与えられていて．各クラスを\\omega_1 ,... , \\omega_cで表す． 同じクラスに属していれば，特徴が近いということなので，それは特徴空間において距離の近いところにいると解釈できる．このベクトルで構成される塊をクラスタと呼ぶ．\n例として手書き文字数字認識に適応してみる． 5 \\times 5のメッシュを特徴とする． 特徴ベクトルの要素は黒のとき1,白のとき0とする． パターンの数は合計して2^{25}ある.最も単純な識別系の構成法はすべてのパターンを，クラス名とともに識別辞書として格納することである． このパターンは１，このパターンは７みたいな感じで． ただし，この全パターンのうちには，数字として意味をなさないものも多数含まれている．このようなパターンに対しては11番目のパターンとして，リジェクトを割り当てれば良い．\nしかしこの手法は記憶容量，識別時間の点で非現実的である． 策として，すべての可能性を網羅する代わりに代表的なパターンのみを記憶する方法が考えられる．この代表的なパターンのことをプロトタイプと呼ぶ． 代表的とかいてあるので，あたかもクラスにつき1つだけのように見えるが，プロトタイプはクラスにつき複数定義できるし，それが一般的である． 入力パターンは特徴空間上でこれらのプロトタイプと比較され，最も距離が近いプロトタイプ，すなわち最近傍の属するクラスを識別結果として出力する．この手法のことをNN法(Nearest Neighbor rule)という．\n\nNN法の定式化\n今n個のパターンがその所属するクラスとともに(x_1,\\theta_1), ..., (x_n , \\theta_n)で与えられている．ただし\\{ \\omega_1 ,..., \\omega_c \\}．一般にc \\ll nである．(数字識別ならc=10だが，n = 100000など大量のパターンを用意する．) ここでD(x,x_p)をxとx_pの距離とすると \n\\theta_p = \\arg \\min_{p = 1,2,...n} {D(x,x_p)}\n \\theta_pがxのクラスとなる．\nこれを拡張したもので，距離をすべて測って，上位k個のプロトタイプを取り，多数決した結果を識別結果として出力する方法がある．これをk-NN法と呼ぶ．上のNN法は1-NN法である．",
     "crumbs": [
       "Home",
-      "平衡系統計力学",
-      "ボルツマンの原理"
+      "PR",
+      "パターン認識とは"
     ]
   },
   {
-    "objectID": "Published/equilibrium_stat_mech/2.html#ボルツマンの原理",
-    "href": "Published/equilibrium_stat_mech/2.html#ボルツマンの原理",
-    "title": "ボルツマンの原理",
-    "section": "ボルツマンの原理",
-    "text": "ボルツマンの原理\nまずこれの対数をとると\n\n\\log W = \\log C + (\\frac {3N}{2} -1)\\log E\n となる．これをEで微分し，\\frac {3N}{2} -1 \\approx \\frac {3N}{2}とすると\n\n\\frac{d}{dE} \\log W = \\frac {3N}{2E}\n ここで気体分子運動論の結果から \nE = \\frac 3 2 N k T\n となる，代入すると\n\n\\frac d {dE} \\log W = \\frac 1 {kT}\n\nここで熱力学第一法則より\n\ndE = T dS - pdV\n\ndV = 0なので \n\\frac {dS}{dE} = \\frac 1 T\n である．比較すると \nS = k \\log W\n が導出される．この状態数とエントロピーの関係をボルツマンの原理と言う．",
+    "objectID": "Published/PR/1.html#特徴空間の分割",
+    "href": "Published/PR/1.html#特徴空間の分割",
+    "title": "パターン認識とは",
+    "section": "特徴空間の分割",
+    "text": "特徴空間の分割\nそれでは機械にパターン認識機能を持たせるためにプロトタイプをどのようにして設定すればよいのか．もっとも単純な方法は収集した全パターンをプロトタイプとすることである．これは全数記憶方式と呼ばれる．上で紹介したn = 100000すべてのデータの距離を測るNN法は全数記憶方式である．だがこれは少し効率が悪い．もう少し効率のよい手法として，少数のパターンをプロトタイプとして設定する方法が考えられる． 例えば特徴空間の重心をプロトタイプとして選べば，効率よく分離できるのではないか．クラス間を分断する境界を決定境界と呼ぶ． 決定境界はd次元特徴空間の際はd-1次元部分空間である．この部分空間を超平面とよぶことが多い．",
     "crumbs": [
       "Home",
-      "平衡系統計力学",
-      "ボルツマンの原理"
+      "PR",
+      "パターン認識とは"
     ]
   },
   {
-    "objectID": "Published/equilibrium_stat_mech/2.html#エントロピーの示量性",
-    "href": "Published/equilibrium_stat_mech/2.html#エントロピーの示量性",
-    "title": "ボルツマンの原理",
-    "section": "エントロピーの示量性",
-    "text": "エントロピーの示量性\nエントロピーは示量変数（物質の量に比例する変数）である．これを示したい．熱力学的重率W(E)に粒子の区別はつかないものとしてN!で割る操作をすることでこの性質を示すことができる．\n\nW(E) = \\frac{V^N}{N!} \\bigg(\\frac{2 \\pi}{h^2}\\bigg) ^{\\frac {3N}2} \\frac{1}{\\Gamma(\\frac {3N}2)} (2mE)^{\\frac{3N}{2} -1}\n\nよって \nW = \\frac{V^N}{N!} \\bigg(\\frac{2 \\pi}{h^2}\\bigg) ^{\\frac {3N}2} \\frac{\\Delta E}{\\Gamma(\\frac {3N}2)} (2mE)^{\\frac{3N}{2} -1}\n\nこの式をボルツマンの原理に代入すると\n\nS = k \\log \\left \\{  \\frac{V^N}{N!} \\bigg(\\frac{2 \\pi}{h^2}\\bigg) ^{\\frac {3N}2} \\frac{\\Delta E}{\\Gamma(\\frac {3N}2)} (2mE)^{\\frac{3N}{2} -1} \\right \\}\n\n粗いスターリング公式（\\Gamma関数でも同様に） \nN! \\approx N \\log N - N\n と，N &gt;&gt; 1より\n\n\\begin{align}\nS &= k \\left(   N \\log V - N \\log N + N + \\frac 3 2 N \\log \\frac{2 \\pi m E}{h^2} -\\frac {3N} 2 \\log \\frac{3N}{2} + \\frac {3N}{2}   \\right) \\\\\n&= Nk \\left(\\log \\frac {V}{N} + \\frac 3 2 \\log \\left( \\frac{4 \\pi m}{3h^2} \\frac E N  \\right) + \\frac 5 2  \\right)\n\\end{align}  \n ここで，Vは一定であり，EはNに比例するので\\frac V Nと\\frac E Nは定数となる． よってエントロピーは示量変数である．",
+    "objectID": "Published/PR/1.html#おわりに",
+    "href": "Published/PR/1.html#おわりに",
+    "title": "パターン認識とは",
+    "section": "おわりに",
+    "text": "おわりに\n全数記憶方式ってなんだろうなって初めて勉強したとき考えました．けっこう省略している部分が多いので教科書を読んだほうが良いと思います．",
     "crumbs": [
       "Home",
-      "平衡系統計力学",
-      "ボルツマンの原理"
+      "PR",
+      "パターン認識とは"
     ]
   },
   {
-    "objectID": "Published/equilibrium_stat_mech/2.html#まとめ",
-    "href": "Published/equilibrium_stat_mech/2.html#まとめ",
-    "title": "ボルツマンの原理",
+    "objectID": "Published/information_geometry/3.html",
+    "href": "Published/information_geometry/3.html",
+    "title": "線形汎関数と汎関数について",
+    "section": "",
+    "text": "線形汎関数を汎関数と呼ぶ理由がわからなかったので，Geminiに相談しました．そのときのメモです．",
+    "crumbs": [
+      "Home",
+      "情報幾何学",
+      "線形汎関数と汎関数について"
+    ]
+  },
+  {
+    "objectID": "Published/information_geometry/3.html#はじめに",
+    "href": "Published/information_geometry/3.html#はじめに",
+    "title": "線形汎関数と汎関数について",
+    "section": "",
+    "text": "線形汎関数を汎関数と呼ぶ理由がわからなかったので，Geminiに相談しました．そのときのメモです．",
+    "crumbs": [
+      "Home",
+      "情報幾何学",
+      "線形汎関数と汎関数について"
+    ]
+  },
+  {
+    "objectID": "Published/information_geometry/3.html#汎関数と線形汎関数の定義",
+    "href": "Published/information_geometry/3.html#汎関数と線形汎関数の定義",
+    "title": "線形汎関数と汎関数について",
+    "section": "汎関数と線形汎関数の定義",
+    "text": "汎関数と線形汎関数の定義\n知っているが，一応定義をそれぞれ書いておく 1. 汎関数 関数fを入力とし，実数を出力する写像を汎関数J[f]とする 2. 線形汎関数 有限次元線形空間Vから実数への線形写像をV上の線形汎関数とする．（教科書の定義）",
+    "crumbs": [
+      "Home",
+      "情報幾何学",
+      "線形汎関数と汎関数について"
+    ]
+  },
+  {
+    "objectID": "Published/information_geometry/3.html#定義域について考える",
+    "href": "Published/information_geometry/3.html#定義域について考える",
+    "title": "線形汎関数と汎関数について",
+    "section": "定義域について考える",
+    "text": "定義域について考える\nまず，線形汎関数の方の定義域は，書いてあるように有限次元線形空間である．次に汎関数の定義域は何だろうかと考える．知らないので調べてみたら関数空間と呼ばれる空間らしい．これは無限次元ベクトル空間であると解釈される．べき乗展開を考えるのが一番わかり易いだろうか．確かに任意の連続かつ微分可能な関数は \nf(x) = \\sum_{i = 0}^{\\infty} a_i x^i\n と分解可能であり，確かに\\{1 , x, x^2 ...\\}を基底と考えたら無限次元 ベクトル空間をなしていると解釈できる． なるほど，確かに汎関数も線形汎関数の一種のようなものだと解釈できる．",
+    "crumbs": [
+      "Home",
+      "情報幾何学",
+      "線形汎関数と汎関数について"
+    ]
+  },
+  {
+    "objectID": "Published/information_geometry/3.html#なぜ線形汎関数と呼ぶのか線形関数でよくね",
+    "href": "Published/information_geometry/3.html#なぜ線形汎関数と呼ぶのか線形関数でよくね",
+    "title": "線形汎関数と汎関数について",
+    "section": "なぜ線形汎関数と呼ぶのか？線形関数でよくね？",
+    "text": "なぜ線形汎関数と呼ぶのか？線形関数でよくね？\nと思ったのだが，線形関数(線形写像)の定義はf: V \\rightarrow Wと実数でない線形空間への写像なのでW = \\mathbb Rであると強調したいのだろうと解釈した．",
+    "crumbs": [
+      "Home",
+      "情報幾何学",
+      "線形汎関数と汎関数について"
+    ]
+  },
+  {
+    "objectID": "Published/information_geometry/3.html#まとめ",
+    "href": "Published/information_geometry/3.html#まとめ",
+    "title": "線形汎関数と汎関数について",
     "section": "まとめ",
-    "text": "まとめ\n\n単原子分子理想気体の状態数WはC E ^{\\frac {3N}{2} -1}である\n上の式と熱力学第一法則を使うことで，ボルツマンの原理が導出される\nエントロピーの示量性を示すにはN!で割る必要がある．",
+    "text": "まとめ\n\n汎関数は線形汎関数を無限次元にしたものだと解釈できる\n線形汎関数と呼ばれるのは，関数を入力しているからというよりも，値域が実数であるからである．",
     "crumbs": [
       "Home",
-      "平衡系統計力学",
-      "ボルツマンの原理"
+      "情報幾何学",
+      "線形汎関数と汎関数について"
     ]
   },
   {
-    "objectID": "Published/information_geometry/2.html",
-    "href": "Published/information_geometry/2.html",
-    "title": "多様体と接空間",
+    "objectID": "Published/CalculusOfVariations/2.html",
+    "href": "Published/CalculusOfVariations/2.html",
+    "title": "古典力学における変分",
     "section": "",
-    "text": "さて，多様体の定義を書くが，私は数学科ではないので，この定義をほとんんど理解していない．というか理解する必要あるのだろうか．いちおうイメージでは理解はしているつもりだし，教科書もこれを丸暗記することはないというかそんな感じのことを言っているので，数学的に正しい定義よりも，イメージで覚えて行くほうが私にとっては大事なのかなと認識している． あと接ベクトルの抽象的な定義が出てくるが，これは初めて学ぶ人にとってみれば奇妙な考えだと思うので，疑問に思ったらAIと徹底的に議論したり教科書をじっくり読むなどすれば良いと思う．あとここからアインシュタイン縮約記法を使っていく．",
+    "text": "この問題は古典力学において伝統的な問題である． 任意の二点間を結ぶすべての曲線のうち，曲線上に軌道を束縛された物体に対して重力のみが作用する仮定の元，物体が速度0でポテンシャルが高い方の点を出発してからもう一方の点に達するまでの所要時間が最も短いような曲線を求めよ．\n\n\n\nまずこの所要時間は曲線をqとしたときT[q]と汎関数で表現できる．まずこのT[q]がどのような式なのかを求め，それを変分法によって最小値を求めることが大まかな流れである．\n\n\n\nまずTは微小時間dtの積分だと考えれる． \nT[q] = \\int_0^T dt[q]\n ではこのdt[q]を求める． 座標系は鉛直下向きをx軸，水平方向にq(x)軸をとることを考える． 微小時間移動なので，微小区間を移動していると考えられる．そこで(x,q(x))から(x + dx , q(x + dx))までにかかった時間をdtと考える． これは微小区間なので二点間は直線で結べる．より正確には \nq(x + dx) = q(x) + \\frac{\\partial q}{\\partial x} dx + O((dx)^2)\n と記述できる．（O記法についても書かないと） ここで(dx)^2は無視する. エネルギー保存則より \n\\frac{1}{2} m v^2 = mgx\n が成立するので \nv = \\sqrt{2gx}\n また進む距離は三平方の定理より \nds = dx\\sqrt{1 + \\left(\\frac{\\partial q}{\\partial x}\\right)^2}\n となる．微小区間と微小時間において \ndt = \\frac{ds}{v}\n であるので \ndt = \\sqrt{\\frac{1 + \\left(\\frac{\\partial q}{\\partial x}\\right)^2}{2gx}}dx\n\nである．よって，これをL(x,q')とおくと \nT[q] = \\int_a^b dx L(x,q')\n となることが分かる． これを前回求めた変分の式\n\n\\delta J = \\int_a^b \\frac{\\partial F}{\\partial x} \\delta x -\\frac{d}{dt} \\frac{\\partial F}{\\partial \\dot x} \\delta x dt\n を用いてやると\n\n\\delta T = \\int_a^b -\\frac{d}{dx} \\frac{\\partial L}{\\partial q' } \\delta q dx\n\nである． \\frac{\\partial L}{\\partial q' }  = \\frac{1}{\\sqrt{2g}} \\frac{q'}{\\sqrt{x(1+q'^2)}}\nとなることが計算によって確かめられる．\n\\delta T = 0となるようなqを探しているので \n-\\frac{d}{dx} \\frac{\\partial L }{\\partial q'} = 0\n すなわち， \n\\frac{\\partial L}{\\partial q'} = C\n\nが成立する．\n結局 \nq' = C\\sqrt{x(1 + q'^2)}\n という常微分方程式を満たすようなqが解であることが分かる． ここから先は専門外なので(ここでは微分方程式を導出することが目的である)ので，解析的には解かないが，数値的に解いていこうと思う． 式変形を色々繰り返していくと \n\\frac{dq}{dx} = \\sqrt{\\frac{x}{D -x}}\n を解く必要がある．オイラー法でこの曲線を表示すると\n となる．(一応解析解はサイクロイドなので，それにほぼ一致するような曲線になっていることが分かる．)",
     "crumbs": [
       "Home",
-      "情報幾何学",
-      "多様体と接空間"
+      "CalculusOfVariations",
+      "古典力学における変分"
     ]
   },
   {
-    "objectID": "Published/information_geometry/2.html#はじめに",
-    "href": "Published/information_geometry/2.html#はじめに",
-    "title": "多様体と接空間",
+    "objectID": "Published/CalculusOfVariations/2.html#最速降下問題",
+    "href": "Published/CalculusOfVariations/2.html#最速降下問題",
+    "title": "古典力学における変分",
     "section": "",
-    "text": "さて，多様体の定義を書くが，私は数学科ではないので，この定義をほとんんど理解していない．というか理解する必要あるのだろうか．いちおうイメージでは理解はしているつもりだし，教科書もこれを丸暗記することはないというかそんな感じのことを言っているので，数学的に正しい定義よりも，イメージで覚えて行くほうが私にとっては大事なのかなと認識している． あと接ベクトルの抽象的な定義が出てくるが，これは初めて学ぶ人にとってみれば奇妙な考えだと思うので，疑問に思ったらAIと徹底的に議論したり教科書をじっくり読むなどすれば良いと思う．あとここからアインシュタイン縮約記法を使っていく．",
+    "text": "この問題は古典力学において伝統的な問題である． 任意の二点間を結ぶすべての曲線のうち，曲線上に軌道を束縛された物体に対して重力のみが作用する仮定の元，物体が速度0でポテンシャルが高い方の点を出発してからもう一方の点に達するまでの所要時間が最も短いような曲線を求めよ．\n\n\n\nまずこの所要時間は曲線をqとしたときT[q]と汎関数で表現できる．まずこのT[q]がどのような式なのかを求め，それを変分法によって最小値を求めることが大まかな流れである．\n\n\n\nまずTは微小時間dtの積分だと考えれる． \nT[q] = \\int_0^T dt[q]\n ではこのdt[q]を求める． 座標系は鉛直下向きをx軸，水平方向にq(x)軸をとることを考える． 微小時間移動なので，微小区間を移動していると考えられる．そこで(x,q(x))から(x + dx , q(x + dx))までにかかった時間をdtと考える． これは微小区間なので二点間は直線で結べる．より正確には \nq(x + dx) = q(x) + \\frac{\\partial q}{\\partial x} dx + O((dx)^2)\n と記述できる．（O記法についても書かないと） ここで(dx)^2は無視する. エネルギー保存則より \n\\frac{1}{2} m v^2 = mgx\n が成立するので \nv = \\sqrt{2gx}\n また進む距離は三平方の定理より \nds = dx\\sqrt{1 + \\left(\\frac{\\partial q}{\\partial x}\\right)^2}\n となる．微小区間と微小時間において \ndt = \\frac{ds}{v}\n であるので \ndt = \\sqrt{\\frac{1 + \\left(\\frac{\\partial q}{\\partial x}\\right)^2}{2gx}}dx\n\nである．よって，これをL(x,q')とおくと \nT[q] = \\int_a^b dx L(x,q')\n となることが分かる． これを前回求めた変分の式\n\n\\delta J = \\int_a^b \\frac{\\partial F}{\\partial x} \\delta x -\\frac{d}{dt} \\frac{\\partial F}{\\partial \\dot x} \\delta x dt\n を用いてやると\n\n\\delta T = \\int_a^b -\\frac{d}{dx} \\frac{\\partial L}{\\partial q' } \\delta q dx\n\nである． \\frac{\\partial L}{\\partial q' }  = \\frac{1}{\\sqrt{2g}} \\frac{q'}{\\sqrt{x(1+q'^2)}}\nとなることが計算によって確かめられる．\n\\delta T = 0となるようなqを探しているので \n-\\frac{d}{dx} \\frac{\\partial L }{\\partial q'} = 0\n すなわち， \n\\frac{\\partial L}{\\partial q'} = C\n\nが成立する．\n結局 \nq' = C\\sqrt{x(1 + q'^2)}\n という常微分方程式を満たすようなqが解であることが分かる． ここから先は専門外なので(ここでは微分方程式を導出することが目的である)ので，解析的には解かないが，数値的に解いていこうと思う． 式変形を色々繰り返していくと \n\\frac{dq}{dx} = \\sqrt{\\frac{x}{D -x}}\n を解く必要がある．オイラー法でこの曲線を表示すると\n となる．(一応解析解はサイクロイドなので，それにほぼ一致するような曲線になっていることが分かる．)",
     "crumbs": [
       "Home",
-      "情報幾何学",
-      "多様体と接空間"
+      "CalculusOfVariations",
+      "古典力学における変分"
     ]
   },
   {
-    "objectID": "Published/information_geometry/2.html#多様体の数学的な定義",
-    "href": "Published/information_geometry/2.html#多様体の数学的な定義",
-    "title": "多様体と接空間",
-    "section": "多様体の数学的な定義",
-    "text": "多様体の数学的な定義\n集合Mが以下の条件を満たすとき，Mをn次元C^{r} 級可微分多様体と言う．\n\nMは可算基を持つHausdorff空間\n適当な集合Aを添え字集合とするMの開集合の族\\{ U_{\\alpha} , \\alpha \\in A\\}と写像 \\psi_{\\alpha} : U_{\\alpha} \\rightarrow \\mathbb R^nの族 \\{ \\psi_{\\alpha} \\}があって，以下の三条件を満たす \\begin{align*}\n& 1. M = \\bigcup_{\\alpha \\in A} U_{\\alpha} \\\\\n& 2.\\psi_{\\alpha} : U_{\\alpha} \\rightarrow \\psi_{\\alpha}(U_{\\alpha}) \\text{ は全単射で，} \\psi_{\\alpha} \\text{ も } \\psi_{\\alpha}^{-1} \\text{ も連続写像} \\\\\n&3. U_{\\alpha} \\cap U_{\\beta} \\neq \\emptyset \\text{ ならば写像 } \\psi_{\\beta} \\circ \\psi_{\\alpha}^{-1} : \\psi_{\\alpha}(U_{\\alpha} \\cap U_{\\beta} ) \\rightarrow \\psi_{\\beta}(U_{\\alpha} \\cap U_{\\beta})はC^{r}級\n\\end{align*}\n\n\n図での説明 \n\n1の条件について\nこの定義は，病的な対象を排除するための要請であるので，説明を割愛する．",
+    "objectID": "Published/CalculusOfVariations/2.html#newtonの運動方程式",
+    "href": "Published/CalculusOfVariations/2.html#newtonの運動方程式",
+    "title": "古典力学における変分",
+    "section": "Newtonの運動方程式",
+    "text": "Newtonの運動方程式\nNewtonの運動方程式も作用の変分から導出可能である．（歴史的にはNewtonの方程式に合わせるために作用を次のように定義したが，どちらから出発しても問題はないだろう．） まず力学現象を観察すると次のような普遍的な法則があることが分かるだろう． 1. どの時刻でも同じ原因なら同じ力学現象が起こる 2. どの場所でも同じ原因なら同じ力学現象が起こる 3. どの向きでも同じ原因なら同じ力学現象が起こる 4. ある粒子の状態は位置と速度を与えれば完全に指定される 5. お互いに等速直線運動をしているどの観測者から見ても、同じ原因なら同じ力学現象が起こる(相対性原理)\n（余談だが，量子力学では4が成立せず，相対性理論では5が成立しない）\nさて，物体が運動しているとき物体はある意味の無駄を嫌い，なにか特定の物理量をなるべく少なくしようとするような経路を選択しているように思われる．物体が最小化しようとしているなにかを作用Sと定義する． すなわち物体は\\delta S =0を満たす経路を移動すると考えられる．\nここでSは経路を引数とした汎関数である．このLをラグラジアンと呼ぶ． \nS[q] = \\int_{t_1}^{t_2} dt L\n まずラグラジアンはある時刻において粒子の状態を決定づけるものなので法則4より， \nL = L(q,\\dot q,t)\n の関数であることが分かる． まず，もっと単純な他から一切力を受けない粒子を考える． まず法則１により，環境の直接的な時間変化は存在しない(q,\\dot qが含む) なので \nL = L(q,\\dot q)\n が成立する．\n法則２によりどの場所にいても自由粒子の物理的性質は不変である．なのでLはqを明示的に依存しない．したがって \nL = L(\\dot q)\n となる．\n法則３により，空間のすべての方向は等価であるため，ラグラジアンは回転に対して不変でなければならない．これは単に速度ベクトルではなく，速度ベクトルの大きさ，すなわち速さでラグラジアンが構成されることを意味している． すなわち \nL = L(\\dot q^T \\dot q)\n が成立する．\nさて法則5を使いたいので，お互いに等速直線運動をしている別の観測者からこの粒子を見る．この観測者から見た粒子の速度を\\dot q' = q' + \\epsilonとする（微小な差である） 物体が選択する経路を決定するのは作用の変分であった，したがって２つの観測者における作用S とS'が結果として同じ経路を選択する必要がある．すなわちこれは \n\\delta(S' - S) = 0\n を満たすことである． \nS' - S = \\int_{t_1}^{t_2} L' - L dt\n であるので，もしラグラジアンが \nL' - L = \\frac{d}{dt} f(q,t)\n という形をしていれば 作用の差は定数となる．なのでその変分は0になる．\nさて左辺をテイラー展開し，二次以降を無視すると \nL' - L = \\frac{\\partial L}{\\partial q'^2}(2\\dot q \\epsilon) = \\frac{d}{dt} f(q,t)\n となる． ここで，この等式を満たされるためには速度に寄る偏微分が定数ではないといけない．この定数を\\frac{1}{2} mとする．これは質量と呼ばれるパラメータである． これによって \n\\frac{\\partial L}{\\partial q'^2} = \\frac{1}{2}m\n\nこれを積分することで，自由粒子のラグラジアンが決定される \nL = \\frac{1}{2}m \\dot q^2\n\nこれは物体の持つ運動エネルギーと呼ばれる．\n次に重力から受ける他から力を受ける一般的な粒子について考える． 他から受ける影響が粒子の位置のみに依存し，速度には依存しないと仮定する（保存力）．空間の一様性を保ちつつこの効果をラグラジアンに取り込む最も単純な方法は、自由粒子のラグラジアンから．位置のみに依存する関数である位置エネルギーを差し引くことである.（マイナスになるのは，時間対称性から導出される）\n\nL = \\frac{1}{2} m \\dot q^2 - V(q)\n\nこれをオイラーラグランジュ方程式に代入すると\n\nm \\ddot q = -\\frac{\\partial V}{\\partial q}\n\nとなり力を \nF  := -\\frac{\\partial V}{\\partial q}\n\nと定義するとこれはNewtonの運動方程式ma = Fである． このようにNewtonの運動方程式も作用の変分により導出される．",
     "crumbs": [
       "Home",
-      "情報幾何学",
-      "多様体と接空間"
+      "CalculusOfVariations",
+      "古典力学における変分"
     ]
   },
   {
-    "objectID": "Published/information_geometry/2.html#の条件について-1",
-    "href": "Published/information_geometry/2.html#の条件について-1",
-    "title": "多様体と接空間",
-    "section": "2の条件について",
-    "text": "2の条件について\nまずここに登場するペア(U_{\\alpha} , \\psi_{\\alpha})を座標近傍またはチャート（地図）という．その全体\\{  (U_{\\alpha} , \\psi_{\\alpha}), \\alpha \\in A  \\}のことをアトラス（地図帳）という．また各写像\\psi_{\\alpha}を局所座標系とよび，2-3に登場する写像 \\psi_{\\beta} \\circ \\psi_{\\alpha}^{-1}を座標変換という． 重要な点は，地球儀と，地図帳は一対一対応しているという点である． 地球儀の一部と地図を変換する関数が\\psiである． ここで，チャートの空間は\\mathbb R^nである．\n\n多様体上の微分積分\n多様体M上で定義された関数f : M \\rightarrow \\mathbb R がC^r級とはMの任意の座標近傍(U_{\\alpha},\\psi _{\\alpha})に対し， f \\circ \\psi^{-1}_{\\alpha} : \\psi_{\\alpha} (U_{\\alpha}) \\rightarrow \\mathbb RがC^r級であることとする. n次元多様体Mとk次元多様体Nへの写像f : M \\rightarrow NがC^r級であるとは， M,Nのアトラスをそれぞれ\\{ (U_{\\alpha},\\psi_{\\alpha}) \\},\\{ (W_{\\beta},\\phi_{\\beta}) \\}とするとき， f(U_{\\alpha}) \\cap W_{\\beta} \\neq \\emptysetなる全ての\\alpha,\\betaについて \\phi_{\\beta} \\circ f \\circ \\psi^{-1}_{\\alpha} : \\psi_{\\alpha}(U_{\\alpha}) \\rightarrow \\phi_{\\beta}(W_{\\beta})がC^r級であることと定義する． だが，いちいちこう書くのはめんどくさいので，単にfと書く．",
+    "objectID": "Published/CalculusOfVariations/2.html#懸垂線問題",
+    "href": "Published/CalculusOfVariations/2.html#懸垂線問題",
+    "title": "古典力学における変分",
+    "section": "懸垂線問題",
+    "text": "懸垂線問題\n紐の両端を持ってぶら下げたときにできる曲線を求める．まず紐は持っている位置エネルギーを最小化するような曲線であると考えられるので，紐の長さb,重力加速度g,線密度\\rho ,長さb,線素dsとしたとき，横軸をx, [0,a],縦軸をq(x)としたとき，線素がもつ位置エネルギーは \ndV = \\rho \\times ds \\times g \\times q(x)\n である．これを積分すれば作用は求まる \nV = \\rho g\\int_0^b q(x)ds = \\rho g \\int_0^a q(x) \\sqrt{1 + \\left(\\frac{\\partial q}{\\partial x}\\right )^2} dx\n ただし制約条件として $$\nb = _0^a{ }dx\n$$\nが入る．これはラグランジュ未定乗数法で解く，未定乗数を\\lambdaとすると L(q, q’) = g (q - ’) \n\nとなる．オイラーラグランジュ方程式に代入し整理すると\n\n(q - \\lambda') q'' = 1 + q'^2\n が方程式となる. これの解は次のようになる．",
     "crumbs": [
       "Home",
-      "情報幾何学",
-      "多様体と接空間"
+      "CalculusOfVariations",
+      "古典力学における変分"
     ]
   },
   {
-    "objectID": "Published/information_geometry/2.html#接ベクトル",
-    "href": "Published/information_geometry/2.html#接ベクトル",
-    "title": "多様体と接空間",
-    "section": "接ベクトル",
-    "text": "接ベクトル\n多様体上で接ベクトルを考えることは簡単なことではない．接ベクトルとは，空間のある一点に接しているベクトルの集合だが，これは外側の世界を考えている．これではいけない．多様体の中で閉じた形で記述したい． どうするのが良いのか．いったん幾何学的イメージを捨てて，接ベクトルが満たすべき抽象的な性質を定義として採用する．\n\n接ベクトルの定義(抽象的に)\n多様体M上の点pにおける接ベクトルvとは各f \\in C^{\\infty}(M)に対し，実数v(f) を対応させる写像であって，次の性質を満たす\n\n線型性\nLeibniz則 \nv(fg) = v(f)g(p) + f(p)v(g)\n ではこの定義の背景には，接ベクトルとは，曲線に沿った方向微分のことであるという着想がある．p \\in Mを通るM上のなめらかな曲線C = {p(t) ; p(0) = p}を考える．さらにM上のなめらかな関数fが任意に指定されたとすると，曲線Cと関数fを合成することにより，C上の一変数関数が定まり，したがってこの関数のt = 0での変化率 \n\\left.  v(f) = \\frac{d}{dt} f(p(t)) \\right|_{t=0}\n も定まる．\n\n\n\n上の議論の疑問\nさて，疑問としてなぜ急に曲線を考えるのかという話になってくる．それは多様体の微分を一変数微分に落とし込みたいという動機から生まれる． まず，多様体の微分を素直に書くと（次の式は定義できない） \n\\lim_{h \\rightarrow 0} \\frac{f(p + h) - f(p)}{h}\n となるが，これはp + hが定義できないので，この式は意味をなさない． ここでp(t)という曲線を定義する，まずp(t)は\\mathbb R \\rightarrow Mである．次にfは多様体上の点を実数に写す関数である．すなわちf : M \\rightarrow \\mathbb R．ここで合成関数f  \\circ pの写像を考えると\\mathbb R \\rightarrow \\mathbb Rとなるので，これは一変数関数である なので微分の定義を用いて微分を定義できる. \n\\left. \\frac{d}{dt} f(p(t)) \\right|_{t=0} = \\lim_{h \\to 0} \\frac{f(p(h)) - f(p(0))}{h}\n\npもfもどちらもMの中で定義している．なのでこれはMで完結している接ベクトルの定義となる．",
-    "crumbs": [
-      "Home",
-      "情報幾何学",
-      "多様体と接空間"
-    ]
-  },
-  {
-    "objectID": "Published/information_geometry/2.html#接空間",
-    "href": "Published/information_geometry/2.html#接空間",
-    "title": "多様体と接空間",
-    "section": "接空間",
-    "text": "接空間\n接ベクトルを理解できたら，接空間の定義は理解できるはずである\n\n定義\np \\in Mにおける接ベクトル全体の集合をT_pMと書くことにする．u,v \\in T_pM とa,b \\in \\mathbb Rに対し，au + bvを \n(au + bv)(f) = a u(f) + b v(f)\n と定義すれば，これも p \\in Mにおける接ベクトルである．なのでT_pMは\\mathbb R上の線形空間となる．これをp \\in Mにおける接空間という． 前回の線形汎関数と双対空間の関係を考えると．fは線形汎関数でありT_pMはfがなす空間の双対空間(f \\in T^*_pM)であるとわかる．\n\n\nT_pMの基底\n線形空間を考えたら，基底を考えたくなる．多様体Mはn次元であるとして，pの周りで局所座標系(x^1,x^2 ,...,x^n)を一つ固定すると，写像 \n\\left( \\frac{\\partial } {\\partial x^i} \\right)_p : f \\rightarrow\n\\frac{\\partial f} {\\partial x^i}(p)\n\nが定まる． これはおかしいのでは，なぜならf: M \\rightarrow \\mathbb Rなので，微分が定義できないのでは？先程のtなら理解できるが． この疑問を解決しよう．  ここでは省略されているものがある．それは関数\\psiである．省略せずに書くと， \n\\left( \\frac{\\partial } {\\partial x^i} \\right)_p : f \\rightarrow\n\\frac{\\partial (f \\circ \\psi^{-1})} {\\partial x^i}(\\psi (p))\n これで，次元としては偏微分を定義できるようになったが，具体的にどう定義してあげればよいか，それは先程使ったtを用いることで解決できる．画像にあるようにc(t) = (x^1 + t, x^2)と，局所座標系で定義する．ここで p(t) = \\psi ^{-1}(x^1 + t , x^2)となることがわかる．fを合成すればtでの微分を定義できるので \n\\left. \\frac {d}{dt} f(p(t))\\right |_{t=0} = \\left.\\frac{d } {dt}(f \\circ \\psi^{-1})(c(t)) \\right |_{t=0}  = \\left. \\frac{d } {dt}(f \\circ \\psi^{-1})(x^1 + t, x^2) \\right|_{t=0}\n となる．ここでこの微分はx^1の方向しかしていない．すなわちこの微分はx^1についての偏微分であると定義できる．すなわちここで偏微分を $$ ( {x^i} )p = . {dt}(f {-1})(x1 + t, x^2) |{t=0}\n$$ と定義する．(厳密な定義はn次元でするべきであるが) 教科書は(f \\circ \\psi^{-1})をfと省略していることがわかる． この偏微分の組がT_pMの基底となることを示していく．\n定理 \n\\left \\{  \\left( \\frac{\\partial}{\\partial x^i} \\right)  \\right \\}^n_{i=1} \\text{は} T_pM \\text{の一つの基底である}\n\nこれを確認していく． まずこれが一次独立であることを示す． すなわち \na^i \\left(\\frac{\\partial}{\\partial x^i}\\right)_p = 0\n ですべてのa^iが0になることを示せば良い． \na^i \\frac {\\partial f}{\\partial x^i} (p) = 0\n が任意関数f \\in C^{\\infty}(M)で成立すれば良い． 任意関数でこの式が成立するときに，a^i  =0であることを示せば良いので， ここでfとしてx^jをとれば（x^jは部分空間Uで定義されているが，Uの周りだけ値をとるような関数にすればMでも定義できるのでよい） \n0 = a^i \\frac {\\partial x^j}{\\partial x^i} (p) = a^i \\delta^j_i = a^j\n\nで，jは任意だから一次独立性が示された． 次に，任意の接ベクトルv \\in T_pMが\\left \\{  \\left( \\frac{\\partial}{\\partial x^i} \\right)  \\right \\}^n_{i=1}の一次結合で書けることを示したい．まず多様体上に定義される定数関数c : M \\rightarrow \\mathbb R, c(p) = cについてv(c) = 0であることを示す．トリックとしてc = c \\times 1であることを用いる． v(c) = cv(1)である．ここで1 = 1 \\times 1より Leibniz則を用いて v(1) = 2v(1)となることとがわかる．よってv(1) = 0であり．そこからv(c) = 0であることが分かる．\n(ここまでで分かることだが，教科書はfとf \\circ \\psi^{-1}を同一視している．なのでここでも教科書に習ってこれらを同一視するが，入力がp \\in Mならばfそのままだし，対して入力がx \\in \\psi_{\\alpha}(U_{\\alpha})などであれば，f \\circ \\psi^{-1}_{\\alpha}(x)と考えれば良い)\n関数fを任意に固定して，点pの局所座標をx_0 = (x_0^1 , ..., x_0^n)とすれば，Tayorの定理よりpの近傍で，\n\nf(x) = f(x_0) + \\frac{\\partial f}{\\partial x^i} (x_0)(x^i - x^i_0) + G_{ij}(x)(x^i - x^i_0)(x^j - x^j_0)\n\nが成立する．ここでG_{ij}(x)はpの近傍で定義されたなだらかな関数である．\nここでvを作用させる．\n\nv(f(x)) = v(f(x_0)) + \\frac{\\partial f}{\\partial x^i} (x_0)v(x^i - x^i_0) + v(G_{ij}(x)(x^i - x^i_0)(x^j - x^j_0))\n\n右辺第一項は0となる，第三項について考える， vは点pの接ベクトルなので，全体で作用を行えば，それはpについて考えることとなる．簡単に言い換えるなら \n(fg)'(x_0) = f'(x_0)g(x_0) + f(x_0)g'(x_0)\n と，微分されていない部分もx_0が代入されている．vとはこのpへの代入が隠れている． 第三項を具体的に計算してみると \n\\left[ v(G_{ij})(x^i - x^i_0)(x^j - x^j_0) + G_{ij}v(x^i - x^i_0)(x^j - x^j_0) G_{ij}(x^i - x^i_0)v(x^j - x^j_0)  \\right]_{x = x_0 } = 0\n となるので，線形性とv(x^i_0) = 0を用いれば\n\nv(f) = \\left( v(x^i) \\frac{\\partial}{\\partial x^i} \\right)_p(f)\n\nであることが分かるので定理は示された． なので偏微分がT_pMの基底の一つになることが分かる．",
-    "crumbs": [
-      "Home",
-      "情報幾何学",
-      "多様体と接空間"
-    ]
-  },
-  {
-    "objectID": "Published/information_geometry/2.html#双対空間t_pm",
-    "href": "Published/information_geometry/2.html#双対空間t_pm",
-    "title": "多様体と接空間",
-    "section": "双対空間T^*_pM",
-    "text": "双対空間T^*_pM\nさて，T_pMの双対空間について考える．T^*_pMは余接空間と呼ばれる． 余接空間の基底は何だろうか．次の概念を導入する．\n\n微分\nf \\in C^{\\infty}(M) が任意に与えられたとき\n\n(df)_p (v) = v(f)\n で定まる線形汎関数(df)_p : T_pM \\rightarrow \\mathbb Rをpにおけるfの微分という．\n\nさて，はっきり言って謎である．なぜこれが急に微分としていいのか全くわからない．いったん抽象度を落として考えてみる． 平坦な2次元の座標空間 \\mathbb{R}^2 において，関数 f の変化を考える． 点 p の座標を x^1(p) と x^2(p) とする．ここから位置を少し動かした点 p+h を考え，このときのズレを表すベクトルを h = \\begin{pmatrix} h^1 \\\\ h^2 \\end{pmatrix} とする．\n座標軸に沿ったそれぞれの増分 \\Delta x^1, \\Delta x^2 は，図のように座標関数の差として表される． \n\\Delta x^1 = x^1(p+h) - x^1(p) = h^1\n \n\\Delta x^2 = x^2(p+h) - x^2(p) = h^2\n\nこのとき，関数 f の値の変化量 \\Delta f は次のようになる． \n\\Delta f = f(x^1(p+h), x^2(p+h)) - f(x^1(p), x^2(p))\n\nこれをそれぞれの軸方向への部分的な変化 \\Delta f_1, \\Delta f_2 に分解して1次近似する． \n\\begin{align*}\n\\Delta f &= \\Delta f_1 + \\Delta f_2 \\\\\n&\\approx \\left. \\frac{\\partial f}{\\partial x^1} \\right|_{x=p} \\cdot \\Delta x^1 + \\left. \\frac{\\partial f}{\\partial x^2} \\right|_{x=p} \\cdot \\Delta x^2 \\\\\n&= \\left. \\frac{\\partial f}{\\partial x^1} \\right|_{x=p} \\cdot h^1 + \\left. \\frac{\\partial f}{\\partial x^2} \\right|_{x=p} \\cdot h^2\n\\end{align*}\n これは古典的な方向微分に相当する．\nここで，この式の h^1, h^2 という部分に注目する．入力されたベクトル h から i 番目の成分 h^i を取り出す線形汎関数を dx^i と定義する．すなわち， \ndx^i(h) = h^i\n である．この写像 dx^i を使うと，先ほどの近似式は次のように書き直せる． \n\\Delta f \\approx \\left. \\frac{\\partial f}{\\partial x^1} \\right|_{x=p} dx^1(h) + \\left. \\frac{\\partial f}{\\partial x^2} \\right|_{x=p} dx^2(h)\n\nこの右辺をベクトル h を入力して変化量 \\Delta f を出力する線形汎関数とみなし，これを (df)_p(h) と書く． \n(df)_p(h) = \\left. \\frac{\\partial f}{\\partial x^1} \\right|_{x=p} dx^1(h) + \\left. \\frac{\\partial f}{\\partial x^2} \\right|_{x=p} dx^2(h)\n\nこの議論を多様体 M の上へと拡張する． 多様体の上では，点 p と p+h を直接結ぶ平らなズレを定義することはできない．しかし，点 p における微小なズレは，接空間 T_pM の上の接ベクトル v として厳密に定義できる．\nしたがって，古典的なズレのベクトル h を多様体上の接ベクトル v に置き換える．また，古典的な方向微分の値 \\Delta f を，接ベクトル v が関数 f に作用した結果である v(f) に置き換える．\nすると，古典的な関係式 (df)_p(h) = \\Delta f は，多様体の上で次のように表現される． \n(df)_p(v) = v(f)\n これが，多様体における微分の定義である．全微分にベクトルを代入すると方向微分が得られるという，古典的な微積分の原則を多様体の上で表現したものである．\nこの定義をもとに，余接空間 T^*_pM の基底について考える． 任意の関数 f の微分 (df)_p について，入力するベクトルを v とすれば，次のように書ける． \n(df)_p(v) = \\sum_{i=1}^n \\left. \\frac{\\partial f}{\\partial x^i} \\right|_p dx^i(v)\n\n両辺から入力の v を取り外すと，写像としての等式が得られる． \n(df)_p = \\sum_{i=1}^n \\left. \\frac{\\partial f}{\\partial x^i} \\right|_p (dx^i)_p\n この式は，任意の関数 f の微分 (df)_p が，線形汎関数の組 (dx^1)_p, \\dots, (dx^n)_p の線形結合として表されることを示している．\n接空間 T_pM の標準的な基底に対して (dx^i)_p を作用させると， \n(dx^i)_p \\left( \\left. \\frac{\\partial}{\\partial x^j} \\right|_p \\right) = \\delta^i_j\n となり，(dx^1)_p, \\dots, (dx^n)_p は接空間の基底の双対基底をなしていることがわかる．\nしたがって，余接空間 T^*_pM の基底は， \n(dx^1)_p, (dx^2)_p, \\dots, (dx^n)_p\n となる．",
-    "crumbs": [
-      "Home",
-      "情報幾何学",
-      "多様体と接空間"
-    ]
-  },
-  {
-    "objectID": "Published/information_geometry/2.html#まとめ",
-    "href": "Published/information_geometry/2.html#まとめ",
-    "title": "多様体と接空間",
+    "objectID": "Published/CalculusOfVariations/2.html#まとめ",
+    "href": "Published/CalculusOfVariations/2.html#まとめ",
+    "title": "古典力学における変分",
     "section": "まとめ",
-    "text": "まとめ\n\n多様体は地図と地球儀と地図帳で考えると良い\n接ベクトルを内的に定義できることが重要\n微分は接ベクトルから定義できる",
+    "text": "まとめ\n今回は古典力学における有名な問題で変分法で解けるものを紹介した． 次回は少し発展的な内容をしようと考えている．",
     "crumbs": [
       "Home",
-      "情報幾何学",
-      "多様体と接空間"
+      "CalculusOfVariations",
+      "古典力学における変分"
     ]
   },
   {
-    "objectID": "Published/information_geometry/2.html#お気持ち表明",
-    "href": "Published/information_geometry/2.html#お気持ち表明",
-    "title": "多様体と接空間",
-    "section": "お気持ち表明",
-    "text": "お気持ち表明\nめちゃくちゃ詰まりました．特に接ベクトルと微分の関係をイメージするのに時間がかなりかかってしまって丸１日かかりました．ここでこんなに詰まって大丈夫なのだろうか．．．と思いつつ勉強は続けていこうと思います．がんばります．",
-    "crumbs": [
-      "Home",
-      "情報幾何学",
-      "多様体と接空間"
-    ]
-  },
-  {
-    "objectID": "intro.html",
-    "href": "intro.html",
-    "title": "はじめに",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Zawaの勉強記録",
     "section": "",
-    "text": "はじめまして，Zawaと申します．現在は情報理工学部の3回生で，機械学習をメインに学習しています．それ以外にも物理学，特に統計力学に興味があり，独自に学習を進めています．最近は情報幾何学や量子科学にも関心を持っています．将来は創発現象に関連する分野の研究を行いたいと考えています．"
+    "text": "2026-07-24: パターン認識コンテンツの作成予定\n2026-07-24: 英語カテゴリーの追加"
   },
   {
-    "objectID": "intro.html#自己紹介",
-    "href": "intro.html#自己紹介",
-    "title": "はじめに",
+    "objectID": "index.html#お知らせ",
+    "href": "index.html#お知らせ",
+    "title": "Zawaの勉強記録",
     "section": "",
-    "text": "はじめまして，Zawaと申します．現在は情報理工学部の3回生で，機械学習をメインに学習しています．それ以外にも物理学，特に統計力学に興味があり，独自に学習を進めています．最近は情報幾何学や量子科学にも関心を持っています．将来は創発現象に関連する分野の研究を行いたいと考えています．"
+    "text": "2026-07-24: パターン認識コンテンツの作成予定\n2026-07-24: 英語カテゴリーの追加"
   },
   {
-    "objectID": "intro.html#なぜこのサイトを作ろうと考えたのか",
-    "href": "intro.html#なぜこのサイトを作ろうと考えたのか",
-    "title": "はじめに",
-    "section": "なぜこのサイトを作ろうと考えたのか",
-    "text": "なぜこのサイトを作ろうと考えたのか\n当初はZennでの投稿を検討していましたが，1日の投稿数に制限があり，頻繁に勉強記録を残したい自分のスタイルには合わないと感じました．また，関心分野が多岐にわたるため，特定の専門分野に特化したプラットフォームよりも，自身の裁量で自由にまとめることができる個人サイトの方が適していると考えました．\nさらに，情報理工学部に在籍しコンピュータクラブに所属していることもあり，「自分自身のWebサイトを持っておきたい」と考えたのも理由の一つです．高校時代から『EMANの物理学』(https://eman-physics.net/) で物理学を学んできた背景もあり，「あのような充実したサイトをいつか自分でも作ってみたい」と憧れていたことが，今回のサイト開設の大きなモチベーションになっています．\n現在の環境は，先輩の研究や同期のKaggleへの取り組みなど，機械学習分野を学ぶには非常に恵まれています．一方で，物理学や情報幾何学などの分野に関しては周囲に同じ関心を持つ人が少なく，どうしても独学にならざるを得ません．しかし，高度な物理・数学分野を独学で進めると，どうしても理解が独りよがりになりがちです．そこで，日々の復習や演習，学習中の疑問点をこのサイトで公開し，「ここが間違っている」「その認識は少し違う」「こんなおすすめの書籍がある」といったフィードバックをいただける場を作ることで，より客観的で深い学習へと繋げたいと考えています．"
+    "objectID": "index.html#はじめに",
+    "href": "index.html#はじめに",
+    "title": "Zawaの勉強記録",
+    "section": "はじめに",
+    "text": "はじめに\nはじめに"
   },
   {
-    "objectID": "intro.html#このサイトについて",
-    "href": "intro.html#このサイトについて",
-    "title": "はじめに",
-    "section": "このサイトについて",
-    "text": "このサイトについて\n日々の学習のメモ，まとめ，演習，疑問点などを投稿する場所です．基本的には分野ごとにカテゴリーを分け，理論と演習も分けて整理する予定ですが，詳細はまだ未定です．記事に対するご指摘や疑問点などは，GitHubのIssueにてお気軽にお寄せください．"
+    "objectID": "index.html#githubページ",
+    "href": "index.html#githubページ",
+    "title": "Zawaの勉強記録",
+    "section": "GitHubページ",
+    "text": "GitHubページ\nGitHub Repository：指摘などはここからIssueを立ててください．"
   },
   {
-    "objectID": "intro.html#日々の学習について",
-    "href": "intro.html#日々の学習について",
-    "title": "はじめに",
-    "section": "日々の学習について",
-    "text": "日々の学習について\n「継続は力なり」ということで，毎日最低1記事は投稿することを目標にしています．調子が良い時や休日などで時間がある場合は，1日に複数記事を投稿することもあるかもしれません．当面は理論の学習を十分に進めてから演習に移る形を取るため，現在は演習カテゴリーを追加していません．学習の進捗に合わせて順次追加していく予定です．\n主に機械学習，統計力学，情報幾何学を学んでいきますが，興味のある分野が非常に多く，それぞれが相互に関わり合う分野でもあるため，何を優先して勉強すべきか常に模索しています． 現在の自身の数学レベルと関心の強さから優先順位をつけると，以下のようになります．\n\nとにかく身につけたい分野\n\n機械学習理論，パターン認識 (PRMLなど)\n平衡系統計力学 (マセマ，田崎先生の本，久保統計など)\n情報幾何学 (藤原先生の本)\n最適化数学 (金谷先生の本)\n機械学習実務 (Kaggleなど)\n\nいずれは身につけたいが時間がないので後回しになってしまっている分野\n\n一般相対性理論\n量子力学\n社会物理学\n力学系\n数理モデルの理論\n強化学習の理論\n偏微分方程式理論\n確率過程，確率微分方程式論\nテンソル解析\n深層学習モデル (拡散モデルなど)\n因果推論\n\n数学レベルが高すぎてまだ手を出せないが，いずれはやりたいと考えている分野\n\n渡辺澄夫ベイズ理論\n非平衡系統計力学\nゲージ理論\n\n\n今思いつくだけでもこれだけ多くの分野があります．そのため，しっかりと優先順位をつけて着実にレベルアップしていく必要があると考えています． まずは，上記「1」に挙げた分野をメインに勉強を進めていきます．"
+    "objectID": "index.html#公開済みコンテンツ",
+    "href": "index.html#公開済みコンテンツ",
+    "title": "Zawaの勉強記録",
+    "section": "公開済みコンテンツ",
+    "text": "公開済みコンテンツ\n\n\nCalculusOfVariations\n\n\nEnglishStudy (記事なし)\n\n\nPR\n\n\nベイズ推論\n\n\n平衡系統計力学\n\n\n情報幾何学\n\n\n最適化数学 (記事なし)"
   },
   {
-    "objectID": "InProgress/PR/3.html",
-    "href": "InProgress/PR/3.html",
-    "title": "誤差評価に基づく学習",
-    "section": "",
-    "text": "前回で解説したパーセプトロンの学習規則の欠点は線形分離可能であること，すなわち誤識別を０にする線形識別関数が存在するkとを前提としなければならない点にある．線形分離不可能な学習パターンに対しては誤り訂正の手続きを無限に繰り返し，解に到達できない． そこで線形分離不可能な場合にも適応できる一般的な学習アルゴリズムをこれから学んでいく．この基本的な枠組みは評価関数を定義し，それを最小化するという考えに基づいている．極めて重要な事実として以下で述べる学習アルゴリズムはいずれもベイズ決定則と密接に関係していることを書いておく．\n学習パターンがn個のパターンx_1 ,..., x_nからなるとする．今，p番目のパターンx_pを入力したときのi番目の識別関数の望ましい出力をb_{ip}として定めておく．このb_{ip}を教師信号と呼ぶ．さらにc個の識別関数の出力値をベクトル(g_1(x_p), g_2(x_p) ,..., g_c(x_p))^Tで表すと(b_{1p},b_{2p} ,..., b_{cp})^Tと表される．このベクトルで表された教師信号を教師ベクトルと呼ぶ．\n識別関数の性質から， \nb_{ip} &gt; b_{jp} , (j \\ne i , x_p \\in \\omega_i)\n となるように設定されなければならない．（値が大きいほうが採用されるので．） クラス\\omega_iに属するすべてのパターンに対して同一の教師ベクトルt_i = (b_1 ,..., b_i , ... , b_c)を割り当てることにすれば，教師ベクトルとしては，c個を用意すればよい．このベクトルにはワンホットベクトルなどがあげられる．\n入力パターンx_pに対する実際の出力と教師信号との誤差\\epsilon_{ip}は \n\\epsilon_{ip} = g_i(x_p) - b_{ip}\n であり，この二乗和を評価関数J_pとして定義する． \\sum_{p=1}^n J_{p}を最小化する手法を二乗誤差最小学習という．\nこれの解は，X = (x_1 , x_2 , ... ,x_n)^T , b_i = (b_{i1} , ... , b_{in})^Tを用いると \nw_i = (X^TX)^{-1} X^T b_i\n となる．これは厳密解だが，X^{T}Xが正則でない場合には適応できず，また特徴量数d(xの次元数)が大きい場合には計算量が膨大になるので，実用的ではない． そこで代わりの手法として，逐次近似によって重みを決定する方法について述べる．この種の方法で最もよく用いられるのは最急降下法である．\n\n\n最急降下法とは重みを \nw^{(k+1)} = w^{(k)} - \\eta \\nabla J(w^{(k)}))\n と更新することだが，これがなぜうまくいくのかを説明する． J(w^{(k+1)}) &lt; J(w^{(k)})であることを示せば良い． J(w  + \\Delta w)を一次テイラー近似すると \nJ(w + \\Delta w) \\approx J(w) + \\nabla J(w)^T \\Delta w\n であるが，\\Delta w = - \\eta \\nabla J(w)を代入すると \nJ(w - \\eta \\nabla J(w)) \\approx J(w) - |\\nabla J(w)|^2\n となる．このとき\\eta |\\nabla J(w)|^2は\\eta &gt; 0 のとき必ず正になるので 適切な学習率をやれば必ず損失関数は減ることがわかる．\n\n\n\n\nw_i^{(k+1)} = w_i^{(k)} - \\frac 1 n\\sum_j ^n \\eta \\nabla J_j(w_i^{(k)}))\n と一括で更新する手法がバッチ学習である． これに対して \nw_i^{(k+1)} = w_i^{(k)} - \\eta \\nabla J_p(w_i^{(k)}))\n とパターンが示されるたびに更新することも可能である．この場合オンライン学習と呼ばれる．\n中間的な手法としてミニバッチ学習がある．"
-  },
-  {
-    "objectID": "InProgress/PR/3.html#二乗誤差最小化学習",
-    "href": "InProgress/PR/3.html#二乗誤差最小化学習",
-    "title": "誤差評価に基づく学習",
-    "section": "",
-    "text": "前回で解説したパーセプトロンの学習規則の欠点は線形分離可能であること，すなわち誤識別を０にする線形識別関数が存在するkとを前提としなければならない点にある．線形分離不可能な学習パターンに対しては誤り訂正の手続きを無限に繰り返し，解に到達できない． そこで線形分離不可能な場合にも適応できる一般的な学習アルゴリズムをこれから学んでいく．この基本的な枠組みは評価関数を定義し，それを最小化するという考えに基づいている．極めて重要な事実として以下で述べる学習アルゴリズムはいずれもベイズ決定則と密接に関係していることを書いておく．\n学習パターンがn個のパターンx_1 ,..., x_nからなるとする．今，p番目のパターンx_pを入力したときのi番目の識別関数の望ましい出力をb_{ip}として定めておく．このb_{ip}を教師信号と呼ぶ．さらにc個の識別関数の出力値をベクトル(g_1(x_p), g_2(x_p) ,..., g_c(x_p))^Tで表すと(b_{1p},b_{2p} ,..., b_{cp})^Tと表される．このベクトルで表された教師信号を教師ベクトルと呼ぶ．\n識別関数の性質から， \nb_{ip} &gt; b_{jp} , (j \\ne i , x_p \\in \\omega_i)\n となるように設定されなければならない．（値が大きいほうが採用されるので．） クラス\\omega_iに属するすべてのパターンに対して同一の教師ベクトルt_i = (b_1 ,..., b_i , ... , b_c)を割り当てることにすれば，教師ベクトルとしては，c個を用意すればよい．このベクトルにはワンホットベクトルなどがあげられる．\n入力パターンx_pに対する実際の出力と教師信号との誤差\\epsilon_{ip}は \n\\epsilon_{ip} = g_i(x_p) - b_{ip}\n であり，この二乗和を評価関数J_pとして定義する． \\sum_{p=1}^n J_{p}を最小化する手法を二乗誤差最小学習という．\nこれの解は，X = (x_1 , x_2 , ... ,x_n)^T , b_i = (b_{i1} , ... , b_{in})^Tを用いると \nw_i = (X^TX)^{-1} X^T b_i\n となる．これは厳密解だが，X^{T}Xが正則でない場合には適応できず，また特徴量数d(xの次元数)が大きい場合には計算量が膨大になるので，実用的ではない． そこで代わりの手法として，逐次近似によって重みを決定する方法について述べる．この種の方法で最もよく用いられるのは最急降下法である．\n\n\n最急降下法とは重みを \nw^{(k+1)} = w^{(k)} - \\eta \\nabla J(w^{(k)}))\n と更新することだが，これがなぜうまくいくのかを説明する． J(w^{(k+1)}) &lt; J(w^{(k)})であることを示せば良い． J(w  + \\Delta w)を一次テイラー近似すると \nJ(w + \\Delta w) \\approx J(w) + \\nabla J(w)^T \\Delta w\n であるが，\\Delta w = - \\eta \\nabla J(w)を代入すると \nJ(w - \\eta \\nabla J(w)) \\approx J(w) - |\\nabla J(w)|^2\n となる．このとき\\eta |\\nabla J(w)|^2は\\eta &gt; 0 のとき必ず正になるので 適切な学習率をやれば必ず損失関数は減ることがわかる．\n\n\n\n\nw_i^{(k+1)} = w_i^{(k)} - \\frac 1 n\\sum_j ^n \\eta \\nabla J_j(w_i^{(k)}))\n と一括で更新する手法がバッチ学習である． これに対して \nw_i^{(k+1)} = w_i^{(k)} - \\eta \\nabla J_p(w_i^{(k)}))\n とパターンが示されるたびに更新することも可能である．この場合オンライン学習と呼ばれる．\n中間的な手法としてミニバッチ学習がある．"
-  },
-  {
-    "objectID": "InProgress/PR/3.html#widrow-hoff-の学習規則",
-    "href": "InProgress/PR/3.html#widrow-hoff-の学習規則",
-    "title": "誤差評価に基づく学習",
-    "section": "Widrow-Hoff の学習規則",
-    "text": "Widrow-Hoff の学習規則\nJを具体的な形として示し，それをこの最急降下法に代入したものを Widrow-Hoffの学習規則という．\n具体的には \nw_i \\leftarrow w - \\eta \\frac 1 n \\sum_j^n (w_i^T x_j - b_{ij})x_j\n が更新法則である．"
-  },
-  {
-    "objectID": "InProgress/PR/3.html#誤差評価とパーセプトロン",
-    "href": "InProgress/PR/3.html#誤差評価とパーセプトロン",
-    "title": "誤差評価に基づく学習",
-    "section": "誤差評価とパーセプトロン",
-    "text": "誤差評価とパーセプトロン\nWidrow-Hoffの学習規則とパーセプトロンを比較してみよう． まず，重みの修正は誤差 \\epsilon_{ip} = g_i(x_p) - b_{ip} に比例して行われる（最急降下法に基づく更新式は w_i \\leftarrow w_i - \\eta \\epsilon_{ip} x_p となる）．ここで，しきい値関数 T による処理を g_i(x_p) に施すと，g_i(x_p) の出力は1または0の2値となる．この線形加重和としきい値処理という単位はしきい値論理ユニットと呼ばれ，パーセプトロンを始めとする学習機能を持つ多層ネットワークの基本的構成要素と考えられる．\n\n\\begin{equation}\n  \\left\\{\n  \\begin{alignedat}{2}   \n    w_i^T x &gt; 0  , (x \\in \\omega_i)\\\\\n    w_i^T x &lt; 0 , (x \\notin \\omega_i)\n  \\end{alignedat}\n  \\right.\n\\end{equation}\n\nとなるように重みベクトルを設定すれば，しきい値処理後の出力は\n\n\\begin{equation}\n  \\left\\{\n  \\begin{alignedat}{2}   \n    g_i(x) = 1  , (x \\in \\omega_i)\\\\\n    g_i(x) = 0 , (x \\notin \\omega_i)\n  \\end{alignedat}\n  \\right.\n\\end{equation}\n\nとなる．これは最後に最大値を選択するので（マルチクラス・パーセプトロンの場合），これで判別はできる． このとき教師信号をワンホットベクトルとすると，誤認識した場合（本来クラス \\omega_i に属するパターン x_p を，誤ってクラス \\omega_j と判定した場合）は\n\n\\begin{equation}\n  \\left\\{\n  \\begin{alignedat}{2}   \n    g_i(x_p) = 0 , \\quad b_{ip} = 1 \\quad (\\text{正解クラス } i) \\\\\n    g_j(x_p) = 1 , \\quad b_{jp} = 0 \\quad (\\text{誤って選択されたクラス } j)\n  \\end{alignedat}\n  \\right.\n\\end{equation}\n\nとなる． それぞれの誤差を計算すると， * クラス i においては，\\epsilon_{ip} = g_i(x_p) - b_{ip} = 0 - 1 = -1 * クラス j においては，\\epsilon_{jp} = g_j(x_p) - b_{jp} = 1 - 0 = 1\nとなるので，これを最急降下法に基づく Widrow-Hoff の更新式 w \\leftarrow w - \\eta \\epsilon x_p に当てはめると\n\n\\begin{equation}\n  \\left\\{\n  \\begin{alignedat}{2}   \nw_i \\leftarrow w_i - \\eta (-1) x_p = w_i + \\eta x_p \\\\\nw_j \\leftarrow w_j - \\eta (1) x_p = w_j - \\eta x_p\n  \\end{alignedat}\n  \\right.\n\\end{equation}\n\nが得られる．これは誤り訂正学習に基づくパーセプトロンの学習規則そのものである． したがって，しきい値処理を導入したWidrow-Hoffの学習規則は，パーセプトロンの学習規則を内包している（その一種である）と考えられる．\n（逆にパーセプトロンの学習規則も評価関数最小化のアルゴリズムとして導けるが，省略する．）\n\nおわりに\n教科書ではニューラルネットワークについて述べられているが，ここでは説明しない．知っているのとMLPの方で紹介したほうが良いと判断したためである．まあこの次の章のベイズ決定則を早くやりたいからというのが主な理由だが．"
+    "objectID": "index.html#執筆中コンテンツ",
+    "href": "index.html#執筆中コンテンツ",
+    "title": "Zawaの勉強記録",
+    "section": "執筆中コンテンツ",
+    "text": "執筆中コンテンツ\n\n【CalculusOfVariations】 変分法の基本\n【CalculusOfVariations】 古典力学における変分\n【CalculusOfVariations】 静物についての変分法\n【CalculusOfVariations】 流体の作用\n【CalculusOfVariations】 機械学習における変分法\n【PR】 誤差評価に基づく学習\n【PR】 識別部の設計\n【PR】 特徴の評価とベイズ誤り確率\n【平衡系統計力学】 (3.md タイトル未設定)\n【情報幾何学】 ベクトル場，テンソル場\n【最適化数学】 最適化の基礎"
   }
 ]

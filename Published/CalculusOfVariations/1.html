@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>ベイズ推定におけるモデル選択（続き） – Zawaの勉強記録</title>
+<title>変分法の基本 – Zawaの勉強記録</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -33,8 +33,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../Published/bayesian_inference/4.html" rel="next">
-<link href="../../Published/bayesian_inference/2.html" rel="prev">
+<link href="../../Published/CalculusOfVariations/2.html" rel="next">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -163,7 +162,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/bayesian_inference/1.html">ベイズ推論</a></li><li class="breadcrumb-item"><a href="../../Published/bayesian_inference/3.html">ベイズ推定におけるモデル選択（続き）</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/CalculusOfVariations/1.html">CalculusOfVariations</a></li><li class="breadcrumb-item"><a href="../../Published/CalculusOfVariations/1.html">変分法の基本</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -186,7 +185,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Published/CalculusOfVariations/1.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/CalculusOfVariations/1.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">変分法の基本</span></a>
   </div>
 </li>
@@ -254,7 +253,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Published/bayesian_inference/3.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../Published/bayesian_inference/3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ベイズ推定におけるモデル選択（続き）</span></a>
   </div>
 </li>
@@ -332,26 +331,22 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#bic" id="toc-bic" class="nav-link active" data-scroll-target="#bic">BIC</a>
+  <li><a href="#はじめに" id="toc-はじめに" class="nav-link active" data-scroll-target="#はじめに">はじめに</a></li>
+  <li><a href="#変分法の原理" id="toc-変分法の原理" class="nav-link" data-scroll-target="#変分法の原理">変分法の原理</a>
   <ul class="collapse">
-  <li><a href="#なぜbicを使うのか" id="toc-なぜbicを使うのか" class="nav-link" data-scroll-target="#なぜbicを使うのか">なぜBICを使うのか</a></li>
-  <li><a href="#bicの導出" id="toc-bicの導出" class="nav-link" data-scroll-target="#bicの導出">BICの導出</a></li>
+  <li><a href="#変分" id="toc-変分" class="nav-link" data-scroll-target="#変分">変分</a></li>
+  <li><a href="#定義汎関数変分" id="toc-定義汎関数変分" class="nav-link" data-scroll-target="#定義汎関数変分">定義(汎関数変分)</a></li>
+  <li><a href="#変分の公式" id="toc-変分の公式" class="nav-link" data-scroll-target="#変分の公式">変分の公式</a></li>
   </ul></li>
-  <li><a href="#変分ベイズ法" id="toc-変分ベイズ法" class="nav-link" data-scroll-target="#変分ベイズ法">変分ベイズ法</a>
-  <ul class="collapse">
-  <li><a href="#jensen不等式" id="toc-jensen不等式" class="nav-link" data-scroll-target="#jensen不等式">Jensen不等式</a></li>
-  <li><a href="#平均場近似" id="toc-平均場近似" class="nav-link" data-scroll-target="#平均場近似">平均場近似</a></li>
-  </ul></li>
-  <li><a href="#まとめ" id="toc-まとめ" class="nav-link" data-scroll-target="#まとめ">まとめ</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/bayesian_inference/1.html">ベイズ推論</a></li><li class="breadcrumb-item"><a href="../../Published/bayesian_inference/3.html">ベイズ推定におけるモデル選択（続き）</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/CalculusOfVariations/1.html">CalculusOfVariations</a></li><li class="breadcrumb-item"><a href="../../Published/CalculusOfVariations/1.html">変分法の基本</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">ベイズ推定におけるモデル選択（続き）</h1>
+<h1 class="title">変分法の基本</h1>
 </div>
 
 
@@ -368,91 +363,90 @@ window.Quarto = {
 </header>
 
 
-<section id="bic" class="level2">
-<h2 class="anchored" data-anchor-id="bic">BIC</h2>
-<section id="なぜbicを使うのか" class="level3">
-<h3 class="anchored" data-anchor-id="なぜbicを使うのか">なぜBICを使うのか</h3>
-<p>前回のラプラス近似の結果を考える</p>
-<p><span class="math display">
-\log (X; \beta) \approx \log p(X | \theta_{MAP}) + \log p(\theta_{MAP} ; \beta) + \frac t 2 \log(2 \pi) - \frac 1 2 \log |-H|
-</span> ここで，ヘッセ行列の計算量は<span class="math inline">O(t^3)</span> である．これは重い計算である． なのでもっと軽い近似がほしい．なので，ヘッセ項を更に近似したものがほしい．これがBICとなる．</p>
+<section id="はじめに" class="level2">
+<h2 class="anchored" data-anchor-id="はじめに">はじめに</h2>
+<p>様々な分野の勉強をしていて気づいたことがあるが私の興味ある分野は 1. 最小化したいものを導出する（定性的理由によることが多い） 2. 最適化問題として解く（値による最小化なら通常の最適化問題，関数による最小化なら変分法を用いる） 1. 方程式として書けるならその方程式を用いて解析する 2. 書けないなら学習を通じて解析する が主なルートである．ここで直接的に解けないから機械学習が発展したのだろうと考察している．いずれにせよ一旦最適化問題を解くことから始まるわけだが，値による最小化は極論高校数学のレベルでもほぼ解けるので良い．だが関数による最小化はまだ慣れていないせいか，毎回公式を忘れてしまってAIに答えを聞いてしまうことが多いので自分で１から導出できない．これではこの先のレベルに到達できないだろうと考えたので．ここで変分法による最適化を一旦道具として十分使える程度にはしようという発想に至った．</p>
+<p>構成としては，まず基本的な変分法の原理，基本公式，例題を第一回（この記事）に書いて，第二回以降は機械学習，物理学で重要な式を変分法で導出していこうと計画している．登場が確定しているのは変分ベイズとハミルトンの原理の２つであるが，それ以外にも（今知らないもの）を導出していこうと考えている．</p>
 </section>
-<section id="bicの導出" class="level3">
-<h3 class="anchored" data-anchor-id="bicの導出">BICの導出</h3>
-<p>まず，対数尤度の式は，i.i.d.からn個の標本を得れるとして(<span class="math inline">\theta \in \mathbb R^t</span>)</p>
+<section id="変分法の原理" class="level2">
+<h2 class="anchored" data-anchor-id="変分法の原理">変分法の原理</h2>
+<p>知ってはいるが，一応書いておく ### 汎関数 #### 定義</p>
+<p>ある関数空間を<span class="math inline">V</span>，実数の集合を<span class="math inline">\mathbb R</span> とするとき，汎関数<span class="math inline">J</span>は次のような写像として定義される． <span class="math display">
+J : V \rightarrow \mathbb R
+</span> 通常の関数と区別するために，汎関数の引数は<span class="math inline">J[f]</span>のように角括弧を用いる．</p>
+<section id="具体例" class="level4">
+<h4 class="anchored" data-anchor-id="具体例">具体例</h4>
+<ol type="1">
+<li>定積分 区間<span class="math inline">[a,b]</span>における関数<span class="math inline">y(x)</span>の定積分は，関数を入力として一つの実数を出力するため，汎関数である． <span class="math display">
+I[y] = \int_a^b y(x)dx
+</span></li>
+<li>曲線の長さ 定積分には含まれるが，座標平面上で2点<span class="math inline">(a,y(a)),(b,y(b))</span>を結ぶ曲線<span class="math inline">y(x)</span>の長さ<span class="math inline">L</span>は，関数に依存して決まる数値である．</li>
+</ol>
+</section>
+<section id="変分" class="level3">
+<h3 class="anchored" data-anchor-id="変分">変分</h3>
+<section id="定義関数変分" class="level4">
+<h4 class="anchored" data-anchor-id="定義関数変分">定義（関数変分）</h4>
+<p>ある関数<span class="math inline">y(x)</span>に対し，その定義域を<span class="math inline">[a,b]</span>とする． ここで十分小さな実数のパラメータ<span class="math inline">\epsilon</span>と，境界条件を満たす任意の微分可能な関数<span class="math inline">\eta(x)</span>を導入し，次のような関数の族を考える． <span class="math display">
+\bar y = y(x) + \epsilon \eta(x)
+</span> このとき，関数の変分<span class="math inline">\delta y</span>は，パラメータ<span class="math inline">\epsilon</span>に関する１次の無限小変化として次のように定義される．</p>
 <p><span class="math display">
-\log p(X | \theta) = \sum_i^n \log q(x_i | \theta)
-</span> これの二回微分がヘッセ行列なので，微分の線形性から <span class="math display">
-\nabla ^2 \log p(X | \theta) =  \sum_i^n \nabla^2\log q(x_i | \theta)
+\delta y :=\left. \frac{\partial \bar y}{\partial \epsilon} \right|_{\epsilon =0} d\epsilon = \eta(x) d\epsilon
+</span> #### 具体例 イメージ優先で考えてみる． - 区間 : <span class="math inline">[0,\pi]</span> - 基準となる元の関数 : <span class="math inline">y = x</span> - 変化させる関数: <span class="math inline">\eta = \sin(x)</span>, この関数は境界条件を満たす（ここにおいて境界条件とは，端点で0になることである．） - 微小パラメータ : <span class="math inline">\epsilon = 0.01</span>とする 変分を加える前と後は次のようになる． <img src="Zawa25721_documents/Published/CalculusOfVariations/sin.png" class="img-fluid"></p>
+</section>
+</section>
+<section id="定義汎関数変分" class="level3">
+<h3 class="anchored" data-anchor-id="定義汎関数変分">定義(汎関数変分)</h3>
+<p>汎関数<span class="math inline">J[y]</span>に対し，関数<span class="math inline">y(x)</span>を<span class="math inline">y(x) + \epsilon \eta(x)</span>へ変化させたときの汎関数の変化量を<span class="math inline">\Delta J</span>とする．この<span class="math inline">\Delta J</span>を<span class="math inline">\epsilon</span>でマクローリン展開を行う． マクローリン展開は<span class="math inline">J[y + \epsilon \eta]</span>について次のように定義される．</p>
+<p><span class="math display">
+J[y + \epsilon \eta] = J[y] + \sum_{n = 1}^\infty  \left. \frac{\epsilon^n}{n!} J[y + \epsilon \eta]\right|_{\epsilon  = 0}
+</span> 具体的に考えてみないと理解が難しいので簡単な例で考える． ##### マクローリン展開の例 <span class="math inline">J[y] = \int_a^b y^2 dx</span>で，マクローリン展開をしてみる． まず <span class="math display">
+J[y + \epsilon \eta] = \int_a^b y^2 + 2y \epsilon \eta + \epsilon^2 \eta^2 dx
+</span> 次に，こいつを<span class="math inline">\epsilon</span> で1階微分と2階微分を行う．(3階以上は0になるので省略) <span class="math display">
+\frac {d}{d\epsilon}J = \int_a^b  2y \eta + 2 \epsilon \eta^2 dx
+</span> <span class="math display">
+\frac {d^2}{d\epsilon^2}J = \int_a^b  2  \eta^2 dx
 </span></p>
-<p>ここで，</p>
-<p><span class="math display">
-Y_H(X) = \frac 1 n \sum_i^n \nabla^2\log q(x_i | \theta)
-</span> と<span class="math inline">Y_H</span>を定義すると，</p>
-<p><span class="math display">
-H = n Y_H(X)
-</span> が成立する． ここで，サンプルサイズを無限に飛ばすと，対数の法則より期待値に確率収束する．(フィッシャー情報量の逆符号)</p>
-<p><span class="math display">
-Y_H(X) \xrightarrow{p} \bar Y_H
-</span> すなわちサンプル数が十分に大きいとき次の近似が成立する．</p>
-<p><span class="math display">
-H \approx n \bar Y_H
+<p>そしてこいつらに<span class="math inline">\epsilon = 0</span>を代入する． <span class="math display">
+\left. \frac {d}{d\epsilon}J \right |_{\epsilon = 0}= \int_a^b  2y \eta  dx
 </span></p>
-<p>行列の多重共線性より</p>
 <p><span class="math display">
-|n (-\bar Y_H)| = n^t |-\bar Y_H |
-</span> が成立する．なので</p>
-<p><span class="math display">
-\log |-H| \approx t \log n + \log |-\bar Y_H|
-</span> ここで，nが大きいときは定数項を無視できるので</p>
-<p><span class="math display">
-\log p(X; \beta) \approx \log p(X | \theta_{MAP}) + \log p(\theta_{MAP} ; \beta) - \frac 1 2 t\log n + O(1)
+\left. \frac {d^2}{d\epsilon^2}J \right|_{\epsilon = 0} = \int_a^b  2  \eta^2 dx
 </span></p>
-<p>さらに，事前分布の影響も<span class="math inline">n</span>が大きいと小さくなる また<span class="math inline">\theta_{MAP} \approx \theta_{ML}</span>に漸近するので</p>
-<p><span class="math display">
-\log p(X; \beta) \approx \log p(X | \theta_{ML})  - \frac 1 2 t\log n
-</span> ここで，周辺尤度はその<span class="math inline">\beta</span>を与えたときにどれだけ妥当かを意味しているので，情報量基準として使える．</p>
-<p><span class="math display">
-BIC = - \log p(X | \theta_{ML})  + \frac 1 2 t\log n
+<p>これで係数（数と言っていいのか？）が求まったので，代入すると <span class="math display">
+J[y + \epsilon \eta] = J[y] + \epsilon\int_a^b 2y\eta dx + \frac{\epsilon^2}{2} \int_a^b 2 \eta^2 dx
+</span> となってテイラー展開が求まる．</p>
+<p>戻ってこのマクローリン展開の<span class="math inline">\epsilon</span>の<span class="math inline">n</span>次の項を<span class="math inline">n</span>次変分と定義し<span class="math inline">\delta^n J</span>とする． 特に1次変分<span class="math inline">\delta J</span>が重要である．</p>
+</section>
+<section id="変分の公式" class="level3">
+<h3 class="anchored" data-anchor-id="変分の公式">変分の公式</h3>
+<p>まず，だいたい普通の微分公式と同じである． <span class="math inline">t</span>は変数であるとして <span class="math display">
+\delta t = 0
+</span> <span class="math display">
+\delta f(u,v) = \frac{\partial f}{\partial u} \delta u+ \frac{\partial f}{\partial  v} \delta v
+</span> 重要なのは，変分記号<span class="math inline">\delta</span>は微分と積分の順序と交換できるということである． <span class="math display">
+\delta \left( \frac{du}{dx} \right) = \frac{d}{dx} (\delta u)
+</span> <span class="math display">
+\delta \int_a^b u(x) dx = \int_a^b \delta u(x) dx
+</span> そして，この関数の変分公式を用いて，汎関数の変分を求めていく． ### 変分の具体例 物理的な意味は次回やるとして今はただの計算問題として <span class="math display">
+J[x] = \int_a^b F(x , \dot x , t)dt
+</span> の変分を求めることを考える． まず，交換できるので <span class="math display">
+\delta J = \int_a^b \delta F dt
 </span></p>
-<p>これがBICの定義である．</p>
-</section>
-</section>
-<section id="変分ベイズ法" class="level2">
-<h2 class="anchored" data-anchor-id="変分ベイズ法">変分ベイズ法</h2>
-<p>ラプラス近似では，事後分布が多峰性，歪んだ分布では不適合となる． もっと柔軟な近似分布を用いてKLダイバージェンスを最小化する．</p>
-<section id="jensen不等式" class="level3">
-<h3 class="anchored" data-anchor-id="jensen不等式">Jensen不等式</h3>
-<p><span class="math display">
-\log E[f] \ge E[\log f]
+<p>チェーンルールにより <span class="math display">
+\delta J = \int_a^b \frac{\partial F}{\partial x} \delta x +\frac{\partial F}{\partial \dot x} \delta \dot x + \frac{\partial F}{\partial t} \delta t dt
+</span> が成立する．ここで第三項については<span class="math inline">\delta t = 0</span>であることと，第二項については微分と変分を交換することで <span class="math display">
+\delta J = \int_a^b \frac{\partial F}{\partial x} \delta x +\frac{\partial F}{\partial \dot x} \frac{d}{d t}\delta x dt
+</span> となる．ここで第二項について，部分積分を行うと <span class="math display">
+\int_a^b \frac{\partial F}{\partial \dot x} \frac{d}{d t}\delta x dt = \left. \frac{\partial F}{\partial x} \right|^a_b - \int_a^b \frac{d}{dt} \frac{\partial F}{\partial \dot x} \delta x dt
 </span></p>
-<p>が成立する．重要不等式である． 周辺尤度を，近似分布を用いたパラメータ<span class="math inline">\eta, \theta</span> で分解する．またJensen不等式で下限をとる．</p>
-</section>
-<section id="平均場近似" class="level3">
-<h3 class="anchored" data-anchor-id="平均場近似">平均場近似</h3>
-<p>Jensen不等式を使いたいが，この式はパラメーターが複雑に絡み合っている．だが近似として</p>
-<p><span class="math display">
-q(\eta, \theta) \approx q(\eta) q(\theta)
-</span> をする．これは平均場近似と呼ばれる近似である． これは変数の次元が増加するにつれて，それぞれの変数がもつ個別のノイズは足し合わされることで，大数の法則により打ち消される． なので周囲からの影響はほぼ一定であるとみなせるので，平均場近似は妥当な近似として作用する． <span class="math inline">\eta,\theta</span>は存在するだろうと，仮定しておいているに過ぎない．</p>
-<p><span class="math display">
-\begin{align}
-\log p(X; \beta) &amp;= \log \int \int p(X,\eta,\theta;\beta) d\eta d\theta \\
-&amp;= \log \int \int q(\eta,\theta; \beta) \frac{p(X,\eta,\theta;\beta)}{ q(\eta,\theta; \beta) } d\eta d\theta \\
-&amp;\approx\log \int \int  q(\eta) q(\theta)\frac{p(X,\eta,\theta;\beta)}{q(\eta) q(\theta)} d\eta d\theta \\
-&amp; \ge \int \int q(\eta)q(\theta) \log \frac{p(X,\eta,\theta;\beta)}{q(\eta) q(\theta)} d\eta d\theta \\
-&amp;= F(q(\eta), q(\theta))
-\end{align}
-</span> ここで<span class="math inline">F</span>をそれぞれの変数で変分して解くと，それぞれの分布が何に比例するのかがわかる． この<span class="math inline">F</span>は対数周辺尤度の下界，ELBOと呼ばれる量である． このELBOを最大化させることさせることで，対数周辺尤度を最大化させることができる． ELBOは計算可能である．なぜなら積分の中身はすべて計算可能（事前に形を設定している）であるためである． このELBOを最大化させるには<span class="math inline">q(\theta),q(\eta)</span>を動かす必要がある． これらを動かしてELBOを最大化させる手法をVB-EMアルゴリズムという． 今日は時間が無いので次回VB-EMアルゴリズムを説明する．</p>
-</section>
-</section>
-<section id="まとめ" class="level2">
-<h2 class="anchored" data-anchor-id="まとめ">まとめ</h2>
-<ul>
-<li>ヘッシアンを求めることは時間がかかるので，さらに近似してBICでモデルパラメータを決定する</li>
-<li>ラプラス近似は不適合な場合が多いので，より柔軟な分布を用いてELBOを最大化させる方法を採用する手法をとる．</li>
-</ul>
+<p>ここにおける第一項は，端点の境界条件を考えると0になる． この結果を元の式に代入すると <span class="math display">
+\delta J = \int_a^b \frac{\partial F}{\partial x} \delta x -\frac{d}{dt} \frac{\partial F}{\partial \dot x} \delta x dt
+</span></p>
+<p>である．これで汎関数の変分を求めることができた． 冒頭でも述べた通り，次回からはこの公式たちを使って有名な結果を導出していく．</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -858,13 +852,10 @@ q(\eta, \theta) \approx q(\eta) q(\theta)
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../Published/bayesian_inference/2.html" class="pagination-link" aria-label="ベイズ推定におけるモデル選択">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">ベイズ推定におけるモデル選択</span>
-      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../Published/bayesian_inference/4.html" class="pagination-link" aria-label="VB-EMアルゴリズム">
-        <span class="nav-page-text">VB-EMアルゴリズム</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../Published/CalculusOfVariations/2.html" class="pagination-link" aria-label="古典力学における変分">
+        <span class="nav-page-text">古典力学における変分</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

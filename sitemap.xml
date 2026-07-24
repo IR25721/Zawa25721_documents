@@ -1,79 +1,119 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://IR25721.github.io/Zawa25721_documents/InProgress/equilibrium_stat_mech/3.html</loc>
-    <lastmod>2026-06-27T08:15:57.538Z</lastmod>
+    <loc>https://IR25721.github.io/Zawa25721_documents/intro.html</loc>
+    <lastmod>2026-07-24T02:46:17.942Z</lastmod>
   </url>
   <url>
-    <loc>https://IR25721.github.io/Zawa25721_documents/InProgress/PR/4.html</loc>
-    <lastmod>2026-06-27T08:16:10.544Z</lastmod>
-  </url>
-  <url>
-    <loc>https://IR25721.github.io/Zawa25721_documents/index.html</loc>
-    <lastmod>2026-06-27T08:15:57.574Z</lastmod>
+    <loc>https://IR25721.github.io/Zawa25721_documents/Published/CalculusOfVariations/1.html</loc>
+    <lastmod>2026-07-24T02:46:32.170Z</lastmod>
   </url>
   <url>
     <loc>https://IR25721.github.io/Zawa25721_documents/Published/information_geometry/1.html</loc>
-    <lastmod>2026-06-27T08:15:57.566Z</lastmod>
-  </url>
-  <url>
-    <loc>https://IR25721.github.io/Zawa25721_documents/Published/equilibrium_stat_mech/1.html</loc>
-    <lastmod>2026-06-27T08:15:57.565Z</lastmod>
-  </url>
-  <url>
-    <loc>https://IR25721.github.io/Zawa25721_documents/Published/PR/1.html</loc>
-    <lastmod>2026-06-27T08:15:57.541Z</lastmod>
-  </url>
-  <url>
-    <loc>https://IR25721.github.io/Zawa25721_documents/Published/PR/3.html</loc>
-    <lastmod>2026-06-27T08:15:57.541Z</lastmod>
-  </url>
-  <url>
-    <loc>https://IR25721.github.io/Zawa25721_documents/Published/bayesian_inference/1.html</loc>
-    <lastmod>2026-06-27T08:15:57.564Z</lastmod>
-  </url>
-  <url>
-    <loc>https://IR25721.github.io/Zawa25721_documents/Published/bayesian_inference/3.html</loc>
-    <lastmod>2026-06-27T08:15:57.564Z</lastmod>
-  </url>
-  <url>
-    <loc>https://IR25721.github.io/Zawa25721_documents/News/English.html</loc>
-    <lastmod>2026-06-27T08:15:57.540Z</lastmod>
-  </url>
-  <url>
-    <loc>https://IR25721.github.io/Zawa25721_documents/News/pr.html</loc>
-    <lastmod>2026-06-27T08:15:57.541Z</lastmod>
-  </url>
-  <url>
-    <loc>https://IR25721.github.io/Zawa25721_documents/Published/bayesian_inference/2.html</loc>
-    <lastmod>2026-06-27T08:15:57.564Z</lastmod>
-  </url>
-  <url>
-    <loc>https://IR25721.github.io/Zawa25721_documents/Published/bayesian_inference/4.html</loc>
-    <lastmod>2026-06-27T08:15:57.564Z</lastmod>
-  </url>
-  <url>
-    <loc>https://IR25721.github.io/Zawa25721_documents/Published/PR/2.html</loc>
-    <lastmod>2026-06-27T08:16:10.542Z</lastmod>
-  </url>
-  <url>
-    <loc>https://IR25721.github.io/Zawa25721_documents/Published/equilibrium_stat_mech/2.html</loc>
-    <lastmod>2026-06-27T08:15:57.566Z</lastmod>
+    <lastmod>2026-07-24T02:46:17.934Z</lastmod>
   </url>
   <url>
     <loc>https://IR25721.github.io/Zawa25721_documents/Published/information_geometry/2.html</loc>
-    <lastmod>2026-06-27T08:15:57.567Z</lastmod>
+    <lastmod>2026-07-24T02:46:17.935Z</lastmod>
   </url>
   <url>
-    <loc>https://IR25721.github.io/Zawa25721_documents/intro.html</loc>
-    <lastmod>2026-06-27T08:15:57.574Z</lastmod>
+    <loc>https://IR25721.github.io/Zawa25721_documents/Published/PR/3.html</loc>
+    <lastmod>2026-07-24T02:46:17.909Z</lastmod>
   </url>
   <url>
-    <loc>https://IR25721.github.io/Zawa25721_documents/InProgress/PR/3.html</loc>
-    <lastmod>2026-06-27T08:15:57.538Z</lastmod>
+    <loc>https://IR25721.github.io/Zawa25721_documents/Published/bayesian_inference/1.html</loc>
+    <lastmod>2026-07-24T02:46:17.932Z</lastmod>
+  </url>
+  <url>
+    <loc>https://IR25721.github.io/Zawa25721_documents/Published/bayesian_inference/4.html</loc>
+    <lastmod>2026-07-24T02:46:17.932Z</lastmod>
+  </url>
+  <url>
+    <loc>https://IR25721.github.io/Zawa25721_documents/Published/equilibrium_stat_mech/1.html</loc>
+    <lastmod>2026-07-24T02:46:17.933Z</lastmod>
+  </url>
+  <url>
+    <loc>https://IR25721.github.io/Zawa25721_documents/InProgress/CalculusOfVariations/1.html</loc>
+    <lastmod>2026-07-24T02:46:32.169Z</lastmod>
+  </url>
+  <url>
+    <loc>https://IR25721.github.io/Zawa25721_documents/InProgress/CalculusOfVariations/3.html</loc>
+    <lastmod>2026-07-24T02:46:17.905Z</lastmod>
+  </url>
+  <url>
+    <loc>https://IR25721.github.io/Zawa25721_documents/InProgress/CalculusOfVariations/2.html</loc>
+    <lastmod>2026-07-24T02:46:32.169Z</lastmod>
+  </url>
+  <url>
+    <loc>https://IR25721.github.io/Zawa25721_documents/InProgress/PR/5.html</loc>
+    <lastmod>2026-07-24T02:46:17.906Z</lastmod>
+  </url>
+  <url>
+    <loc>https://IR25721.github.io/Zawa25721_documents/InProgress/PR/4.html</loc>
+    <lastmod>2026-07-24T02:46:32.168Z</lastmod>
+  </url>
+  <url>
+    <loc>https://IR25721.github.io/Zawa25721_documents/InProgress/equilibrium_stat_mech/3.html</loc>
+    <lastmod>2026-07-24T02:46:17.906Z</lastmod>
+  </url>
+  <url>
+    <loc>https://IR25721.github.io/Zawa25721_documents/News/pr.html</loc>
+    <lastmod>2026-07-24T02:46:17.907Z</lastmod>
+  </url>
+  <url>
+    <loc>https://IR25721.github.io/Zawa25721_documents/News/English.html</loc>
+    <lastmod>2026-07-24T02:46:17.907Z</lastmod>
   </url>
   <url>
     <loc>https://IR25721.github.io/Zawa25721_documents/InProgress/optimization_math/1.html</loc>
-    <lastmod>2026-06-27T08:15:57.540Z</lastmod>
+    <lastmod>2026-07-24T02:46:17.907Z</lastmod>
+  </url>
+  <url>
+    <loc>https://IR25721.github.io/Zawa25721_documents/InProgress/PR/3.html</loc>
+    <lastmod>2026-07-24T02:46:17.905Z</lastmod>
+  </url>
+  <url>
+    <loc>https://IR25721.github.io/Zawa25721_documents/InProgress/information_geometry/4.html</loc>
+    <lastmod>2026-07-24T02:46:17.906Z</lastmod>
+  </url>
+  <url>
+    <loc>https://IR25721.github.io/Zawa25721_documents/InProgress/CalculusOfVariations/4.html</loc>
+    <lastmod>2026-07-24T02:46:17.905Z</lastmod>
+  </url>
+  <url>
+    <loc>https://IR25721.github.io/Zawa25721_documents/InProgress/CalculusOfVariations/5.html</loc>
+    <lastmod>2026-07-24T02:46:17.905Z</lastmod>
+  </url>
+  <url>
+    <loc>https://IR25721.github.io/Zawa25721_documents/Published/equilibrium_stat_mech/2.html</loc>
+    <lastmod>2026-07-24T02:46:17.934Z</lastmod>
+  </url>
+  <url>
+    <loc>https://IR25721.github.io/Zawa25721_documents/Published/bayesian_inference/2.html</loc>
+    <lastmod>2026-07-24T02:46:17.932Z</lastmod>
+  </url>
+  <url>
+    <loc>https://IR25721.github.io/Zawa25721_documents/Published/bayesian_inference/3.html</loc>
+    <lastmod>2026-07-24T02:46:17.932Z</lastmod>
+  </url>
+  <url>
+    <loc>https://IR25721.github.io/Zawa25721_documents/Published/PR/2.html</loc>
+    <lastmod>2026-07-24T02:46:32.170Z</lastmod>
+  </url>
+  <url>
+    <loc>https://IR25721.github.io/Zawa25721_documents/Published/PR/1.html</loc>
+    <lastmod>2026-07-24T02:46:17.909Z</lastmod>
+  </url>
+  <url>
+    <loc>https://IR25721.github.io/Zawa25721_documents/Published/information_geometry/3.html</loc>
+    <lastmod>2026-07-24T02:46:17.935Z</lastmod>
+  </url>
+  <url>
+    <loc>https://IR25721.github.io/Zawa25721_documents/Published/CalculusOfVariations/2.html</loc>
+    <lastmod>2026-07-24T02:46:32.170Z</lastmod>
+  </url>
+  <url>
+    <loc>https://IR25721.github.io/Zawa25721_documents/index.html</loc>
+    <lastmod>2026-07-24T02:46:17.942Z</lastmod>
   </url>
 </urlset>
