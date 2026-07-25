@@ -2,20 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>ベクトル場，テンソル場 – Zawaの勉強記録</title>
+<title>テンソル場 – Zawaの勉強記録</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -33,16 +36,17 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../../Published/information_geometry/4.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-c6d57c8fd1792c65477be5c7e755ca70.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-84b42ce726f76a97210ba391d5418a64.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,6 +75,49 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -118,7 +165,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">ベクトル場，テンソル場</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/information_geometry/1.html">情報幾何学</a></li><li class="breadcrumb-item"><a href="../../Published/information_geometry/5.html">テンソル場</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -271,6 +318,18 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">線形汎関数と汎関数について</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/information_geometry/4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ベクトル場</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/information_geometry/5.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">テンソル場</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -282,15 +341,26 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#テンソル場" id="toc-テンソル場" class="nav-link active" data-scroll-target="#テンソル場">テンソル場</a>
+  <ul class="collapse">
+  <li><a href="#テンソル場の定義" id="toc-テンソル場の定義" class="nav-link" data-scroll-target="#テンソル場の定義">テンソル場の定義</a></li>
+  </ul></li>
+  <li><a href="#テンソル判別定理" id="toc-テンソル判別定理" class="nav-link" data-scroll-target="#テンソル判別定理">テンソル判別定理</a></li>
+  <li><a href="#まとめ" id="toc-まとめ" class="nav-link" data-scroll-target="#まとめ">まとめ</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/information_geometry/1.html">情報幾何学</a></li><li class="breadcrumb-item"><a href="../../Published/information_geometry/5.html">テンソル場</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">ベクトル場，テンソル場</h1>
+<h1 class="title">テンソル場</h1>
 </div>
 
 
@@ -307,9 +377,107 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>引き続き具体例を多用していく． ## ベクトル場</p>
+<section id="テンソル場" class="level2">
+<h2 class="anchored" data-anchor-id="テンソル場">テンソル場</h2>
+<p>前回は，多様体<span class="math inline">M</span>の各点に，接ベクトルや余接ベクトルを割り当てたベクトル場や一次微分形式を考えた．これを拡張し，各点にテンソルを割り当てたテンソル場というものを考える．</p>
+<section id="テンソル場の定義" class="level3">
+<h3 class="anchored" data-anchor-id="テンソル場の定義">テンソル場の定義</h3>
+<p>多様体<span class="math inline">M</span>上の各点<span class="math inline">p</span>に対し，<span class="math inline">p</span>における接空間<span class="math inline">T_pM</span>上の<span class="math inline">(r,s)</span>型テンソル<span class="math inline">F_p</span>を一つ付随させる対応<span class="math inline">F = \{ F_p \}_{p \in M}</span>のことを<span class="math inline">M</span>上の<span class="math inline">(r,s)</span>型テンソル場という．</p>
+<p>同じ型の２つのテンソル場の和や関数倍も，ベクトル場のときと同じように定義される．さらに<span class="math inline">(r,s)型テンソル,(r',s')</span>型テンソルのテンソル積を <span class="math display">
+F \otimes G := \{ F_p \otimes G_p \} _{p \in M}
+</span> と定義する． さて，<span class="math inline">U</span>を<span class="math inline">M</span>の座標近傍とすると，<span class="math inline">M</span>上の<span class="math inline">(r,s)</span>型テンソル場<span class="math inline">F</span>を<span class="math inline">U</span>上で <span class="math display">
+F = F^{i_1 ,... ,i_r}_{j_1 , ...,j_s} \frac{\partial }{\partial x^1} \otimes ... \otimes \frac{\partial }{\partial x^r} \otimes dx^1 \otimes ... \otimes dx^s
+</span> と局所座標表示できるわけだが，この係数として現れる <span class="math display">
+F^{i_1 ,... ,i_r}_{j_1 , ...,j_s}  = F_p\left((dx^1)_p ,...,(dx^r)_p , \left( \frac{\partial}{\partial x^1} \right)_p ,... ,\left (\frac{\partial}{\partial x^s} \right)_p \right)
+</span></p>
+<p>(逆になっているのは，写像先が実数であるためである) を成分という．</p>
+<section id="例リーマン計量" class="level4">
+<h4 class="anchored" data-anchor-id="例リーマン計量">例：リーマン計量</h4>
+<p><span class="math display">
+g = g_{ij} dx^i \otimes dx^j
+</span> と表される<span class="math inline">g</span>をRiemann計量という． ここで成分は <span class="math display">
+g_{ij} = g\left( \frac{\partial}{\partial x^i} ,\frac{\partial}{\partial x^j} \right)
+</span> であり，正定値対称行列である．</p>
+<section id="例の例具体的に計算してみると" class="level5">
+<h5 class="anchored" data-anchor-id="例の例具体的に計算してみると">例の例：具体的に計算してみると</h5>
+<p>2次元ユークリッド空間の極座標平面を考える． 座標を <span class="math inline">x^1 = r</span> ， <span class="math inline">x^2 = \theta</span> とする． デカルト座標 <span class="math inline">x</span> ， <span class="math inline">y</span> との関係は <span class="math inline">x = r \cos \theta</span> ， <span class="math inline">y = r \sin \theta</span> である． デカルト座標における標準的な内積を <span class="math inline">g</span> とする． 極座標の自然基底は，デカルト座標の自然基底を用いて次のように表される． <span class="math display">
+\frac{\partial}{\partial r} = \cos \theta \frac{\partial}{\partial x} + \sin \theta \frac{\partial}{\partial y}
+</span> <span class="math display">
+\frac{\partial}{\partial \theta} = -r \sin \theta \frac{\partial}{\partial x} + r \cos \theta \frac{\partial}{\partial y}
+</span> デカルト座標の基底同士の内積が <span class="math inline">g(\partial/\partial x, \partial/\partial x) = 1</span> ， <span class="math inline">g(\partial/\partial y, \partial/\partial y) = 1</span> ， <span class="math inline">g(\partial/\partial x, \partial/\partial y) = 0</span> であることを用いて，成分 <span class="math inline">g_{ij}</span> を計算する．</p>
+<p><span class="math inline">g_{11}</span> は次のようになる． <span class="math display">
+g_{11} = g\left( \frac{\partial}{\partial r} , \frac{\partial}{\partial r} \right) = \cos^2 \theta + \sin^2 \theta = 1
+</span></p>
+<p><span class="math inline">g_{22}</span> は次のようになる． <span class="math display">
+g_{22} = g\left( \frac{\partial}{\partial \theta} , \frac{\partial}{\partial \theta} \right) = r^2 \sin^2 \theta + r^2 \cos^2 \theta = r^2
+</span></p>
+<p><span class="math inline">g_{12}</span> および <span class="math inline">g_{21}</span> は次のようになる． <span class="math display">
+g_{12} = g_{21} = g\left( \frac{\partial}{\partial r} , \frac{\partial}{\partial \theta} \right) = -r \sin \theta \cos \theta + r \sin \theta \cos \theta = 0
+</span></p>
+<p>したがって，この座標系におけるリーマン計量の成分は，次の行列で表される． <span class="math display">
+\begin{pmatrix}
+g_{11} &amp; g_{12} \\
+g_{21} &amp; g_{22}
+\end{pmatrix}
+=
+\begin{pmatrix}
+1 &amp; 0 \\
+0 &amp; r^2
+\end{pmatrix}
+</span></p>
+<p>計量テンソルとしての表現は，次のようになる． <span class="math display">
+g = dr \otimes dr + r^2 d\theta \otimes d\theta
+</span> ## テンソル性 ### 多重<span class="math inline">\mathbb R</span>-線型性 <span class="math display">
+\begin{align}
+F(\omega_1 , ..., a\omega_i + b\tilde\omega_i, ...,\omega_r , X_1 ,..., X_s) \\
+= a F(\omega_1 , ..., \omega_i, ...,\omega_r , X_1 ,..., X_s) \\
++ b F(\omega_1 , ..., \tilde\omega_i, ...,\omega_r , X_1 ,..., X_s)
+\end{align}
+</span> および <span class="math display">
+\begin{align}
+F(\omega_1 , ...,\omega_r , X_1 ,...,aX_i + b \tilde X_i ,...,X_s) \\
+= a F(\omega_1 , ...,\omega_r, X_1 ,...,X_i,..., X_s) \\
++ b F(\omega_1 , ...,\omega_r , X_1 ,...,\tilde X_i,..., X_s)
+\end{align}
+</span> が成立する．これを<span class="math inline">F</span>の多重<span class="math inline">\mathbb R</span>-線型性という． 実は，テンソル場はこれよりもずっと強い性質をもつ．それは<span class="math inline">a,b</span>を任意の関数<span class="math inline">f,g \in C^\infty(M)</span>で置き換えてもそのまま成り立つというものである． 特に関数倍が前に出せるということが重要であるので，そこだけ抜き出して書くと</p>
+<p><span class="math display">
+F(f_1\omega_1 , ... , f_r\omega_r , g_1X_1 , ... , g_sX_s) = f_1...f_rg_1 ... g_sF(\omega_1 , ... ,\omega_r , X_1 ,... ,X_s)
+</span> が成立するということである． これを<strong>テンソル性</strong>という．この性質は非常に重要である（らしい）．</p>
+<p>理由としては，座標近傍における成分計算を行うことができるのと物理的な局所性を担保するためらしい．</p>
+</section>
+</section>
+</section>
+</section>
+<section id="テンソル判別定理" class="level2">
+<h2 class="anchored" data-anchor-id="テンソル判別定理">テンソル判別定理</h2>
+<p>写像 <span class="math display">
+F : \underbrace{\mathcal D^1(M) \times \dots \times \mathcal D^1(M)}_{r個} \times\underbrace{\mathcal X^1(M) \times \dots \times \mathcal X^1(M)}_{s個} \rightarrow C^\infty(M)
+</span> を考える．このとき次の２つの命題は同値である．</p>
+<ol type="1">
+<li><p>多重 <span class="math inline">C^\infty(M)</span>-線型性（代数的な条件） <span class="math inline">F</span> は，すべての引数に関して <span class="math inline">C^\infty(M)</span>-線型である． すなわち，任意の関数 <span class="math inline">f, g \in C^\infty(M)</span> ，ベクトル場 <span class="math inline">X_i, Y_i</span> ，および微分形式 <span class="math inline">\omega_i, \eta_i</span> に対して以下が成り立つ． <span class="math display"> F(\dots, f\omega_i + g\eta_i, \dots) = f F(\dots, \omega_i, \dots) + g F(\dots, \eta_i, \dots) </span> <span class="math display"> F(\dots, fX_j + gY_j, \dots) = f F(\dots, X_j, \dots) + g F(\dots, Y_j, \dots) </span></p></li>
+<li><p>テンソル場による誘導（幾何学的な条件） <span class="math inline">F</span> は，ある滑らかな <span class="math inline">(r, s)</span> 型テンソル場 <span class="math inline">\tau</span> によって点ごとに誘導されたものである． すなわち，各点 <span class="math inline">p \in M</span> において，出力関数の値 <span class="math inline">F(\omega_1, \dots, X_s)(p)</span> は，その点における値（ベクトルやコベクトル）だけを用いて次のように決定される． <span class="math display"> F(\omega_1, \dots, \omega_r, X_1, \dots, X_s)(p) = \tau_p\big(\omega_1(p), \dots, \omega_r(p), X_1(p), \dots, X_s(p)\big) </span> え，こわ．．．これ定理として導出できるのかよ．驚くべき事実である． 証明は難しそうなので置いておく． <span class="math inline">F(X,Y)</span>は<span class="math inline">XとY</span>のベクトル場の関係をとりもつ重要なものであると解釈した．<span class="math inline">F(X,Y)(p) = F(X(p),Y(p))</span>っていうこと．</p></li>
+</ol>
+<p>系として次が導かれる． <span class="math display">
+F : \mathcal D^1(M) \times\underbrace{\mathcal X^1(M) \times \dots \times \mathcal X^1(M)}_{s個} \rightarrow C^\infty(M)
+</span></p>
+<p>は<span class="math inline">s</span>重<span class="math inline">C^\infty(M)</span>-線形写像 <span class="math display">
+\tilde F : \underbrace{\mathcal X^1(M) \times \dots \times \mathcal X^1(M)}_{s個} \rightarrow \mathcal X(M)
+</span> と同一視できることになる． 疑問に思ったのは，同一視できるとはどういうことなのかということである．それは次の翻訳により，<span class="math inline">F</span>と<span class="math inline">\tilde F</span>が一対一対応するからである． <span class="math display">
+F(\omega ,X_1  ,..., X_s) = \omega(\tilde F(X_1, ..., X_s))
+</span> まず左辺が線形性を持つことは定理より自明である． 右辺も，微分形式が線型性を持つので左辺と一致する． なるほど，同一視できるとはこういうことか．</p>
+<p>だがこれをしてなにか得をするのか一切わからない． AIと話してわかったことだが， <span class="math inline">\tilde F</span>は物理的に重要なことが多い．例えばリーマン曲率は<span class="math inline">\tilde F</span>の一種である． だが出力がベクトル場なので，数式の扱いが面倒である． しかし<span class="math inline">\omega</span>を作用させることで，出力が実数になり，扱いが楽になるので この定理が有用らしい．まあ教科書を読み進めていけば分かることだろう．</p>
+</section>
+<section id="まとめ" class="level2">
+<h2 class="anchored" data-anchor-id="まとめ">まとめ</h2>
+<ul>
+<li>微分形式とテンソル場を入力として実数を返すものをテンソル場という</li>
+<li>テンソル場は<span class="math inline">f \in C^\infty (M)</span>を外に出すテンソル性という重要な性質を持つ</li>
+<li>テンソル判別定理というものがあり，解析に置いて必須である</li>
+</ul>
+<p>次回からようやく接続の話ができるので，楽しみである． 今回は特に難しかったのでしっかり復習しようと思う．</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -712,6 +880,15 @@ ul.task-list li input[type="checkbox"] {
     }
   });
   </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../Published/information_geometry/4.html" class="pagination-link" aria-label="ベクトル場">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">ベクトル場</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
 </div> <!-- /content -->
 
 

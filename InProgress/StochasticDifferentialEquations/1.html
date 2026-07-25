@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>特徴の評価とベイズ誤り確率 – Zawaの勉強記録</title>
+<title>確率論の概要(1) – Zawaの勉強記録</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -74,6 +74,49 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -121,7 +164,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">特徴の評価とベイズ誤り確率</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">確率論の概要(1)</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -302,7 +345,23 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#クラス間分散クラス内分散比" id="toc-クラス間分散クラス内分散比" class="nav-link active" data-scroll-target="#クラス間分散クラス内分散比">クラス間分散，クラス内分散比</a></li>
+  <li><a href="#はじめに" id="toc-はじめに" class="nav-link active" data-scroll-target="#はじめに">はじめに</a></li>
+  <li><a href="#sigma-加法族と確率測度" id="toc-sigma-加法族と確率測度" class="nav-link" data-scroll-target="#sigma-加法族と確率測度"><span class="math inline">\sigma</span>-加法族と確率測度</a>
+  <ul class="collapse">
+  <li><a href="#sigma-加法族の定義" id="toc-sigma-加法族の定義" class="nav-link" data-scroll-target="#sigma-加法族の定義"><span class="math inline">\sigma</span>-加法族の定義</a></li>
+  </ul></li>
+  <li><a href="#ほとんど確実" id="toc-ほとんど確実" class="nav-link" data-scroll-target="#ほとんど確実">ほとんど確実</a>
+  <ul class="collapse">
+  <li><a href="#p零集合の定義" id="toc-p零集合の定義" class="nav-link" data-scroll-target="#p零集合の定義"><span class="math inline">P</span>零集合の定義</a></li>
+  <li><a href="#ほとんど確実almost-surelyの定義" id="toc-ほとんど確実almost-surelyの定義" class="nav-link" data-scroll-target="#ほとんど確実almost-surelyの定義">ほとんど確実（Almost Surely）の定義</a></li>
+  </ul></li>
+  <li><a href="#確率変数" id="toc-確率変数" class="nav-link" data-scroll-target="#確率変数">確率変数</a>
+  <ul class="collapse">
+  <li><a href="#borel集合の定義" id="toc-borel集合の定義" class="nav-link" data-scroll-target="#borel集合の定義">Borel集合の定義</a></li>
+  <li><a href="#写像xの制約" id="toc-写像xの制約" class="nav-link" data-scroll-target="#写像xの制約">写像<span class="math inline">X</span>の制約</a></li>
+  <li><a href="#確率分布の定義" id="toc-確率分布の定義" class="nav-link" data-scroll-target="#確率分布の定義">確率分布の定義</a></li>
+  <li><a href="#s値位相確率変数の定義" id="toc-s値位相確率変数の定義" class="nav-link" data-scroll-target="#s値位相確率変数の定義"><span class="math inline">S</span>値位相確率変数の定義</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -311,7 +370,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">特徴の評価とベイズ誤り確率</h1>
+<h1 class="title">確率論の概要(1)</h1>
 </div>
 
 
@@ -328,10 +387,75 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="クラス間分散クラス内分散比" class="level2">
-<h2 class="anchored" data-anchor-id="クラス間分散クラス内分散比">クラス間分散，クラス内分散比</h2>
+<section id="はじめに" class="level2">
+<h2 class="anchored" data-anchor-id="はじめに">はじめに</h2>
+<p>確率微分方程式です．応用が目標なのでそんなに厳密じゃないです． あと初めて触れる分野なので，じっくりやっていきたいと思います． あと教科書をパラパラ見てみた感じ，この確率論の概要が前提みたいな所がありそうなので，Ankiなどを活用して概念を覚えていきたい．</p>
+</section>
+<section id="sigma-加法族と確率測度" class="level2">
+<h2 class="anchored" data-anchor-id="sigma-加法族と確率測度"><span class="math inline">\sigma</span>-加法族と確率測度</h2>
+<p>確率とは，対象とする事象の起こりやすさを定量化したものである．通常事象というものを直感的に理解できるものとして無定義に取り扱うことが多いが，確率の定量化を数学的に議論するにはまず事象の定義を行わなければならない．</p>
+<p>まず<span class="math inline">\Omega</span>を生成点集合，すなわち試行を１回行うと，<span class="math inline">\Omega</span>の点<span class="math inline">\omega</span>が一つ選択されるような集合とする．<span class="math inline">\Omega</span>は標本空間とも呼ばれる．<span class="math inline">\Omega</span>の各「点」は標本と呼ばれるが，それは生起結果を表すもので，一般に数ではない． （例えば，A,B,Cの内くじを引いて当てるとき，そのくじの結果Bが手に入ったとする．これは数ではない．） 我々が観測を行うと，<span class="math inline">\Omega</span>の点のどれかが生起した結果が観測されるのだから，事象というものは<span class="math inline">\Omega</span>の部分集合であると考えられるのが自然である． だが，すべての部分集合が事象の資格を持っているとは限らない． （例えば，サイコロを1回投げる試行において，出た目そのものは見えず偶数か奇数かだけを判定する状況を考える．このとき，偶数の目が出るという部分集合<span class="math inline">\{ 2,4,6 \}</span>は結果を識別できるため事象として扱えるが，個別の<span class="math inline">\{2\}</span>という部分集合は，この状況下では世紀したかどうかを判別できないため，事象の資格を持たない） また事象と呼ぶためにはどうしても満たさなければならない性質がある． 例えばある部分集合<span class="math inline">A</span>が事象であれば，それが起こらない確率も計算できなければならない．すなわちその補集合<span class="math inline">A^c</span>も事象でなければならない． <span class="math inline">A</span>と<span class="math inline">B</span> がともに事象であれば<span class="math inline">A</span>または<span class="math inline">B</span>が起こる確率，<span class="math inline">A</span>かつ<span class="math inline">B</span>の起こる確率も計算できなければならないので，その和集合や席集合も事象でなければならない．このように事象と呼んで良い部分集合の集まりには自然な制約が発生することになる．これを数学的にまとめたのが次の概念である．</p>
+<section id="sigma-加法族の定義" class="level3">
+<h3 class="anchored" data-anchor-id="sigma-加法族の定義"><span class="math inline">\sigma</span>-加法族の定義</h3>
+<p><span class="math inline">\Omega</span>の部分集合の族(集合を要素に持つ集合)<span class="math inline">\mathcal F</span>で 1. <span class="math inline">\Omega \in \mathcal F</span> 2. <span class="math inline">A \in \mathcal F  \Rightarrow A^c \in \mathcal F</span> 3. <span class="math inline">A_1,A_2 ,... \in \mathcal F \Rightarrow \bigcup_{n = 1}^{\infty} A_n \in \mathcal F</span> の3条件を満たすものを，<span class="math inline">\sigma</span>-加法族と呼ぶ．</p>
+<p>我々は，この<span class="math inline">\sigma</span>-加法族<span class="math inline">\mathcal F</span>の要素を事象と呼びたいのであるが，確率の概念を導入する前に事象だけを単独に定義するのは適切ではないため，(確率が満たすべき足し算のルールと関連付けながら，確率と事象を一対のものとして定義していく必要がある．) 引き続いて確率を定義することにしよう． ### 確率の定義 <span class="math inline">\mathcal F</span>の各要素に対して実数を対応させる写像<span class="math inline">P</span>が 1. <span class="math inline">P(A) \ge 0</span> 2. <span class="math inline">P(\Omega) =1</span> 3. <span class="math inline">A_1, A_2 ,... \in \mathcal F, A_i \cap A_j = \phi   (i \neq j) \Rightarrow P\left( \bigcup_{n = 1}^{\infty} A_n \right) = \sum_{n = 1}^{\infty} P(A_n)</span> を満たすとき，<span class="math inline">P</span>を確率測度と呼び，<span class="math inline">P(A)</span>を<span class="math inline">A</span>が起こる確率と呼ぶ．</p>
+<p>確率測度は集合に対して実数を対応させる写像であるために，集合関数と呼ばれることがある．</p>
+<p>以上の定義に基づいて，<span class="math inline">\mathcal F</span>の要素を事象と呼ぶ．数学的には<span class="math inline">\mathcal F</span>の要素を可測集合と呼ぶことが多い．また<span class="math inline">\Omega</span>と<span class="math inline">\mathcal F</span>をペアで考えた<span class="math inline">(\Omega, \mathcal F)</span>をその上に測度（確率測度）が定義できるという意味で可測空間と呼ぶ． 同じ<span class="math inline">\Omega</span>でも観測の対象をどこまで細かく設定するかによって<span class="math inline">\mathcal F</span>は異なるものとなり得る．</p>
+<p>例えば，サイコロを一回振るという例を考える．標本空間は <span class="math inline">\Omega = \{1,2,3,4,5,6  \}</span>となる．この<span class="math inline">\Omega</span>のすべての部分集合からなる集合族<span class="math inline">\mathcal F</span>は<span class="math inline">\sigma</span>-加法族であるが， <span class="math inline">\mathcal G = \{ \{ 1,3,5 \}, \{ 2,4,6 \} \}</span>もまた<span class="math inline">\sigma</span>-加法族である．<span class="math inline">(\Omega, \mathcal F), (\Omega , \mathcal G)</span>はそれぞれ可測空間であり，前者は振って出た目をすべて記録することを意味し，後者は偶数か奇数かだけを記録することを意味する．</p>
+<p>さらに以上をまとめる形で次の用語を導入する． <span class="math inline">(\Omega, \mathcal F , P)</span>を確率空間と呼ぶ． 確率を論じるにあたっては必ず確率空間を与えておく必要がある．</p>
+</section>
+</section>
+<section id="ほとんど確実" class="level2">
+<h2 class="anchored" data-anchor-id="ほとんど確実">ほとんど確実</h2>
+<p>さて，上述のように自然な要請として， <span class="math inline">\sigma</span>-加法族に可算無限回のBool演算を許したわけだが，このことにより少しややこしい事象が顔を出してくることになる．確率の定義から，空集合<span class="math inline">\phi</span>の確率測度は０になることは明らかであるが，逆は必ずしも成立しないため（標本空間が無限個の点を持つ場合，個々の点が選ばれる確率がすべて0になるから）次の概念の導入が必要となる．</p>
+<section id="p零集合の定義" class="level3">
+<h3 class="anchored" data-anchor-id="p零集合の定義"><span class="math inline">P</span>零集合の定義</h3>
+<p><span class="math inline">\mathcal F</span>の要素<span class="math inline">N</span>で<span class="math inline">P(N) = 0</span>となるものを<span class="math inline">P</span>零集合とよぶ．</p>
+<p>確率が０となる事象に属する点<span class="math inline">\omega</span>は最初から除外しておけばよいという考えがでてくるが，無限集合になると除外するわけにはいかなくなる(個々の生起確率は０であるため，それらを除外すると標本空間が<span class="math inline">\phi</span>となり意味がなくなるから)この結果，零事象の余事象として次の概念が必要となってくる．</p>
+</section>
+<section id="ほとんど確実almost-surelyの定義" class="level3">
+<h3 class="anchored" data-anchor-id="ほとんど確実almost-surelyの定義">ほとんど確実（Almost Surely）の定義</h3>
+<p>ある事象<span class="math inline">A</span>が生起する確率が１のときこれを<span class="math inline">A(a.s.)</span>と表記し，Aはほとんど確実に起きるという．</p>
+<p>実用的応用を考える上でも，<span class="math inline">\Omega</span>が無限集合となる場合を取り扱えるようにしておかなければならないため，数学的な記述においては「ほとんど確実に」という用語が頻繁に登場するので，この用語の意味は理解しておく必要がある．</p>
+</section>
+</section>
+<section id="確率変数" class="level2">
+<h2 class="anchored" data-anchor-id="確率変数">確率変数</h2>
+<p>標本空間<span class="math inline">\Omega</span>は一般に数の空間であるとは限らないので，諸々の統計量を数量化するには不便と言うより，数量化そのものが不可能であることのほうがむしろ普通となっている．そこで，数量化が可能でしかも取り扱いに便利な空間に移して議論したほうが都合が良い．この写像を広い意味で<strong>確率変数</strong>とよぶ． ### 実確率変数 まず，標本空間を実数空間に写像することを考えよう．我々が実数空間において確率的量を計算するということは，基本的には積分計算を行うということであると言って良い．したがって実数空間における積分論に準拠して，議論を進めていかなければならない．こういった視点で言えば実数空間で計算対象の基本となるのは区間である．</p>
+<p>与えられた区間に値をとる確率は当然計算できなければならないし，それらの和集合からなる集合でも確率が計算できなければ都合が悪い．すなわち，これらが先に述べた事象に対応するものであると言うことが要請される．そこで，<strong>写像先の実数空間</strong>において事象に対応する集合として次の定義を導入する．</p>
+<section id="borel集合の定義" class="level3">
+<h3 class="anchored" data-anchor-id="borel集合の定義">Borel集合の定義</h3>
+<ol type="1">
+<li><span class="math inline">n</span>次元Euclid空間の開部分集合をすべて含む最小の<span class="math inline">\sigma</span>-加法族を<span class="math inline">\mathcal B (\mathbb R^n)</span>と書き，これをBorel加法族と呼ぶ</li>
+<li>Borel加法族の部分集合をBorel集合と呼ぶ</li>
+</ol>
+<p>開部分集合とは，境界がない部分集合のことである． （離散の場合は，いったん置いておいてここでは連続空間の話をしているのだろう） 実用上考察の対象となる<span class="math inline">\mathbb R^n</span>の部分集合はすべてBorel集合であると考えてしまって問題はない． さて，我々はすべてのBorel集合に対して確率の計算が行えることを要請したいわけだが，確率の計算はあくまで元の確率の確率測度<span class="math inline">P</span>によってしか行えないので，写像<span class="math inline">X</span>によりBorel集合に写される要素の集合が，必ず可測集合でなければならない．つまり，標本空間<span class="math inline">\Omega</span>からその写像は任意に選定できるということにならず，ある制約が加わることになる．</p>
+</section>
+<section id="写像xの制約" class="level3">
+<h3 class="anchored" data-anchor-id="写像xの制約">写像<span class="math inline">X</span>の制約</h3>
+<p>写像<span class="math inline">X : \Omega \rightarrow \mathbb R^n</span>が <span class="math display">
+X^{-1}(B) = \{ \omega ; X(\omega) \in B\} \in \mathcal F (\forall B \in \mathcal B(\mathbb R^n))
+</span> を満たす必要がある．このとき<span class="math inline">X</span>を<span class="math inline">\mathcal F</span>可測写像と呼ぶ． <img src="IMG_20260725_145731.jpg" class="img-fluid"></p>
+<p>この図を見れば分かるが，逆写像が<span class="math inline">\mathcal F</span>に戻ってくることを要請している．</p>
+<p>ここでこの写像は単に実確率変数と呼ばれる． このように実確率変数の導入により標本空間<span class="math inline">\Omega</span>が <span class="math inline">\mathbb R^n</span>に写される． なので可測空間が置き換えられたと考えて良い．</p>
+</section>
+<section id="確率分布の定義" class="level3">
+<h3 class="anchored" data-anchor-id="確率分布の定義">確率分布の定義</h3>
+<p>確率変数<span class="math inline">X</span>について， <span class="math display">
+P_X(B) = P(X^{-1}(B)) = P(\{ \omega ; X(\omega) \in B \}) , (B \in \mathcal B)
+</span> により定まる可測空間<span class="math inline">(\mathbb R^n , \mathcal B^n)</span>上の確率測度<span class="math inline">P_X</span>を確率変数<span class="math inline">X</span>の確率分布とよぶ． しばしば<span class="math inline">P(X^{-1}(B))</span>は<span class="math inline">P(X \in B)</span>と略記される． 一応確率分布関数と確率密度関数の定義も書いておく <span class="math display">
+F_X(x) = P_X((-\infty , x]) =  P(X \le x)
+</span> <span class="math display">
+f_X(x) = \frac{\partial^n}{\partial x_1 ... \partial x_n} F_X(x)
+</span> ## 一般の確率変数 実確率変数を導入することによって確率論的な記述が十分に可能になる例は多いが，確率過程に議論を拡張する場合，標本空間からの写像先を，実数空間から一般の空間に拡張しておく必要が生じる． <span class="math inline">S</span>を一般の空間として，実確率変数における写像<span class="math inline">X : \Omega \rightarrow \mathbb R^n</span>を<span class="math inline">X \rightarrow S</span>に拡張することを考える． 写像先である<span class="math inline">S</span>を一般の空間に拡張する場合，Borel加法族に相当する部分集合族を考えなければ定義を拡張できない． このため<span class="math inline">S</span>は<strong>位相空間</strong>(距離に依存せず，開集合のルールを定めることで「近さ」や「つながり」を表現できるようにした空間)であるものとしBorel加法族，Borel集合を一般化して，次の定義を導入しよう．</p>
+</section>
+<section id="s値位相確率変数の定義" class="level3">
+<h3 class="anchored" data-anchor-id="s値位相確率変数の定義"><span class="math inline">S</span>値位相確率変数の定義</h3>
+<p><span class="math inline">S</span>を一般の位相空間とし，<span class="math inline">S</span>の開部分集合族が定義されているものとする． 1. <span class="math inline">S</span>の開部分集合族の要素をすべて含む最小の<span class="math inline">\sigma</span>-加法族を<span class="math inline">\mathcal B(S)</span>と表し，<span class="math inline">S</span>の位相的Borel加法族とよび，その要素を位相的Borel集合とよぶ． 2. <span class="math display"> X^{-1}(B) = \{ \omega ; X(\omega) \in B\} \in \mathcal F (\forall B \in \mathcal B(S))</span> を満たすとき，<span class="math inline">X</span>を<span class="math inline">S</span>値位相確率変数とよぶ．</p>
+<p><span class="math inline">S</span>が位相空間であると仮定することは実用的な応用を考える上では特に問題のある制約ではないと言ってよい．</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

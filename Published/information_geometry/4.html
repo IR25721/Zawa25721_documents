@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>特徴の評価とベイズ誤り確率 – Zawaの勉強記録</title>
+<title>ベクトル場 – Zawaの勉強記録</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -36,6 +36,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../../Published/information_geometry/5.html" rel="next">
+<link href="../../Published/information_geometry/3.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -74,6 +76,49 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -121,7 +166,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">特徴の評価とベイズ誤り確率</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/information_geometry/1.html">情報幾何学</a></li><li class="breadcrumb-item"><a href="../../Published/information_geometry/4.html">ベクトル場</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -276,7 +321,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Published/information_geometry/4.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/information_geometry/4.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">ベクトル場</span></a>
   </div>
 </li>
@@ -302,16 +347,23 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#クラス間分散クラス内分散比" id="toc-クラス間分散クラス内分散比" class="nav-link active" data-scroll-target="#クラス間分散クラス内分散比">クラス間分散，クラス内分散比</a></li>
+  <li><a href="#成分分解" id="toc-成分分解" class="nav-link active" data-scroll-target="#成分分解">成分分解</a></li>
+  <li><a href="#積分曲線" id="toc-積分曲線" class="nav-link" data-scroll-target="#積分曲線">積分曲線</a>
+  <ul class="collapse">
+  <li><a href="#定義" id="toc-定義" class="nav-link" data-scroll-target="#定義">定義</a></li>
+  <li><a href="#満たすべき式" id="toc-満たすべき式" class="nav-link" data-scroll-target="#満たすべき式">満たすべき式</a></li>
+  </ul></li>
+  <li><a href="#一次微分形式" id="toc-一次微分形式" class="nav-link" data-scroll-target="#一次微分形式">一次微分形式</a></li>
+  <li><a href="#まとめ" id="toc-まとめ" class="nav-link" data-scroll-target="#まとめ">まとめ</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/information_geometry/1.html">情報幾何学</a></li><li class="breadcrumb-item"><a href="../../Published/information_geometry/4.html">ベクトル場</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">特徴の評価とベイズ誤り確率</h1>
+<h1 class="title">ベクトル場</h1>
 </div>
 
 
@@ -328,8 +380,57 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="クラス間分散クラス内分散比" class="level2">
-<h2 class="anchored" data-anchor-id="クラス間分散クラス内分散比">クラス間分散，クラス内分散比</h2>
+<p>引き続き具体例を多用していく． ## ベクトル場</p>
+<p>前回は，多様体<span class="math inline">M</span>上の一点<span class="math inline">p</span>を固定しその点での接ベクトルというものを考えたが点<span class="math inline">p</span>は<span class="math inline">M</span>上のどこにとってもよいので，<span class="math inline">M</span>上のすべての点に同時に接ベクトルを割り当てた状況を考える． ### 定義 多様体<span class="math inline">M</span>の各点<span class="math inline">p</span>に対し，<span class="math inline">p</span>における接ベクトル<span class="math inline">X_p \in T_pM</span> を一つ付随させる対応<span class="math inline">X = \{ X_p \}_{p \in M}</span> のことを，<span class="math inline">M</span>上のベクトル場という．</p>
+<p>２つのベクトル場<span class="math inline">X,Y</span>が与えられたとき，それらの和を <span class="math display">
+X + Y := \{ X_p + Y_p \}_{p \in M}
+</span> で定義する．また<span class="math inline">f \in C^{\infty}(M)</span>とベクトル場<span class="math inline">X</span>に対し，<span class="math inline">X</span> の<span class="math inline">f</span>倍を <span class="math display">
+fX := \{ f(p) X_p \}_{p \in M}
+</span> と定義する． ついでに<span class="math inline">Xf</span>は関数<span class="math inline">f</span>にベクトル場<span class="math inline">X</span>を作用させて得られる関数と呼ばれる<span class="math inline">M</span>上の関数であって <span class="math display">
+(Xf)(p) := X_p(f)
+</span> で定義され<span class="math inline">fX</span>とは全くの別物である．</p>
+<section id="成分分解" class="level3">
+<h3 class="anchored" data-anchor-id="成分分解">成分分解</h3>
+<p><span class="math inline">U</span>を<span class="math inline">M</span>の座標近傍であるとする．<span class="math inline">U</span>上のベクトル場の基底を<span class="math inline">\frac{\partial }{\partial x^i}</span>で表す． これを用いると<span class="math inline">M</span>上のベクトル場<span class="math inline">X</span>を<span class="math inline">U</span>上で <span class="math display">
+X = v^i \frac{\partial }{\partial x^i}
+</span></p>
+<p>と局所座標表示することができる． <span class="math inline">v^i</span> を<span class="math inline">X</span>の第<span class="math inline">i</span>成分とよぶ． 括弧積を</p>
+<p><span class="math display">
+[X,Y] f := X(Yf) - Y(Xf)
+</span> と定義する．これは計算をすると分かるが，一回の微分作用素に帰着される．</p>
+</section>
+<section id="積分曲線" class="level2">
+<h2 class="anchored" data-anchor-id="積分曲線">積分曲線</h2>
+<p>さて，ベクトル場は<span class="math inline">M</span>上の各点に接ベクトルを1つずつ張り付けたものである．なのでなめらかなベクトル場は<span class="math inline">M</span>上のなめらかな流れの場を形成するだろう．その流れに舟を浮かべたなら，舟はスーッとスムーズに流れていくであろう．その軌道を数学的に定式化したものが積分曲線である．</p>
+<section id="定義" class="level3">
+<h3 class="anchored" data-anchor-id="定義">定義</h3>
+<p><span class="math inline">X \in \chi (M)</span>に対し，<span class="math inline">C^{\infty}</span>級曲線<span class="math inline">C = \{ p(t); a &lt;t &lt;b \}</span>であって，その各点<span class="math inline">p(t)</span>における速度ベクトル<span class="math inline">\dot p(t)</span>が<span class="math inline">X_{p(t)}</span>に一致するようなものを<span class="math inline">X</span>の積分曲線と呼ぶ．</p>
+</section>
+<section id="満たすべき式" class="level3">
+<h3 class="anchored" data-anchor-id="満たすべき式">満たすべき式</h3>
+<p>接ベクトル<span class="math inline">v,w</span>が等しいとは，任意の関数<span class="math inline">f \in C^{\infty}(M)</span>に対して <span class="math display">
+v(f) = w(f)
+</span> が成立することである．</p>
+<p>さて，<span class="math inline">\dot p(t)</span>は<span class="math inline">p(t)</span>を局所座標表示すると <span class="math display">
+\frac{d}{dt} f(p(t))  = \frac{\partial f}{\partial x^i} (p(t)) \frac{dx^i}{dt}
+</span> と変形できる． ベクトル場の方は，基底で分けると <span class="math display">
+X_{p(t)}f = v^i(p(t)) \frac{\partial f}{\partial x^i} (p(t))
+</span> となる，これを比較することで積分曲線が満たすべき式 <span class="math display">
+\frac{d x^i}{dt} = v^i(p(t))
+</span> が導出される．</p>
+</section>
+</section>
+<section id="一次微分形式" class="level2">
+<h2 class="anchored" data-anchor-id="一次微分形式">一次微分形式</h2>
+<p>さて，多様体の各点に対し，<span class="math inline">p</span>における余接ベクトル <span class="math inline">\omega_p \in T^*_pM</span>を 一つ付随させる対応<span class="math inline">\omega = \{\omega_p\}_{p \in M}</span>のことを<span class="math inline">M</span>上の一次微分形式という． <img src="Pasted image 20260725180207.png" class="img-fluid"> 第二回で用いた図をもう一度貼るが，<span class="math inline">\omega_p</span>はその点における全微分を表しているので，<span class="math inline">f</span>の変化の度合いを意味していると考えて良い．</p>
+</section>
+<section id="まとめ" class="level2">
+<h2 class="anchored" data-anchor-id="まとめ">まとめ</h2>
+<ul>
+<li>ベクトル場は地球に流れる風のようなもの</li>
+<li>積分曲線はその流れから一つ選んだもの</li>
+</ul>
+<p>次回はテンソル場をやります．</p>
 
 
 </section>
@@ -735,6 +836,18 @@ ul.task-list li input[type="checkbox"] {
     }
   });
   </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../Published/information_geometry/3.html" class="pagination-link" aria-label="線形汎関数と汎関数について">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">線形汎関数と汎関数について</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../Published/information_geometry/5.html" class="pagination-link" aria-label="テンソル場">
+        <span class="nav-page-text">テンソル場</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 
