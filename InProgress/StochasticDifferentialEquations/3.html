@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>ベイズ推定におけるモデル選択（続き） – Zawaの勉強記録</title>
+<title>確率論の概要(3) – Zawaの勉強記録</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -36,8 +36,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../Published/bayesian_inference/4.html" rel="next">
-<link href="../../Published/bayesian_inference/2.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -166,7 +164,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/bayesian_inference/1.html">ベイズ推論</a></li><li class="breadcrumb-item"><a href="../../Published/bayesian_inference/3.html">ベイズ推定におけるモデル選択（続き）</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">確率論の概要(3)</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -257,7 +255,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Published/bayesian_inference/3.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../Published/bayesian_inference/3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ベイズ推定におけるモデル選択（続き）</span></a>
   </div>
 </li>
@@ -353,26 +351,17 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#bic" id="toc-bic" class="nav-link active" data-scroll-target="#bic">BIC</a>
-  <ul class="collapse">
-  <li><a href="#なぜbicを使うのか" id="toc-なぜbicを使うのか" class="nav-link" data-scroll-target="#なぜbicを使うのか">なぜBICを使うのか</a></li>
-  <li><a href="#bicの導出" id="toc-bicの導出" class="nav-link" data-scroll-target="#bicの導出">BICの導出</a></li>
-  </ul></li>
-  <li><a href="#変分ベイズ法" id="toc-変分ベイズ法" class="nav-link" data-scroll-target="#変分ベイズ法">変分ベイズ法</a>
-  <ul class="collapse">
-  <li><a href="#jensen不等式" id="toc-jensen不等式" class="nav-link" data-scroll-target="#jensen不等式">Jensen不等式</a></li>
-  <li><a href="#平均場近似" id="toc-平均場近似" class="nav-link" data-scroll-target="#平均場近似">平均場近似</a></li>
-  </ul></li>
-  <li><a href="#まとめ" id="toc-まとめ" class="nav-link" data-scroll-target="#まとめ">まとめ</a></li>
+  <li><a href="#大数の法則" id="toc-大数の法則" class="nav-link active" data-scroll-target="#大数の法則">大数の法則</a></li>
+  <li><a href="#poissonの少数法則" id="toc-poissonの少数法則" class="nav-link" data-scroll-target="#poissonの少数法則">Poissonの少数法則</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/bayesian_inference/1.html">ベイズ推論</a></li><li class="breadcrumb-item"><a href="../../Published/bayesian_inference/3.html">ベイズ推定におけるモデル選択（続き）</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">ベイズ推定におけるモデル選択（続き）</h1>
+<h1 class="title">確率論の概要(3)</h1>
 </div>
 
 
@@ -389,89 +378,18 @@ window.Quarto = {
 </header>
 
 
-<section id="bic" class="level2">
-<h2 class="anchored" data-anchor-id="bic">BIC</h2>
-<section id="なぜbicを使うのか" class="level3">
-<h3 class="anchored" data-anchor-id="なぜbicを使うのか">なぜBICを使うのか</h3>
-<p>前回のラプラス近似の結果を考える</p>
-<p><span class="math display">
-\log (X; \beta) \approx \log p(X | \theta_{MAP}) + \log p(\theta_{MAP} ; \beta) + \frac t 2 \log(2 \pi) - \frac 1 2 \log |-H|
-</span> ここで，ヘッセ行列の計算量は<span class="math inline">O(t^3)</span> である．これは重い計算である． なのでもっと軽い近似がほしい．なので，ヘッセ項を更に近似したものがほしい．これがBICとなる．</p>
+<p>収束定理は統計学において重要である．特に次に紹介する大数の法則と中心極限定理は，それなくして統計学を記述することは不可能であり，主張を理解しておくことには十分価値がある．</p>
+<section id="大数の法則" class="level2">
+<h2 class="anchored" data-anchor-id="大数の法則">大数の法則</h2>
+<p>独立列<span class="math inline">\{ X_n \}</span>の第<span class="math inline">n</span>部分和を<span class="math inline">S_n = \sum_{k =1}^n X_k</span>と表す．部分和に対して，<span class="math inline">\frac{1}{n} S_n</span>は，<span class="math inline">X_1</span>から<span class="math inline">X_n</span>までの平均を表すが，これを確率分布の平均と区別するため，算術平均と呼ぶことが多い．我々は i.i.dな確率変数列の場合，部分和をとる個数<span class="math inline">n</span>をおおきくとれば，算術平均によって分布の平均を近似できることを経験的に知っている．これを数学的にきちんと述べたのが 大数の強法則である． ### 定理：大数の強法則</p>
+<p><span class="math inline">\{ X_n \}</span>をi.i.dな<span class="math inline">L^1</span> 確率変数(<span class="math inline">\forall n , \mathbb E[|X_n|] &lt; \infty</span>)の列で，その平均を<span class="math inline">m</span>とする．このとき <span class="math display">
+\text{as-lim}_{n \to \infty} \frac{1}{n} S_n = m
+</span> が成立する． この定理は，独立確率変数列が<span class="math inline">L^2</span>に属せば，同一の分布に従わない場合にも拡張できることが知られている(Kolmogorovの大数の強法則)．</p>
+<p>中心極限定理は知ってるので省略する． 一応補足しておくと，中心極限定理には２種類ありLindeberg-Lévyの中心極限定理とLindeberg-Fellerの中心極限定理がある．教科書でよく取り扱われるのはLindeberge-Lévy型である． 世間一般で「中心極限定理」と呼ばれているのは後者のLinderberg-Fellerの中心極限定理である．これは独立ではあるが必ずしも同分布ではない確率変数までも扱えるより一般的な中心極限定理である．</p>
 </section>
-<section id="bicの導出" class="level3">
-<h3 class="anchored" data-anchor-id="bicの導出">BICの導出</h3>
-<p>まず，対数尤度の式は，i.i.d.からn個の標本を得れるとして(<span class="math inline">\theta \in \mathbb R^t</span>)</p>
-<p><span class="math display">
-\log p(X | \theta) = \sum_i^n \log q(x_i | \theta)
-</span> これの二回微分がヘッセ行列なので，微分の線形性から <span class="math display">
-\nabla ^2 \log p(X | \theta) =  \sum_i^n \nabla^2\log q(x_i | \theta)
-</span></p>
-<p>ここで，</p>
-<p><span class="math display">
-Y_H(X) = \frac 1 n \sum_i^n \nabla^2\log q(x_i | \theta)
-</span> と<span class="math inline">Y_H</span>を定義すると，</p>
-<p><span class="math display">
-H = n Y_H(X)
-</span> が成立する． ここで，サンプルサイズを無限に飛ばすと，対数の法則より期待値に確率収束する．(フィッシャー情報量の逆符号)</p>
-<p><span class="math display">
-Y_H(X) \xrightarrow{p} \bar Y_H
-</span> すなわちサンプル数が十分に大きいとき次の近似が成立する．</p>
-<p><span class="math display">
-H \approx n \bar Y_H
-</span></p>
-<p>行列の多重共線性より</p>
-<p><span class="math display">
-|n (-\bar Y_H)| = n^t |-\bar Y_H |
-</span> が成立する．なので</p>
-<p><span class="math display">
-\log |-H| \approx t \log n + \log |-\bar Y_H|
-</span> ここで，nが大きいときは定数項を無視できるので</p>
-<p><span class="math display">
-\log p(X; \beta) \approx \log p(X | \theta_{MAP}) + \log p(\theta_{MAP} ; \beta) - \frac 1 2 t\log n + O(1)
-</span></p>
-<p>さらに，事前分布の影響も<span class="math inline">n</span>が大きいと小さくなる また<span class="math inline">\theta_{MAP} \approx \theta_{ML}</span>に漸近するので</p>
-<p><span class="math display">
-\log p(X; \beta) \approx \log p(X | \theta_{ML})  - \frac 1 2 t\log n
-</span> ここで，周辺尤度はその<span class="math inline">\beta</span>を与えたときにどれだけ妥当かを意味しているので，情報量基準として使える．</p>
-<p><span class="math display">
-BIC = - \log p(X | \theta_{ML})  + \frac 1 2 t\log n
-</span></p>
-<p>これがBICの定義である．</p>
-</section>
-</section>
-<section id="変分ベイズ法" class="level2">
-<h2 class="anchored" data-anchor-id="変分ベイズ法">変分ベイズ法</h2>
-<p>ラプラス近似では，事後分布が多峰性，歪んだ分布では不適合となる． もっと柔軟な近似分布を用いてKLダイバージェンスを最小化する．</p>
-<section id="jensen不等式" class="level3">
-<h3 class="anchored" data-anchor-id="jensen不等式">Jensen不等式</h3>
-<p><span class="math display">
-\log E[f] \ge E[\log f]
-</span></p>
-<p>が成立する．重要不等式である． 周辺尤度を，近似分布を用いたパラメータ<span class="math inline">\eta, \theta</span> で分解する．またJensen不等式で下限をとる．</p>
-</section>
-<section id="平均場近似" class="level3">
-<h3 class="anchored" data-anchor-id="平均場近似">平均場近似</h3>
-<p>Jensen不等式を使いたいが，この式はパラメーターが複雑に絡み合っている．だが近似として</p>
-<p><span class="math display">
-q(\eta, \theta) \approx q(\eta) q(\theta)
-</span> をする．これは平均場近似と呼ばれる近似である． これは変数の次元が増加するにつれて，それぞれの変数がもつ個別のノイズは足し合わされることで，大数の法則により打ち消される． なので周囲からの影響はほぼ一定であるとみなせるので，平均場近似は妥当な近似として作用する． <span class="math inline">\eta,\theta</span>は存在するだろうと，仮定しておいているに過ぎない．</p>
-<p><span class="math display">
-\begin{align}
-\log p(X; \beta) &amp;= \log \int \int p(X,\eta,\theta;\beta) d\eta d\theta \\
-&amp;= \log \int \int q(\eta,\theta; \beta) \frac{p(X,\eta,\theta;\beta)}{ q(\eta,\theta; \beta) } d\eta d\theta \\
-&amp;\approx\log \int \int  q(\eta) q(\theta)\frac{p(X,\eta,\theta;\beta)}{q(\eta) q(\theta)} d\eta d\theta \\
-&amp; \ge \int \int q(\eta)q(\theta) \log \frac{p(X,\eta,\theta;\beta)}{q(\eta) q(\theta)} d\eta d\theta \\
-&amp;= F(q(\eta), q(\theta))
-\end{align}
-</span> ここで<span class="math inline">F</span>をそれぞれの変数で変分して解くと，それぞれの分布が何に比例するのかがわかる． この<span class="math inline">F</span>は対数周辺尤度の下界，ELBOと呼ばれる量である． このELBOを最大化させることさせることで，対数周辺尤度を最大化させることができる． ELBOは計算可能である．なぜなら積分の中身はすべて計算可能（事前に形を設定している）であるためである． このELBOを最大化させるには<span class="math inline">q(\theta),q(\eta)</span>を動かす必要がある． これらを動かしてELBOを最大化させる手法をVB-EMアルゴリズムという． 今日は時間が無いので次回VB-EMアルゴリズムを説明する．</p>
-</section>
-</section>
-<section id="まとめ" class="level2">
-<h2 class="anchored" data-anchor-id="まとめ">まとめ</h2>
-<ul>
-<li>ヘッシアンを求めることは時間がかかるので，さらに近似してBICでモデルパラメータを決定する</li>
-<li>ラプラス近似は不適合な場合が多いので，より柔軟な分布を用いてELBOを最大化させる方法を採用する手法をとる．</li>
-</ul>
+<section id="poissonの少数法則" class="level2">
+<h2 class="anchored" data-anchor-id="poissonの少数法則">Poissonの少数法則</h2>
+<p>次に，<span class="math inline">\{ X_n \}</span> を０または１の値をとる独立確率変数列とし，1をとる確率が非常に小さいものとする．このとき，多数の<span class="math inline">X_n</span>の集まりの中で1をとった個数を非負整数値確率変数とみなすとき，この集まりの個数が十分に大きくなれば個数の分布がPoisson分布で近似されるというのがPoissonの少数法則である．</p>
 
 
 </section>
@@ -877,18 +795,6 @@ q(\eta, \theta) \approx q(\eta) q(\theta)
     }
   });
   </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../../Published/bayesian_inference/2.html" class="pagination-link" aria-label="ベイズ推定におけるモデル選択">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">ベイズ推定におけるモデル選択</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../../Published/bayesian_inference/4.html" class="pagination-link" aria-label="VB-EMアルゴリズム">
-        <span class="nav-page-text">VB-EMアルゴリズム</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 
 

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>ベイズ推定におけるモデル選択（続き） – Zawaの勉強記録</title>
+<title>多様体のアファイン接続(1) – Zawaの勉強記録</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -36,8 +36,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../Published/bayesian_inference/4.html" rel="next">
-<link href="../../Published/bayesian_inference/2.html" rel="prev">
+<link href="../../Published/information_geometry/5.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -166,7 +165,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/bayesian_inference/1.html">ベイズ推論</a></li><li class="breadcrumb-item"><a href="../../Published/bayesian_inference/3.html">ベイズ推定におけるモデル選択（続き）</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/information_geometry/1.html">情報幾何学</a></li><li class="breadcrumb-item"><a href="../../Published/information_geometry/6.html">多様体のアファイン接続(1)</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -257,7 +256,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Published/bayesian_inference/3.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../Published/bayesian_inference/3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ベイズ推定におけるモデル選択（続き）</span></a>
   </div>
 </li>
@@ -333,7 +332,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Published/information_geometry/6.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/information_geometry/6.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">多様体のアファイン接続(1)</span></a>
   </div>
 </li>
@@ -353,26 +352,25 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#bic" id="toc-bic" class="nav-link active" data-scroll-target="#bic">BIC</a>
+  <li><a href="#ベクトル場の共変微分" id="toc-ベクトル場の共変微分" class="nav-link active" data-scroll-target="#ベクトル場の共変微分">ベクトル場の共変微分</a>
   <ul class="collapse">
-  <li><a href="#なぜbicを使うのか" id="toc-なぜbicを使うのか" class="nav-link" data-scroll-target="#なぜbicを使うのか">なぜBICを使うのか</a></li>
-  <li><a href="#bicの導出" id="toc-bicの導出" class="nav-link" data-scroll-target="#bicの導出">BICの導出</a></li>
+  <li><a href="#定義" id="toc-定義" class="nav-link" data-scroll-target="#定義">定義</a></li>
   </ul></li>
-  <li><a href="#変分ベイズ法" id="toc-変分ベイズ法" class="nav-link" data-scroll-target="#変分ベイズ法">変分ベイズ法</a>
+  <li><a href="#アファイン接続" id="toc-アファイン接続" class="nav-link" data-scroll-target="#アファイン接続">アファイン接続</a>
   <ul class="collapse">
-  <li><a href="#jensen不等式" id="toc-jensen不等式" class="nav-link" data-scroll-target="#jensen不等式">Jensen不等式</a></li>
-  <li><a href="#平均場近似" id="toc-平均場近似" class="nav-link" data-scroll-target="#平均場近似">平均場近似</a></li>
+  <li><a href="#定義-1" id="toc-定義-1" class="nav-link" data-scroll-target="#定義-1">定義</a></li>
+  <li><a href="#平行" id="toc-平行" class="nav-link" data-scroll-target="#平行">平行</a></li>
+  <li><a href="#平行移動" id="toc-平行移動" class="nav-link" data-scroll-target="#平行移動">平行移動</a></li>
   </ul></li>
-  <li><a href="#まとめ" id="toc-まとめ" class="nav-link" data-scroll-target="#まとめ">まとめ</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/bayesian_inference/1.html">ベイズ推論</a></li><li class="breadcrumb-item"><a href="../../Published/bayesian_inference/3.html">ベイズ推定におけるモデル選択（続き）</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/information_geometry/1.html">情報幾何学</a></li><li class="breadcrumb-item"><a href="../../Published/information_geometry/6.html">多様体のアファイン接続(1)</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">ベイズ推定におけるモデル選択（続き）</h1>
+<h1 class="title">多様体のアファイン接続(1)</h1>
 </div>
 
 
@@ -389,91 +387,101 @@ window.Quarto = {
 </header>
 
 
-<section id="bic" class="level2">
-<h2 class="anchored" data-anchor-id="bic">BIC</h2>
-<section id="なぜbicを使うのか" class="level3">
-<h3 class="anchored" data-anchor-id="なぜbicを使うのか">なぜBICを使うのか</h3>
-<p>前回のラプラス近似の結果を考える</p>
+<p>はじめにベクトル場の共変微分を公理的に定義し，そこから平行移動とは何かを調べてこうと思う．</p>
+<section id="ベクトル場の共変微分" class="level2">
+<h2 class="anchored" data-anchor-id="ベクトル場の共変微分">ベクトル場の共変微分</h2>
+<p>多様体<span class="math inline">M</span>上の共変微分を次で定義する．</p>
+<section id="定義" class="level3">
+<h3 class="anchored" data-anchor-id="定義">定義</h3>
+<p>以下の４条件を満たす写像 <span class="math display">
+\nabla : \mathcal X(M) \times \mathcal X(M) \to \mathcal X(M) : (X,Y) \mapsto \nabla_X Y
+</span> を<span class="math inline">M</span>の<strong>共変微分</strong>という，任意の<span class="math inline">X,Y,Z \in \mathcal X(M)</span>と任意の<span class="math inline">f \in C^{\infty} (M)</span>に対し <span class="math display">
+\text{i}) \quad \nabla_X(Y + Z) =  \nabla_X Y + \nabla_X Z
+</span> <span class="math display">
+\text{ii}) \quad \nabla_X(fY ) =  (Xf)Y + f \nabla_X Y
+</span> <span class="math display">
+\text{iii}) \quad \nabla_{X+Y}(Z) =  \nabla_{X} Z + \nabla_Y Z
+</span> <span class="math display">
+\text{iv}) \quad \nabla_{fX}(Y) = f \nabla_X Y
+</span> この性質を満たす写像はいくらでもあるのだが，そのうちのどれを共変微分として採用するかは各人の自由である，という一般的な立場を取ることにする．条件iiはLeibniz則であり，まさにこの要請のため <span class="math display">
+F(X,Y) : = \nabla_X Y
+</span> はテンソル性を満たさない．示してみよう． まずテンソル性を満たすとは <span class="math display">
+\text{i)} \quad F(fX , Y) = fF(X,Y)
+</span> <span class="math display">
+\text{ii)} \quad F(X , fY) = fF(X,Y)
+</span> を満たすことである． i)に関しては， <span class="math display">
+F(fX, Y) = \nabla_{fX}(Y) = f \nabla_X Y
+</span> を満たすので良い．だがii)に関しては $$</p>
+<p>_X(fY ) = (Xf)Y + f _X Y fF(X, Y)</p>
+<p>$$ なので成立しない． つまり共変微分は<span class="math inline">(1,2)</span>型テンソル場ではない．(前回参照) だが，共変微分を２つ与えてそれの差をとる，これはテンソル性を満たすことが分かる．実際に計算しよう．</p>
 <p><span class="math display">
-\log (X; \beta) \approx \log p(X | \theta_{MAP}) + \log p(\theta_{MAP} ; \beta) + \frac t 2 \log(2 \pi) - \frac 1 2 \log |-H|
-</span> ここで，ヘッセ行列の計算量は<span class="math inline">O(t^3)</span> である．これは重い計算である． なのでもっと軽い近似がほしい．なので，ヘッセ項を更に近似したものがほしい．これがBICとなる．</p>
-</section>
-<section id="bicの導出" class="level3">
-<h3 class="anchored" data-anchor-id="bicの導出">BICの導出</h3>
-<p>まず，対数尤度の式は，i.i.d.からn個の標本を得れるとして(<span class="math inline">\theta \in \mathbb R^t</span>)</p>
-<p><span class="math display">
-\log p(X | \theta) = \sum_i^n \log q(x_i | \theta)
-</span> これの二回微分がヘッセ行列なので，微分の線形性から <span class="math display">
-\nabla ^2 \log p(X | \theta) =  \sum_i^n \nabla^2\log q(x_i | \theta)
-</span></p>
-<p>ここで，</p>
-<p><span class="math display">
-Y_H(X) = \frac 1 n \sum_i^n \nabla^2\log q(x_i | \theta)
-</span> と<span class="math inline">Y_H</span>を定義すると，</p>
-<p><span class="math display">
-H = n Y_H(X)
-</span> が成立する． ここで，サンプルサイズを無限に飛ばすと，対数の法則より期待値に確率収束する．(フィッシャー情報量の逆符号)</p>
-<p><span class="math display">
-Y_H(X) \xrightarrow{p} \bar Y_H
-</span> すなわちサンプル数が十分に大きいとき次の近似が成立する．</p>
-<p><span class="math display">
-H \approx n \bar Y_H
-</span></p>
-<p>行列の多重共線性より</p>
-<p><span class="math display">
-|n (-\bar Y_H)| = n^t |-\bar Y_H |
-</span> が成立する．なので</p>
-<p><span class="math display">
-\log |-H| \approx t \log n + \log |-\bar Y_H|
-</span> ここで，nが大きいときは定数項を無視できるので</p>
-<p><span class="math display">
-\log p(X; \beta) \approx \log p(X | \theta_{MAP}) + \log p(\theta_{MAP} ; \beta) - \frac 1 2 t\log n + O(1)
-</span></p>
-<p>さらに，事前分布の影響も<span class="math inline">n</span>が大きいと小さくなる また<span class="math inline">\theta_{MAP} \approx \theta_{ML}</span>に漸近するので</p>
-<p><span class="math display">
-\log p(X; \beta) \approx \log p(X | \theta_{ML})  - \frac 1 2 t\log n
-</span> ここで，周辺尤度はその<span class="math inline">\beta</span>を与えたときにどれだけ妥当かを意味しているので，情報量基準として使える．</p>
-<p><span class="math display">
-BIC = - \log p(X | \theta_{ML})  + \frac 1 2 t\log n
-</span></p>
-<p>これがBICの定義である．</p>
-</section>
-</section>
-<section id="変分ベイズ法" class="level2">
-<h2 class="anchored" data-anchor-id="変分ベイズ法">変分ベイズ法</h2>
-<p>ラプラス近似では，事後分布が多峰性，歪んだ分布では不適合となる． もっと柔軟な近似分布を用いてKLダイバージェンスを最小化する．</p>
-<section id="jensen不等式" class="level3">
-<h3 class="anchored" data-anchor-id="jensen不等式">Jensen不等式</h3>
-<p><span class="math display">
-\log E[f] \ge E[\log f]
-</span></p>
-<p>が成立する．重要不等式である． 周辺尤度を，近似分布を用いたパラメータ<span class="math inline">\eta, \theta</span> で分解する．またJensen不等式で下限をとる．</p>
-</section>
-<section id="平均場近似" class="level3">
-<h3 class="anchored" data-anchor-id="平均場近似">平均場近似</h3>
-<p>Jensen不等式を使いたいが，この式はパラメーターが複雑に絡み合っている．だが近似として</p>
-<p><span class="math display">
-q(\eta, \theta) \approx q(\eta) q(\theta)
-</span> をする．これは平均場近似と呼ばれる近似である． これは変数の次元が増加するにつれて，それぞれの変数がもつ個別のノイズは足し合わされることで，大数の法則により打ち消される． なので周囲からの影響はほぼ一定であるとみなせるので，平均場近似は妥当な近似として作用する． <span class="math inline">\eta,\theta</span>は存在するだろうと，仮定しておいているに過ぎない．</p>
-<p><span class="math display">
+S(X,Y) := \nabla_XY - \nabla'_XY
+</span> 任意の<span class="math inline">f,g \in C^{\infty}(M)</span>に対して <span class="math display">
 \begin{align}
-\log p(X; \beta) &amp;= \log \int \int p(X,\eta,\theta;\beta) d\eta d\theta \\
-&amp;= \log \int \int q(\eta,\theta; \beta) \frac{p(X,\eta,\theta;\beta)}{ q(\eta,\theta; \beta) } d\eta d\theta \\
-&amp;\approx\log \int \int  q(\eta) q(\theta)\frac{p(X,\eta,\theta;\beta)}{q(\eta) q(\theta)} d\eta d\theta \\
-&amp; \ge \int \int q(\eta)q(\theta) \log \frac{p(X,\eta,\theta;\beta)}{q(\eta) q(\theta)} d\eta d\theta \\
-&amp;= F(q(\eta), q(\theta))
+S(fX, gY) &amp;= \nabla_{fX}(gY) - \nabla'_{fX} (gY) \\
+        &amp;= f \nabla_{X}(gY) -f\nabla'_X(gY) \\
+        &amp;= f \{ (Xg)Y + g\nabla_X Y \} -  f \{ (Xg)Y + g\nabla'_X Y \} \\
+        &amp;= fg S(X,Y)
 \end{align}
-</span> ここで<span class="math inline">F</span>をそれぞれの変数で変分して解くと，それぞれの分布が何に比例するのかがわかる． この<span class="math inline">F</span>は対数周辺尤度の下界，ELBOと呼ばれる量である． このELBOを最大化させることさせることで，対数周辺尤度を最大化させることができる． ELBOは計算可能である．なぜなら積分の中身はすべて計算可能（事前に形を設定している）であるためである． このELBOを最大化させるには<span class="math inline">q(\theta),q(\eta)</span>を動かす必要がある． これらを動かしてELBOを最大化させる手法をVB-EMアルゴリズムという． 今日は時間が無いので次回VB-EMアルゴリズムを説明する．</p>
+</span> となるので，<span class="math inline">S</span>は<span class="math inline">(1,2)</span>型テンソル場である．このことからなにか標準的な共変微分<span class="math inline">\nabla ^ {(0)}</span>を<span class="math inline">M</span>上に固定したなら，<span class="math inline">M</span>上の共変微分全体と<span class="math inline">M</span>上の<span class="math inline">(1,2)</span>型テンソル場とかが，1対1に対応することになる． 次に，共変微分の局所座標表示について考えてみる．座標近傍を一つ固定するとき <span class="math display">
+\nabla_{\partial_i} \partial_j =: \Gamma^{k}_{ij} \partial_k
+</span> で定まる<span class="math inline">n^3</span>個の<span class="math inline">C^\infty</span>級関数の組<span class="math inline">\{ \Gamma^k_{ij} \}</span>を局所座標系に関する接続係数と呼ぶ．２つの接続係数の変換式は(計算は面倒なので省略するが) <span class="math display">
+\Gamma^k_{ij} = \frac{\partial \xi^a}{\partial x^i}  \frac{\partial \xi^b}{\partial x^j}  \frac{\partial x^k}{\partial \xi^c} \Gamma^c_{ab} + \frac{\partial^2 \xi^c}{\partial x^i \partial x^j} \frac{\partial x^k}{\partial \xi^c}
+</span> となる． ここで共変微分がテンソル場ではないことはすでに述べているが，座標変換則を介してこの事実を確認していく． 一般に，座標変換<span class="math inline">(x^i) \to (\xi^a)</span>に伴い，一次微分形式やベクトル場は <span class="math display">
+dx^i = \frac{\partial x^i}{\partial \xi^a} d \xi^a , \qquad \frac{\partial}{\partial x^i} = \frac{\partial \xi^a}{\partial x^i} \frac{\partial }{\partial \xi^a}
+</span> と変換されるので，もし<span class="math inline">F</span>が<span class="math inline">(r,s)</span>型テンソルであったなら，テンソル性から $$ F^{i_1 , … ,i_r}_{j_1 , … , j_s} =</p>
+<p>( ) ( )</p>
+<p>( ) ( )F^{a_1 , … ,a_r}_{b_1 , … , b_s} $$ という座標変換則をみたすことになる．だが接続係数の座標変換はこれを満たさない(第二項が存在するためである)． こうして共変微分がテンソル場でないという事実が，共変微分の成分表示のレベルでも確認できた．</p>
 </section>
 </section>
-<section id="まとめ" class="level2">
-<h2 class="anchored" data-anchor-id="まとめ">まとめ</h2>
-<ul>
-<li>ヘッシアンを求めることは時間がかかるので，さらに近似してBICでモデルパラメータを決定する</li>
-<li>ラプラス近似は不適合な場合が多いので，より柔軟な分布を用いてELBOを最大化させる方法を採用する手法をとる．</li>
-</ul>
+<section id="アファイン接続" class="level2">
+<h2 class="anchored" data-anchor-id="アファイン接続">アファイン接続</h2>
+<section id="定義-1" class="level3">
+<h3 class="anchored" data-anchor-id="定義-1">定義</h3>
+<p>多様体<span class="math inline">M</span>の各座標近傍に，座標変換則を満たす<span class="math inline">C^\infty</span>級関数の組<span class="math inline">\{ \Gamma^k_{ij} \}</span>を与えることを，<span class="math inline">M</span>にアファイン接続を与えるという．</p>
+<p>共変微分とアファイン接続は同一の概念である． 次に平行移動を定義したいのだが，Euclid平面のようにいきなり遠く離れた荷点での接ベクトルを対応付けるのではなく曲線に沿って少しづつ平行移動させるという方針を取る．離れた二点の間で接ベクトルを平行移動すると，一般にその結果はその二点を結ぶ経路に依存してしまうからである．</p>
+<p>そこで，多様体<span class="math inline">M</span>上に，平行移動の経路を与える滑らかな曲線<span class="math inline">C = \{ p(t) \}</span>を任意に用意する．<span class="math inline">M</span> の座標近傍においてこの曲線を<span class="math inline">p(t) = (x^1(t) , ... ,x^n(t))</span>と局所座標表示すると，点<span class="math inline">t = t_0</span>における曲線<span class="math inline">C</span>の速度ベクトル<span class="math inline">\dot p(t_0)</span>は <span class="math display">
+\frac{d}{dt} f(x^1 , ..., x^n) = \frac{dx^i}{dt} \frac{\partial f}{\partial x^i} \to \frac{dx^i}{dt}(t_0) \left(  \frac{\partial}{\partial x^i}  \right)_{(p(t_0))}
+</span> で与えられる． これを<span class="math inline">\left( \frac{d}{dt} \right)_{t_0}</span>と表記することもある．さらに <span class="math display">
+\frac{d}{dt}
+</span> と書いた場合は，曲線<span class="math inline">C</span>の速度ベクトルからなる曲線<span class="math inline">C</span>に沿って定義されたベクトル場を表すものとする．</p>
+</section>
+<section id="平行" class="level3">
+<h3 class="anchored" data-anchor-id="平行">平行</h3>
+<section id="定義-2" class="level4">
+<h4 class="anchored" data-anchor-id="定義-2">定義</h4>
+<p>多様体<span class="math inline">M</span>にアファイン接続<span class="math inline">\nabla</span> が与えられているとする．<span class="math inline">M</span>上の滑らかな曲線 <span class="math display">
+C = \{ p(t) ; a \le t \le b \}
+</span> に沿って定義されたベクトル場<span class="math inline">Z = \{ Z_{p(t)} \}</span>が， <span class="math display">
+\nabla_{\dot p(t)} Z = 0
+</span> を満たすとき，<span class="math inline">Z</span> は接続に関して<span class="math inline">C</span>に沿って平行であるという．</p>
+<p>このままだと意味がわからないので，局所座標表記をしてみる． <span class="math display">
+Z_{\dot p(t)} = Z^i (t) \left(  \frac{\partial}{\partial x^i}  \right)_{p(t)}
+</span> と成分表示すると $$ <span class="math display">\begin{align}
+\nabla_{\frac{d}{dt}}Z &amp;= \nabla_{\dot x \frac{\partial}{\partial x^i}} \left(  Z^j \frac{\partial}{\partial x^j}  \right) \\
+&amp;=\dot x^i \left(\frac{\partial Z^j}{\partial x^i} \frac{\partial}{\partial x^j} + Z^j \nabla_{\frac{\partial}{\partial x^i}}\frac{\partial}{\partial x^j}  \right) \\
+&amp;= \left( \dot Z^k + \dot x^i Z^j \Gamma^k_{ij} \right)
+\frac{\partial}{\partial x^k}
+\end{align}</span></p>
+<p><span class="math display">
+となるので，すべての$t$について
+</span> Z^k + x^i Z^j ^k_{ij} = 0 $$ が成立することが同値である． <img src="Zawa25721_documents/Published/information_geometry/3613.jpg" class="img-fluid"> #### 測地線方程式</p>
+<p>ここで<span class="math inline">Z = \dot p</span>のとき <span class="math display">
+\ddot x^k + \dot x^i \dot x^j \Gamma^k_{ij}  = 0
+</span> となるが，これを満たすような曲線を測地線という．</p>
+</section>
+</section>
+<section id="平行移動" class="level3">
+<h3 class="anchored" data-anchor-id="平行移動">平行移動</h3>
+<p><span class="math inline">M</span>上の滑らかな曲線<span class="math inline">C</span>と<span class="math inline">v \in T_{p(a)}M</span>が任意に与えられたとき， <span class="math display">
+\dot Z^k + \dot x^i Z^j \Gamma^k_{ij}  = 0
+</span> の解として求まるベクトル場<span class="math inline">Z</span> の<span class="math inline">t = b</span>での値<span class="math inline">Z_{p(b)} \in T_{p(b)}M</span>を<span class="math inline">C</span>に沿って <span class="math inline">v</span>を<span class="math inline">p(a)</span>から<span class="math inline">p(b)</span>まで平行移動して得られる接ベクトルという． 平行移動は，２つの接空間<span class="math inline">T_{p(a)}M</span>と<span class="math inline">T_{p(b)}M</span>の間の対応関係 <span class="math display">
+\Pi_C : T_{p(a)}M \to T_{p(b)}M
+</span> を定める．これを<span class="math inline">C</span>に沿った接空間の平行移動という． 定理として，平行移動は全単射な線型写像というものがある．</p>
+<p>これは上の方程式が線型方程式であることからの帰結である．</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -879,14 +887,11 @@ q(\eta, \theta) \approx q(\eta) q(\theta)
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../Published/bayesian_inference/2.html" class="pagination-link" aria-label="ベイズ推定におけるモデル選択">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">ベイズ推定におけるモデル選択</span>
+      <a href="../../Published/information_geometry/5.html" class="pagination-link" aria-label="テンソル場">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">テンソル場</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../Published/bayesian_inference/4.html" class="pagination-link" aria-label="VB-EMアルゴリズム">
-        <span class="nav-page-text">VB-EMアルゴリズム</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
