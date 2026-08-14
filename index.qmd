@@ -13,6 +13,3 @@ title: "Zawaの勉強記録"
 
 ## 公開済みコンテンツ
 {{< include _generated/_published_dirs.qmd >}}
-
-## 執筆中コンテンツ
-{{< include _generated/_in_progress.qmd >}}

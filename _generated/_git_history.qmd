@@ -1,10 +1,10 @@
+- 2026-08-10: add 2 and 3
+- 2026-07-26: add 4
+- 2026-07-24: 久しぶりに更新した．これからはなるべく毎日更新したい
+- 2026-06-27: add pic and 3
+- 2026-06-27: add pic
+- 2026-06-27: add PR
+- 2026-06-24: add English
 - 2026-06-24: Revert Math directory restructuring
 - 2026-06-24: Sync local state: restructuring Published directories to Math and adding English News
 - 2026-06-23: add InProgress
-- 2026-06-23: Add News section and update pre-render script to ignore venv
-- 2026-06-23: edit 2
-- 2026-06-23: IG 2
-- 2026-06-21: add 2
-- 2026-06-21: Auto-convert Obsidian image links to standard markdown links and fix broken images
-- 2026-06-21: Fix YAML front-matter title format in 4.md
-- 2026-06-21: add title

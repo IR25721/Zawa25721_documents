@@ -2,7 +2,23 @@
 
 ::: {.g-col-12 .g-col-md-4}
 
-### EnglishStudy (記事なし)
+### [CalculusOfVariations](Published/CalculusOfVariations/1.md)
+
+:::
+
+
+
+::: {.g-col-12 .g-col-md-4}
+
+### [PR](Published/PR/1.md)
+
+:::
+
+
+
+::: {.g-col-12 .g-col-md-4}
+
+### [StochasticDifferentialEquations](Published/StochasticDifferentialEquations/1.md)
 
 :::
 
@@ -34,7 +50,15 @@
 
 ::: {.g-col-12 .g-col-md-4}
 
-### <img src='Published/optimization_math/optimization_math.jpg' width='40' style='vertical-align: middle; border-radius: 50%; margin-right: 8px;'/>最適化数学 (記事なし)
+### 機械学習理論 (記事なし)
+
+:::
+
+
+
+::: {.g-col-12 .g-col-md-4}
+
+### [<img src='Published/optimization_math/optimization_math.jpg' width='40' style='vertical-align: middle; border-radius: 50%; margin-right: 8px;'/>最適化数学](Published/optimization_math/1.md)
 
 :::
 

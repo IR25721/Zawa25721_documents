@@ -65,31 +65,6 @@ def convert_obsidian_image_links():
                     with open(filepath, "w", encoding="utf-8") as file:
                         file.write(new_content)
 
-def generate_in_progress():
-    in_progress_dir = "InProgress"
-    lines = []
-    if os.path.exists(in_progress_dir):
-        for root, dirs, files in os.walk(in_progress_dir):
-            dirs[:] = [d for d in dirs if not d.startswith('.') and d not in ['venv', '_site', '_generated', '__pycache__']]
-            dirs.sort()
-            for f in sorted(files):
-                if f.endswith('.md'):
-                    filepath = os.path.join(root, f)
-                    title = get_md_title(filepath, f"({f} タイトル未設定)")
-                    
-                    rel_dir = os.path.relpath(root, in_progress_dir)
-                    if rel_dir == ".":
-                        lines.append(f"- {title}")
-                    else:
-                        display_dir = get_display_name(rel_dir)
-                        lines.append(f"- 【{display_dir}】 {title}")
-    
-    with open("_generated/_in_progress.qmd", "w", encoding="utf-8") as f:
-        if lines:
-            f.write("\n".join(lines))
-        else:
-            f.write("現在執筆中のコンテンツはありません。")
-
 def generate_published():
     published_dir = "Published"
     lines = ["::: {.grid}"]
@@ -235,7 +210,6 @@ def generate_news():
 if __name__ == "__main__":
     os.makedirs("_generated", exist_ok=True)
     convert_obsidian_image_links()
-    generate_in_progress()
     generate_published()
     generate_git_history()
     generate_news()
