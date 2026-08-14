@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>誤差評価に基づく学習 – Zawaの勉強記録</title>
+<title>最適化の基礎 – Zawaの勉強記録</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -36,6 +36,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../../Published/information_geometry/6.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -74,49 +75,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
-  <script>document.addEventListener("DOMContentLoaded", function () {
- var mathElements = document.getElementsByClassName("math");
- var macros = [];
- for (var i = 0; i < mathElements.length; i++) {
-  var texText = mathElements[i].firstChild;
-  if (mathElements[i].tagName == "SPAN") {
-   katex.render(texText.data, mathElements[i], {
-    displayMode: mathElements[i].classList.contains('display'),
-    throwOnError: false,
-    macros: macros,
-    fleqn: false
-   });
-}}});
-  </script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -164,7 +122,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">誤差評価に基づく学習</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/optimization_math/1.html">最適化数学</a></li><li class="breadcrumb-item"><a href="../../Published/optimization_math/1.html">最適化の基礎</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -197,21 +155,35 @@ window.Quarto = {
  <span class="menu-text">古典力学における変分</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/CalculusOfVariations/3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">静物についての変分法</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/CalculusOfVariations/4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">流体の作用</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/CalculusOfVariations/5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">機械学習における変分法</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">EnglishStudy</span></span>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">PR</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Published/PR/1.html" class="sidebar-item-text sidebar-link">
@@ -228,6 +200,53 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../../Published/PR/3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">誤差評価に基づく学習</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/PR/4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">識別部の設計</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/PR/5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">特徴の評価とベイズ誤り確率</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">StochasticDifferentialEquations</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/StochasticDifferentialEquations/1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">確率論の概要(1)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/StochasticDifferentialEquations/2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">確率論の概要(2)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/StochasticDifferentialEquations/3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">確率論の概要(3)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/StochasticDifferentialEquations/4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">確率論の概要(4)</span></a>
   </div>
 </li>
       </ul>
@@ -288,6 +307,12 @@ window.Quarto = {
  <span class="menu-text">ボルツマンの原理</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/equilibrium_stat_mech/3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">カノニカルアンサンブル</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -339,37 +364,39 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">最適化数学</span></span>
+ <span class="menu-text">機械学習理論</span></span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">最適化数学</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/optimization_math/1.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">最適化の基礎</span></a>
+  </div>
+</li>
+      </ul>
   </li>
     </ul>
     </div>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#二乗誤差最小化学習" id="toc-二乗誤差最小化学習" class="nav-link active" data-scroll-target="#二乗誤差最小化学習">二乗誤差最小化学習</a>
-  <ul class="collapse">
-  <li><a href="#最急降下法" id="toc-最急降下法" class="nav-link" data-scroll-target="#最急降下法">最急降下法</a></li>
-  <li><a href="#オンライン学習とバッチ学習" id="toc-オンライン学習とバッチ学習" class="nav-link" data-scroll-target="#オンライン学習とバッチ学習">オンライン学習とバッチ学習</a></li>
-  </ul></li>
-  <li><a href="#widrow-hoff-の学習規則" id="toc-widrow-hoff-の学習規則" class="nav-link" data-scroll-target="#widrow-hoff-の学習規則">Widrow-Hoff の学習規則</a></li>
-  <li><a href="#誤差評価とパーセプトロン" id="toc-誤差評価とパーセプトロン" class="nav-link" data-scroll-target="#誤差評価とパーセプトロン">誤差評価とパーセプトロン</a>
-  <ul class="collapse">
-  <li><a href="#おわりに" id="toc-おわりに" class="nav-link" data-scroll-target="#おわりに">おわりに</a></li>
-  </ul></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/optimization_math/1.html">最適化数学</a></li><li class="breadcrumb-item"><a href="../../Published/optimization_math/1.html">最適化の基礎</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">誤差評価に基づく学習</h1>
+<h1 class="title">最適化の基礎</h1>
 </div>
 
 
@@ -386,102 +413,8 @@ window.Quarto = {
 </header>
 
 
-<section id="二乗誤差最小化学習" class="level2">
-<h2 class="anchored" data-anchor-id="二乗誤差最小化学習">二乗誤差最小化学習</h2>
-<p>前回で解説したパーセプトロンの学習規則の欠点は線形分離可能であること，すなわち誤識別を０にする線形識別関数が存在するkとを前提としなければならない点にある．線形分離不可能な学習パターンに対しては誤り訂正の手続きを無限に繰り返し，解に到達できない． そこで線形分離不可能な場合にも適応できる一般的な学習アルゴリズムをこれから学んでいく．この基本的な枠組みは評価関数を定義し，それを最小化するという考えに基づいている．極めて重要な事実として以下で述べる学習アルゴリズムはいずれもベイズ決定則と密接に関係していることを書いておく．</p>
-<p>学習パターンが<span class="math inline">n</span>個のパターン<span class="math inline">x_1 ,..., x_n</span>からなるとする．今，<span class="math inline">p</span>番目のパターン<span class="math inline">x_p</span>を入力したときの<span class="math inline">i</span>番目の識別関数の望ましい出力を<span class="math inline">b_{ip}</span>として定めておく．この<span class="math inline">b_{ip}</span>を教師信号と呼ぶ．さらに<span class="math inline">c</span>個の識別関数の出力値をベクトル<span class="math inline">(g_1(x_p), g_2(x_p) ,..., g_c(x_p))^T</span>で表すと<span class="math inline">(b_{1p},b_{2p} ,..., b_{cp})^T</span>と表される．このベクトルで表された教師信号を教師ベクトルと呼ぶ．</p>
-<p>識別関数の性質から， <span class="math display">
-b_{ip} &gt; b_{jp} , (j \ne i , x_p \in \omega_i)
-</span> となるように設定されなければならない．（値が大きいほうが採用されるので．） クラス<span class="math inline">\omega_i</span>に属するすべてのパターンに対して同一の教師ベクトル<span class="math inline">t_i = (b_1 ,..., b_i , ... , b_c)</span>を割り当てることにすれば，教師ベクトルとしては，<span class="math inline">c</span>個を用意すればよい．このベクトルにはワンホットベクトルなどがあげられる．</p>
-<p>入力パターン<span class="math inline">x_p</span>に対する実際の出力と教師信号との誤差<span class="math inline">\epsilon_{ip}</span>は <span class="math display">
-\epsilon_{ip} = g_i(x_p) - b_{ip}
-</span> であり，この二乗和を評価関数<span class="math inline">J_p</span>として定義する． <span class="math inline">\sum_{p=1}^n J_{p}</span>を最小化する手法を二乗誤差最小学習という．</p>
-<p>これの解は，<span class="math inline">X = (x_1 , x_2 , ... ,x_n)^T , b_i = (b_{i1} , ... , b_{in})^T</span>を用いると <span class="math display">
-w_i = (X^TX)^{-1} X^T b_i
-</span> となる．これは厳密解だが，<span class="math inline">X^{T}X</span>が正則でない場合には適応できず，また特徴量数<span class="math inline">d</span>(<span class="math inline">x</span>の次元数)が大きい場合には計算量が膨大になるので，実用的ではない． そこで代わりの手法として，逐次近似によって重みを決定する方法について述べる．この種の方法で最もよく用いられるのは最急降下法である．</p>
-<section id="最急降下法" class="level3">
-<h3 class="anchored" data-anchor-id="最急降下法">最急降下法</h3>
-<p>最急降下法とは重みを <span class="math display">
-w^{(k+1)} = w^{(k)} - \eta \nabla J(w^{(k)}))
-</span> と更新することだが，これがなぜうまくいくのかを説明する． <span class="math inline">J(w^{(k+1)}) &lt; J(w^{(k)})</span>であることを示せば良い． <span class="math inline">J(w  + \Delta w)</span>を一次テイラー近似すると <span class="math display">
-J(w + \Delta w) \approx J(w) + \nabla J(w)^T \Delta w
-</span> であるが，<span class="math inline">\Delta w = - \eta \nabla J(w)</span>を代入すると <span class="math display">
-J(w - \eta \nabla J(w)) \approx J(w) - |\nabla J(w)|^2
-</span> となる．このとき<span class="math inline">\eta |\nabla J(w)|^2</span>は<span class="math inline">\eta &gt; 0</span> のとき必ず正になるので 適切な学習率をやれば必ず損失関数は減ることがわかる．</p>
-</section>
-<section id="オンライン学習とバッチ学習" class="level3">
-<h3 class="anchored" data-anchor-id="オンライン学習とバッチ学習">オンライン学習とバッチ学習</h3>
-<p><span class="math display">
-w_i^{(k+1)} = w_i^{(k)} - \frac 1 n\sum_j ^n \eta \nabla J_j(w_i^{(k)}))
-</span> と一括で更新する手法がバッチ学習である． これに対して <span class="math display">
-w_i^{(k+1)} = w_i^{(k)} - \eta \nabla J_p(w_i^{(k)}))
-</span> とパターンが示されるたびに更新することも可能である．この場合オンライン学習と呼ばれる．</p>
-<p>中間的な手法としてミニバッチ学習がある．</p>
-</section>
-</section>
-<section id="widrow-hoff-の学習規則" class="level2">
-<h2 class="anchored" data-anchor-id="widrow-hoff-の学習規則">Widrow-Hoff の学習規則</h2>
-<p><span class="math inline">J</span>を具体的な形として示し，それをこの最急降下法に代入したものを Widrow-Hoffの学習規則という．</p>
-<p>具体的には <span class="math display">
-w_i \leftarrow w - \eta \frac 1 n \sum_j^n (w_i^T x_j - b_{ij})x_j
-</span> が更新法則である．</p>
-</section>
-<section id="誤差評価とパーセプトロン" class="level2">
-<h2 class="anchored" data-anchor-id="誤差評価とパーセプトロン">誤差評価とパーセプトロン</h2>
-<p>Widrow-Hoffの学習規則とパーセプトロンを比較してみよう． まず，重みの修正は誤差 <span class="math inline">\epsilon_{ip} = g_i(x_p) - b_{ip}</span> に比例して行われる（最急降下法に基づく更新式は <span class="math inline">w_i \leftarrow w_i - \eta \epsilon_{ip} x_p</span> となる）．ここで，しきい値関数 <span class="math inline">T</span> による処理を <span class="math inline">g_i(x_p)</span> に施すと，<span class="math inline">g_i(x_p)</span> の出力は1または0の2値となる．この線形加重和としきい値処理という単位はしきい値論理ユニットと呼ばれ，パーセプトロンを始めとする学習機能を持つ多層ネットワークの基本的構成要素と考えられる．</p>
-<p><span class="math display">
-\begin{equation}
-  \left\{
-  \begin{alignedat}{2}   
-    w_i^T x &gt; 0  , (x \in \omega_i)\\
-    w_i^T x &lt; 0 , (x \notin \omega_i)
-  \end{alignedat}
-  \right.
-\end{equation}
-</span></p>
-<p>となるように重みベクトルを設定すれば，しきい値処理後の出力は</p>
-<p><span class="math display">
-\begin{equation}
-  \left\{
-  \begin{alignedat}{2}   
-    g_i(x) = 1  , (x \in \omega_i)\\
-    g_i(x) = 0 , (x \notin \omega_i)
-  \end{alignedat}
-  \right.
-\end{equation}
-</span></p>
-<p>となる．これは最後に最大値を選択するので（マルチクラス・パーセプトロンの場合），これで判別はできる． このとき教師信号をワンホットベクトルとすると，誤認識した場合（本来クラス <span class="math inline">\omega_i</span> に属するパターン <span class="math inline">x_p</span> を，誤ってクラス <span class="math inline">\omega_j</span> と判定した場合）は</p>
-<p><span class="math display">
-\begin{equation}
-  \left\{
-  \begin{alignedat}{2}   
-    g_i(x_p) = 0 , \quad b_{ip} = 1 \quad (\text{正解クラス } i) \\
-    g_j(x_p) = 1 , \quad b_{jp} = 0 \quad (\text{誤って選択されたクラス } j)
-  \end{alignedat}
-  \right.
-\end{equation}
-</span></p>
-<p>となる． それぞれの誤差を計算すると， * クラス <span class="math inline">i</span> においては，<span class="math inline">\epsilon_{ip} = g_i(x_p) - b_{ip} = 0 - 1 = -1</span> * クラス <span class="math inline">j</span> においては，<span class="math inline">\epsilon_{jp} = g_j(x_p) - b_{jp} = 1 - 0 = 1</span></p>
-<p>となるので，これを最急降下法に基づく Widrow-Hoff の更新式 <span class="math inline">w \leftarrow w - \eta \epsilon x_p</span> に当てはめると</p>
-<p><span class="math display">
-\begin{equation}
-  \left\{
-  \begin{alignedat}{2}   
-w_i \leftarrow w_i - \eta (-1) x_p = w_i + \eta x_p \\
-w_j \leftarrow w_j - \eta (1) x_p = w_j - \eta x_p
-  \end{alignedat}
-  \right.
-\end{equation}
-</span></p>
-<p>が得られる．これは誤り訂正学習に基づくパーセプトロンの学習規則そのものである． したがって，しきい値処理を導入したWidrow-Hoffの学習規則は，パーセプトロンの学習規則を内包している（その一種である）と考えられる．</p>
-<p>（逆にパーセプトロンの学習規則も評価関数最小化のアルゴリズムとして導けるが，省略する．）</p>
-<section id="おわりに" class="level3">
-<h3 class="anchored" data-anchor-id="おわりに">おわりに</h3>
-<p>教科書ではニューラルネットワークについて述べられているが，ここでは説明しない．知っているのとMLPの方で紹介したほうが良いと判断したためである．まあこの次の章のベイズ決定則を早くやりたいからというのが主な理由だが．</p>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -884,6 +817,15 @@ w_j \leftarrow w_j - \eta (1) x_p = w_j - \eta x_p
     }
   });
   </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../Published/information_geometry/6.html" class="pagination-link" aria-label="多様体のアファイン接続(1)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">多様体のアファイン接続(1)</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
 </div> <!-- /content -->
 
 

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>英語カテゴリーの追加 – Zawaの勉強記録</title>
+<title>機械学習における変分法 – Zawaの勉強記録</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -29,23 +29,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-84b42ce726f76a97210ba391d5418a64.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../Published/PR/1.html" rel="next">
+<link href="../../Published/CalculusOfVariations/4.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-84b42ce726f76a97210ba391d5418a64.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -75,7 +77,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light">
@@ -85,7 +87,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Zawaの勉強記録</span>
     </a>
   </div>
@@ -96,11 +98,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../intro.html"> 
+    <a class="nav-link" href="../../intro.html"> 
 <span class="menu-text">はじめに</span></a>
   </li>  
 </ul>
@@ -121,7 +123,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">英語カテゴリーの追加</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/CalculusOfVariations/1.html">CalculusOfVariations</a></li><li class="breadcrumb-item"><a href="../../Published/CalculusOfVariations/5.html">機械学習における変分法</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -144,26 +146,81 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Published/CalculusOfVariations/1.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/CalculusOfVariations/1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">変分法の基本</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Published/CalculusOfVariations/2.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/CalculusOfVariations/2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">古典力学における変分</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/CalculusOfVariations/3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">静物についての変分法</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/CalculusOfVariations/4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">流体の作用</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/CalculusOfVariations/5.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">機械学習における変分法</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">EnglishStudy</span></span>
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">PR</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/PR/1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">パターン認識とは</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/PR/2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">学習と識別関数</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/PR/3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">誤差評価に基づく学習</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/PR/4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">識別部の設計</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/PR/5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">特徴の評価とベイズ誤り確率</span></a>
+  </div>
+</li>
+      </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">PR</span></a>
+ <span class="menu-text">StochasticDifferentialEquations</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -171,20 +228,26 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Published/PR/1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">パターン認識とは</span></a>
+  <a href="../../Published/StochasticDifferentialEquations/1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">確率論の概要(1)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Published/PR/2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">学習と識別関数</span></a>
+  <a href="../../Published/StochasticDifferentialEquations/2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">確率論の概要(2)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Published/PR/3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">誤差評価に基づく学習</span></a>
+  <a href="../../Published/StochasticDifferentialEquations/3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">確率論の概要(3)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/StochasticDifferentialEquations/4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">確率論の概要(4)</span></a>
   </div>
 </li>
       </ul>
@@ -200,25 +263,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Published/bayesian_inference/1.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/bayesian_inference/1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">モンテカルロ法</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Published/bayesian_inference/2.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/bayesian_inference/2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ベイズ推定におけるモデル選択</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Published/bayesian_inference/3.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/bayesian_inference/3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ベイズ推定におけるモデル選択（続き）</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Published/bayesian_inference/4.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/bayesian_inference/4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">VB-EMアルゴリズム</span></a>
   </div>
 </li>
@@ -235,14 +298,20 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Published/equilibrium_stat_mech/1.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/equilibrium_stat_mech/1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">リウビルの定理と等確率の原理</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Published/equilibrium_stat_mech/2.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/equilibrium_stat_mech/2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ボルツマンの原理</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/equilibrium_stat_mech/3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">カノニカルアンサンブル</span></a>
   </div>
 </li>
       </ul>
@@ -258,37 +327,37 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Published/information_geometry/1.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/information_geometry/1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">双対空間</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Published/information_geometry/2.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/information_geometry/2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">多様体と接空間</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Published/information_geometry/3.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/information_geometry/3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">線形汎関数と汎関数について</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Published/information_geometry/4.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/information_geometry/4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ベクトル場</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Published/information_geometry/5.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/information_geometry/5.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">テンソル場</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Published/information_geometry/6.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/information_geometry/6.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">多様体のアファイン接続(1)</span></a>
   </div>
 </li>
@@ -296,7 +365,24 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">最適化数学</span></span>
+ <span class="menu-text">機械学習理論</span></span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">最適化数学</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/optimization_math/1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">最適化の基礎</span></a>
+  </div>
+</li>
+      </ul>
   </li>
     </ul>
     </div>
@@ -309,9 +395,9 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/CalculusOfVariations/1.html">CalculusOfVariations</a></li><li class="breadcrumb-item"><a href="../../Published/CalculusOfVariations/5.html">機械学習における変分法</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">英語カテゴリーの追加</h1>
+<h1 class="title">機械学習における変分法</h1>
 </div>
 
 
@@ -328,20 +414,6 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>最近毎日英語を勉強しており，サークルのDiscordサーバーにその学習記録をあげていますが - 過去の記録が埋もれてしまうこと - やることが多くなってきて占領してしまっていること が主な理由となって，こちらに学習記録を移すことにしました． 数学とは違って，学習メモというよりかは，毎日の学習の記録をアップロードすることで学習を継続させていくという目的が大きいです． 今やっていることは</p>
-<ul>
-<li>TOEFL3800</li>
-<li>https://dailydictation.com/exercises</li>
-<li>https://www.bbc.co.uk/learningenglish/english/home</li>
-<li>https://writeandimprove.com/workbooks#/wi-workbooks</li>
-<li>Anki</li>
-<li>Duolingo</li>
-</ul>
-<p>を毎日（ディクテーションとライティングは最近はじめましたが）</p>
-<ul>
-<li>MLの論文の要約</li>
-</ul>
-<p>を２日に１回やっています．今の英語力がかなり低い（特にWritingとSpeaking）ので色々詰め込んでやっています． ちなみに目標はTOEFLで８０点取ることです．まだまだ足りていませんが． とりあえずそれぞれ毎日勉強記録をあげていくので，監視しといてください．</p>
 
 
 
@@ -746,6 +818,18 @@ ul.task-list li input[type="checkbox"] {
     }
   });
   </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../Published/CalculusOfVariations/4.html" class="pagination-link" aria-label="流体の作用">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">流体の作用</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../Published/PR/1.html" class="pagination-link" aria-label="パターン認識とは">
+        <span class="nav-page-text">パターン認識とは</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 

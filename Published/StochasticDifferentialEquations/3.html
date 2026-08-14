@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>古典力学における変分 – Zawaの勉強記録</title>
+<title>確率論の概要(3) – Zawaの勉強記録</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -36,6 +36,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../../Published/StochasticDifferentialEquations/4.html" rel="next">
+<link href="../../Published/StochasticDifferentialEquations/2.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -164,7 +166,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">古典力学における変分</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/StochasticDifferentialEquations/1.html">StochasticDifferentialEquations</a></li><li class="breadcrumb-item"><a href="../../Published/StochasticDifferentialEquations/3.html">確率論の概要(3)</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -197,21 +199,35 @@ window.Quarto = {
  <span class="menu-text">古典力学における変分</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/CalculusOfVariations/3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">静物についての変分法</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/CalculusOfVariations/4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">流体の作用</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/CalculusOfVariations/5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">機械学習における変分法</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">EnglishStudy</span></span>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">PR</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Published/PR/1.html" class="sidebar-item-text sidebar-link">
@@ -228,6 +244,53 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../../Published/PR/3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">誤差評価に基づく学習</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/PR/4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">識別部の設計</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/PR/5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">特徴の評価とベイズ誤り確率</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">StochasticDifferentialEquations</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/StochasticDifferentialEquations/1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">確率論の概要(1)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/StochasticDifferentialEquations/2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">確率論の概要(2)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/StochasticDifferentialEquations/3.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">確率論の概要(3)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/StochasticDifferentialEquations/4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">確率論の概要(4)</span></a>
   </div>
 </li>
       </ul>
@@ -288,6 +351,12 @@ window.Quarto = {
  <span class="menu-text">ボルツマンの原理</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/equilibrium_stat_mech/3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">カノニカルアンサンブル</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -339,7 +408,24 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">最適化数学</span></span>
+ <span class="menu-text">機械学習理論</span></span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">最適化数学</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/optimization_math/1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">最適化の基礎</span></a>
+  </div>
+</li>
+      </ul>
   </li>
     </ul>
     </div>
@@ -351,24 +437,22 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#最速降下問題" id="toc-最速降下問題" class="nav-link active" data-scroll-target="#最速降下問題">最速降下問題</a>
+  <li><a href="#大数の法則" id="toc-大数の法則" class="nav-link active" data-scroll-target="#大数の法則">大数の法則</a></li>
+  <li><a href="#poissonの少数法則" id="toc-poissonの少数法則" class="nav-link" data-scroll-target="#poissonの少数法則">Poissonの少数法則</a></li>
+  <li><a href="#確率変数と情報" id="toc-確率変数と情報" class="nav-link" data-scroll-target="#確率変数と情報">確率変数と情報</a>
   <ul class="collapse">
-  <li><a href="#問題" id="toc-問題" class="nav-link" data-scroll-target="#問題">問題</a></li>
-  <li><a href="#指針" id="toc-指針" class="nav-link" data-scroll-target="#指針">指針</a></li>
-  <li><a href="#tqの具体的な中身" id="toc-tqの具体的な中身" class="nav-link" data-scroll-target="#tqの具体的な中身"><span class="math inline">T[q]</span>の具体的な中身</a></li>
+  <li><a href="#定義可分生成" id="toc-定義可分生成" class="nav-link" data-scroll-target="#定義可分生成">定義：可分，生成</a></li>
+  <li><a href="#情報の基本単位" id="toc-情報の基本単位" class="nav-link" data-scroll-target="#情報の基本単位">情報の基本単位</a></li>
   </ul></li>
-  <li><a href="#newtonの運動方程式" id="toc-newtonの運動方程式" class="nav-link" data-scroll-target="#newtonの運動方程式">Newtonの運動方程式</a></li>
-  <li><a href="#懸垂線問題" id="toc-懸垂線問題" class="nav-link" data-scroll-target="#懸垂線問題">懸垂線問題</a></li>
-  <li><a href="#まとめ" id="toc-まとめ" class="nav-link" data-scroll-target="#まとめ">まとめ</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/StochasticDifferentialEquations/1.html">StochasticDifferentialEquations</a></li><li class="breadcrumb-item"><a href="../../Published/StochasticDifferentialEquations/3.html">確率論の概要(3)</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">古典力学における変分</h1>
+<h1 class="title">確率論の概要(3)</h1>
 </div>
 
 
@@ -385,126 +469,82 @@ window.Quarto = {
 </header>
 
 
-<section id="最速降下問題" class="level2">
-<h2 class="anchored" data-anchor-id="最速降下問題">最速降下問題</h2>
-<section id="問題" class="level3">
-<h3 class="anchored" data-anchor-id="問題">問題</h3>
-<p>この問題は古典力学において伝統的な問題である． 任意の二点間を結ぶすべての曲線のうち，曲線上に軌道を束縛された物体に対して重力のみが作用する仮定の元，物体が速度0でポテンシャルが高い方の点を出発してからもう一方の点に達するまでの所要時間が最も短いような曲線を求めよ．</p>
+<p>収束定理は統計学において重要である．特に次に紹介する大数の法則と中心極限定理は，それなくして統計学を記述することは不可能であり，主張を理解しておくことには十分価値がある．</p>
+<section id="大数の法則" class="level2">
+<h2 class="anchored" data-anchor-id="大数の法則">大数の法則</h2>
+<p>独立列<span class="math inline">\{ X_n \}</span>の第<span class="math inline">n</span>部分和を<span class="math inline">S_n = \sum_{k =1}^n X_k</span>と表す．部分和に対して，<span class="math inline">\frac{1}{n} S_n</span>は，<span class="math inline">X_1</span>から<span class="math inline">X_n</span>までの平均を表すが，これを確率分布の平均と区別するため，算術平均と呼ぶことが多い．我々は i.i.dな確率変数列の場合，部分和をとる個数<span class="math inline">n</span>をおおきくとれば，算術平均によって分布の平均を近似できることを経験的に知っている．これを数学的にきちんと述べたのが 大数の強法則である． ### 定理：大数の強法則</p>
+<p><span class="math inline">\{ X_n \}</span>をi.i.dな<span class="math inline">L^1</span> 確率変数(<span class="math inline">\forall n , \mathbb E[|X_n|] &lt; \infty</span>)の列で，その平均を<span class="math inline">m</span>とする．このとき <span class="math display">
+\text{as-lim}_{n \to \infty} \frac{1}{n} S_n = m
+</span> が成立する． この定理は，独立確率変数列が<span class="math inline">L^2</span>に属せば，同一の分布に従わない場合にも拡張できることが知られている(Kolmogorovの大数の強法則)．</p>
+<p>中心極限定理は知ってるので省略する． 一応補足しておくと，中心極限定理には２種類ありLindeberg-Lévyの中心極限定理とLindeberg-Fellerの中心極限定理がある．教科書でよく取り扱われるのはLindeberge-Lévy型である． 世間一般で「中心極限定理」と呼ばれているのは後者のLinderberg-Fellerの中心極限定理である．これは独立ではあるが必ずしも同分布ではない確率変数までも扱えるより一般的な中心極限定理である．</p>
 </section>
-<section id="指針" class="level3">
-<h3 class="anchored" data-anchor-id="指針">指針</h3>
-<p>まずこの所要時間は曲線を<span class="math inline">q</span>としたとき<span class="math inline">T[q]</span>と汎関数で表現できる．まずこの<span class="math inline">T[q]</span>がどのような式なのかを求め，それを変分法によって最小値を求めることが大まかな流れである．</p>
+<section id="poissonの少数法則" class="level2">
+<h2 class="anchored" data-anchor-id="poissonの少数法則">Poissonの少数法則</h2>
+<p>次に，<span class="math inline">\{ X_n \}</span> を０または１の値をとる独立確率変数列とし，1をとる確率が非常に小さいものとする．このとき，多数の<span class="math inline">X_n</span>の集まりの中で1をとった個数を非負整数値確率変数とみなすとき，この集まりの個数が十分に大きくなれば個数の分布がPoisson分布で近似されるというのがPoissonの少数法則である．</p>
+<p>これ難しいこと言ってるけど，二項分布の期待値を一定にして<span class="math inline">n \to \infty</span>にすればポアソン分布になるって言ってるだけや．</p>
 </section>
-<section id="tqの具体的な中身" class="level3">
-<h3 class="anchored" data-anchor-id="tqの具体的な中身"><span class="math inline">T[q]</span>の具体的な中身</h3>
-<p>まず<span class="math inline">T</span>は微小時間<span class="math inline">dt</span>の積分だと考えれる． <span class="math display">
-T[q] = \int_0^T dt[q]
-</span> ではこの<span class="math inline">dt[q]</span>を求める． 座標系は鉛直下向きを<span class="math inline">x</span>軸，水平方向に<span class="math inline">q(x)</span>軸をとることを考える． 微小時間移動なので，微小区間を移動していると考えられる．そこで<span class="math inline">(x,q(x))</span>から<span class="math inline">(x + dx , q(x + dx))</span>までにかかった時間を<span class="math inline">dt</span>と考える． これは微小区間なので二点間は直線で結べる．より正確には <span class="math display">
-q(x + dx) = q(x) + \frac{\partial q}{\partial x} dx + O((dx)^2)
-</span> と記述できる．（O記法についても書かないと） ここで<span class="math inline">(dx)^2</span>は無視する. エネルギー保存則より <span class="math display">
-\frac{1}{2} m v^2 = mgx
-</span> が成立するので <span class="math display">
-v = \sqrt{2gx}
-</span> また進む距離は三平方の定理より <span class="math display">
-ds = dx\sqrt{1 + \left(\frac{\partial q}{\partial x}\right)^2}
-</span> となる．微小区間と微小時間において <span class="math display">
-dt = \frac{ds}{v}
-</span> であるので <span class="math display">
-dt = \sqrt{\frac{1 + \left(\frac{\partial q}{\partial x}\right)^2}{2gx}}dx
-</span></p>
-<p>である．よって，これを<span class="math inline">L(x,q')</span>とおくと <span class="math display">
-T[q] = \int_a^b dx L(x,q')
-</span> となることが分かる． これを前回求めた変分の式</p>
-<p><span class="math display">
-\delta J = \int_a^b \frac{\partial F}{\partial x} \delta x -\frac{d}{dt} \frac{\partial F}{\partial \dot x} \delta x dt
-</span> を用いてやると</p>
-<p><span class="math display">
-\delta T = \int_a^b -\frac{d}{dx} \frac{\partial L}{\partial q' } \delta q dx
-</span></p>
-<p>である． <span class="math display">\frac{\partial L}{\partial q' }  = \frac{1}{\sqrt{2g}} \frac{q'}{\sqrt{x(1+q'^2)}}</span></p>
-<p>となることが計算によって確かめられる．</p>
-<p><span class="math inline">\delta T = 0</span>となるような<span class="math inline">q</span>を探しているので <span class="math display">
--\frac{d}{dx} \frac{\partial L }{\partial q'} = 0
-</span> すなわち， <span class="math display">
-\frac{\partial L}{\partial q'} = C
-</span></p>
-<p>が成立する．</p>
-<p>結局 <span class="math display">
-q' = C\sqrt{x(1 + q'^2)}
-</span> という常微分方程式を満たすような<span class="math inline">q</span>が解であることが分かる． ここから先は専門外なので(ここでは微分方程式を導出することが目的である)ので，解析的には解かないが，数値的に解いていこうと思う． 式変形を色々繰り返していくと <span class="math display">
-\frac{dq}{dx} = \sqrt{\frac{x}{D -x}}
-</span> を解く必要がある．オイラー法でこの曲線を表示すると</p>
-<p><img src="Zawa25721_documents/InProgress/CalculusOfVariations/solved.png" class="img-fluid"> となる．(一応解析解はサイクロイドなので，それにほぼ一致するような曲線になっていることが分かる．)</p>
+<section id="確率変数と情報" class="level2">
+<h2 class="anchored" data-anchor-id="確率変数と情報">確率変数と情報</h2>
+<p>ここで述べられる情報はShannonの情報理論とは異なる．観測の細かさ，正確さを記述する概念である．</p>
+<ol type="i">
+<li><p>Borel関数<span class="math inline">\phi : \mathbb R \to \mathbb R</span>が存在して <span class="math display">
+Y(\omega) = \phi(X(\omega)) , \quad(\forall \omega \in \Omega)
+</span> が成立するとき，<span class="math inline">Y</span>のもたらす情報は<span class="math inline">X</span>のもたらす情報より多くないといい， <span class="math display">
+Y \prec_i X
+</span> とあわわす．</p></li>
+<li><p><span class="math inline">X \prec _i Y</span>かつ<span class="math inline">Y \prec _i X</span>のとき<span class="math inline">X \sim_p Y</span> と表す．<span class="math inline">XもY</span>も確率変数であるから，両者ともサンプル<span class="math inline">\omega</span>に依存して値は異なる．しかし<span class="math inline">Y \prec_i X</span>が成立するということは，一方の確率変数<span class="math inline">X</span>が決まればもう一方の確率変数<span class="math inline">Y</span>の値が確実に決まってしまうということを意味しており，このことはすなわち<span class="math inline">Y</span>を観測することに寄って得られる情報は<span class="math inline">X</span>を観測して得られる情報より多くないということを意味している．</p></li>
+</ol>
+<p>例えば身長をどのくらい細かく観測するかを考える． 確率変数<span class="math inline">X</span>をある人の正確な身長，<span class="math inline">Y</span>をその身長を10cm刻みで分類した値とする． <span class="math display">
+Y = \phi(X) , \qquad \phi(x) = 10 \lfloor  \frac{x}{10}  \rfloor
+</span> すると， <span class="math display">
+X = 173.4 \to Y = 170
+</span> となるので <span class="math display">
+Y \prec_i X
+</span> である．一方，<span class="math inline">Y = 170</span>とわかっても<span class="math inline">X</span>がどういう情報なのかはわからない．なので一般には <span class="math display">
+X \nprec_i Y
+</span> となる．つまり<span class="math inline">X</span>は正確な身長，<span class="math inline">Y</span>は粗く丸めた身長なので<span class="math inline">X</span>の方が細かい情報を持っている．</p>
+<p>我々は確率変数のもたらす情報の定量化を行いたいのであるが，その前にまず次の概念を導入する．</p>
+<section id="定義可分生成" class="level3">
+<h3 class="anchored" data-anchor-id="定義可分生成">定義：可分，生成</h3>
+<p><span class="math inline">\Omega</span>の高々可算無限個の部分集合族 <span class="math inline">A_n</span> があり，<span class="math inline">\sigma-</span>加法族<span class="math inline">\mathcal F</span>が<span class="math inline">A_n</span>を含む最小の<span class="math inline">\sigma-</span>加法族となっているとき，<span class="math inline">\mathcal F</span>を可分であるといい，部分集合族<span class="math inline">A_n</span>が<span class="math inline">\sigma-</span>加法族<span class="math inline">\mathcal F</span>を生成するという．</p>
+<p>何を言っているのかよくわからないので，噛み砕いて言うと <span class="math inline">\mathcal F</span>のすべての集合を，可算個の基本的な集合<span class="math inline">A_1, A_2 , ...</span>から，補集合，可算和などの操作を使って作れるという意味である．</p>
+<p>例えば <span class="math display">
+\Omega = \{ 1,2,3,4 \} , \qquad A = \{ 1,2 \}
+</span> とする.これは<span class="math inline">A</span>を含む<span class="math inline">\sigma-</span>加法族を作成すると，自動的に <span class="math display">
+\sigma(A) = \{ \varnothing, A , A^c , \Omega  \}
+</span> となる． ちなみに<span class="math inline">\sigma(X)</span>の意味は <span class="math display">
+\sigma(X) = \sigma(\{ X^{-1}(B) : B \in \mathcal B(\mathbb R^n) \})
+</span> である．まぎらわしい． ｙ すなわち，<span class="math inline">\mathcal F</span>全体が，可算個の基本集合だけで記述できるということである．<span class="math inline">\mathcal F</span>が最初に存在し，それが可算個の集合で生成可能であるかを調べて，それができるなら可分だと言っている．</p>
+<p>次の定理は重要である．</p>
+<p><span class="math inline">X,Y</span>の生成する<span class="math inline">\sigma-</span>加法族をそれぞれ<span class="math inline">\sigma(X),\sigma(Y)</span>とするとき，次が成立する． $$ <span class="math display">\begin{align}
+
+Y \prec_i X \Leftrightarrow \sigma(Y) \subset \sigma(X)\\
+Y \sim_p X \Leftrightarrow \sigma(Y) = \sigma(X)\\
+
+\end{align}</span> $$</p>
+<p>この定理によれば，確率変数が生成する<span class="math inline">\sigma</span>-加法族はその確率変数のゆうする情報の定量化に相当するものであり，それ故に自然に次の定義に行き着くことができる． <span class="math display">
+\begin{align}
+&amp;\text{i)} \sigma(X)を確率変数Xの有する情報とよぶ  \\
+&amp;\text{ii)} \sigma-加法族そのものを情報とよぶ．
+\end{align}
+</span> 確率空間<span class="math inline">(\Omega, \mathcal F ,P)</span>を考えるということは，<span class="math inline">\mathcal F</span>が我々の知り得る全情報であるということを意味しており，その各情報に対して，生起確率という実数値を対応させるのが確率測度<span class="math inline">P</span>である． 先に述べたように確率変数<span class="math inline">X</span>には<span class="math inline">\mathcal F</span> 可測性が要求されるが，これは <span class="math display">
+\sigma(X) \subset \mathcal F
+</span> が成立することにほかならない．すなわち情報の観点から述べれば，<span class="math inline">X</span>の有する情報は我々の知り得る全情報よりも多く合ってはならないことを，この定義は要求しているのである．</p>
 </section>
-</section>
-<section id="newtonの運動方程式" class="level2">
-<h2 class="anchored" data-anchor-id="newtonの運動方程式">Newtonの運動方程式</h2>
-<p>Newtonの運動方程式も作用の変分から導出可能である．（歴史的にはNewtonの方程式に合わせるために作用を次のように定義したが，どちらから出発しても問題はないだろう．） まず力学現象を観察すると次のような普遍的な法則があることが分かるだろう． 1. どの時刻でも同じ原因なら同じ力学現象が起こる 2. どの場所でも同じ原因なら同じ力学現象が起こる 3. どの向きでも同じ原因なら同じ力学現象が起こる 4. ある粒子の状態は位置と速度を与えれば完全に指定される 5. お互いに等速直線運動をしているどの観測者から見ても、同じ原因なら同じ力学現象が起こる(相対性原理)</p>
-<p>（余談だが，量子力学では4が成立せず，相対性理論では5が成立しない）</p>
-<p>さて，物体が運動しているとき物体はある意味の無駄を嫌い，なにか特定の物理量をなるべく少なくしようとするような経路を選択しているように思われる．物体が最小化しようとしているなにかを作用<span class="math inline">S</span>と定義する． すなわち物体は<span class="math inline">\delta S =0</span>を満たす経路を移動すると考えられる．</p>
-<p>ここで<span class="math inline">S</span>は経路を引数とした汎関数である．この<span class="math inline">L</span>をラグラジアンと呼ぶ． <span class="math display">
-S[q] = \int_{t_1}^{t_2} dt L
-</span> まずラグラジアンはある時刻において粒子の状態を決定づけるものなので法則4より， <span class="math display">
-L = L(q,\dot q,t)
-</span> の関数であることが分かる． まず，もっと単純な他から一切力を受けない粒子を考える． まず法則１により，環境の直接的な時間変化は存在しない(<span class="math inline">q,\dot q</span>が含む) なので <span class="math display">
-L = L(q,\dot q)
-</span> が成立する．</p>
-<p>法則２によりどの場所にいても自由粒子の物理的性質は不変である．なので<span class="math inline">L</span>は<span class="math inline">q</span>を明示的に依存しない．したがって <span class="math display">
-L = L(\dot q)
-</span> となる．</p>
-<p>法則３により，空間のすべての方向は等価であるため，ラグラジアンは回転に対して不変でなければならない．これは単に速度ベクトルではなく，速度ベクトルの大きさ，すなわち速さでラグラジアンが構成されることを意味している． すなわち <span class="math display">
-L = L(\dot q^T \dot q)
-</span> が成立する．</p>
-<p>さて法則5を使いたいので，お互いに等速直線運動をしている別の観測者からこの粒子を見る．この観測者から見た粒子の速度を<span class="math inline">\dot q' = q' + \epsilon</span>とする（微小な差である） 物体が選択する経路を決定するのは作用の変分であった，したがって２つの観測者における作用<span class="math inline">S</span> と<span class="math inline">S'</span>が結果として同じ経路を選択する必要がある．すなわちこれは <span class="math display">
-\delta(S' - S) = 0
-</span> を満たすことである． <span class="math display">
-S' - S = \int_{t_1}^{t_2} L' - L dt
-</span> であるので，もしラグラジアンが <span class="math display">
-L' - L = \frac{d}{dt} f(q,t)
-</span> という形をしていれば 作用の差は定数となる．なのでその変分は0になる．</p>
-<p>さて左辺をテイラー展開し，二次以降を無視すると <span class="math display">
-L' - L = \frac{\partial L}{\partial q'^2}(2\dot q \epsilon) = \frac{d}{dt} f(q,t)
-</span> となる． ここで，この等式を満たされるためには速度に寄る偏微分が定数ではないといけない．この定数を<span class="math inline">\frac{1}{2} m</span>とする．これは質量と呼ばれるパラメータである． これによって <span class="math display">
-\frac{\partial L}{\partial q'^2} = \frac{1}{2}m
-</span></p>
-<p>これを積分することで，自由粒子のラグラジアンが決定される <span class="math display">
-L = \frac{1}{2}m \dot q^2
-</span></p>
-<p>これは物体の持つ運動エネルギーと呼ばれる．</p>
-<p>次に重力から受ける他から力を受ける一般的な粒子について考える． 他から受ける影響が粒子の位置のみに依存し，速度には依存しないと仮定する（保存力）．空間の一様性を保ちつつこの効果をラグラジアンに取り込む最も単純な方法は、自由粒子のラグラジアンから．位置のみに依存する関数である位置エネルギーを差し引くことである.（マイナスになるのは，時間対称性から導出される）</p>
-<p><span class="math display">
-L = \frac{1}{2} m \dot q^2 - V(q)
-</span></p>
-<p>これをオイラーラグランジュ方程式に代入すると</p>
-<p><span class="math display">
-m \ddot q = -\frac{\partial V}{\partial q}
-</span></p>
-<p>となり力を <span class="math display">
-F  := -\frac{\partial V}{\partial q}
-</span></p>
-<p>と定義するとこれはNewtonの運動方程式<span class="math inline">ma = F</span>である． このようにNewtonの運動方程式も作用の変分により導出される．</p>
-</section>
-<section id="懸垂線問題" class="level2">
-<h2 class="anchored" data-anchor-id="懸垂線問題">懸垂線問題</h2>
-<p>紐の両端を持ってぶら下げたときにできる曲線を求める．まず紐は持っている位置エネルギーを最小化するような曲線であると考えられるので，紐の長さ<span class="math inline">b</span>,重力加速度<span class="math inline">g</span>,線密度<span class="math inline">\rho</span> ,長さ<span class="math inline">b</span>,線素<span class="math inline">ds</span>としたとき，横軸を<span class="math inline">x, [0,a]</span>,縦軸を<span class="math inline">q(x)</span>としたとき，線素がもつ位置エネルギーは <span class="math display">
-dV = \rho \times ds \times g \times q(x)
-</span> である．これを積分すれば作用は求まる <span class="math display">
-V = \rho g\int_0^b q(x)ds = \rho g \int_0^a q(x) \sqrt{1 + \left(\frac{\partial q}{\partial x}\right )^2} dx
-</span> ただし制約条件として $$</p>
-<p>b = _0^a{ }dx</p>
-<p>$$</p>
-<p>が入る．これはラグランジュ未定乗数法で解く，未定乗数を<span class="math inline">\lambda</span>とすると L(q, q’) = g (q - ’) <span class="math display">
-</span></p>
-<p>となる．オイラーラグランジュ方程式に代入し整理すると</p>
-<p><span class="math display">
-(q - \lambda') q'' = 1 + q'^2
-</span> が方程式となる. これの解は次のようになる． <img src="Zawa25721_documents/InProgress/CalculusOfVariations/cosh.png" class="img-fluid"></p>
-</section>
-<section id="まとめ" class="level2">
-<h2 class="anchored" data-anchor-id="まとめ">まとめ</h2>
-<p>今回は古典力学における有名な問題で変分法で解けるものを紹介した． 次回は少し発展的な内容をしようと考えている．</p>
+<section id="情報の基本単位" class="level3">
+<h3 class="anchored" data-anchor-id="情報の基本単位">情報の基本単位</h3>
+<p><span class="math inline">\sigma</span>-加法族はすなわち情報であり，これを既知情報として，次回述べる条件付き確率の「条件」に採用できる．そのための準備として情報の構造について考察しておこう．</p>
+<ol type="i">
+<li><span class="math inline">\Omega</span>の部分集合の族<span class="math inline">\mathcal G</span>が<span class="math inline">\mathcal G \subset \mathcal F</span>を満たし，かつ<span class="math inline">\mathcal G</span>が<span class="math inline">\sigma -</span>加法族であるとき，<span class="math inline">\mathcal G</span>を<span class="math inline">\mathcal F</span>の部分<span class="math inline">\sigma</span>-加法族という．</li>
+<li><span class="math inline">\sigma</span>-加法族<span class="math inline">\mathcal G</span>の要素<span class="math inline">A</span>で<span class="math inline">A</span>自身と <span class="math inline">\phi</span>を除く全ての<span class="math inline">A</span>の部分集合が<span class="math inline">\mathcal G</span>に属さないとき，<span class="math inline">A</span>を <span class="math inline">\mathcal G</span>の基本単位と呼ぶ．</li>
+</ol>
+<p><span class="math inline">\sigma</span>-加法族自身が情報であるから，その基本単位は情報の基本単位と考えて良い，この定義は情報全体を細かく分割していき，最終的にそれ以上細分出来ない基本単位というものによって情報の微細構造を明らかにするものであるが，逆に基本単位から情報全体が構成できる．</p>
+<p>情報の基本単位の例は <span class="math inline">\Omega = \{ 1,2,3,4 \}</span>のとき <span class="math inline">\mathcal G = \{ \phi , \{1,2\}, \{3,4 \} , \Omega \}</span> で<span class="math inline">\{ 1,2 \}と\{3,4\}</span>が基本単位である． <span class="math inline">\{1,2\}</span>の部分集合は<span class="math inline">\phi, \{1\},\{2\},\{1,2\}</span>であるが，確かに自分自身と空集合は含んでいない． 情報の基本単位と確率変数の関係は次の定理で記述される</p>
+<p><span class="math inline">X</span>を<span class="math inline">(\Omega,\mathcal F)</span>上の実確率変数，すなわち<span class="math inline">\mathcal F</span>可測写像とすると，これは<span class="math inline">\mathcal F</span>の基本単位上で定数である． これは基本単位の例から分かる．</p>
+<p>次回から，この確率論の一番の難所である条件付き期待値，条件付き確率をやる． 実は先読みしたが，いままでやってきた条件付き確率より遥かに難しい概念なので，気を引き締めてじっくり勉強していきたい．</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -908,6 +948,18 @@ V = \rho g\int_0^b q(x)ds = \rho g \int_0^a q(x) \sqrt{1 + \left(\frac{\partial 
     }
   });
   </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../Published/StochasticDifferentialEquations/2.html" class="pagination-link" aria-label="確率論の概要(2)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">確率論の概要(2)</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../Published/StochasticDifferentialEquations/4.html" class="pagination-link" aria-label="確率論の概要(4)">
+        <span class="nav-page-text">確率論の概要(4)</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 

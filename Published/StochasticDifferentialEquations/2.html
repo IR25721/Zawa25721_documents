@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>変分法の基本 – Zawaの勉強記録</title>
+<title>確率論の概要(2) – Zawaの勉強記録</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -36,6 +36,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../../Published/StochasticDifferentialEquations/3.html" rel="next">
+<link href="../../Published/StochasticDifferentialEquations/1.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -164,7 +166,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">変分法の基本</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/StochasticDifferentialEquations/1.html">StochasticDifferentialEquations</a></li><li class="breadcrumb-item"><a href="../../Published/StochasticDifferentialEquations/2.html">確率論の概要(2)</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -197,21 +199,35 @@ window.Quarto = {
  <span class="menu-text">古典力学における変分</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/CalculusOfVariations/3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">静物についての変分法</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/CalculusOfVariations/4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">流体の作用</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/CalculusOfVariations/5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">機械学習における変分法</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">EnglishStudy</span></span>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">PR</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Published/PR/1.html" class="sidebar-item-text sidebar-link">
@@ -228,6 +244,53 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../../Published/PR/3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">誤差評価に基づく学習</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/PR/4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">識別部の設計</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/PR/5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">特徴の評価とベイズ誤り確率</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">StochasticDifferentialEquations</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/StochasticDifferentialEquations/1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">確率論の概要(1)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/StochasticDifferentialEquations/2.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">確率論の概要(2)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/StochasticDifferentialEquations/3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">確率論の概要(3)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/StochasticDifferentialEquations/4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">確率論の概要(4)</span></a>
   </div>
 </li>
       </ul>
@@ -288,6 +351,12 @@ window.Quarto = {
  <span class="menu-text">ボルツマンの原理</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/equilibrium_stat_mech/3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">カノニカルアンサンブル</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -339,7 +408,24 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">最適化数学</span></span>
+ <span class="menu-text">機械学習理論</span></span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">最適化数学</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/optimization_math/1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">最適化の基礎</span></a>
+  </div>
+</li>
+      </ul>
   </li>
     </ul>
     </div>
@@ -351,22 +437,31 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#はじめに" id="toc-はじめに" class="nav-link active" data-scroll-target="#はじめに">はじめに</a></li>
-  <li><a href="#変分法の原理" id="toc-変分法の原理" class="nav-link" data-scroll-target="#変分法の原理">変分法の原理</a>
+  <li><a href="#確率変数の積分" id="toc-確率変数の積分" class="nav-link active" data-scroll-target="#確率変数の積分">確率変数の積分</a>
   <ul class="collapse">
-  <li><a href="#変分" id="toc-変分" class="nav-link" data-scroll-target="#変分">変分</a></li>
-  <li><a href="#定義汎関数変分" id="toc-定義汎関数変分" class="nav-link" data-scroll-target="#定義汎関数変分">定義(汎関数変分)</a></li>
-  <li><a href="#変分の公式" id="toc-変分の公式" class="nav-link" data-scroll-target="#変分の公式">変分の公式</a></li>
+  <li><a href="#単確率変数はなぜ必要なのか" id="toc-単確率変数はなぜ必要なのか" class="nav-link" data-scroll-target="#単確率変数はなぜ必要なのか">単確率変数はなぜ必要なのか？</a></li>
+  <li><a href="#一般の確率変数" id="toc-一般の確率変数" class="nav-link" data-scroll-target="#一般の確率変数">一般の確率変数</a></li>
+  <li><a href="#期待値" id="toc-期待値" class="nav-link" data-scroll-target="#期待値">期待値</a></li>
   </ul></li>
+  <li><a href="#確率変数列の収束" id="toc-確率変数列の収束" class="nav-link" data-scroll-target="#確率変数列の収束">確率変数列の収束</a>
+  <ul class="collapse">
+  <li><a href="#定義概収束" id="toc-定義概収束" class="nav-link" data-scroll-target="#定義概収束">定義：概収束</a></li>
+  <li><a href="#定義法則収束" id="toc-定義法則収束" class="nav-link" data-scroll-target="#定義法則収束">定義：法則収束</a></li>
+  </ul></li>
+  <li><a href="#一様可積分" id="toc-一様可積分" class="nav-link" data-scroll-target="#一様可積分">一様可積分</a>
+  <ul class="collapse">
+  <li><a href="#定義一様可積分" id="toc-定義一様可積分" class="nav-link" data-scroll-target="#定義一様可積分">定義：一様可積分</a></li>
+  </ul></li>
+  <li><a href="#感想" id="toc-感想" class="nav-link" data-scroll-target="#感想">感想</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/StochasticDifferentialEquations/1.html">StochasticDifferentialEquations</a></li><li class="breadcrumb-item"><a href="../../Published/StochasticDifferentialEquations/2.html">確率論の概要(2)</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">変分法の基本</h1>
+<h1 class="title">確率論の概要(2)</h1>
 </div>
 
 
@@ -383,90 +478,153 @@ window.Quarto = {
 </header>
 
 
-<section id="はじめに" class="level2">
-<h2 class="anchored" data-anchor-id="はじめに">はじめに</h2>
-<p>様々な分野の勉強をしていて気づいたことがあるが私の興味ある分野は 1. 最小化したいものを導出する（定性的理由によることが多い） 2. 最適化問題として解く（値による最小化なら通常の最適化問題，関数による最小化なら変分法を用いる） 1. 方程式として書けるならその方程式を用いて解析する 2. 書けないなら学習を通じて解析する が主なルートである．ここで直接的に解けないから機械学習が発展したのだろうと考察している．いずれにせよ一旦最適化問題を解くことから始まるわけだが，値による最小化は極論高校数学のレベルでもほぼ解けるので良い．だが関数による最小化はまだ慣れていないせいか，毎回公式を忘れてしまってAIに答えを聞いてしまうことが多いので自分で１から導出できない．これではこの先のレベルに到達できないだろうと考えたので．ここで変分法による最適化を一旦道具として十分使える程度にはしようという発想に至った．</p>
-<p>構成としては，まず基本的な変分法の原理，基本公式，例題を第一回（この記事）に書いて，第二回以降は機械学習，物理学で重要な式を変分法で導出していこうと計画している．登場が確定しているのは変分ベイズとハミルトンの原理の２つであるが，それ以外にも（今知らないもの）を導出していこうと考えている．</p>
+<section id="確率変数の積分" class="level2">
+<h2 class="anchored" data-anchor-id="確率変数の積分">確率変数の積分</h2>
+<p>以下では簡単のため<span class="math inline">\mathbb R</span>値実確率変数に話を限定して積分の考え方の概要を述べる． ### 定義: 単確率変数</p>
+<p>次の形に書ける確率変数を，単確率変数という <span class="math display">
+X(\omega) = \sum_i a_i \mathbb 1_{A_i} (\omega) \qquad (a_i \in \mathbb R , A_i \in \mathcal F)
+</span> ただし，<span class="math inline">\mathbb 1_{A}(\omega)</span>は指示関数で <span class="math display">
+\mathbb 1_{A}(\omega) =
+\begin{cases}
+1 &amp; (\omega \in A) \\
+0 &amp; (\text{otherwise})
+\end{cases}
+</span> で定義される． 上のように定義される単確率関数の確率測度<span class="math inline">P</span>の元での積分を次式で定義する． <span class="math display">
+\int_{\Omega} X(\omega) P(d \omega) \equiv \sum_i a_i P(A_i)
+</span> よくわからないので，具体例で見ていく．なぜ必要なのかも考えていく．</p>
+<section id="単確率変数はなぜ必要なのか" class="level3">
+<h3 class="anchored" data-anchor-id="単確率変数はなぜ必要なのか">単確率変数はなぜ必要なのか？</h3>
+<p>具体例をみる．まず単確率変数はとりうる値が有限個のものである．例えば <span class="math display">
+X =
+\begin{cases}
+100 &amp; (あたり) \\
+0 &amp; (はずれ)
+\end{cases}
+</span></p>
+<p>がある．事象<span class="math inline">A_i</span>が起きたときに値<span class="math inline">a_i</span>を取るという形である． これが必要な理由は，一般の確率変数の期待値を厳密に定義するための土台になるからである． <span class="math display">
+\sum_i a_i P(A_i)
+</span> を具体的値で計算してみる． - 100円がもらえる確率が0.3 - 0円の確率が0.7 のときこの値は <span class="math display">
+100 \cdot 0.3 + 0 \cdot 0.7 = 30
+</span> これは期待値である．この積分は期待値を意味していることが分かる． 取りうる値が有限個ならば，このままでよいが，人の身長や株価の変化量などは，連続的なので，無限個の値をとる．そこで，後に述べるが，単確率変数からより一般的な確率変数を定義する．すなわち確率変数の基本となるのが単確率変数である．</p>
 </section>
-<section id="変分法の原理" class="level2">
-<h2 class="anchored" data-anchor-id="変分法の原理">変分法の原理</h2>
-<p>知ってはいるが，一応書いておく ### 汎関数 #### 定義</p>
-<p>ある関数空間を<span class="math inline">V</span>，実数の集合を<span class="math inline">\mathbb R</span> とするとき，汎関数<span class="math inline">J</span>は次のような写像として定義される． <span class="math display">
-J : V \rightarrow \mathbb R
-</span> 通常の関数と区別するために，汎関数の引数は<span class="math inline">J[f]</span>のように角括弧を用いる．</p>
-<section id="具体例" class="level4">
-<h4 class="anchored" data-anchor-id="具体例">具体例</h4>
-<ol type="1">
-<li>定積分 区間<span class="math inline">[a,b]</span>における関数<span class="math inline">y(x)</span>の定積分は，関数を入力として一つの実数を出力するため，汎関数である． <span class="math display">
-I[y] = \int_a^b y(x)dx
-</span></li>
-<li>曲線の長さ 定積分には含まれるが，座標平面上で2点<span class="math inline">(a,y(a)),(b,y(b))</span>を結ぶ曲線<span class="math inline">y(x)</span>の長さ<span class="math inline">L</span>は，関数に依存して決まる数値である．</li>
-</ol>
-</section>
-<section id="変分" class="level3">
-<h3 class="anchored" data-anchor-id="変分">変分</h3>
-<section id="定義関数変分" class="level4">
-<h4 class="anchored" data-anchor-id="定義関数変分">定義（関数変分）</h4>
-<p>ある関数<span class="math inline">y(x)</span>に対し，その定義域を<span class="math inline">[a,b]</span>とする． ここで十分小さな実数のパラメータ<span class="math inline">\epsilon</span>と，境界条件を満たす任意の微分可能な関数<span class="math inline">\eta(x)</span>を導入し，次のような関数の族を考える． <span class="math display">
-\bar y = y(x) + \epsilon \eta(x)
-</span> このとき，関数の変分<span class="math inline">\delta y</span>は，パラメータ<span class="math inline">\epsilon</span>に関する１次の無限小変化として次のように定義される．</p>
+<section id="一般の確率変数" class="level3">
+<h3 class="anchored" data-anchor-id="一般の確率変数">一般の確率変数</h3>
+<p>次に，一般の確率変数<span class="math inline">X</span>については，次のような手順をとる．まず，<span class="math inline">X</span>を次のように非負の２つの確率変数の差で表示する． <span class="math display">
+X(\omega) = X^+ (\omega) - X^-(\omega) \quad , X^+(\omega) \ge 0 \quad , X^-(\omega) \ge 0 \quad (\forall \omega)
+</span> このとき，単確率変数の増加列で，<span class="math inline">X^+(\omega),X^-(\omega)</span>にそれぞれ収束する列 $$</p>
+<p>_{n } X^+<em>n () = X^+() , </em>{n } X^-_n () = X^-()</p>
 <p><span class="math display">
-\delta y :=\left. \frac{\partial \bar y}{\partial \epsilon} \right|_{\epsilon =0} d\epsilon = \eta(x) d\epsilon
-</span> #### 具体例 イメージ優先で考えてみる． - 区間 : <span class="math inline">[0,\pi]</span> - 基準となる元の関数 : <span class="math inline">y = x</span> - 変化させる関数: <span class="math inline">\eta = \sin(x)</span>, この関数は境界条件を満たす（ここにおいて境界条件とは，端点で0になることである．） - 微小パラメータ : <span class="math inline">\epsilon = 0.01</span>とする 変分を加える前と後は次のようになる． <img src="Zawa25721_documents/Published/CalculusOfVariations/sin.png" class="img-fluid"></p>
+を選べることが知られている．(そして$X^+_n, X^-_n$は単確率変数である)
+そして$X$の積分を次のように定義する．
+</span> <span class="math display">\begin{align}
+\int_\Omega X^+(\omega) P(d \omega) \equiv \lim_{n \to \infty} \int_\Omega X_n^+(\omega) P(d \omega) \\
+
+\int_\Omega X^-(\omega) P(d \omega) \equiv \lim_{n \to \infty} \int_\Omega X_n^-(\omega) P(d \omega) \\
+
+\end{align}</span> <span class="math display">
+</span> <em>X() P(d ) </em>X^+() P(d ) - _X^-() P(d ) $$ さて，なぜこういう回りくどいことをするのかを考えていく．</p>
+<p>理由は，シンプルである．一般の確率変数<span class="math inline">X</span>に対して積分を直接定義しようとすると，<span class="math inline">\infty - \infty</span>の計算が出てくるためである． とりあえず直感的に定義してみよう． 一般の<span class="math inline">X</span>に対して<span class="math inline">X_n \to X</span>となる単確率変数<span class="math inline">X_n</span>を適当にとって <span class="math display">
+\int X dP = \lim_{n \to \infty} \int X_n dP
+</span> と定義したくなる．しかしこれでは問題が起こる． 例えば， <span class="math display">
+\Omega = (0,1], \quad P = (\text{一様分布})
+</span></p>
+<p>として，極限の確率変数を<span class="math inline">X(\omega) = 0</span>とする． 要請として <span class="math display">
+\int X dP = 0
+</span> がある． ここで次の単確率変数を考える <span class="math display">
+X_n(\omega) = n \mathbb 1_{(0,\frac{1}{n}]}(\omega)
+</span> これは<span class="math inline">n</span>が大きくなると，ほとんど全ての事象について<span class="math inline">X_n(\omega) = 0</span>となる．したがって，<span class="math inline">X_n \to X</span>は成立する． しかし積分をすると <span class="math display">
+\int_{\Omega}X_n dP = n P((0,\frac{1}{n}]) = n \frac{1}{n} = 1
+</span> したがって <span class="math display">
+\int X dP = \lim_{n \to \infty} \int X_n dP  = 1
+</span> となるが，これは明らかにおかしい． これが言いたいことは<span class="math inline">X_n \to X</span>だけでは，<span class="math inline">\int X_n dP \to \int X dP</span>は保証されないということである．</p>
+<p>ではなぜ非負関数について増加列に限定すると解決するのか？ <span class="math inline">X \ge 0</span> に対して <span class="math display">
+0 \le X_1 \le X_2 \cdots \uparrow X
+</span> とする．ただし上の意味は <span class="math display">
+0\le X_n(\omega) \le X_{n+1} \forall n,\omega \quad\land X_n(\omega) \to X
+</span> である．すると積分の単調性 <span class="math display">
+X_2 - X_1 \ge 0 \rightarrow \int_{\Omega} (X_2 - X_1)dP \ge 0
+</span></p>
+<p>より <span class="math display">
+\int X_1 dP \le \int X_2 dP \le \cdots
+</span> となるので，積分値も単調増加する．そして（これは測度論の重要性質だが，直感的なので数学的な証明は行わない）どの単純関数の増加近似を選んでも，最終的に同じ値になる． なので近似列で収束する値は変わらないので先程のような問題は起こらない．ここで非負性が効いてくる．下から上へ近づけれるので． だが一般の確率変数は全て非負ではないので <span class="math display">
+X = X^+ - X^-
+</span> と分解して，それぞれで近づける． これが上の手法である．すなわち積分の単調性と単純関数の増加近似の任意性を活用して一般の確率変数についてもきちんと定義できることを言っている．</p>
+</section>
+<section id="期待値" class="level3">
+<h3 class="anchored" data-anchor-id="期待値">期待値</h3>
+<p>ここで積分が存在するとき <span class="math display">
+\int_{\Omega} X dP \equiv E\{ X\}
+</span> とし，これを<span class="math inline">X</span>の期待値という．教科書は{}を使っているが，このドキュメント群では期待値は汎関数であることを強調したいので<span class="math inline">E[X]</span>と表記する．ないしは<span class="math inline">\mathbb E[X]</span>. モーメント，分散，変動係数，可積分，特性関数は知っているので省略する．特性関数は確率密度関数のFourier変換であること，確率変数の独立性を記述するのに必要であることは重要である．</p>
 </section>
 </section>
-<section id="定義汎関数変分" class="level3">
-<h3 class="anchored" data-anchor-id="定義汎関数変分">定義(汎関数変分)</h3>
-<p>汎関数<span class="math inline">J[y]</span>に対し，関数<span class="math inline">y(x)</span>を<span class="math inline">y(x) + \epsilon \eta(x)</span>へ変化させたときの汎関数の変化量を<span class="math inline">\Delta J</span>とする．この<span class="math inline">\Delta J</span>を<span class="math inline">\epsilon</span>でマクローリン展開を行う． マクローリン展開は<span class="math inline">J[y + \epsilon \eta]</span>について次のように定義される．</p>
-<p><span class="math display">
-J[y + \epsilon \eta] = J[y] + \sum_{n = 1}^\infty  \left. \frac{\epsilon^n}{n!} J[y + \epsilon \eta]\right|_{\epsilon  = 0}
-</span> 具体的に考えてみないと理解が難しいので簡単な例で考える． ##### マクローリン展開の例 <span class="math inline">J[y] = \int_a^b y^2 dx</span>で，マクローリン展開をしてみる． まず <span class="math display">
-J[y + \epsilon \eta] = \int_a^b y^2 + 2y \epsilon \eta + \epsilon^2 \eta^2 dx
-</span> 次に，こいつを<span class="math inline">\epsilon</span> で1階微分と2階微分を行う．(3階以上は0になるので省略) <span class="math display">
-\frac {d}{d\epsilon}J = \int_a^b  2y \eta + 2 \epsilon \eta^2 dx
-</span> <span class="math display">
-\frac {d^2}{d\epsilon^2}J = \int_a^b  2  \eta^2 dx
+<section id="確率変数列の収束" class="level2">
+<h2 class="anchored" data-anchor-id="確率変数列の収束">確率変数列の収束</h2>
+<p>実数空間における数列と同じように確率変数を集めた空間においても，確率変数列というものを考えることができる． <strong>実数空間において定義された関数の連続性や微分可能性を議論する上で実数列とその収束性が重要な働きをするように，確率変数列の収束性も重要である.</strong> しかし確率変数はサンプル<span class="math inline">\omega</span>に依存して異なる値を取るため，確率変数列の収束もサンプルに依存してしまう点に注意しなければならない，つまり，一つの確率変数列について，あるサンプルを抽出して得られた数列は収束するのに，別のサンプルを抽出して得られた数列は収束しないことが起こり得る． 例えば，標本空間を <span class="math display">
+\Omega = \{ \omega_1,\omega_2 \}
+</span> とする．そして確率変数列<span class="math inline">X_1, X_2 , ...</span>を <span class="math display">
+X_n(\omega_1) = \frac{1}{n}, \qquad X_n(\omega_2) = (-1)^n
+</span> と定義する．これは<span class="math inline">X_n(\omega_1)</span>は収束するが<span class="math inline">X_{n}(\omega_2)</span>は収束しない．確率変数列が収束すると言うときには，どの<span class="math inline">\omega</span>について収束するのかを指定しないといけない．そして，収束の定義がただ一つに決まらないという問題が起こる．なので次のように３つの収束の定義を与える．</p>
+<section id="定義概収束" class="level3">
+<h3 class="anchored" data-anchor-id="定義概収束">定義：概収束</h3>
+<p>次の式を満たすとき，<span class="math inline">X_n</span>は<span class="math inline">X</span>に概収束するという． <span class="math display">
+\lim_{n \to \infty} |X_n - X| = 0 \quad(\text{a.s.})
+</span> これを次のように表す <span class="math display">
+\text{as-lim}_{n \to \infty} X_n = X
 </span></p>
-<p>そしてこいつらに<span class="math inline">\epsilon = 0</span>を代入する． <span class="math display">
-\left. \frac {d}{d\epsilon}J \right |_{\epsilon = 0}= \int_a^b  2y \eta  dx
+<p>a.s. - almost surelyの意味は前回参照．と言いたいところだがよくわからなかったので，ここできちんと説明する．(a.s.)の意味は，この等式はほとんど全ての<span class="math inline">\omega</span>について，確率1で成立すると言うことである．（なかなか省略されている．）これは<span class="math inline">\forall \omega \in \Omega</span>よりも弱く，確率0についての事象は考えていない． ### 定義：確率収束 次の式を満たすとき，<span class="math inline">X_n</span>は<span class="math inline">X</span>に確率収束するという． <span class="math display">
+\lim_{n \to \infty} P(|X_n  - X| \ge \epsilon) = 0 \quad(\forall \epsilon &gt;0)
+</span> これを次のように表す <span class="math display">
+\text{p-lim}_{n \to \infty} X_n = X
+</span> ### 定義：<span class="math inline">q</span>次平均収束</p>
+<p><span class="math inline">q \ge 1</span>に対して次式を満たすとき，<span class="math inline">X_n</span>は<span class="math inline">X</span>に<span class="math inline">q</span>次平均収束するという．<span class="math inline">L^q</span>収束とも書く． <span class="math display">
+\lim_{n \to \infty} \mathbb E[|X_n - X|^q] = 0
+</span> 特に<span class="math inline">q=2</span>のとき，2乗平均収束するといい，次のように表す <span class="math display">
+\text{sq-lim}_{n \to \infty} X_n = X
+</span> イメージは a.s 収束 ：ほぼ全ての<span class="math inline">\omega</span>について，実際の列が収束するか 確率収束：大きく外れる確率が0になるか <span class="math inline">L^q</span>収束：誤差の大きさまで含めた平均が 0になるか である． それぞれの関係は <span class="math display">
+\begin{align}
+&amp;\text{i)} \quad X_nがXに概収束すれば，同じXに確率収束する． \\
+&amp;\text{ii)}  \quad X_nがXにq次平均収束すれば，同じXに確率収束する． \\
+&amp;\text{iii)} \quad X_nがXに確率収束すれば，適当な部分列を取ることにより，Xに概収束させることができる．
+\end{align}
 </span></p>
-<p><span class="math display">
-\left. \frac {d^2}{d\epsilon^2}J \right|_{\epsilon = 0} = \int_a^b  2  \eta^2 dx
-</span></p>
-<p>これで係数（数と言っていいのか？）が求まったので，代入すると <span class="math display">
-J[y + \epsilon \eta] = J[y] + \epsilon\int_a^b 2y\eta dx + \frac{\epsilon^2}{2} \int_a^b 2 \eta^2 dx
-</span> となってテイラー展開が求まる．</p>
-<p>戻ってこのマクローリン展開の<span class="math inline">\epsilon</span>の<span class="math inline">n</span>次の項を<span class="math inline">n</span>次変分と定義し<span class="math inline">\delta^n J</span>とする． 特に1次変分<span class="math inline">\delta J</span>が重要である．</p>
+<p>である．iとiiはそういうもんかと理解できるが，iiiはよくわからない．まあ，理解しないといけなくなったときになったらまた戻ってきて書く．</p>
+<p>さらに実確率変数については，確率収束よりも弱い収束がある．</p>
 </section>
-<section id="変分の公式" class="level3">
-<h3 class="anchored" data-anchor-id="変分の公式">変分の公式</h3>
-<p>まず，だいたい普通の微分公式と同じである． <span class="math inline">t</span>は変数であるとして <span class="math display">
-\delta t = 0
-</span> <span class="math display">
-\delta f(u,v) = \frac{\partial f}{\partial u} \delta u+ \frac{\partial f}{\partial  v} \delta v
-</span> 重要なのは，変分記号<span class="math inline">\delta</span>は微分と積分の順序と交換できるということである． <span class="math display">
-\delta \left( \frac{du}{dx} \right) = \frac{d}{dx} (\delta u)
-</span> <span class="math display">
-\delta \int_a^b u(x) dx = \int_a^b \delta u(x) dx
-</span> そして，この関数の変分公式を用いて，汎関数の変分を求めていく． ### 変分の具体例 物理的な意味は次回やるとして今はただの計算問題として <span class="math display">
-J[x] = \int_a^b F(x , \dot x , t)dt
-</span> の変分を求めることを考える． まず，交換できるので <span class="math display">
-\delta J = \int_a^b \delta F dt
-</span></p>
-<p>チェーンルールにより <span class="math display">
-\delta J = \int_a^b \frac{\partial F}{\partial x} \delta x +\frac{\partial F}{\partial \dot x} \delta \dot x + \frac{\partial F}{\partial t} \delta t dt
-</span> が成立する．ここで第三項については<span class="math inline">\delta t = 0</span>であることと，第二項については微分と変分を交換することで <span class="math display">
-\delta J = \int_a^b \frac{\partial F}{\partial x} \delta x +\frac{\partial F}{\partial \dot x} \frac{d}{d t}\delta x dt
-</span> となる．ここで第二項について，部分積分を行うと <span class="math display">
-\int_a^b \frac{\partial F}{\partial \dot x} \frac{d}{d t}\delta x dt = \left. \frac{\partial F}{\partial x} \right|^a_b - \int_a^b \frac{d}{dt} \frac{\partial F}{\partial \dot x} \delta x dt
-</span></p>
-<p>ここにおける第一項は，端点の境界条件を考えると0になる． この結果を元の式に代入すると <span class="math display">
-\delta J = \int_a^b \frac{\partial F}{\partial x} \delta x -\frac{d}{dt} \frac{\partial F}{\partial \dot x} \delta x dt
-</span></p>
-<p>である．これで汎関数の変分を求めることができた． 冒頭でも述べた通り，次回からはこの公式たちを使って有名な結果を導出していく．</p>
+<section id="定義法則収束" class="level3">
+<h3 class="anchored" data-anchor-id="定義法則収束">定義：法則収束</h3>
+<p><span class="math inline">X_n</span>の確率分布関数を<span class="math inline">F_{X_n}(x)</span>,<span class="math inline">X</span>の確率分布関数を<span class="math inline">F_X(x)</span>とするとき，関数列が<span class="math inline">F_X(x)</span>に各連続点で収束するならば，<span class="math inline">X_n</span>は<span class="math inline">X</span>に法則収束するという．</p>
+<p>また<span class="math inline">X_n</span>が<span class="math inline">X</span>に確率収束すれば，同じ<span class="math inline">X</span>に法則収束する．</p>
+</section>
+</section>
+<section id="一様可積分" class="level2">
+<h2 class="anchored" data-anchor-id="一様可積分">一様可積分</h2>
+<p>最後に可積分な確率変数列の極限について述べる．確率変数の列<span class="math inline">\{ X_n \}_{n = 1,2 ,...}</span>が存在し，<span class="math inline">\forall n</span> ，<span class="math inline">X_n</span> が可積分であるとき，この列は可積分であるという．可積分な確率変数の列が<span class="math inline">X</span>に確率収束するとしよう．このとき，極限として得られる<span class="math inline">X</span>が可積分になるとは<strong>必ずしもならない</strong>．</p>
+<p>ちょうど，連続な関数列の極限が必ずしも連続になるとは限らないのと似た状況である．</p>
+<p>例は <span class="math display">
+f_n(x) = x^n , \qquad x \in [0,1]
+</span> である．これは<span class="math inline">n</span>について連続関数である．しかし極限関数は <span class="math display">
+f(x) =
+\begin{cases}
+0 , &amp; 0 \le x &lt; 1\\
+1, &amp; x = 1
+\end{cases}
+</span> となるので，これは不連続関数である． すなわち極限で性質を保存するためには，単なる点ごとの収束より強い性質が必要となってくる．</p>
+<section id="定義一様可積分" class="level3">
+<h3 class="anchored" data-anchor-id="定義一様可積分">定義：一様可積分</h3>
+<p>可積分な確率変数列<span class="math inline">\{ X_n \}</span>が <span class="math display">
+\lim_{K \to \infty} \sup_n \int_{|X_n| &gt; K} |X_n| dP =0
+</span> を満たすとき，一様可積分であるという． よくわからないので，一個一個見ていく． まずこれの定性的な意味は「どの<span class="math inline">X_n</span>についても，極端に大きな値を取る部分が期待値に与える影響を，一斉に小さくできる」である． まず <span class="math display">
+\int_{|X_n| &gt; K} |X_n| dP
+</span> は，ある<span class="math inline">K</span>より大きな確率変数についてのみ期待値を取る．ということを意味している．すなわち，巨大な値をとる部分だけ期待値を計算している． <span class="math display">
+\sup_n
+</span> はこの中から，最悪のもの，すなわち一番大きな場合についてのみを選ぶ．それで極限をとっている．</p>
+</section>
+</section>
+<section id="感想" class="level2">
+<h2 class="anchored" data-anchor-id="感想">感想</h2>
+<p>確率の収束の概念がどこで使うねんという感じで，よくわからなかった． たぶん進めていくうちにわかっていくと思うのでここでは深く考えないで，教科書を進めていこうと思う．</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -870,6 +1028,18 @@ J[x] = \int_a^b F(x , \dot x , t)dt
     }
   });
   </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../Published/StochasticDifferentialEquations/1.html" class="pagination-link" aria-label="確率論の概要(1)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">確率論の概要(1)</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../Published/StochasticDifferentialEquations/3.html" class="pagination-link" aria-label="確率論の概要(3)">
+        <span class="nav-page-text">確率論の概要(3)</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 

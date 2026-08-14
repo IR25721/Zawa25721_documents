@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>確率論の概要(3) – Zawaの勉強記録</title>
+<title>識別部の設計 – Zawaの勉強記録</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -36,6 +36,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../../Published/PR/5.html" rel="next">
+<link href="../../Published/PR/3.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -164,7 +166,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">確率論の概要(3)</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/PR/1.html">PR</a></li><li class="breadcrumb-item"><a href="../../Published/PR/4.html">識別部の設計</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -197,21 +199,35 @@ window.Quarto = {
  <span class="menu-text">古典力学における変分</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/CalculusOfVariations/3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">静物についての変分法</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/CalculusOfVariations/4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">流体の作用</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/CalculusOfVariations/5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">機械学習における変分法</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">EnglishStudy</span></span>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">PR</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Published/PR/1.html" class="sidebar-item-text sidebar-link">
@@ -228,6 +244,53 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../../Published/PR/3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">誤差評価に基づく学習</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/PR/4.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">識別部の設計</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/PR/5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">特徴の評価とベイズ誤り確率</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">StochasticDifferentialEquations</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/StochasticDifferentialEquations/1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">確率論の概要(1)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/StochasticDifferentialEquations/2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">確率論の概要(2)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/StochasticDifferentialEquations/3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">確率論の概要(3)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/StochasticDifferentialEquations/4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">確率論の概要(4)</span></a>
   </div>
 </li>
       </ul>
@@ -288,6 +351,12 @@ window.Quarto = {
  <span class="menu-text">ボルツマンの原理</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/equilibrium_stat_mech/3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">カノニカルアンサンブル</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -339,7 +408,24 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">最適化数学</span></span>
+ <span class="menu-text">機械学習理論</span></span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">最適化数学</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/optimization_math/1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">最適化の基礎</span></a>
+  </div>
+</li>
+      </ul>
   </li>
     </ul>
     </div>
@@ -351,17 +437,21 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#大数の法則" id="toc-大数の法則" class="nav-link active" data-scroll-target="#大数の法則">大数の法則</a></li>
-  <li><a href="#poissonの少数法則" id="toc-poissonの少数法則" class="nav-link" data-scroll-target="#poissonの少数法則">Poissonの少数法則</a></li>
+  <li><a href="#ベイズ決定則" id="toc-ベイズ決定則" class="nav-link active" data-scroll-target="#ベイズ決定則">ベイズ決定則</a></li>
+  <li><a href="#識別関数の設計" id="toc-識別関数の設計" class="nav-link" data-scroll-target="#識別関数の設計">識別関数の設計</a>
+  <ul class="collapse">
+  <li><a href="#線形識別関数の設計" id="toc-線形識別関数の設計" class="nav-link" data-scroll-target="#線形識別関数の設計">線形識別関数の設計</a></li>
+  <li><a href="#具体例" id="toc-具体例" class="nav-link" data-scroll-target="#具体例">具体例</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/PR/1.html">PR</a></li><li class="breadcrumb-item"><a href="../../Published/PR/4.html">識別部の設計</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">確率論の概要(3)</h1>
+<h1 class="title">識別部の設計</h1>
 </div>
 
 
@@ -378,20 +468,71 @@ window.Quarto = {
 </header>
 
 
-<p>収束定理は統計学において重要である．特に次に紹介する大数の法則と中心極限定理は，それなくして統計学を記述することは不可能であり，主張を理解しておくことには十分価値がある．</p>
-<section id="大数の法則" class="level2">
-<h2 class="anchored" data-anchor-id="大数の法則">大数の法則</h2>
-<p>独立列<span class="math inline">\{ X_n \}</span>の第<span class="math inline">n</span>部分和を<span class="math inline">S_n = \sum_{k =1}^n X_k</span>と表す．部分和に対して，<span class="math inline">\frac{1}{n} S_n</span>は，<span class="math inline">X_1</span>から<span class="math inline">X_n</span>までの平均を表すが，これを確率分布の平均と区別するため，算術平均と呼ぶことが多い．我々は i.i.dな確率変数列の場合，部分和をとる個数<span class="math inline">n</span>をおおきくとれば，算術平均によって分布の平均を近似できることを経験的に知っている．これを数学的にきちんと述べたのが 大数の強法則である． ### 定理：大数の強法則</p>
-<p><span class="math inline">\{ X_n \}</span>をi.i.dな<span class="math inline">L^1</span> 確率変数(<span class="math inline">\forall n , \mathbb E[|X_n|] &lt; \infty</span>)の列で，その平均を<span class="math inline">m</span>とする．このとき <span class="math display">
-\text{as-lim}_{n \to \infty} \frac{1}{n} S_n = m
-</span> が成立する． この定理は，独立確率変数列が<span class="math inline">L^2</span>に属せば，同一の分布に従わない場合にも拡張できることが知られている(Kolmogorovの大数の強法則)．</p>
-<p>中心極限定理は知ってるので省略する． 一応補足しておくと，中心極限定理には２種類ありLindeberg-Lévyの中心極限定理とLindeberg-Fellerの中心極限定理がある．教科書でよく取り扱われるのはLindeberge-Lévy型である． 世間一般で「中心極限定理」と呼ばれているのは後者のLinderberg-Fellerの中心極限定理である．これは独立ではあるが必ずしも同分布ではない確率変数までも扱えるより一般的な中心極限定理である．</p>
+<section id="ベイズ決定則" class="level2">
+<h2 class="anchored" data-anchor-id="ベイズ決定則">ベイズ決定則</h2>
+<p><span class="math inline">P(\omega_i | x)</span>は未知パターン<span class="math inline">x</span>が入力されたとき，その所属するクラスが<span class="math inline">\omega_i</span>である確からさを示している．したがって<span class="math inline">x</span>を識別する際に事後確率<span class="math inline">P(\omega_i | x)</span>が最大となる<span class="math inline">\omega_i</span>を識別結果として出力するのが最も自然である． <span class="math display">
+\max_{i = 1 ,...,c} \{ P(\omega_i | x) \} =P(\omega_k | x) , x\in \omega_k
+</span> が識別方となる．このような識別法をベイズ決定則と呼ぶ． NN法に当てはめて考えると<span class="math inline">D</span>を<span class="math inline">P(\omega_i | x)</span>に変えたと解釈できる ベイズの定理を用いると <span class="math display">
+g_i(x) = p(x | \omega_i) p(\omega_i)
+</span> となる，あるいは対数をとって <span class="math display">
+g_i(x) = \log p(x | \omega_i) + \log p(\omega_i)
+</span> としてもよい． ## ベイズ決定則の具体例：多次元正規分布 ベイズ決定則の具体例として，尤度が多次元正規分布の場合を考える．</p>
+<p><span class="math display">
+p(x | \omega_i) = \frac{1}{(2\pi)^{\frac d 2} |\Sigma_i|^{\frac 1 2}} \exp{\left( -\frac 1 2 (x - m_i)^T\Sigma_i^{-1}(x - m_i) \right)}
+</span> これを識別関数の式に代入し,さらに比較に関係のない項を省くと</p>
+<p><span class="math display">
+g_i(x) = (x - m_i)^T \Sigma_i^{-1}(x - m_i) - \frac 12\log|\Sigma_i|+ p(w_i)  
+</span> となり，識別関数は<span class="math inline">x</span>についての二次関数になることが分かる． <span class="math display">
+D^2_M =  (x - m_i)^T \Sigma_i^{-1}(x - m_i)
+</span></p>
+<p>とすると<span class="math inline">D_M</span>はマハラノビス汎距離と呼ばれる．</p>
+<p>次に全クラスで分散共分散行列が等しい場合を考える． <span class="math display">
+\Sigma_i = \Sigma_0
+</span> とおき，比較に関係のない項を省略すると <span class="math display">
+g_i(x) = x^T\Sigma_0^{-1} m_i - \frac 1 2 m_i^T \Sigma_0^{-1}m_i + \log p(\omega_i)
+</span> となる．これは明らかに線形識別関数である．</p>
+<p>ここで，<span class="math inline">\Sigma_0</span>を特徴量同士には相関がなく，分散が等しいとする．さらに，事前確率が各クラスで等しいとする(<span class="math inline">p(w_i) = \frac 1 c</span>). そうするならば <span class="math display">
+g_i = m_i^T x - \frac 1 2 |m_i|^2
+</span> としてよい．これはNN法で用いた最小距離識別法と一致する．</p>
+<p>教科書にある最尤推定法はよく知られているので省略する．</p>
 </section>
-<section id="poissonの少数法則" class="level2">
-<h2 class="anchored" data-anchor-id="poissonの少数法則">Poissonの少数法則</h2>
-<p>次に，<span class="math inline">\{ X_n \}</span> を０または１の値をとる独立確率変数列とし，1をとる確率が非常に小さいものとする．このとき，多数の<span class="math inline">X_n</span>の集まりの中で1をとった個数を非負整数値確率変数とみなすとき，この集まりの個数が十分に大きくなれば個数の分布がPoisson分布で近似されるというのがPoissonの少数法則である．</p>
+<section id="識別関数の設計" class="level2">
+<h2 class="anchored" data-anchor-id="識別関数の設計">識別関数の設計</h2>
+<section id="線形識別関数の設計" class="level3">
+<h3 class="anchored" data-anchor-id="線形識別関数の設計">線形識別関数の設計</h3>
+<p>まず識別関数に対する評価を表す関数を<span class="math inline">J</span>とおく．境界となる超平面を定めることは，その法線ベクトルで表される軸と軸上の境界点を定めることと等価である．だが，超平面の評価は難しいので，その軸によって表される１次元空間上での各クラス<span class="math inline">\omega_i</span> の平均と分散をそれぞれ<span class="math inline">\tilde m_i , \tilde \sigma_i</span>とする. <img src="IMG_20260627_170711.jpg" class="img-fluid"> クラス数が2の場合を考えると <span class="math display">
+J = J(\tilde m_1 , \tilde m_2 , \tilde \sigma_1, \tilde \sigma_2)
+</span> である．これを最大化しよう． 計算は省略するが，チェーンルールを用いると <span class="math display">
+w \propto (s \Sigma_1 + (1 - s)\Sigma_2)^{-1} (m_1 - m_2)
+</span> ただし <span class="math display">
+s = \frac{ \frac{ \partial J}{\partial \tilde\sigma_1^2}}{\frac{ \partial J}{\partial \tilde\sigma_1^2}  + \frac{ \partial J}{\partial \tilde\sigma_2^2} }
+</span> である．</p>
+<p>### 線形識別関数を用いた多クラスの認識</p>
+<p>多クラス識別について考える 1. 任意のクラス<span class="math inline">\omega_i , \omega_j</span>が線形分離可能な場合 このときクラス<span class="math inline">\omega_iと\omega_j</span>を識別する線形識別関数<span class="math inline">g_{ij}(x)</span>が存在し <span class="math display">
+\begin{equation}
+  \left\{
+  \begin{alignedat}{2}   
+    x \in \omega_i \rightarrow g_{ij} &gt; 0  \\
+    x \in \omega_j \rightarrow g_{ij} &lt; 0
+  \end{alignedat}
+  \right.
+\end{equation}
+</span> を満たす.同様にして<span class="math inline">\frac {c(c-1)}{2}</span>個の識別関数を定義できる．</p>
+<p>またこの変法として，多数決法もよく知られている．まずすべての<span class="math inline">i (i = 1,...,c)</span>について <span class="math display">
+g_{ij} &gt; 0
+</span> が成り立つ<span class="math inline">j (j = 1 ,...,c)</span>の個数を求め，これを得票数<span class="math inline">N(i)</span>として識別則を <span class="math display">
+N(i) &gt; N(j) \rightarrow x \in \omega_i
+</span></p>
+</section>
+<section id="具体例" class="level3">
+<h3 class="anchored" data-anchor-id="具体例">具体例</h3>
+<p>クラスの総数を3とし，それぞれをクラス <span class="math inline">\omega_1</span> ，クラス <span class="math inline">\omega_2</span> ，クラス <span class="math inline">\omega_3</span> とする． ある入力 <span class="math inline">x</span> に対し，1対1の識別関数の出力に関して，次の関係が得られた状況を考える．</p>
+<p><span class="math inline">\omega_1</span> と <span class="math inline">\omega_2</span> の比較において，<span class="math inline">g_{12} &gt; 0</span> が成り立つとする． <span class="math inline">\omega_1</span> と <span class="math inline">\omega_3</span> の比較において，<span class="math inline">g_{13} &gt; 0</span> が成り立つとする． <span class="math inline">\omega_2</span> と <span class="math inline">\omega_1</span> の比較において，<span class="math inline">g_{21} &gt; 0</span> は成り立たないとする． <span class="math inline">\omega_2</span> と <span class="math inline">\omega_3</span> の比較において，<span class="math inline">g_{23} &gt; 0</span> が成り立つとする． <span class="math inline">\omega_3</span> と <span class="math inline">\omega_1</span> の比較において，<span class="math inline">g_{31} &gt; 0</span> は成り立たないとする． <span class="math inline">\omega_3</span> と <span class="math inline">\omega_2</span> の比較において，<span class="math inline">g_{32} &gt; 0</span> は成り立たないとする．</p>
+<p>なお，同一クラスの比較である <span class="math inline">g_{11}</span> ， <span class="math inline">g_{22}</span> ， <span class="math inline">g_{33}</span> はすべて 0 であり，これらも正にはならないとする．</p>
+<p>このとき，各クラス <span class="math inline">i</span> について，<span class="math inline">g_{ij} &gt; 0</span> が成り立つ <span class="math inline">j</span> の個数，すなわち得票数 <span class="math inline">N(i)</span> を算出する． <span class="math inline">\omega_1</span> については，<span class="math inline">g_{12} &gt; 0</span> と <span class="math inline">g_{13} &gt; 0</span> の2つが成り立つため，得票数 <span class="math inline">N(1)</span> は 2 となる． <span class="math inline">\omega_2</span> については，<span class="math inline">g_{23} &gt; 0</span> の1つのみが成り立つため，得票数 <span class="math inline">N(2)</span> は 1 となる． <span class="math inline">\omega_3</span> については，条件を満たす <span class="math inline">j</span> が存在しないため，得票数 <span class="math inline">N(3)</span> は 0 となる． 得票数の結果を比較すると，<span class="math inline">N(1) &gt; N(2)</span> および <span class="math inline">N(1) &gt; N(3)</span> が成り立つため，<span class="math inline">N(1)</span> が最大となる．したがって，識別則に基づいて，この入力 <span class="math inline">x</span> はクラス <span class="math inline">\omega_1</span> に属すると判定される．</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -795,6 +936,18 @@ window.Quarto = {
     }
   });
   </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../Published/PR/3.html" class="pagination-link" aria-label="誤差評価に基づく学習">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">誤差評価に基づく学習</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../Published/PR/5.html" class="pagination-link" aria-label="特徴の評価とベイズ誤り確率">
+        <span class="nav-page-text">特徴の評価とベイズ誤り確率</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 
