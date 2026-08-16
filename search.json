@@ -694,14 +694,14 @@
     "href": "index.html",
     "title": "Zawaの勉強記録",
     "section": "",
-    "text": "2026-08-14: パターン認識コンテンツの作成予定"
+    "text": "2026-08-16: パターン認識コンテンツの作成予定"
   },
   {
     "objectID": "index.html#お知らせ",
     "href": "index.html#お知らせ",
     "title": "Zawaの勉強記録",
     "section": "",
-    "text": "2026-08-14: パターン認識コンテンツの作成予定"
+    "text": "2026-08-16: パターン認識コンテンツの作成予定"
   },
   {
     "objectID": "index.html#はじめに",
@@ -1317,7 +1317,31 @@
     "href": "Published/StochasticDifferentialEquations/4.html",
     "title": "確率論の概要(4)",
     "section": "",
-    "text": "条件付き確率については，その初等的定義を通じて理解し終えていると認識している人も多いかもしれないが，実は確率測度論の立場からの条件付き確率の記述は非常に難解であり，初等的確率論から確率測度論や確率解析へと進む上で最大の障壁となっていると言っても過言ではない． ここではできるだけ簡潔に条件付き確率について概説する． ## 条件付き期待値\n定義 \\mathcal Gを\\mathcal Fの部分\\sigma-加法族とする．このとき部分確率空間(\\Omega,\\mathcal G,P)上定義された可積分な確率変数Y : \\Omega \\to \\mathbb Rが以下の２つの条件を満たすならば，Yを条件\\mathcal Gの下での条件付き期待値とよび，\\mathbb E[X | \\mathcal G] (\\omega)と表す． i) Yは\\mathcal G可測である， ii)\\mathcal Gの任意の要素Gに対して，次が成立する． \n\\int_G Y(\\omega) P(d \\omega) = \\int_G X(\\omega) P(d \\omega)\n 当然よくわからないので，具体例を見ていく． ### 具体例：サイコロを１回振る\n\n\\Omega = \\{ 1,2,3,4,5,6 \\}, \\qquad P(\\{\\omega\\}) = \\frac{1}{6}\n とし確率変数Xを \nX(\\omega) = \\omega\n とする． ここでサイコロをを振ったあと，出た目そのものは数えてもらえず， 奇数だったか偶数だったかだけ教えてもらったとする． この持っている情報を\\mathcal Gとする.O = \\{ 1,3,5 \\}, \\quad E = \\{2,4,6\\}とすると， \n\\mathcal G = \\{\\varnothing, O,E,\\Omega\\}\n は確かに\\sigma-加法族となる．ここでY = \\mathbb E[X | \\mathcal G] (\\omega)を考える． iiの性質を満たすためにはまず右辺から計算すると \n\\int_O X(\\omega) P(d \\omega) = \\frac{1}{6} + \\frac{3}{6} + \\frac{5}{6} = \\frac{3}{2}\n Yは\\mathcal G可測なので \nY (\\omega) =\n\\begin{cases}\na & \\omega \\in O \\\\\nb & \\omega \\in E\n\\end{cases}\n でなければならない．指示関数を使えば \nY = a \\mathbb 1_O + b\\mathbb 1_E\n である． 期待値の定義から \n\\int_O Y(\\omega) P(d\\omega) = \\sum_i a_i P(A_i) = a P(O)\n である． ここで \nP(O) = \\frac{3}{6} = \\frac{1}{2}\n である(独立な事象の確率は足すことができる)ので， \na = 3\n であることが分かる．同様に計算すると \nb = 4\n であることが分かるので，最終的に \n\\mathbb E[X |\\mathcal G](\\omega) =\n\\begin{cases}\n3 & \\omega \\in O \\\\\n4 & \\omega \\in E\n\\end{cases}\n という確率変数となることが分かる．\n条件付き期待値の意味を理解する上で，次の定理は重要である．\nAが\\mathcal Gの基本単位であれば，\\mathbb E[X | \\mathcal G]はA上定数であり，特にP(A) \\neq 0 の場合は次の式が成立する． \n\\mathbb E[X | \\mathcal G](\\omega) = \\frac{1}{P(\\omega)} \\int_A X(\\nu) P(d \\nu) , \\quad (\\omega \\in  A)\n これはさっきの話を一般化したものである． すなわち条件付き期待値とは，条件として与える情報の基本単位上でｍ確率変数を平均化したものに他ならない．期待値という名称はこのことによるものである．条件付き期待値に関する基本的性質の中で，主なものを挙げておく ### 定理：条件付き期待値の諸性質 条件付き期待値について，次が成立する $$ \\begin{align}\n\\text{i)}& \\quad \\mathbb E[\\mathbb E[X | \\mathcal G]] = \\mathbb E[X] \\\\\n\\text{ii)}& \\quad \\mathcal G = \\{ \\varnothing , \\Omega \\} \\to \\mathbb E[X | \\mathcal G] = \\mathbb E[X] \\\\\n\\text{iii)}& \\quad Xが\\mathcal G可測かつ，XYが可積分であれば\\mathbb E[XY | \\mathcal G] = X \\mathbb E[Y|\\mathcal G]\n    \n\\end{align} \niは\n Y() P(d ) = X() P(d ) $$ が成立するため，書き換えただけである．\niiは，情報が何もないので，そのまま確率変数が定数になるというだけである．左辺は，確率変数であるが右辺は実数値である．この実数値は「その値を常にとる定数確率変数」と解釈される．\niiiの意味は \n\\mathcal G の情報だけで値がわかるXは，条件付き期待値の外にだせる\n ということである．普通の期待値で定数を \n\\mathbb E[aX] = a\\mathbb E[X]\n と外に出せるのと同じ考え方である．\n次に確率変数と情報の間の統計的独立性と，条件付き期待値の間の基本的な関係を導出しておく\n\n定義：独立\n確率変数Xが\\sigma-加法族，すなわち情報\\mathcal Gと独立であるとは，Xの生成する\\sigma-加法族と\\mathcal Gが独立であることをいう．\nつまり任意のA \\in \\sigma(X), \\quad G\\in \\mathcal Gについて \nP(A \\cap G) = P(A)P(G)\n が成立することをいう．\n\n\n定理\nX が\\mathcal Gと独立であれば，条件\\mathcal Gの下での条件付き確率は，通常の期待値に等しい．すなわち\\mathbb E[X | \\mathcal G] = \\mathbb E[X] が成立する．\n定性的には\\mathcal Gの情報を知ってもXの予測は変わらないという意味である．\n条件付き期待値は確率変数であるから，条件付き期待値をとった後にさらに異なる条件下で条件付き確率をとるという操作が考えれる，次の定理はそれが最も情報の少ない条件によって決まることを主張するものである． ### 定理：塔の性質 \\mathcal G_1, \\mathcal G_2を２つの部分\\sigma-加法族とするとき，\\mathcal G_1 \\subset \\mathcal G_2 \\subset \\mathcal Fが成立するならば，次式が成立する． \n\\mathbb E[\\mathbb E[X | \\mathcal G_2]|\\mathcal G_1] = \\mathbb E[\\mathbb E[X | \\mathcal G_1]|\\mathcal G_2] =\\mathbb E[X | \\mathcal G_1] \\quad(\\text{a.s.})\n\nこれの定性的意味は，\n多い情報で一度予測してから少ない情報に戻すこと 最初から少ない情報で予測すること\nは等しいということである． ### 確率変数下での条件付き期待値 次に(\\Omega, \\mathcal F)にXとは異なる確率変数Yが定義されており，条件を確率変数Yで記述する場合を考える．条件Yの下での条件付き期待値を \n\\mathbb E[X | Y] := \\mathbb E[X | \\sigma(Y)]\n と定義する． また条件付き確率に対してBorel関数f_X : \\mathbb R \\to \\mathbb Rが存在し \n\\mathbb E[X | Y] (\\omega) = f_X(Y(\\omega)) \\quad (\\text{a.s})\n が成立するようにできる．\n\n\n定義\n上のf_X(y)を\\mathbb E [X | Y = y]と表し，条件Y = yでのXの条件付き期待値と定義する．\n色々新しい概念を書いたので，具体例を見ていく．",
+    "text": "条件付き確率については，その初等的定義を通じて理解し終えていると認識している人も多いかもしれないが，実は確率測度論の立場からの条件付き確率の記述は非常に難解であり，初等的確率論から確率測度論や確率解析へと進む上で最大の障壁となっていると言っても過言ではない． ここではできるだけ簡潔に条件付き確率について概説する． ## 条件付き期待値\n定義 \\mathcal Gを\\mathcal Fの部分\\sigma-加法族とする．このとき部分確率空間(\\Omega,\\mathcal G,P)上定義された可積分な確率変数Y : \\Omega \\to \\mathbb Rが以下の２つの条件を満たすならば，Yを条件\\mathcal Gの下での条件付き期待値とよび，\\mathbb E[X | \\mathcal G] (\\omega)と表す． i) Yは\\mathcal G可測である， ii)\\mathcal Gの任意の要素Gに対して，次が成立する． \n\\int_G Y(\\omega) P(d \\omega) = \\int_G X(\\omega) P(d \\omega)\n 当然よくわからないので，具体例を見ていく． ### 具体例：サイコロを１回振る\n\\Omega = \\{ 1,2,3,4,5,6 \\}, \\qquad P(\\{\\omega\\}) = \\frac{1}{6}\n とし確率変数Xを \nX(\\omega) = \\omega\n とする． ここでサイコロをを振ったあと，出た目そのものは数えてもらえず， 奇数だったか偶数だったかだけ教えてもらったとする． この持っている情報を\\mathcal Gとする.O = \\{ 1,3,5 \\}, \\quad E = \\{2,4,6\\}とすると， \n\\mathcal G = \\{\\varnothing, O,E,\\Omega\\}\n は確かに\\sigma-加法族となる．ここでY = \\mathbb E[X | \\mathcal G] (\\omega)を考える． iiの性質を満たすためにはまず右辺から計算すると \n\\int_O X(\\omega) P(d \\omega) = \\frac{1}{6} + \\frac{3}{6} + \\frac{5}{6} = \\frac{3}{2}\n Yは\\mathcal G可測なので \nY (\\omega) =\n\\begin{cases}\na & \\omega \\in O \\\\\nb & \\omega \\in E\n\\end{cases}\n でなければならない．指示関数を使えば \nY = a \\mathbb 1_O + b\\mathbb 1_E\n である． 期待値の定義から \n\\int_O Y(\\omega) P(d\\omega) = \\sum_i a_i P(A_i) = a P(O)\n である． ここで \nP(O) = \\frac{3}{6} = \\frac{1}{2}\n である(独立な事象の確率は足すことができる)ので， \na = 3\n であることが分かる．同様に計算すると \nb = 4\n であることが分かるので，最終的に \n\\mathbb E[X |\\mathcal G](\\omega) =\n\\begin{cases}\n3 & \\omega \\in O \\\\\n4 & \\omega \\in E\n\\end{cases}\n という確率変数となることが分かる．\n条件付き期待値の意味を理解する上で，次の定理は重要である．\nAが\\mathcal Gの基本単位であれば，\\mathbb E[X | \\mathcal G]はA上定数であり，特にP(A) \\neq 0 の場合は次の式が成立する． \n\\mathbb E[X | \\mathcal G](\\omega) = \\frac{1}{P(\\omega)} \\int_A X(\\nu) P(d \\nu) , \\quad (\\omega \\in  A)\n これはさっきの話を一般化したものである． すなわち条件付き期待値とは，条件として与える情報の基本単位上でｍ確率変数を平均化したものに他ならない．期待値という名称はこのことによるものである．条件付き期待値に関する基本的性質の中で，主なものを挙げておく ### 定理：条件付き期待値の諸性質 条件付き期待値について，次が成立する $$ \\begin{align}\n\\text{i)}& \\quad \\mathbb E[\\mathbb E[X | \\mathcal G]] = \\mathbb E[X] \\\\\n\\text{ii)}& \\quad \\mathcal G = \\{ \\varnothing , \\Omega \\} \\to \\mathbb E[X | \\mathcal G] = \\mathbb E[X] \\\\\n\\text{iii)}& \\quad Xが\\mathcal G可測かつ，XYが可積分であれば\\mathbb E[XY | \\mathcal G] = X \\mathbb E[Y|\\mathcal G]\n    \n\\end{align} \niは\n Y() P(d ) = X() P(d ) $$ が成立するため，書き換えただけである．\niiは，情報が何もないので，そのまま確率変数が定数になるというだけである．左辺は，確率変数であるが右辺は実数値である．この実数値は「その値を常にとる定数確率変数」と解釈される．\niiiの意味は \n\\mathcal G の情報だけで値がわかるXは，条件付き期待値の外にだせる\n ということである．普通の期待値で定数を \n\\mathbb E[aX] = a\\mathbb E[X]\n と外に出せるのと同じ考え方である．\n次に確率変数と情報の間の統計的独立性と，条件付き期待値の間の基本的な関係を導出しておく",
+    "crumbs": [
+      "Home",
+      "StochasticDifferentialEquations",
+      "確率論の概要(4)"
+    ]
+  },
+  {
+    "objectID": "Published/StochasticDifferentialEquations/4.html#条件付き確率",
+    "href": "Published/StochasticDifferentialEquations/4.html#条件付き確率",
+    "title": "確率論の概要(4)",
+    "section": "条件付き確率",
+    "text": "条件付き確率\nまずは定義を書く ### 定義：条件付き確率 \\mathbb 1_{A}(\\omega)をA \\in \\mathcal Fの指示関数とする． i)\\mathcal Gを部分\\sigma-加法族として， \nP(A | \\mathcal G) = \\mathbb E[\\mathbb 1_A | \\mathcal G]\n を条件\\mathcal Gの下で事象Aが起こる条件付き確率と定める． ii) 確率変数Yに対して \nP(A | Y) = \\mathbb E[\\mathbb 1_A | \\sigma(Y)]\n を条件Yの下で事象Aが起こる条件付き確率と定める．\nこの定義から分かるように，条件付き期待値が\\omegaの関数であるのと全く同様にして，条件付き確率も\\omegaの関数，すなわち確率変数になる．「確率」自体が確率変数であるということは最も理解しにくいことかもしれない．\nこれも具体的に計算していく． \nP(C |\\mathcal G) = \\mathbb E[\\mathbb 1_C | \\mathcal G] = \\frac{1}{P(A)}\\int_A \\mathbb 1_C P(d\\omega) ,\\qquad (Aは\\mathcal Gの基本単位)\n であり，積分範囲がAで指示関数が1を取るということは \n\\int_A \\mathbb 1_C P(d\\omega) = P(A \\cap C)\n である．なので条件付き確率は \nP(C |\\mathcal G) = \\frac{ P(A \\cap C)}{P(A)} , \\qquad (Aは\\mathcal G の基本単位)\n\nとなる．Aが具体的になることで，値となる．",
+    "crumbs": [
+      "Home",
+      "StochasticDifferentialEquations",
+      "確率論の概要(4)"
+    ]
+  },
+  {
+    "objectID": "Published/StochasticDifferentialEquations/4.html#条件付き確率分布",
+    "href": "Published/StochasticDifferentialEquations/4.html#条件付き確率分布",
+    "title": "確率論の概要(4)",
+    "section": "条件付き確率分布",
+    "text": "条件付き確率分布\n確率変数の導入に伴って，写像先の空間で確率の計算を行うために確率測度を確率分布に変換したことを思い出そう．Borel集合Bを与えるごとに，P_X(B) = P(X^{-1}B)で定めた確率分布は，Pの有する完全加法性により（完全加法性とは記事[[学習/Zawa25721_documents/Published/StochasticDifferentialEquations/1|1]]を参照するように）",
     "crumbs": [
       "Home",
       "StochasticDifferentialEquations",

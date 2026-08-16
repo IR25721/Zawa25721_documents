@@ -440,6 +440,8 @@ window.Quarto = {
   <li><a href="#定義独立" id="toc-定義独立" class="nav-link active" data-scroll-target="#定義独立">定義：独立</a></li>
   <li><a href="#定理" id="toc-定理" class="nav-link" data-scroll-target="#定理">定理</a></li>
   <li><a href="#定義" id="toc-定義" class="nav-link" data-scroll-target="#定義">定義</a></li>
+  <li><a href="#条件付き確率" id="toc-条件付き確率" class="nav-link" data-scroll-target="#条件付き確率">条件付き確率</a></li>
+  <li><a href="#条件付き確率分布" id="toc-条件付き確率分布" class="nav-link" data-scroll-target="#条件付き確率分布">条件付き確率分布</a></li>
   </ul>
 </nav>
     </div>
@@ -544,6 +546,28 @@ P(A \cap G) = P(A)P(G)
 <h3 class="anchored" data-anchor-id="定義">定義</h3>
 <p>上の<span class="math inline">f_X(y)</span>を<span class="math inline">\mathbb E [X | Y = y]</span>と表し，条件<span class="math inline">Y = y</span>での<span class="math inline">X</span>の条件付き期待値と定義する．</p>
 <p>色々新しい概念を書いたので，具体例を見ていく．</p>
+<p><img src="Pasted image 20260816190019.png" class="img-fluid"></p>
+</section>
+<section id="条件付き確率" class="level2">
+<h2 class="anchored" data-anchor-id="条件付き確率">条件付き確率</h2>
+<p>まずは定義を書く ### 定義：条件付き確率 <span class="math inline">\mathbb 1_{A}(\omega)</span>を<span class="math inline">A \in \mathcal F</span>の指示関数とする． i)<span class="math inline">\mathcal G</span>を部分<span class="math inline">\sigma</span>-加法族として， <span class="math display">
+P(A | \mathcal G) = \mathbb E[\mathbb 1_A | \mathcal G]
+</span> を条件<span class="math inline">\mathcal G</span>の下で事象<span class="math inline">A</span>が起こる条件付き確率と定める． ii) 確率変数<span class="math inline">Y</span>に対して <span class="math display">
+P(A | Y) = \mathbb E[\mathbb 1_A | \sigma(Y)]
+</span> を条件<span class="math inline">Y</span>の下で事象<span class="math inline">A</span>が起こる条件付き確率と定める．</p>
+<p>この定義から分かるように，条件付き期待値が<span class="math inline">\omega</span>の関数であるのと全く同様にして，条件付き確率も<span class="math inline">\omega</span>の関数，すなわち確率変数になる．「確率」自体が確率変数であるということは最も理解しにくいことかもしれない．</p>
+<p>これも具体的に計算していく． <span class="math display">
+P(C |\mathcal G) = \mathbb E[\mathbb 1_C | \mathcal G] = \frac{1}{P(A)}\int_A \mathbb 1_C P(d\omega) ,\qquad (Aは\mathcal Gの基本単位)
+</span> であり，積分範囲が<span class="math inline">A</span>で指示関数が1を取るということは <span class="math display">
+\int_A \mathbb 1_C P(d\omega) = P(A \cap C)
+</span> である．なので条件付き確率は <span class="math display">
+P(C |\mathcal G) = \frac{ P(A \cap C)}{P(A)} , \qquad (Aは\mathcal G の基本単位)
+</span></p>
+<p>となる．<span class="math inline">A</span>が具体的になることで，値となる．</p>
+</section>
+<section id="条件付き確率分布" class="level2">
+<h2 class="anchored" data-anchor-id="条件付き確率分布">条件付き確率分布</h2>
+<p>確率変数の導入に伴って，写像先の空間で確率の計算を行うために確率測度を確率分布に変換したことを思い出そう．Borel集合<span class="math inline">B</span>を与えるごとに，<span class="math inline">P_X(B) = P(X^{-1}B)</span>で定めた確率分布は，<span class="math inline">P</span>の有する完全加法性により（完全加法性とは記事[[学習/Zawa25721_documents/Published/StochasticDifferentialEquations/1|1]]を参照するように）</p>
 
 
 </section>
