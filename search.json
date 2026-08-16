@@ -1,5 +1,82 @@
 [
   {
+    "objectID": "Obsidian/幾何と物理.html",
+    "href": "Obsidian/幾何と物理.html",
+    "title": "幾何と物理",
+    "section": "",
+    "text": "[[学習マップ]]"
+  },
+  {
+    "objectID": "Obsidian/幾何と物理.html#幾何学の道具",
+    "href": "Obsidian/幾何と物理.html#幾何学の道具",
+    "title": "幾何と物理",
+    "section": "幾何学の道具",
+    "text": "幾何学の道具\n\n[[Published/information_geometry/1|双対空間]]\n[[Published/information_geometry/2|多様体と接空間]]\n[[Published/information_geometry/3|線形汎関数と汎関数について]]\n[[Published/information_geometry/4|ベクトル場]]\n[[Published/information_geometry/5|テンソル場]]\n[[Published/information_geometry/6|多様体のアファイン接続(1)]]"
+  },
+  {
+    "objectID": "Obsidian/幾何と物理.html#物理への接続",
+    "href": "Obsidian/幾何と物理.html#物理への接続",
+    "title": "幾何と物理",
+    "section": "物理への接続",
+    "text": "物理への接続\n\n[[Published/equilibrium_stat_mech/1|リウビルの定理と等確率の原理]]\n[[Published/equilibrium_stat_mech/2|ボルツマンの原理]]\n[[Published/equilibrium_stat_mech/3|カノニカルアンサンブル]]\n[[Published/CalculusOfVariations/2|古典力学における変分]]\n[[Published/CalculusOfVariations/4|流体の作用]]"
+  },
+  {
+    "objectID": "Obsidian/幾何と物理.html#接点",
+    "href": "Obsidian/幾何と物理.html#接点",
+    "title": "幾何と物理",
+    "section": "接点",
+    "text": "接点\n\n[[最適化と変分法]]\n[[統計力学]]"
+  },
+  {
+    "objectID": "Obsidian/学習と識別.html",
+    "href": "Obsidian/学習と識別.html",
+    "title": "学習と識別",
+    "section": "",
+    "text": "[[学習マップ]]"
+  },
+  {
+    "objectID": "Obsidian/学習と識別.html#パターン認識",
+    "href": "Obsidian/学習と識別.html#パターン認識",
+    "title": "学習と識別",
+    "section": "パターン認識",
+    "text": "パターン認識\n\n[[Published/PR/1|パターン認識とは]]\n[[Published/PR/2|学習と識別関数]]\n[[Published/PR/3|誤差評価に基づく学習]]\n[[Published/PR/4|識別部の設計]]\n[[Published/PR/5|特徴の評価とベイズ誤り確率]]"
+  },
+  {
+    "objectID": "Obsidian/学習と識別.html#接点",
+    "href": "Obsidian/学習と識別.html#接点",
+    "title": "学習と識別",
+    "section": "接点",
+    "text": "接点\n\n[[Published/bayesian_inference/1|モンテカルロ法]]\n[[Published/bayesian_inference/2|ベイズ推定におけるモデル選択]]\n[[Published/CalculusOfVariations/5|機械学習における変分法]]\n[[確率と推論]]\n[[最適化と変分法]]"
+  },
+  {
+    "objectID": "Obsidian/最適化と変分法.html",
+    "href": "Obsidian/最適化と変分法.html",
+    "title": "最適化と変分法",
+    "section": "",
+    "text": "[[学習マップ]]"
+  },
+  {
+    "objectID": "Obsidian/最適化と変分法.html#最適化",
+    "href": "Obsidian/最適化と変分法.html#最適化",
+    "title": "最適化と変分法",
+    "section": "最適化",
+    "text": "最適化\n\n[[Published/optimization_math/1|最適化の基礎]]\n[[Published/CalculusOfVariations/1|変分法の基本]]"
+  },
+  {
+    "objectID": "Obsidian/最適化と変分法.html#変分法の展開",
+    "href": "Obsidian/最適化と変分法.html#変分法の展開",
+    "title": "最適化と変分法",
+    "section": "変分法の展開",
+    "text": "変分法の展開\n\n[[Published/CalculusOfVariations/2|古典力学における変分]]\n[[Published/CalculusOfVariations/3|静物についての変分法]]\n[[Published/CalculusOfVariations/4|流体の作用]]\n[[Published/CalculusOfVariations/5|機械学習における変分法]]"
+  },
+  {
+    "objectID": "Obsidian/最適化と変分法.html#接点",
+    "href": "Obsidian/最適化と変分法.html#接点",
+    "title": "最適化と変分法",
+    "section": "接点",
+    "text": "接点\n\n[[Published/information_geometry/3|線形汎関数と汎関数について]]\n[[Published/bayesian_inference/4|VB-EMアルゴリズム]]\n[[幾何と物理]]\n[[学習と識別]]"
+  },
+  {
     "objectID": "intro.html",
     "href": "intro.html",
     "title": "はじめに",
@@ -1341,7 +1418,19 @@
     "href": "Published/StochasticDifferentialEquations/4.html#条件付き確率分布",
     "title": "確率論の概要(4)",
     "section": "条件付き確率分布",
-    "text": "条件付き確率分布\n確率変数の導入に伴って，写像先の空間で確率の計算を行うために確率測度を確率分布に変換したことを思い出そう．Borel集合Bを与えるごとに，P_X(B) = P(X^{-1}B)で定めた確率分布は，Pの有する完全加法性により（完全加法性とは記事[[学習/Zawa25721_documents/Published/StochasticDifferentialEquations/1|1]]を参照するように）",
+    "text": "条件付き確率分布\n確率変数の導入に伴って，写像先の空間で確率の計算を行うために確率測度を確率分布に変換したことを思い出そう．Borel集合Bを与えるごとに，P_X(B) = P(X^{-1}B)で定めた確率分布は，Pの有する完全加法性により（完全加法性とは記事[[学習/Zawa25721_documents/Published/StochasticDifferentialEquations/1|1]]を参照するように）置き換えられた可測空間(\\mathbb R , \\mathcal B)上で完全加法性を有する確率測度となる．これと同様に，条件付き確率についても同じような変換を行うことが必要になってくる．だが条件付き確率自体が確率変数出会ってサンプル\\omegaに依存するため，確率分布への変換については注意が必要である．\n\n定義：条件付き確率分布\n条件付き確率P(X\\in B | \\mathcal G)(\\omega)に対して，次を満たすP_X(B ,\\omega | \\mathcal G)を条件\\mathcal Gの下でのXの条件付き確率分布という．\n\n全ての\\omega \\in \\Omegaに対して，P_X(\\cdot,\\omega | \\mathcal G)は(\\mathbb R , \\mathcal B)の確率測度である．\nBorel集合Bを一つ固定するごとに，P_X(B ,\\cdot|\\mathcal G)はP(X \\in B | \\mathcal G)にほとんど確実に一致する．\n\n条件付き確率の方の定理に対応するのが次の定理である． 条件Yの下でのXの条件付き確率分布P_X(B, \\omega | Y)に対して \nP_X(B, \\omega| Y) = f_X(B,Y(\\omega))\n を満たすBorel関数f_Xが存在する．\n\n\n定義：条件Yの条件付き確率\n上記定理により定まるf_Xを用いてf_X(B,y)をP_X(B | Y = y)と表し，条件Y = yの下でのXの条件付き確率分布とさだめる．\nあと例を書いて確率論概論は終わり．",
+    "crumbs": [
+      "Home",
+      "StochasticDifferentialEquations",
+      "確率論の概要(4)"
+    ]
+  },
+  {
+    "objectID": "Published/StochasticDifferentialEquations/4.html#おわりに",
+    "href": "Published/StochasticDifferentialEquations/4.html#おわりに",
+    "title": "確率論の概要(4)",
+    "section": "おわりに",
+    "text": "おわりに\nこれで確率論の概論は終わりである．次回からようやく本題の一つである確率過程に入っていく．Pythonなどを用いてわかりやすい図などを書いたりしながら自分で理解していきたいと思う．",
     "crumbs": [
       "Home",
       "StochasticDifferentialEquations",
@@ -1419,5 +1508,68 @@
       "平衡系統計力学",
       "ボルツマンの原理"
     ]
+  },
+  {
+    "objectID": "Obsidian/統計力学.html",
+    "href": "Obsidian/統計力学.html",
+    "title": "統計力学",
+    "section": "",
+    "text": "[[学習マップ]]"
+  },
+  {
+    "objectID": "Obsidian/統計力学.html#平衡系統計力学",
+    "href": "Obsidian/統計力学.html#平衡系統計力学",
+    "title": "統計力学",
+    "section": "平衡系統計力学",
+    "text": "平衡系統計力学\n\n[[Published/equilibrium_stat_mech/1|リウビルの定理と等確率の原理]]\n[[Published/equilibrium_stat_mech/2|ボルツマンの原理]]\n[[Published/equilibrium_stat_mech/3|カノニカルアンサンブル]]"
+  },
+  {
+    "objectID": "Obsidian/統計力学.html#接点",
+    "href": "Obsidian/統計力学.html#接点",
+    "title": "統計力学",
+    "section": "接点",
+    "text": "接点\n\n[[Published/StochasticDifferentialEquations/1|確率論の概要(1)]]\n[[Published/StochasticDifferentialEquations/3|確率論の概要(3)]]\n[[Published/information_geometry/2|多様体と接空間]]\n[[幾何と物理]]\n[[確率と推論]]"
+  },
+  {
+    "objectID": "Obsidian/学習マップ.html",
+    "href": "Obsidian/学習マップ.html",
+    "title": "学習マップ",
+    "section": "",
+    "text": "[[確率と推論]]\n[[最適化と変分法]]\n[[幾何と物理]]\n[[学習と識別]]\n[[統計力学]]"
+  },
+  {
+    "objectID": "Obsidian/学習マップ.html#分野横断",
+    "href": "Obsidian/学習マップ.html#分野横断",
+    "title": "学習マップ",
+    "section": "",
+    "text": "[[確率と推論]]\n[[最適化と変分法]]\n[[幾何と物理]]\n[[学習と識別]]\n[[統計力学]]"
+  },
+  {
+    "objectID": "Obsidian/確率と推論.html",
+    "href": "Obsidian/確率と推論.html",
+    "title": "確率と推論",
+    "section": "",
+    "text": "[[学習マップ]]"
+  },
+  {
+    "objectID": "Obsidian/確率と推論.html#確率論",
+    "href": "Obsidian/確率と推論.html#確率論",
+    "title": "確率と推論",
+    "section": "確率論",
+    "text": "確率論\n\n[[Published/StochasticDifferentialEquations/1|確率論の概要(1)]]\n[[Published/StochasticDifferentialEquations/2|確率論の概要(2)]]\n[[Published/StochasticDifferentialEquations/3|確率論の概要(3)]]\n[[Published/StochasticDifferentialEquations/4|確率論の概要(4)]]"
+  },
+  {
+    "objectID": "Obsidian/確率と推論.html#ベイズ推論",
+    "href": "Obsidian/確率と推論.html#ベイズ推論",
+    "title": "確率と推論",
+    "section": "ベイズ推論",
+    "text": "ベイズ推論\n\n[[Published/bayesian_inference/1|モンテカルロ法]]\n[[Published/bayesian_inference/2|ベイズ推定におけるモデル選択]]\n[[Published/bayesian_inference/3|ベイズ推定におけるモデル選択（続き）]]\n[[Published/bayesian_inference/4|VB-EMアルゴリズム]]"
+  },
+  {
+    "objectID": "Obsidian/確率と推論.html#接点",
+    "href": "Obsidian/確率と推論.html#接点",
+    "title": "確率と推論",
+    "section": "接点",
+    "text": "接点\n\n[[Published/PR/5|特徴の評価とベイズ誤り確率]]\n[[最適化と変分法]]\n[[統計力学]]"
   }
 ]

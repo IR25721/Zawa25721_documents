@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>確率論の概要(4) – Zawaの勉強記録</title>
+<title>確率と推論 – Zawaの勉強記録</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -29,25 +29,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<link href="../../Published/bayesian_inference/1.html" rel="next">
-<link href="../../Published/StochasticDifferentialEquations/3.html" rel="prev">
-<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-b286bb201c9dfdd51ad8d12a75fcbf0e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-b286bb201c9dfdd51ad8d12a75fcbf0e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -76,51 +74,8 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
-  <script>document.addEventListener("DOMContentLoaded", function () {
- var mathElements = document.getElementsByClassName("math");
- var macros = [];
- for (var i = 0; i < mathElements.length; i++) {
-  var texText = mathElements[i].firstChild;
-  if (mathElements[i].tagName == "SPAN") {
-   katex.render(texText.data, mathElements[i], {
-    displayMode: mathElements[i].classList.contains('display'),
-    throwOnError: false,
-    macros: macros,
-    fleqn: false
-   });
-}}});
-  </script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light">
@@ -130,7 +85,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Zawaの勉強記録</span>
     </a>
   </div>
@@ -141,11 +96,11 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../intro.html"> 
+    <a class="nav-link" href="../intro.html"> 
 <span class="menu-text">はじめに</span></a>
   </li>  
 </ul>
@@ -166,7 +121,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/StochasticDifferentialEquations/1.html">StochasticDifferentialEquations</a></li><li class="breadcrumb-item"><a href="../../Published/StochasticDifferentialEquations/4.html">確率論の概要(4)</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">確率と推論</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -189,31 +144,31 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Published/CalculusOfVariations/1.html" class="sidebar-item-text sidebar-link">
+  <a href="../Published/CalculusOfVariations/1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">変分法の基本</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Published/CalculusOfVariations/2.html" class="sidebar-item-text sidebar-link">
+  <a href="../Published/CalculusOfVariations/2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">古典力学における変分</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Published/CalculusOfVariations/3.html" class="sidebar-item-text sidebar-link">
+  <a href="../Published/CalculusOfVariations/3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">静物についての変分法</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Published/CalculusOfVariations/4.html" class="sidebar-item-text sidebar-link">
+  <a href="../Published/CalculusOfVariations/4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">流体の作用</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Published/CalculusOfVariations/5.html" class="sidebar-item-text sidebar-link">
+  <a href="../Published/CalculusOfVariations/5.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">機械学習における変分法</span></a>
   </div>
 </li>
@@ -230,31 +185,31 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Published/PR/1.html" class="sidebar-item-text sidebar-link">
+  <a href="../Published/PR/1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">パターン認識とは</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Published/PR/2.html" class="sidebar-item-text sidebar-link">
+  <a href="../Published/PR/2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">学習と識別関数</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Published/PR/3.html" class="sidebar-item-text sidebar-link">
+  <a href="../Published/PR/3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">誤差評価に基づく学習</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Published/PR/4.html" class="sidebar-item-text sidebar-link">
+  <a href="../Published/PR/4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">識別部の設計</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Published/PR/5.html" class="sidebar-item-text sidebar-link">
+  <a href="../Published/PR/5.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">特徴の評価とベイズ誤り確率</span></a>
   </div>
 </li>
@@ -271,25 +226,25 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Published/StochasticDifferentialEquations/1.html" class="sidebar-item-text sidebar-link">
+  <a href="../Published/StochasticDifferentialEquations/1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">確率論の概要(1)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Published/StochasticDifferentialEquations/2.html" class="sidebar-item-text sidebar-link">
+  <a href="../Published/StochasticDifferentialEquations/2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">確率論の概要(2)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Published/StochasticDifferentialEquations/3.html" class="sidebar-item-text sidebar-link">
+  <a href="../Published/StochasticDifferentialEquations/3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">確率論の概要(3)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Published/StochasticDifferentialEquations/4.html" class="sidebar-item-text sidebar-link active">
+  <a href="../Published/StochasticDifferentialEquations/4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">確率論の概要(4)</span></a>
   </div>
 </li>
@@ -306,25 +261,25 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Published/bayesian_inference/1.html" class="sidebar-item-text sidebar-link">
+  <a href="../Published/bayesian_inference/1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">モンテカルロ法</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Published/bayesian_inference/2.html" class="sidebar-item-text sidebar-link">
+  <a href="../Published/bayesian_inference/2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ベイズ推定におけるモデル選択</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Published/bayesian_inference/3.html" class="sidebar-item-text sidebar-link">
+  <a href="../Published/bayesian_inference/3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ベイズ推定におけるモデル選択（続き）</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Published/bayesian_inference/4.html" class="sidebar-item-text sidebar-link">
+  <a href="../Published/bayesian_inference/4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">VB-EMアルゴリズム</span></a>
   </div>
 </li>
@@ -341,19 +296,19 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Published/equilibrium_stat_mech/1.html" class="sidebar-item-text sidebar-link">
+  <a href="../Published/equilibrium_stat_mech/1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">リウビルの定理と等確率の原理</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Published/equilibrium_stat_mech/2.html" class="sidebar-item-text sidebar-link">
+  <a href="../Published/equilibrium_stat_mech/2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ボルツマンの原理</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Published/equilibrium_stat_mech/3.html" class="sidebar-item-text sidebar-link">
+  <a href="../Published/equilibrium_stat_mech/3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">カノニカルアンサンブル</span></a>
   </div>
 </li>
@@ -370,37 +325,37 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Published/information_geometry/1.html" class="sidebar-item-text sidebar-link">
+  <a href="../Published/information_geometry/1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">双対空間</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Published/information_geometry/2.html" class="sidebar-item-text sidebar-link">
+  <a href="../Published/information_geometry/2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">多様体と接空間</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Published/information_geometry/3.html" class="sidebar-item-text sidebar-link">
+  <a href="../Published/information_geometry/3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">線形汎関数と汎関数について</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Published/information_geometry/4.html" class="sidebar-item-text sidebar-link">
+  <a href="../Published/information_geometry/4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ベクトル場</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Published/information_geometry/5.html" class="sidebar-item-text sidebar-link">
+  <a href="../Published/information_geometry/5.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">テンソル場</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Published/information_geometry/6.html" class="sidebar-item-text sidebar-link">
+  <a href="../Published/information_geometry/6.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">多様体のアファイン接続(1)</span></a>
   </div>
 </li>
@@ -421,7 +376,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Published/optimization_math/1.html" class="sidebar-item-text sidebar-link">
+  <a href="../Published/optimization_math/1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">最適化の基礎</span></a>
   </div>
 </li>
@@ -437,25 +392,18 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#定義独立" id="toc-定義独立" class="nav-link active" data-scroll-target="#定義独立">定義：独立</a></li>
-  <li><a href="#定理" id="toc-定理" class="nav-link" data-scroll-target="#定理">定理</a></li>
-  <li><a href="#定義" id="toc-定義" class="nav-link" data-scroll-target="#定義">定義</a></li>
-  <li><a href="#条件付き確率" id="toc-条件付き確率" class="nav-link" data-scroll-target="#条件付き確率">条件付き確率</a></li>
-  <li><a href="#条件付き確率分布" id="toc-条件付き確率分布" class="nav-link" data-scroll-target="#条件付き確率分布">条件付き確率分布</a>
-  <ul class="collapse">
-  <li><a href="#定義条件付き確率分布" id="toc-定義条件付き確率分布" class="nav-link" data-scroll-target="#定義条件付き確率分布">定義：条件付き確率分布</a></li>
-  <li><a href="#定義条件yの条件付き確率" id="toc-定義条件yの条件付き確率" class="nav-link" data-scroll-target="#定義条件yの条件付き確率">定義：条件<span class="math inline">Y</span>の条件付き確率</a></li>
-  </ul></li>
-  <li><a href="#おわりに" id="toc-おわりに" class="nav-link" data-scroll-target="#おわりに">おわりに</a></li>
+  <li><a href="#確率論" id="toc-確率論" class="nav-link active" data-scroll-target="#確率論">確率論</a></li>
+  <li><a href="#ベイズ推論" id="toc-ベイズ推論" class="nav-link" data-scroll-target="#ベイズ推論">ベイズ推論</a></li>
+  <li><a href="#接点" id="toc-接点" class="nav-link" data-scroll-target="#接点">接点</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/StochasticDifferentialEquations/1.html">StochasticDifferentialEquations</a></li><li class="breadcrumb-item"><a href="../../Published/StochasticDifferentialEquations/4.html">確率論の概要(4)</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">確率論の概要(4)</h1>
+<h1 class="title">確率と推論</h1>
 </div>
 
 
@@ -472,127 +420,32 @@ window.Quarto = {
 </header>
 
 
-<p>条件付き確率については，その初等的定義を通じて理解し終えていると認識している人も多いかもしれないが，実は確率測度論の立場からの条件付き確率の記述は非常に難解であり，初等的確率論から確率測度論や確率解析へと進む上で最大の障壁となっていると言っても過言ではない． ここではできるだけ簡潔に条件付き確率について概説する． ## 条件付き期待値</p>
-<p><strong>定義</strong> <span class="math inline">\mathcal G</span>を<span class="math inline">\mathcal F</span>の部分<span class="math inline">\sigma</span>-加法族とする．このとき部分確率空間<span class="math inline">(\Omega,\mathcal G,P)</span>上定義された可積分な確率変数<span class="math inline">Y : \Omega \to \mathbb R</span>が以下の２つの条件を満たすならば，<span class="math inline">Y</span>を条件<span class="math inline">\mathcal G</span>の下での<strong>条件付き期待値</strong>とよび，<span class="math inline">\mathbb E[X | \mathcal G] (\omega)</span>と表す． i) <span class="math inline">Yは\mathcal G</span>可測である， ii)<span class="math inline">\mathcal G</span>の任意の要素<span class="math inline">G</span>に対して，次が成立する． <span class="math display">
-\int_G Y(\omega) P(d \omega) = \int_G X(\omega) P(d \omega)
-</span> 当然よくわからないので，具体例を見ていく． ### 具体例：サイコロを１回振る</p>
-<p><span class="math display">
-\Omega = \{ 1,2,3,4,5,6 \}, \qquad P(\{\omega\}) = \frac{1}{6}
-</span> とし確率変数<span class="math inline">X</span>を <span class="math display">
-X(\omega) = \omega
-</span> とする． ここでサイコロをを振ったあと，出た目そのものは数えてもらえず， 奇数だったか偶数だったかだけ教えてもらったとする． この持っている情報を<span class="math inline">\mathcal G</span>とする.<span class="math inline">O = \{ 1,3,5 \}, \quad E = \{2,4,6\}</span>とすると， <span class="math display">
-\mathcal G = \{\varnothing, O,E,\Omega\}
-</span> は確かに<span class="math inline">\sigma</span>-加法族となる．ここで<span class="math inline">Y = \mathbb E[X | \mathcal G] (\omega)</span>を考える． iiの性質を満たすためにはまず右辺から計算すると <span class="math display">
-\int_O X(\omega) P(d \omega) = \frac{1}{6} + \frac{3}{6} + \frac{5}{6} = \frac{3}{2}
-</span> <span class="math inline">Y</span>は<span class="math inline">\mathcal G</span>可測なので <span class="math display">
-Y (\omega) =
-\begin{cases}
-a &amp; \omega \in O \\
-b &amp; \omega \in E
-\end{cases}
-</span> でなければならない．指示関数を使えば <span class="math display">
-Y = a \mathbb 1_O + b\mathbb 1_E
-</span> である． 期待値の定義から <span class="math display">
-\int_O Y(\omega) P(d\omega) = \sum_i a_i P(A_i) = a P(O)
-</span> である． ここで <span class="math display">
-P(O) = \frac{3}{6} = \frac{1}{2}
-</span> である(独立な事象の確率は足すことができる)ので， <span class="math display">
-a = 3
-</span> であることが分かる．同様に計算すると <span class="math display">
-b = 4
-</span> であることが分かるので，最終的に <span class="math display">
-\mathbb E[X |\mathcal G](\omega) =
-\begin{cases}
-3 &amp; \omega \in O \\
-4 &amp; \omega \in E
-\end{cases}
-</span> という確率変数となることが分かる．</p>
-<p>条件付き期待値の意味を理解する上で，次の定理は重要である．</p>
-<p><span class="math inline">A</span>が<span class="math inline">\mathcal G</span>の基本単位であれば，<span class="math inline">\mathbb E[X | \mathcal G]</span>は<span class="math inline">A</span>上定数であり，特に<span class="math inline">P(A) \neq 0</span> の場合は次の式が成立する． <span class="math display">
-\mathbb E[X | \mathcal G](\omega) = \frac{1}{P(\omega)} \int_A X(\nu) P(d \nu) , \quad (\omega \in  A)
-</span> これはさっきの話を一般化したものである． すなわち条件付き期待値とは，条件として与える情報の基本単位上でｍ確率変数を平均化したものに他ならない．期待値という名称はこのことによるものである．条件付き期待値に関する基本的性質の中で，主なものを挙げておく ### 定理：条件付き期待値の諸性質 条件付き期待値について，次が成立する $$ <span class="math display">\begin{align}
-\text{i)}&amp; \quad \mathbb E[\mathbb E[X | \mathcal G]] = \mathbb E[X] \\
-\text{ii)}&amp; \quad \mathcal G = \{ \varnothing , \Omega \} \to \mathbb E[X | \mathcal G] = \mathbb E[X] \\
-\text{iii)}&amp; \quad Xが\mathcal G可測かつ，XYが可積分であれば\mathbb E[XY | \mathcal G] = X \mathbb E[Y|\mathcal G]
-    
-\end{align}</span> <span class="math display">
-iは
-</span> <em>Y() P(d ) = </em>X() P(d ) $$ が成立するため，書き換えただけである．</p>
-<p>iiは，情報が何もないので，そのまま確率変数が定数になるというだけである．左辺は，確率変数であるが右辺は実数値である．この実数値は「その値を常にとる定数確率変数」と解釈される．</p>
-<p>iiiの意味は <span class="math display">
-\mathcal G の情報だけで値がわかるXは，条件付き期待値の外にだせる
-</span> ということである．普通の期待値で定数を <span class="math display">
-\mathbb E[aX] = a\mathbb E[X]
-</span> と外に出せるのと同じ考え方である．</p>
-<p>次に確率変数と情報の間の統計的独立性と，条件付き期待値の間の基本的な関係を導出しておく</p>
-<section id="定義独立" class="level3">
-<h3 class="anchored" data-anchor-id="定義独立">定義：独立</h3>
-<p>確率変数<span class="math inline">X</span>が<span class="math inline">\sigma</span>-加法族，すなわち情報<span class="math inline">\mathcal G</span>と独立であるとは，<span class="math inline">X</span>の生成する<span class="math inline">\sigma</span>-加法族と<span class="math inline">\mathcal G</span>が独立であることをいう．</p>
-<p>つまり任意の<span class="math inline">A \in \sigma(X), \quad G\in \mathcal G</span>について <span class="math display">
-P(A \cap G) = P(A)P(G)
-</span> が成立することをいう．</p>
+<p>[[学習マップ]]</p>
+<section id="確率論" class="level2">
+<h2 class="anchored" data-anchor-id="確率論">確率論</h2>
+<ul>
+<li>[[Published/StochasticDifferentialEquations/1|確率論の概要(1)]]</li>
+<li>[[Published/StochasticDifferentialEquations/2|確率論の概要(2)]]</li>
+<li>[[Published/StochasticDifferentialEquations/3|確率論の概要(3)]]</li>
+<li>[[Published/StochasticDifferentialEquations/4|確率論の概要(4)]]</li>
+</ul>
 </section>
-<section id="定理" class="level3">
-<h3 class="anchored" data-anchor-id="定理">定理</h3>
-<p><span class="math inline">X</span> が<span class="math inline">\mathcal G</span>と独立であれば，条件<span class="math inline">\mathcal G</span>の下での条件付き確率は，通常の期待値に等しい．すなわち<span class="math inline">\mathbb E[X | \mathcal G] = \mathbb E[X]</span> が成立する．</p>
-<p>定性的には<span class="math inline">\mathcal G</span>の情報を知っても<span class="math inline">X</span>の予測は変わらないという意味である．</p>
-<p>条件付き期待値は確率変数であるから，条件付き期待値をとった後にさらに異なる条件下で条件付き確率をとるという操作が考えれる，次の定理はそれが最も情報の少ない条件によって決まることを主張するものである． ### 定理：塔の性質 <span class="math inline">\mathcal G_1, \mathcal G_2</span>を２つの部分<span class="math inline">\sigma</span>-加法族とするとき，<span class="math inline">\mathcal G_1 \subset \mathcal G_2 \subset \mathcal F</span>が成立するならば，次式が成立する． <span class="math display">
-\mathbb E[\mathbb E[X | \mathcal G_2]|\mathcal G_1] = \mathbb E[\mathbb E[X | \mathcal G_1]|\mathcal G_2] =\mathbb E[X | \mathcal G_1] \quad(\text{a.s.})
-</span></p>
-<p>これの定性的意味は，</p>
-<p>多い情報で一度予測してから少ない情報に戻すこと 最初から少ない情報で予測すること</p>
-<p>は等しいということである． ### 確率変数下での条件付き期待値 次に<span class="math inline">(\Omega, \mathcal F)</span>に<span class="math inline">X</span>とは異なる確率変数<span class="math inline">Y</span>が定義されており，条件を確率変数<span class="math inline">Y</span>で記述する場合を考える．条件<span class="math inline">Y</span>の下での条件付き期待値を <span class="math display">
-\mathbb E[X | Y] := \mathbb E[X | \sigma(Y)]
-</span> と定義する． また条件付き確率に対してBorel関数<span class="math inline">f_X : \mathbb R \to \mathbb R</span>が存在し <span class="math display">
-\mathbb E[X | Y] (\omega) = f_X(Y(\omega)) \quad (\text{a.s})
-</span> が成立するようにできる．</p>
+<section id="ベイズ推論" class="level2">
+<h2 class="anchored" data-anchor-id="ベイズ推論">ベイズ推論</h2>
+<ul>
+<li>[[Published/bayesian_inference/1|モンテカルロ法]]</li>
+<li>[[Published/bayesian_inference/2|ベイズ推定におけるモデル選択]]</li>
+<li>[[Published/bayesian_inference/3|ベイズ推定におけるモデル選択（続き）]]</li>
+<li>[[Published/bayesian_inference/4|VB-EMアルゴリズム]]</li>
+</ul>
 </section>
-<section id="定義" class="level3">
-<h3 class="anchored" data-anchor-id="定義">定義</h3>
-<p>上の<span class="math inline">f_X(y)</span>を<span class="math inline">\mathbb E [X | Y = y]</span>と表し，条件<span class="math inline">Y = y</span>での<span class="math inline">X</span>の条件付き期待値と定義する．</p>
-<p>色々新しい概念を書いたので，具体例を見ていく．</p>
-<p><img src="Pasted image 20260816190019.png" class="img-fluid"></p>
-</section>
-<section id="条件付き確率" class="level2">
-<h2 class="anchored" data-anchor-id="条件付き確率">条件付き確率</h2>
-<p>まずは定義を書く ### 定義：条件付き確率 <span class="math inline">\mathbb 1_{A}(\omega)</span>を<span class="math inline">A \in \mathcal F</span>の指示関数とする． i)<span class="math inline">\mathcal G</span>を部分<span class="math inline">\sigma</span>-加法族として， <span class="math display">
-P(A | \mathcal G) = \mathbb E[\mathbb 1_A | \mathcal G]
-</span> を条件<span class="math inline">\mathcal G</span>の下で事象<span class="math inline">A</span>が起こる条件付き確率と定める． ii) 確率変数<span class="math inline">Y</span>に対して <span class="math display">
-P(A | Y) = \mathbb E[\mathbb 1_A | \sigma(Y)]
-</span> を条件<span class="math inline">Y</span>の下で事象<span class="math inline">A</span>が起こる条件付き確率と定める．</p>
-<p>この定義から分かるように，条件付き期待値が<span class="math inline">\omega</span>の関数であるのと全く同様にして，条件付き確率も<span class="math inline">\omega</span>の関数，すなわち確率変数になる．「確率」自体が確率変数であるということは最も理解しにくいことかもしれない．</p>
-<p>これも具体的に計算していく． <span class="math display">
-P(C |\mathcal G) = \mathbb E[\mathbb 1_C | \mathcal G] = \frac{1}{P(A)}\int_A \mathbb 1_C P(d\omega) ,\qquad (Aは\mathcal Gの基本単位)
-</span> であり，積分範囲が<span class="math inline">A</span>で指示関数が1を取るということは <span class="math display">
-\int_A \mathbb 1_C P(d\omega) = P(A \cap C)
-</span> である．なので条件付き確率は <span class="math display">
-P(C |\mathcal G) = \frac{ P(A \cap C)}{P(A)} , \qquad (Aは\mathcal G の基本単位)
-</span></p>
-<p>となる．<span class="math inline">A</span>が具体的になることで，値となる．</p>
-</section>
-<section id="条件付き確率分布" class="level2">
-<h2 class="anchored" data-anchor-id="条件付き確率分布">条件付き確率分布</h2>
-<p>確率変数の導入に伴って，写像先の空間で確率の計算を行うために確率測度を確率分布に変換したことを思い出そう．Borel集合<span class="math inline">B</span>を与えるごとに，<span class="math inline">P_X(B) = P(X^{-1}B)</span>で定めた確率分布は，<span class="math inline">P</span>の有する完全加法性により（完全加法性とは記事[[学習/Zawa25721_documents/Published/StochasticDifferentialEquations/1|1]]を参照するように）置き換えられた可測空間<span class="math inline">(\mathbb R , \mathcal B)</span>上で完全加法性を有する確率測度となる．これと同様に，条件付き確率についても同じような変換を行うことが必要になってくる．だが条件付き確率自体が確率変数出会ってサンプル<span class="math inline">\omega</span>に依存するため，確率分布への変換については注意が必要である．</p>
-<section id="定義条件付き確率分布" class="level3">
-<h3 class="anchored" data-anchor-id="定義条件付き確率分布">定義：条件付き確率分布</h3>
-<p>条件付き確率<span class="math inline">P(X\in B | \mathcal G)(\omega)</span>に対して，次を満たす<span class="math inline">P_X(B ,\omega | \mathcal G)</span>を条件<span class="math inline">\mathcal G</span>の下での<span class="math inline">X</span>の条件付き確率分布という．</p>
-<ol type="i">
-<li>全ての<span class="math inline">\omega \in \Omega</span>に対して，<span class="math inline">P_X(\cdot,\omega | \mathcal G)</span>は<span class="math inline">(\mathbb R , \mathcal B)</span>の確率測度である．</li>
-<li>Borel集合<span class="math inline">B</span>を一つ固定するごとに，<span class="math inline">P_X(B ,\cdot|\mathcal G)</span>は<span class="math inline">P(X \in B | \mathcal G)</span>にほとんど確実に一致する．</li>
-</ol>
-<p>条件付き確率の方の定理に対応するのが次の定理である． 条件<span class="math inline">Y</span>の下での<span class="math inline">X</span>の条件付き確率分布<span class="math inline">P_X(B, \omega | Y)</span>に対して <span class="math display">
-P_X(B, \omega| Y) = f_X(B,Y(\omega))
-</span> を満たすBorel関数<span class="math inline">f_X</span>が存在する．</p>
-</section>
-<section id="定義条件yの条件付き確率" class="level3">
-<h3 class="anchored" data-anchor-id="定義条件yの条件付き確率">定義：条件<span class="math inline">Y</span>の条件付き確率</h3>
-<p>上記定理により定まる<span class="math inline">f_X</span>を用いて<span class="math inline">f_X(B,y)</span>を<span class="math inline">P_X(B | Y = y)</span>と表し，条件<span class="math inline">Y = y</span>の下での<span class="math inline">X</span>の条件付き確率分布とさだめる．</p>
-<p>あと例を書いて確率論概論は終わり．</p>
-</section>
-</section>
-<section id="おわりに" class="level2">
-<h2 class="anchored" data-anchor-id="おわりに">おわりに</h2>
-<p>これで確率論の概論は終わりである．次回からようやく本題の一つである確率過程に入っていく．Pythonなどを用いてわかりやすい図などを書いたりしながら自分で理解していきたいと思う．</p>
+<section id="接点" class="level2">
+<h2 class="anchored" data-anchor-id="接点">接点</h2>
+<ul>
+<li>[[Published/PR/5|特徴の評価とベイズ誤り確率]]</li>
+<li>[[最適化と変分法]]</li>
+<li>[[統計力学]]</li>
+</ul>
 
 
 </section>
@@ -998,18 +851,6 @@ P_X(B, \omega| Y) = f_X(B,Y(\omega))
     }
   });
   </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../../Published/StochasticDifferentialEquations/3.html" class="pagination-link" aria-label="確率論の概要(3)">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">確率論の概要(3)</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../../Published/bayesian_inference/1.html" class="pagination-link" aria-label="モンテカルロ法">
-        <span class="nav-page-text">モンテカルロ法</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 
 
