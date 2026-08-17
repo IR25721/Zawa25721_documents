@@ -293,6 +293,12 @@ window.Quarto = {
  <span class="menu-text">確率論の概要(4)</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/StochasticDifferentialEquations/5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">確率過程論の概要(1)</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -486,7 +492,9 @@ window.Quarto = {
 <section id="sigma-加法族と確率測度" class="level2">
 <h2 class="anchored" data-anchor-id="sigma-加法族と確率測度"><span class="math inline">\sigma</span>-加法族と確率測度</h2>
 <p>確率とは，対象とする事象の起こりやすさを定量化したものである．通常事象というものを直感的に理解できるものとして無定義に取り扱うことが多いが，確率の定量化を数学的に議論するにはまず事象の定義を行わなければならない．</p>
-<p>まず<span class="math inline">\Omega</span>を生成点集合，すなわち試行を１回行うと，<span class="math inline">\Omega</span>の点<span class="math inline">\omega</span>が一つ選択されるような集合とする．<span class="math inline">\Omega</span>は標本空間とも呼ばれる．<span class="math inline">\Omega</span>の各「点」は標本と呼ばれるが，それは生起結果を表すもので，一般に数ではない． （例えば，A,B,Cの内くじを引いて当てるとき，そのくじの結果Bが手に入ったとする．これは数ではない．） 我々が観測を行うと，<span class="math inline">\Omega</span>の点のどれかが生起した結果が観測されるのだから，事象というものは<span class="math inline">\Omega</span>の部分集合であると考えられるのが自然である． だが，すべての部分集合が事象の資格を持っているとは限らない． （例えば，サイコロを1回投げる試行において，出た目そのものは見えず偶数か奇数かだけを判定する状況を考える．このとき，偶数の目が出るという部分集合<span class="math inline">\{ 2,4,6 \}</span>は結果を識別できるため事象として扱えるが，個別の<span class="math inline">\{2\}</span>という部分集合は，この状況下では世紀したかどうかを判別できないため，事象の資格を持たない） また事象と呼ぶためにはどうしても満たさなければならない性質がある． 例えばある部分集合<span class="math inline">A</span>が事象であれば，それが起こらない確率も計算できなければならない．すなわちその補集合<span class="math inline">A^c</span>も事象でなければならない． <span class="math inline">A</span>と<span class="math inline">B</span> がともに事象であれば<span class="math inline">A</span>または<span class="math inline">B</span>が起こる確率，<span class="math inline">A</span>かつ<span class="math inline">B</span>の起こる確率も計算できなければならないので，その和集合や席集合も事象でなければならない．このように事象と呼んで良い部分集合の集まりには自然な制約が発生することになる．これを数学的にまとめたのが次の概念である．</p>
+<p>まず<span class="math inline">\Omega</span>を生成点集合，すなわち試行を１回行うと，<span class="math inline">\Omega</span>の点<span class="math inline">\omega</span>が一つ選択されるような集合とする．<span class="math inline">\Omega</span>は標本空間とも呼ばれる．<span class="math inline">\Omega</span>の各「点」は標本と呼ばれるが，それは生起結果を表すもので，一般に数ではない． （例えば，A,B,Cの内くじを引いて当てるとき，そのくじの結果Bが手に入ったとする．これは数ではない．）</p>
+<p>我々が観測を行うと，<span class="math inline">\Omega</span>の点のどれかが生起した結果が観測されるのだから，事象というものは<span class="math inline">\Omega</span>の部分集合であると考えられるのが自然である． だが，すべての部分集合が事象の資格を持っているとは限らない． （例えば，サイコロを1回投げる試行において，出た目そのものは見えず偶数か奇数かだけを判定する状況を考える．このとき，偶数の目が出るという部分集合<span class="math inline">\{ 2,4,6 \}</span>は結果を識別できるため事象として扱えるが，個別の<span class="math inline">\{2\}</span>という部分集合は，この状況下では生起したかどうかを判別できないため，事象の資格を持たない）</p>
+<p>また事象と呼ぶためにはどうしても満たさなければならない性質がある． 例えばある部分集合<span class="math inline">A</span>が事象であれば，それが起こらない確率も計算できなければならない．すなわちその補集合<span class="math inline">A^c</span>も事象でなければならない． <span class="math inline">A</span>と<span class="math inline">B</span> がともに事象であれば<span class="math inline">A</span>または<span class="math inline">B</span>が起こる確率，<span class="math inline">A</span>かつ<span class="math inline">B</span>の起こる確率も計算できなければならないので，その和集合や席集合も事象でなければならない．このように事象と呼んで良い部分集合の集まりには自然な制約が発生することになる．これを数学的にまとめたのが次の概念である．</p>
 <section id="sigma-加法族の定義" class="level3">
 <h3 class="anchored" data-anchor-id="sigma-加法族の定義"><span class="math inline">\sigma</span>-加法族の定義</h3>
 <p><span class="math inline">\Omega</span>の部分集合の族(集合を要素に持つ集合)<span class="math inline">\mathcal F</span>で 1. <span class="math inline">\Omega \in \mathcal F</span> 2. <span class="math inline">A \in \mathcal F  \Rightarrow A^c \in \mathcal F</span> 3. <span class="math inline">A_1,A_2 ,... \in \mathcal F \Rightarrow \bigcup_{n = 1}^{\infty} A_n \in \mathcal F</span> の3条件を満たすものを，<span class="math inline">\sigma</span>-加法族と呼ぶ．</p>
@@ -545,6 +553,7 @@ f_X(x) = \frac{\partial^n}{\partial x_1 ... \partial x_n} F_X(x)
 <h3 class="anchored" data-anchor-id="s値位相確率変数の定義"><span class="math inline">S</span>値位相確率変数の定義</h3>
 <p><span class="math inline">S</span>を一般の位相空間とし，<span class="math inline">S</span>の開部分集合族が定義されているものとする． 1. <span class="math inline">S</span>の開部分集合族の要素をすべて含む最小の<span class="math inline">\sigma</span>-加法族を<span class="math inline">\mathcal B(S)</span>と表し，<span class="math inline">S</span>の位相的Borel加法族とよび，その要素を位相的Borel集合とよぶ． 2. <span class="math display"> X^{-1}(B) = \{ \omega ; X(\omega) \in B\} \in \mathcal F (\forall B \in \mathcal B(S))</span> を満たすとき，<span class="math inline">X</span>を<span class="math inline">S</span>値位相確率変数とよぶ．</p>
 <p><span class="math inline">S</span>が位相空間であると仮定することは実用的な応用を考える上では特に問題のある制約ではないと言ってよい．</p>
+<p>補足：この概念は[[学習/Zawa25721_documents/Published/StochasticDifferentialEquations/5|5]]で再登場する．</p>
 
 
 </section>

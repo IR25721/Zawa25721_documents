@@ -293,6 +293,12 @@ window.Quarto = {
  <span class="menu-text">確率論の概要(4)</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/StochasticDifferentialEquations/5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">確率過程論の概要(1)</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -514,7 +520,7 @@ X \nprec_i Y
 \sigma(A) = \{ \varnothing, A , A^c , \Omega  \}
 </span> となる． ちなみに<span class="math inline">\sigma(X)</span>の意味は <span class="math display">
 \sigma(X) = \sigma(\{ X^{-1}(B) : B \in \mathcal B(\mathbb R^n) \})
-</span> である．まぎらわしい． ｙ すなわち，<span class="math inline">\mathcal F</span>全体が，可算個の基本集合だけで記述できるということである．<span class="math inline">\mathcal F</span>が最初に存在し，それが可算個の集合で生成可能であるかを調べて，それができるなら可分だと言っている．</p>
+</span> である．まぎらわしい． すなわち，<span class="math inline">\mathcal F</span>全体が，可算個の基本集合だけで記述できるということである．<span class="math inline">\mathcal F</span>が最初に存在し，それが可算個の集合で生成可能であるかを調べて，それができるなら可分だと言っている．</p>
 <p>次の定理は重要である．</p>
 <p><span class="math inline">X,Y</span>の生成する<span class="math inline">\sigma-</span>加法族をそれぞれ<span class="math inline">\sigma(X),\sigma(Y)</span>とするとき，次が成立する． $$ <span class="math display">\begin{align}
 
@@ -522,14 +528,14 @@ Y \prec_i X \Leftrightarrow \sigma(Y) \subset \sigma(X)\\
 Y \sim_p X \Leftrightarrow \sigma(Y) = \sigma(X)\\
 
 \end{align}</span> $$</p>
-<p>この定理によれば，確率変数が生成する<span class="math inline">\sigma</span>-加法族はその確率変数のゆうする情報の定量化に相当するものであり，それ故に自然に次の定義に行き着くことができる． <span class="math display">
+<p>この定理によれば，確率変数が生成する<span class="math inline">\sigma</span>-加法族はその確率変数の有する情報の定量化に相当するものであり，それ故に自然に次の定義に行き着くことができる． <span class="math display">
 \begin{align}
 &amp;\text{i)} \sigma(X)を確率変数Xの有する情報とよぶ  \\
 &amp;\text{ii)} \sigma-加法族そのものを情報とよぶ．
 \end{align}
 </span> 確率空間<span class="math inline">(\Omega, \mathcal F ,P)</span>を考えるということは，<span class="math inline">\mathcal F</span>が我々の知り得る全情報であるということを意味しており，その各情報に対して，生起確率という実数値を対応させるのが確率測度<span class="math inline">P</span>である． 先に述べたように確率変数<span class="math inline">X</span>には<span class="math inline">\mathcal F</span> 可測性が要求されるが，これは <span class="math display">
 \sigma(X) \subset \mathcal F
-</span> が成立することにほかならない．すなわち情報の観点から述べれば，<span class="math inline">X</span>の有する情報は我々の知り得る全情報よりも多く合ってはならないことを，この定義は要求しているのである．</p>
+</span> が成立することにほかならない．すなわち情報の観点から述べれば，<span class="math inline">X</span>の有する情報は我々の知り得る全情報よりも多くあってはならないことを，この定義は要求しているのである．</p>
 </section>
 <section id="情報の基本単位" class="level3">
 <h3 class="anchored" data-anchor-id="情報の基本単位">情報の基本単位</h3>

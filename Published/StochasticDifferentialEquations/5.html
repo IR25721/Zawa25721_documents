@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>学習マップ – Zawaの勉強記録</title>
+<title>確率過程論の概要(1) – Zawaの勉強記録</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -29,23 +29,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-b286bb201c9dfdd51ad8d12a75fcbf0e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../Published/bayesian_inference/1.html" rel="next">
+<link href="../../Published/StochasticDifferentialEquations/4.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-b286bb201c9dfdd51ad8d12a75fcbf0e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -74,8 +76,51 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
-<link rel="stylesheet" href="../styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light">
@@ -85,7 +130,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Zawaの勉強記録</span>
     </a>
   </div>
@@ -96,11 +141,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../intro.html"> 
+    <a class="nav-link" href="../../intro.html"> 
 <span class="menu-text">はじめに</span></a>
   </li>  
 </ul>
@@ -121,7 +166,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">学習マップ</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/StochasticDifferentialEquations/1.html">StochasticDifferentialEquations</a></li><li class="breadcrumb-item"><a href="../../Published/StochasticDifferentialEquations/5.html">確率過程論の概要(1)</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -144,31 +189,31 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Published/CalculusOfVariations/1.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/CalculusOfVariations/1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">変分法の基本</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Published/CalculusOfVariations/2.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/CalculusOfVariations/2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">古典力学における変分</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Published/CalculusOfVariations/3.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/CalculusOfVariations/3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">静物についての変分法</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Published/CalculusOfVariations/4.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/CalculusOfVariations/4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">流体の作用</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Published/CalculusOfVariations/5.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/CalculusOfVariations/5.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">機械学習における変分法</span></a>
   </div>
 </li>
@@ -185,31 +230,31 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Published/PR/1.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/PR/1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">パターン認識とは</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Published/PR/2.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/PR/2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">学習と識別関数</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Published/PR/3.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/PR/3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">誤差評価に基づく学習</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Published/PR/4.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/PR/4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">識別部の設計</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Published/PR/5.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/PR/5.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">特徴の評価とベイズ誤り確率</span></a>
   </div>
 </li>
@@ -226,31 +271,31 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Published/StochasticDifferentialEquations/1.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/StochasticDifferentialEquations/1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">確率論の概要(1)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Published/StochasticDifferentialEquations/2.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/StochasticDifferentialEquations/2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">確率論の概要(2)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Published/StochasticDifferentialEquations/3.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/StochasticDifferentialEquations/3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">確率論の概要(3)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Published/StochasticDifferentialEquations/4.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/StochasticDifferentialEquations/4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">確率論の概要(4)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Published/StochasticDifferentialEquations/5.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/StochasticDifferentialEquations/5.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">確率過程論の概要(1)</span></a>
   </div>
 </li>
@@ -267,25 +312,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Published/bayesian_inference/1.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/bayesian_inference/1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">モンテカルロ法</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Published/bayesian_inference/2.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/bayesian_inference/2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ベイズ推定におけるモデル選択</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Published/bayesian_inference/3.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/bayesian_inference/3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ベイズ推定におけるモデル選択（続き）</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Published/bayesian_inference/4.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/bayesian_inference/4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">VB-EMアルゴリズム</span></a>
   </div>
 </li>
@@ -302,19 +347,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Published/equilibrium_stat_mech/1.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/equilibrium_stat_mech/1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">リウビルの定理と等確率の原理</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Published/equilibrium_stat_mech/2.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/equilibrium_stat_mech/2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ボルツマンの原理</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Published/equilibrium_stat_mech/3.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/equilibrium_stat_mech/3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">カノニカルアンサンブル</span></a>
   </div>
 </li>
@@ -331,37 +376,37 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Published/information_geometry/1.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/information_geometry/1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">双対空間</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Published/information_geometry/2.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/information_geometry/2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">多様体と接空間</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Published/information_geometry/3.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/information_geometry/3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">線形汎関数と汎関数について</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Published/information_geometry/4.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/information_geometry/4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ベクトル場</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Published/information_geometry/5.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/information_geometry/5.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">テンソル場</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Published/information_geometry/6.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/information_geometry/6.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">多様体のアファイン接続(1)</span></a>
   </div>
 </li>
@@ -382,7 +427,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Published/optimization_math/1.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/optimization_math/1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">最適化の基礎</span></a>
   </div>
 </li>
@@ -398,16 +443,35 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#分野横断" id="toc-分野横断" class="nav-link active" data-scroll-target="#分野横断">分野横断</a></li>
+  <li><a href="#はじめに" id="toc-はじめに" class="nav-link active" data-scroll-target="#はじめに">はじめに</a></li>
+  <li><a href="#確率過程とは" id="toc-確率過程とは" class="nav-link" data-scroll-target="#確率過程とは">確率過程とは？</a>
+  <ul class="collapse">
+  <li><a href="#定義確率過程" id="toc-定義確率過程" class="nav-link" data-scroll-target="#定義確率過程">定義：確率過程</a></li>
+  <li><a href="#定義見本関数サンプルパス" id="toc-定義見本関数サンプルパス" class="nav-link" data-scroll-target="#定義見本関数サンプルパス">定義：見本関数（サンプルパス）</a></li>
+  </ul></li>
+  <li><a href="#有限次元分布" id="toc-有限次元分布" class="nav-link" data-scroll-target="#有限次元分布">有限次元分布</a>
+  <ul class="collapse">
+  <li><a href="#定義変形判別不能" id="toc-定義変形判別不能" class="nav-link" data-scroll-target="#定義変形判別不能">定義：変形，判別不能</a></li>
+  </ul></li>
+  <li><a href="#確率過程の連続性" id="toc-確率過程の連続性" class="nav-link" data-scroll-target="#確率過程の連続性">確率過程の連続性</a>
+  <ul class="collapse">
+  <li><a href="#定義a.s.連続確率連続q次平均連続" id="toc-定義a.s.連続確率連続q次平均連続" class="nav-link" data-scroll-target="#定義a.s.連続確率連続q次平均連続">定義：a.s.連続，確率連続，<span class="math inline">q</span>次平均連続</a></li>
+  <li><a href="#定義連続確率過程" id="toc-定義連続確率過程" class="nav-link" data-scroll-target="#定義連続確率過程">定義：連続確率過程</a></li>
+  <li><a href="#定義cadlag確率過程caglad確率過程" id="toc-定義cadlag確率過程caglad確率過程" class="nav-link" data-scroll-target="#定義cadlag確率過程caglad確率過程">定義：cadlag確率過程，caglad確率過程</a></li>
+  </ul></li>
+  <li><a href="#確率過程の列の収束性" id="toc-確率過程の列の収束性" class="nav-link" data-scroll-target="#確率過程の列の収束性">確率過程の列の収束性</a>
+  <ul class="collapse">
+  <li><a href="#定義ucpの意味で収束" id="toc-定義ucpの意味で収束" class="nav-link" data-scroll-target="#定義ucpの意味で収束">定義：ucpの意味で収束</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/StochasticDifferentialEquations/1.html">StochasticDifferentialEquations</a></li><li class="breadcrumb-item"><a href="../../Published/StochasticDifferentialEquations/5.html">確率過程論の概要(1)</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">学習マップ</h1>
+<h1 class="title">確率過程論の概要(1)</h1>
 </div>
 
 
@@ -424,17 +488,96 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="分野横断" class="level2">
-<h2 class="anchored" data-anchor-id="分野横断">分野横断</h2>
-<ul>
-<li>[[確率と推論]]</li>
-<li>[[最適化と変分法]]</li>
-<li>[[幾何と物理]]</li>
-<li>[[学習と識別]]</li>
-<li>[[統計力学]]</li>
-</ul>
+<section id="はじめに" class="level2">
+<h2 class="anchored" data-anchor-id="はじめに">はじめに</h2>
+<p>確率過程とは，時間とともに不規則に変動する幻想を記述する数学ツールとして広く用いられているもので，確率変数が時間に依存するという考え方が基本となっている．</p>
+</section>
+<section id="確率過程とは" class="level2">
+<h2 class="anchored" data-anchor-id="確率過程とは">確率過程とは？</h2>
+<p>確率空間<span class="math inline">(\Omega, \mathcal F, P)</span>が与えたれており，この上に定義された<span class="math inline">\mathbb R^n</span>値確率変数の集まりを考える．各確率変数には実数のパラメータが付されており，このパラメータの値がとり得る集合は，<span class="math inline">\mathbb R</span>の部分集合<span class="math inline">T</span>(すなわち時間)であるものとする．以下では<span class="math inline">T</span>を時間パラメータ集合と呼び，その要素を「時間」あるいは「時刻」といった名称で呼ぶ．この<span class="math inline">T</span>を用いて確率過程を定義する．</p>
+<section id="定義確率過程" class="level3">
+<h3 class="anchored" data-anchor-id="定義確率過程">定義：確率過程</h3>
+<p>時刻 <span class="math inline">t \in T</span>に依存する<span class="math inline">\mathbb R^n</span>値確率変数の集まり<span class="math inline">X(\omega) = \{X_t(\omega);t \in T\}</span>を確率過程とよぶ．</p>
+<p>もちろん<span class="math inline">t</span>を一つ固定するごとに，<span class="math inline">X_t : \Omega \to \mathbb R^n</span>は<span class="math inline">\mathcal F</span>可測となっていなければならない．</p>
+</section>
+<section id="定義見本関数サンプルパス" class="level3">
+<h3 class="anchored" data-anchor-id="定義見本関数サンプルパス">定義：見本関数（サンプルパス）</h3>
+<p>連続時間確率過程<span class="math inline">X</span>において，<span class="math inline">\omega</span>を一つ固定すると，<span class="math inline">X(\omega)</span>は<span class="math inline">T</span>上の<span class="math inline">\mathbb R^n</span>値関数となる．これを見本関数（サンプルパス）と呼ぶ．</p>
+<p>確率過程の特性を理解するには，「時刻<span class="math inline">t</span>を一つ固定すると確率変数となる」という特性と「サンプルを一つ抽出すると<span class="math inline">t</span>の関数が得られる」という特性の両方から把握しなければならない．<img src="probability_process_views.png" class="img-fluid"></p>
+<p>左が関数としての確率過程．右が時間を固定て，確率変数の振る舞いをする確率過程である．</p>
+</section>
+</section>
+<section id="有限次元分布" class="level2">
+<h2 class="anchored" data-anchor-id="有限次元分布">有限次元分布</h2>
+<p>実確率変数の場合は，確率分布関数を知ることができれば，それに関する確率的な性質や統計量を，原理的にはすべて産出できる．しかし，確率過程の場合は事情がかなり異なる．例えばある時刻を一つ固定すれば実確率変数が得られるが，その時刻の確率分布関数を知っただけでは不十分で，異なる時刻間の統計的相関も知らなければならない．さらに多数の時刻間での情報も必要である．</p>
+<p>このため，確率過程の確率的性質は次のように表現しなければならない．<span class="math inline">\mathbb R</span>値確率過程を例にとると，時間パラメータ空間上任意に与えた時系列<span class="math inline">t_1, t_2 , ...,t_n \in T</span>に対して，<span class="math inline">(X_{t_1}(\omega),..., X_{t_n}(\omega))</span>は <span class="math inline">\mathbb R</span>値確率変数を与える．その確率分布を<strong>確率過程<span class="math inline">X</span>の<span class="math inline">n</span>次の有限次元分布</strong>と呼ぶ．有限次元分布という名称は，確率過程のサンプルが得られる空間（関数空間）が線形空間無限次元の空間であるのに対して，それを有限の次元の空間に射影して表現していることに由来している．</p>
+<p>これは実確率変数の従う分布であるから，その結合確率分布関数 <span class="math display">
+F^{(n)}_X (x_1,t_1 ; x_2,t_2 ; \cdots;x_n,t_n) = P(X_{t_1} \le x_1 , ...,X_{t_n} \le x_n)
+</span> により表現することが可能である．これを，任意の次数，任意の時系列の選択に対して知ることが，確率過程の性質を完全に知る上では必要となるのである．しかしあらゆる確率過程に対してこのような知識を要請することは事実上困難であることは容易に想像がつく．したがって確率過程を用いて現象を解析するにはいくつかの限定された特性を有する確率過程に絞って議論を進めなければならない．後に述べるが，Markov過程という概念はこの目的のための非常に有力な性質となる．</p>
+<p>有限次元分布による確率過程の特性の把握を考えることに関連して，有限次元分布の同一性と確率過程の同一性の違いをはっきりさせておかなければならない． ２つの確率過程の有限次元分布が同じでも，それが見本関数ごとに一致するとは限らない．しかし，実用的観点からは対象とする確率過程の有限次元分布を求めること，あるいはその部分的情報を用いることにより，必要な確率的性質を導出することが重要となるので，見本関数ごとの振る舞いの一致が必ずしも必要なわけではない．<img src="finite_dimensional_distributions.png" class="img-fluid">ちなみに<span class="math inline">X = \{W_t;t \in T\}, Y = \{-W_t\in T\}</span>である．たしかに正規分布は左右対称なので，正負を逆にしても確率的には同じになるけど，確率過程は<span class="math inline">t</span>軸対称になるな．</p>
+<p>したがって，もしも見本関数ごとの振る舞いが数学的に都合の悪いものであれば，有限次元関数が同じでも見本関数ごとの挙動が解析上都合のよい確率過程を構成すればよいわけである． そのためも次の用語の意味を理解しておくことが重要となる．</p>
+<section id="定義変形判別不能" class="level3">
+<h3 class="anchored" data-anchor-id="定義変形判別不能">定義：変形，判別不能</h3>
+<p>(i)確率過程<span class="math inline">X</span>に対して，確率過程<span class="math inline">Y</span>が各<span class="math inline">t \in T</span>に対して<span class="math inline">X_t(\omega) = Y_t(\omega) , \quad (\text{a.s)}</span> を満たすとき，<span class="math inline">Y</span>は<span class="math inline">X</span>の変形であるという． (ii)２つの確率過程<span class="math inline">XとY</span>が，<span class="math inline">P(X_t = Y_t, \forall t \in T) = 1</span>を満たすとき，判別不能であるという．</p>
+<p>これ一緒じゃねえの？almost surelyってそういう意味なんじゃないの？ 具体例を考える．<span class="math inline">T = [0,1], \Omega = [0,1]</span>で分布は一様分布とする． <span class="math display">
+X_t(\omega) = 0,\qquad Y_t(\omega) =
+\begin{cases}
+1 &amp; \omega = t\\
+0 &amp; \omega \neq t
+\end{cases}
+</span> <span class="math inline">X_t = Y_t</span>となるのは<span class="math inline">\omega \neq t</span>である．これは<span class="math inline">\omega = t</span>となる点が<span class="math inline">t</span>を固定したとき1つしかなく，区間の要素数は無限なので <span class="math display">
+\forall t\in T ,\quad P(X_t = Y_t) = 1
+</span> である．なのでAlmost surelyの定義から，<span class="math inline">Y</span>は<span class="math inline">X</span>の変形である．</p>
+<p>しかし「全ての<span class="math inline">t</span>で一致する<span class="math inline">\omega</span>」は一つもない．なぜなら各<span class="math inline">t</span>について，<span class="math inline">X_t \neq Y_t</span>を満たす<span class="math inline">\omega</span>が必ず一つだけ存在するからである．すなわち <span class="math display">
+P(X_t = Y_t , \quad \forall t \in[0,1]) = 0
+</span> となっているので，判別不能ではない． - 変形：各時刻ごとに見ればa.s.一致 - 判別不能：a.s. の標本経路について全時刻で一致</p>
+<p>実用面の応用という点では，変形という操作により得られる確率過程は，元の確率過程と同じものと考えて差し支えない．</p>
+</section>
+</section>
+<section id="確率過程の連続性" class="level2">
+<h2 class="anchored" data-anchor-id="確率過程の連続性">確率過程の連続性</h2>
+<p>[[学習/Zawa25721_documents/Published/StochasticDifferentialEquations/2|2]]で定義した収束を用いて確率過程の連続性を定義する．</p>
+<section id="定義a.s.連続確率連続q次平均連続" class="level3">
+<h3 class="anchored" data-anchor-id="定義a.s.連続確率連続q次平均連続">定義：a.s.連続，確率連続，<span class="math inline">q</span>次平均連続</h3>
+<ol type="i">
+<li>各<span class="math inline">t \in T</span>に対して，<span class="math inline">\text{as-}\lim_{s \to t} X_s = X_t</span>となるとき，<span class="math inline">X</span>はa.s.連続であるという． ii)各<span class="math inline">t \in T</span>に対して，<span class="math inline">\text{p-}\lim_{s \to t} X_s = X_t</span>となるとき，<span class="math inline">X</span>は確率連続であるという． iii)各<span class="math inline">t \in T</span>に対して，<span class="math inline">X_t</span>は<span class="math inline">L^q</span>に属するものとする．このとき各<span class="math inline">t\in T</span>に対して<span class="math inline">\lim_{s \to t} \mathbb E[|X_s - X_t|^q] = 0</span> となるとき，<span class="math inline">X</span>は<span class="math inline">q</span>次平均連続であるという．</li>
+</ol>
+<p>サンプル<span class="math inline">\omega</span>を抽出するごとにどのような見本関数が出現するかという観点からは次のような定義が与えられる．</p>
+</section>
+<section id="定義連続確率過程" class="level3">
+<h3 class="anchored" data-anchor-id="定義連続確率過程">定義：連続確率過程</h3>
+<p><span class="math inline">X</span>の見本関数がほとんど確実にT上の<span class="math inline">\mathbb R^n</span>値連続関数となるとき，<span class="math inline">X</span>を連続確率過程という．連続確率過程の集まりを<span class="math inline">\mathcal C</span>と表す．</p>
+<p>見本関数が連続でない場合も考えるので，次の定義も与えておく．</p>
+</section>
+<section id="定義cadlag確率過程caglad確率過程" class="level3">
+<h3 class="anchored" data-anchor-id="定義cadlag確率過程caglad確率過程">定義：cadlag確率過程，caglad確率過程</h3>
+<p>i)<span class="math inline">X</span> の見本関数が，<span class="math inline">T</span>上の<span class="math inline">\mathbb R^n</span>値関数として，ほとんど確実に右連続で左極限をもつとき，<span class="math inline">X</span>をcadlag確率過程という．</p>
+<p>ii)<span class="math inline">X</span> の見本関数が，<span class="math inline">T</span>上の<span class="math inline">\mathbb R^n</span>値関数として，ほとんど確実に左連続で右極限をもつとき，<span class="math inline">X</span>をcaglad確率過程という．</p>
+</section>
+</section>
+<section id="確率過程の列の収束性" class="level2">
+<h2 class="anchored" data-anchor-id="確率過程の列の収束性">確率過程の列の収束性</h2>
+<p>関数に対して関数列があるように，確率過程に対しても確率過程の列があり，それに対する収束性を考えなければならない．時間パラメータ<span class="math inline">t</span>を固定して話を進めれば，それは確率変数列の収束の問題に帰着されるが，それでは確率過程の挙動全体という観点からの議論として十分であるとは言えない．なぜなら<span class="math inline">t</span>を固定した議論ではその時刻での値しか見れないので，確率過程の本質でらう時間方向の繋がりを捨ててしまうからである．</p>
+<p>そこでサンプルを取り出すごとに実数が得られるのが実確率変数であるという認識からの類推のより，<strong>サンプルとして関数が得られるのが確率過程であるという考え方</strong>に着目する．</p>
+<p>この場合，標本空間からの写像先が実数空間ではなくなるため，[[学習/Zawa25721_documents/Published/StochasticDifferentialEquations/1|1]]で述べた位相確率変数という概念が必要になる（意味ないと思っていたが，ここで使われるのか！）．したがってサンプルの抽出により得られる関数が属する集合，いわゆる関数空間について，その位相的性質を確率して置かなければならない．</p>
+<p>もっとも基本となる連続確率過程について考えてみる．この場合の標本空間<span class="math inline">\Omega</span>からの写像先は，時間パラメータ集合<span class="math inline">T</span>上定義された連続関数からなる関数空間となる．<span class="math inline">T</span>上定義された<span class="math inline">\mathbb R^n</span>値連続関数の全体を<span class="math inline">\mathcal C</span>と表すことにする．時間上限<span class="math inline">T_{\max}</span>が有限値の場合，<span class="math inline">\mathcal C</span>の２つの要素<span class="math inline">x,y</span>の距離を <span class="math display">
+d(x,y) = \sup_{t \in [0,T_{\max}]} |x(t) - y(t)|
+</span> で定義することにより，空間<span class="math inline">\mathcal C</span>の位相（近さの度合い，収束など）が決まる． <span class="math inline">C</span>の要素の列<span class="math inline">\{ x_n \}</span>がこの距離で<span class="math inline">x \in \mathcal C</span>に収束するとは，関数列<span class="math inline">\{x_n\}</span>が区間<span class="math inline">[0,T_{\max}]</span>上で<span class="math inline">x</span>に一様収束することと同値である．このことから，このように定まる<span class="math inline">\mathcal C</span>の位相を一様収束位相とよぶ （<span class="math inline">T_{\max} = \infty</span>の場合は修正が必要であるが，ここではそんなに厳密に考えないので記述しない）．</p>
+<p>この位相の下で定まる<span class="math inline">\mathcal C</span>の開部分集合に基づいて，<span class="math inline">\mathcal C</span>の位相的Borel加法族<span class="math inline">\mathcal B(\mathcal C)</span>が定まり， <span class="math inline">\mathcal C</span>値位相確率変数<span class="math inline">X : \Omega \to \mathcal C</span>が<span class="math inline">\mathcal B(\mathcal C)</span>可測な写像として定義される．</p>
+<p><span class="math inline">X</span>が連続確率過程であることと，<span class="math inline">\mathcal C</span>値位相確率変数であることは同値であることが知られている．このように，確率過程を関数空間の値をとる位相確率変数と捉えることは重要である．</p>
+<p>連続確率過程を<span class="math inline">\mathcal C</span>値位相確率変数とみなすと，連続確率変数の列の収束性は，先程定義した距離によって記述される．実確率変数列の収束性について，様々な収束の概念があるように，距離<span class="math inline">d</span>に関してもこれらの収束規範がある．</p>
+<p>時間上限<span class="math inline">T_{\max} = \infty</span>の場合は，各<span class="math inline">t &lt; \infty</span>を固定するごとに，時間パラメータ集合を<span class="math inline">[0,t]</span>という有界閉集合に限定することにより，一様収束位相下での確率収束を考えれば多くの実用的な問題に対応できる．そして次の定義を与える</p>
+<section id="定義ucpの意味で収束" class="level3">
+<h3 class="anchored" data-anchor-id="定義ucpの意味で収束">定義：ucpの意味で収束</h3>
+<p><span class="math inline">t \in T</span>を固定するごとに，任意の<span class="math inline">\epsilon &gt; 0</span>に対して <span class="math display">
+\lim_{n \to \infty} P\left( \sup_{s \in[0,t]} |X_s^{(s)} - X_s| \ge \epsilon\right) = 0
+</span> となるとき，<span class="math inline">X^{(n)}</span>は<span class="math inline">X</span>にucpの意味で収束するという．</p>
+<p>混乱が無い場合は <span class="math display">
+\text{p}-\lim_{n\to \infty} X^{(n)} = X
+</span> と表記することにする．</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -838,6 +981,18 @@ ul.task-list li input[type="checkbox"] {
     }
   });
   </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../Published/StochasticDifferentialEquations/4.html" class="pagination-link" aria-label="確率論の概要(4)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">確率論の概要(4)</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../Published/bayesian_inference/1.html" class="pagination-link" aria-label="モンテカルロ法">
+        <span class="nav-page-text">モンテカルロ法</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 

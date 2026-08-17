@@ -293,6 +293,12 @@ window.Quarto = {
  <span class="menu-text">確率論の概要(4)</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/StochasticDifferentialEquations/5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">確率過程論の概要(1)</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -452,6 +458,16 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#定義-3" id="toc-定義-3" class="nav-link" data-scroll-target="#定義-3">定義</a></li>
   </ul></li>
+  <li><a href="#捩率" id="toc-捩率" class="nav-link" data-scroll-target="#捩率">捩率</a></li>
+  <li><a href="#平坦" id="toc-平坦" class="nav-link" data-scroll-target="#平坦">平坦</a>
+  <ul class="collapse">
+  <li><a href="#定義平坦" id="toc-定義平坦" class="nav-link" data-scroll-target="#定義平坦">定義：平坦</a></li>
+  </ul></li>
+  <li><a href="#定義アファイン座標系" id="toc-定義アファイン座標系" class="nav-link" data-scroll-target="#定義アファイン座標系">定義：アファイン座標系</a>
+  <ul class="collapse">
+  <li><a href="#定理アファイン座標系の自由度" id="toc-定理アファイン座標系の自由度" class="nav-link" data-scroll-target="#定理アファイン座標系の自由度">定理：アファイン座標系の自由度</a></li>
+  </ul></li>
+  <li><a href="#riemann接続" id="toc-riemann接続" class="nav-link" data-scroll-target="#riemann接続">Riemann接続</a></li>
   </ul>
 </nav>
     </div>
@@ -606,10 +622,92 @@ R(fX,gY,hZ) = \nabla_{fX} (\nabla_{gY} hZ) - \nabla_{gY}(\nabla_{fX} hZ) - \nabl
 </span> 写すのだるいので，計算用紙をそのまま載っけておく． <img src="MVIMG_20260813_141925.jpg" class="img-fluid"> 最後で一気に消えるのが心地よい． なんにせよ，Riemann曲率がテンソル性を持つことがわかった． 次に局所座標におけるRiemann曲率の成分を計算する． まあ<span class="math inline">R(\partial_i , \partial_j,\partial_k)</span>を計算すれば良いだけなので，さっきの計算と比べたら楽である． めんどいので省略するが <span class="math display">
 R_{ijk}^l = \partial_i \Gamma^l_{jk} - \partial_j \Gamma^l_{ik} + \Gamma^m_{jk} \Gamma^l_{im} - \Gamma^m_{ik}\Gamma^l_{jm}
 </span> である．見た目はなかなかゴツいが，慣れればそこまで難しくはない．</p>
-<p>さてベクトルの平行移動は一般に始点と終点を結ぶ曲線の選び方に依存してしまい，それを定量的に表す量が曲率である．経路の違いによる平行移動の結果の違いが本当に曲率テンソルと関係するのか計算で確かめていく． 座標近傍において座標曲線<span class="math inline">x^i</span>と<span class="math inline">x^j</span>を辺に持ち，次の4点を頂点とする微小四辺形ABCDを考える．まず点Aの座標を<span class="math inline">x = (x^1 , ... , x^n)</span>とする．変位ベクトルを<span class="math inline">\delta_i = (0,0,...,\epsilon_i , 0,...,0)</span>で表し 点Bは<span class="math inline">x + \delta_i</span>，点Dは<span class="math inline">x + \delta_j</span>，点Cは<span class="math inline">x + \delta_i + \delta_j</span>とする．点Cにおける接ベクトル<span class="math inline">\partial _k</span>をB経由でAに持っていくのと，D経由で持っていったとき，接ベクトルがどれくらい異なるのかを調べる．</p>
-
-
+<p>さてベクトルの平行移動は一般に始点と終点を結ぶ曲線の選び方に依存してしまい，それを定量的に表す量が曲率である．経路の違いによる平行移動の結果の違いが本当に曲率テンソルと関係するのか計算で確かめていく． 座標近傍において座標曲線<span class="math inline">x^i</span>と<span class="math inline">x^j</span>を辺に持ち，次の4点を頂点とする微小四辺形ABCDを考える．まず点Aの座標を<span class="math inline">x = (x^1 , ... , x^n)</span>とする．変位ベクトルを<span class="math inline">\delta_i = (0,0,...,\epsilon_i , 0,...,0)</span>で表し</p>
+<p>点Bは<span class="math inline">x + \delta_i</span>，点Dは<span class="math inline">x + \delta_j</span>，点Cは<span class="math inline">x + \delta_i + \delta_j</span>とする．点Cにおける接ベクトル<span class="math inline">\partial _k</span>をB経由でAに持っていくのと，D経由で持っていったとき，接ベクトルがどれくらい異なるのかを調べる．</p>
+<p>計算したい量は <span class="math display">
+\Pi^{x + \delta_i}_x \Pi^{x + \delta_i + \delta_j}_{x + \delta_i} \partial_k(x + \delta_i + \delta_j) - \Pi^{x + \delta_j}_x \Pi^{x + \delta_i + \delta_j}_{x + \delta_j} \partial_k(x + \delta_i + \delta_j)
+</span> である．まあテイラー展開して整理すればこれは</p>
+<p><span class="math display">
+= \epsilon_i \epsilon_j R(\partial_i,\partial_j,\partial_k) + O(\epsilon^3)
+</span> となることが分かる．なのでRiemann曲率とは微小四辺形の面積<span class="math inline">\epsilon_i\epsilon_j</span>に比例する主要項を表していることが分かる．</p>
+<p>ところで，上の式には3次以上の微小量が存在するのでRiemann曲率がゼロならば本当に平行移動が経路によらないのかどうか，この計算だけからでははっきりしない．そこで改めてこの事実を証明しておく．</p>
+<p>必要十分条件の式は，</p>
+<p><span class="math display">
+\frac{\partial Z^l}{\partial x^i} + Z^m \Gamma^l_{im} = 0
+</span> である．このようなベクトル場が局所的に存在するための必要十分条件は <span class="math display">
+\frac{\partial^2 Z^l}{\partial x^i \partial x^j} = \frac{\partial^2 Z^l}{\partial x^j \partial x^i}
+</span> である．（Schwarzの定理より） よってこれは <span class="math display">
+\frac{\partial}{\partial x^i} (Z^m \Gamma^l_{jm}) = \frac{\partial}{\partial x^j} (Z^m \Gamma^l_{im})
+</span> である．こいつの計算を進めると <span class="math display">
+Z^k R(\partial_i,\partial_j,\partial_k)= 0
+</span> であることが分かる． なのでRiemann曲率が0なら平行移動は始点と終点を結ぶ曲線のとり方に依存しないのである．</p>
 </section>
+</section>
+<section id="捩率" class="level2">
+<h2 class="anchored" data-anchor-id="捩率">捩率</h2>
+<p>さっき話したRiemann曲率と対をなす重要な量が捩率である． ### 定義：捩率 アファイン接続<span class="math inline">\nabla</span>を持つ多様体<span class="math inline">M</span>上で定義された2重<span class="math inline">C^{\infty}(M)</span>-線形写像 <span class="math display">
+T : \mathcal X(M) \times \mathcal X(M) \to \mathcal X(M)
+</span> <span class="math display">
+(X,Y )\to \nabla_X Y - \nabla_Y X - [X,Y]
+</span> を接続<span class="math inline">\nabla</span>の捩率テンソルと呼ぶ． テンソル性を示そう． <span class="math display">
+\begin{align}
+T(fX,gY) &amp;=  \nabla_{fX} gY - \nabla_{gY} fX - [fX,gY] \\
+&amp;= f\nabla_X gY - g\nabla_Y fX -(fX(gY) - gY(fX)) \\
+&amp;= f(Xg + g\nabla_XY) - g(Yf + f\nabla_YX) - (fXg+fgXY - gYf -gfYX)\\
+&amp; =fg(\nabla_XY - \nabla_YX -[X,Y]) \\
+&amp; = fgT(X,Y)
+\end{align}
+</span> ということで成立する． 座標近傍での成分は，計算すると <span class="math display">
+T^k_{ij} = \Gamma^k_{ij} - \Gamma^k_{ji}
+</span> である．</p>
+<p>捩率の幾何学的解釈を行う．</p>
+<p>まず曲率と同様の条件で，次の量を考える．</p>
+<p>$$ {_i _i(x) + _j ^{x + _i} _x _j(x + _i)} - {_j _j(x) + _i ^{x + _j} _x _i(x + _j)}</p>
+<p><span class="math display">
+第一項は
+</span> A B D <span class="math display">
+を表し，
+第二項は
+</span> A C D <span class="math display">
+を表す．すなわちEuclid空間なら当然０になる（閉じたループになるので）．
+これを計算すると
+</span> _i_j T(_i,_j) + O(^3) $$ となり，このズレを表す量であることが分かる．</p>
+</section>
+<section id="平坦" class="level2">
+<h2 class="anchored" data-anchor-id="平坦">平坦</h2>
+<p>多様体が平坦であるというということの定義には，いくつかの流儀があるが，ここでは次の定義を用いることにする．</p>
+<section id="定義平坦" class="level3">
+<h3 class="anchored" data-anchor-id="定義平坦">定義：平坦</h3>
+<p>アファイン接続<span class="math inline">\nabla</span>をもつ多様体<span class="math inline">M</span>において，Riemann曲率と捩率テンソル場が共に恒等的にゼロとなるとき，<span class="math inline">M</span>は<span class="math inline">\nabla</span>-平坦であるという．</p>
+<p>Euclid空間やトーラスは平坦である．</p>
+<p>平行性と強い関連をもつ概念としてアファイン座標系というものがある．</p>
+</section>
+</section>
+<section id="定義アファイン座標系" class="level2">
+<h2 class="anchored" data-anchor-id="定義アファイン座標系">定義：アファイン座標系</h2>
+<p>アファイン接続<span class="math inline">\nabla</span>を持つ多様体<span class="math inline">M</span>の座標近傍<span class="math inline">(U;x^1,...,x^n)</span>において，接続係数<span class="math inline">\{ \Gamma^k_{ij} \}</span>が全て恒等的にゼロになるとき<span class="math inline">(U;x^1 ,...,x^n)</span>を<span class="math inline">\nabla</span>-アファイン座標近傍といい，局所座標系<span class="math inline">(x^i)</span>を<span class="math inline">\nabla</span>-アファイン座標系という．</p>
+<p>注意するべきことは，平坦とは局所座標のとりかたによって変わることのない性質であるが．接続係数が恒等的に0になるという性質は座標系のとり方に依存する性質であることである，</p>
+<p>定理として次が成立する．</p>
+<p>アファイン接続<span class="math inline">\nabla</span>を持つ多様体<span class="math inline">\nabla</span>を持つ多様体<span class="math inline">M</span>において，次の２条件は同値である．</p>
+<ol type="i">
+<li><span class="math inline">M</span>は<span class="math inline">\nabla</span>-平坦である． ii)<span class="math inline">M</span>の各点周りに<span class="math inline">\nabla</span>-アファイン座標近傍が存在する．</li>
+</ol>
+<p>少し曖昧なので厳密に書く $$</p>
+<p>M pM,&nbsp; (U_p;x<sup>1,,x</sup>n) pU_p qU_p,&nbsp;i,j,k,&nbsp; ^k_{ij}(q)=0.</p>
+<p>$$ A such that B : Bを満たすようなA</p>
+<p>そして次の定理は重要である．</p>
+<section id="定理アファイン座標系の自由度" class="level3">
+<h3 class="anchored" data-anchor-id="定理アファイン座標系の自由度">定理：アファイン座標系の自由度</h3>
+<p>多様体<span class="math inline">M</span>に座標近傍<span class="math inline">(U;x^i)</span>と<span class="math inline">(V;\xi ^a)</span>があって，<span class="math inline">(x^i)</span>は局所<span class="math inline">\nabla</span>- アファイン座標系だったとする．このとき<span class="math inline">U \cap V</span> において<span class="math inline">(\xi^a)</span>も局所<span class="math inline">\nabla</span>-アファイン座標系となるための必要十分条件は，座標変換<span class="math inline">(x^i) \to (\xi^a)</span>がアファイン変換で書けることすなわち正則な行列<span class="math inline">A</span>とベクトル<span class="math inline">b</span>が存在して <span class="math display">
+\xi = Ax + b
+</span> となることである．</p>
+<p>まあ，Euclid空間でいうところの回転座標のことだわな．</p>
+</section>
+</section>
+<section id="riemann接続" class="level2">
+<h2 class="anchored" data-anchor-id="riemann接続">Riemann接続</h2>
+
+
 </section>
 
 </main> <!-- /main -->
