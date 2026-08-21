@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>確率論の概要(2) – Zawaの勉強記録</title>
+<title>確率過程論の概要(2) – Zawaの勉強記録</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -36,8 +36,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../Published/StochasticDifferentialEquations/3.html" rel="next">
-<link href="../../Published/StochasticDifferentialEquations/1.html" rel="prev">
+<link href="../../Published/StochasticDifferentialEquations/7.html" rel="next">
+<link href="../../Published/StochasticDifferentialEquations/5.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -166,7 +166,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/StochasticDifferentialEquations/1.html">StochasticDifferentialEquations</a></li><li class="breadcrumb-item"><a href="../../Published/StochasticDifferentialEquations/2.html">確率論の概要(2)</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/StochasticDifferentialEquations/1.html">StochasticDifferentialEquations</a></li><li class="breadcrumb-item"><a href="../../Published/StochasticDifferentialEquations/6.html">確率過程論の概要(2)</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -294,7 +294,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Published/StochasticDifferentialEquations/2.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../Published/StochasticDifferentialEquations/2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">確率論の概要(2)</span></a>
   </div>
 </li>
@@ -318,7 +318,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Published/StochasticDifferentialEquations/6.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/StochasticDifferentialEquations/6.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">確率過程論の概要(2)</span></a>
   </div>
 </li>
@@ -472,31 +472,26 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#確率変数の積分" id="toc-確率変数の積分" class="nav-link active" data-scroll-target="#確率変数の積分">確率変数の積分</a>
+  <li><a href="#フィルトレーション" id="toc-フィルトレーション" class="nav-link active" data-scroll-target="#フィルトレーション">フィルトレーション</a>
   <ul class="collapse">
-  <li><a href="#単確率変数はなぜ必要なのか" id="toc-単確率変数はなぜ必要なのか" class="nav-link" data-scroll-target="#単確率変数はなぜ必要なのか">単確率変数はなぜ必要なのか？</a></li>
-  <li><a href="#一般の確率変数" id="toc-一般の確率変数" class="nav-link" data-scroll-target="#一般の確率変数">一般の確率変数</a></li>
-  <li><a href="#期待値" id="toc-期待値" class="nav-link" data-scroll-target="#期待値">期待値</a></li>
+  <li><a href="#定義フィルトレーション適合" id="toc-定義フィルトレーション適合" class="nav-link" data-scroll-target="#定義フィルトレーション適合">定義：フィルトレーション，適合</a></li>
+  <li><a href="#定義確率過程から生成されるフィルトレーション離散" id="toc-定義確率過程から生成されるフィルトレーション離散" class="nav-link" data-scroll-target="#定義確率過程から生成されるフィルトレーション離散">定義：確率過程から生成されるフィルトレーション（離散）</a></li>
+  <li><a href="#定義確率過程から生成されるフィルトレーション連続" id="toc-定義確率過程から生成されるフィルトレーション連続" class="nav-link" data-scroll-target="#定義確率過程から生成されるフィルトレーション連続">定義：確率過程から生成されるフィルトレーション（連続）</a></li>
   </ul></li>
-  <li><a href="#確率変数列の収束" id="toc-確率変数列の収束" class="nav-link" data-scroll-target="#確率変数列の収束">確率変数列の収束</a>
+  <li><a href="#マルチンゲール" id="toc-マルチンゲール" class="nav-link" data-scroll-target="#マルチンゲール">マルチンゲール</a>
   <ul class="collapse">
-  <li><a href="#定義概収束" id="toc-定義概収束" class="nav-link" data-scroll-target="#定義概収束">定義：概収束</a></li>
-  <li><a href="#定義法則収束" id="toc-定義法則収束" class="nav-link" data-scroll-target="#定義法則収束">定義：法則収束</a></li>
+  <li><a href="#独立増分過程" id="toc-独立増分過程" class="nav-link" data-scroll-target="#独立増分過程">独立増分過程</a></li>
   </ul></li>
-  <li><a href="#一様可積分" id="toc-一様可積分" class="nav-link" data-scroll-target="#一様可積分">一様可積分</a>
-  <ul class="collapse">
-  <li><a href="#定義一様可積分" id="toc-定義一様可積分" class="nav-link" data-scroll-target="#定義一様可積分">定義：一様可積分</a></li>
-  </ul></li>
-  <li><a href="#感想" id="toc-感想" class="nav-link" data-scroll-target="#感想">感想</a></li>
+  <li><a href="#二乗可積分マルチンゲールと二次変分過程" id="toc-二乗可積分マルチンゲールと二次変分過程" class="nav-link" data-scroll-target="#二乗可積分マルチンゲールと二次変分過程">二乗可積分マルチンゲールと二次変分過程</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/StochasticDifferentialEquations/1.html">StochasticDifferentialEquations</a></li><li class="breadcrumb-item"><a href="../../Published/StochasticDifferentialEquations/2.html">確率論の概要(2)</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/StochasticDifferentialEquations/1.html">StochasticDifferentialEquations</a></li><li class="breadcrumb-item"><a href="../../Published/StochasticDifferentialEquations/6.html">確率過程論の概要(2)</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">確率論の概要(2)</h1>
+<h1 class="title">確率過程論の概要(2)</h1>
 </div>
 
 
@@ -513,153 +508,185 @@ window.Quarto = {
 </header>
 
 
-<section id="確率変数の積分" class="level2">
-<h2 class="anchored" data-anchor-id="確率変数の積分">確率変数の積分</h2>
-<p>以下では簡単のため<span class="math inline">\mathbb R</span>値実確率変数に話を限定して積分の考え方の概要を述べる． ### 定義: 単確率変数</p>
-<p>次の形に書ける確率変数を，単確率変数という <span class="math display">
-X(\omega) = \sum_i a_i \mathbb 1_{A_i} (\omega) \qquad (a_i \in \mathbb R , A_i \in \mathcal F)
-</span> ただし，<span class="math inline">\mathbb 1_{A}(\omega)</span>は指示関数で <span class="math display">
-\mathbb 1_{A}(\omega) =
-\begin{cases}
-1 &amp; (\omega \in A) \\
-0 &amp; (\text{otherwise})
-\end{cases}
-</span> で定義される． 上のように定義される単確率関数の確率測度<span class="math inline">P</span>の元での積分を次式で定義する． <span class="math display">
-\int_{\Omega} X(\omega) P(d \omega) \equiv \sum_i a_i P(A_i)
-</span> よくわからないので，具体例で見ていく．なぜ必要なのかも考えていく．</p>
-<section id="単確率変数はなぜ必要なのか" class="level3">
-<h3 class="anchored" data-anchor-id="単確率変数はなぜ必要なのか">単確率変数はなぜ必要なのか？</h3>
-<p>具体例をみる．まず単確率変数はとりうる値が有限個のものである．例えば <span class="math display">
-X =
-\begin{cases}
-100 &amp; (あたり) \\
-0 &amp; (はずれ)
-\end{cases}
-</span></p>
-<p>がある．事象<span class="math inline">A_i</span>が起きたときに値<span class="math inline">a_i</span>を取るという形である． これが必要な理由は，一般の確率変数の期待値を厳密に定義するための土台になるからである． <span class="math display">
-\sum_i a_i P(A_i)
-</span> を具体的値で計算してみる． - 100円がもらえる確率が0.3 - 0円の確率が0.7 のときこの値は <span class="math display">
-100 \cdot 0.3 + 0 \cdot 0.7 = 30
-</span> これは期待値である．この積分は期待値を意味していることが分かる． 取りうる値が有限個ならば，このままでよいが，人の身長や株価の変化量などは，連続的なので，無限個の値をとる．そこで，後に述べるが，単確率変数からより一般的な確率変数を定義する．すなわち確率変数の基本となるのが単確率変数である．</p>
+<section id="フィルトレーション" class="level2">
+<h2 class="anchored" data-anchor-id="フィルトレーション">フィルトレーション</h2>
+<p><span class="math inline">\sigma</span>-加法族はすなわち情報であり，確率過程を考える場合には，情報が時間と共にどう変化していくかを定式化しておくことが重要となる．<span class="math inline">\mathcal F</span>が我々の知り得る全情報であるから，限定された時刻までに得られる情報は<span class="math inline">\mathcal F</span>の部分<span class="math inline">\sigma</span>-加法族として表されることとなる．さらに時間の流れが逆光のできないものであるという前提のもとでは，そのような情報は時間変数の増加とともに増加していくと考えられることになる．このような観点に立って，次のような定義を与える．</p>
+<section id="定義フィルトレーション適合" class="level3">
+<h3 class="anchored" data-anchor-id="定義フィルトレーション適合">定義：フィルトレーション，適合</h3>
+<ol type="i">
+<li><p>時間パラメータ<span class="math inline">t \in T</span>に依存する<span class="math inline">\mathcal F</span>の部分<span class="math inline">\sigma</span>-加法族の族<span class="math inline">\{ \mathcal F; t\in T \}</span>が <span class="math display">
+s&lt;t \quad \Rightarrow \mathcal F_s \subset  \mathcal F_t
+</span> を満たすとき，増大情報系あるいはフィルトレーションという．</p></li>
+<li><p>確率過程<span class="math inline">X</span>について，<span class="math inline">x_t(\omega)</span>が<span class="math inline">t</span>を固定するごとに<span class="math inline">\mathcal F_t</span>可測となっているとき，<span class="math inline">X</span>はフィルトレーション<span class="math inline">\{ \mathcal F_t ; t \in T \}</span>に適合している，あるいは<span class="math inline">X</span>を<span class="math inline">\{ \mathcal F_t ; t \in T \}</span>に関して適合過程であるという．</p></li>
+</ol>
+<p>なお以下では<span class="math inline">\{ \mathcal F_t ; t \in T \}</span>は単に<span class="math inline">\{\mathcal F_t\}</span>と略記する．</p>
+<p>適合性が成立していることを因果的という表現で呼ぶ． 確率過程を論じるには，確率空間にフィルトレーションを加えた４つの組 <span class="math inline">(\Omega, \mathcal F, P ; \{\mathcal F_t\})</span>を常に想定しておかなければならない．これを，フィルター付き確率空間とよぶ．</p>
+<p>確率過程について連続あるいは右連続といった特性があるように，フィルトレーションにも連続性という概念がある．</p>
+<p>時刻<span class="math inline">t</span>までの情報よりも大きな情報全ての共通部分をとって得られる集合<span class="math inline">\bigwedge_{n = 1}^{\infty} \mathcal F_{t + \frac{1}{n}}</span>を<span class="math inline">\mathcal F_{t+}</span>で表して，<span class="math inline">\mathcal F_t</span>の右極限とよび，</p>
+<p>対照に時刻<span class="math inline">t</span>までの情報よりも小さな情報の総和により得られる<span class="math inline">\bigvee _{n = 1}^\infty \mathcal F_{t - \frac{1}{n}}</span>を<span class="math inline">\mathcal F_{t-}</span>で表して<span class="math inline">\mathcal F_t</span>の左極限とよぶ．</p>
+<p>なぜ<span class="math inline">\mathcal F_{t + \frac{1}{n}}</span>や<span class="math inline">\mathcal F_{t - \frac{1}{n}}</span>ではいけないのか？それぞれ情報を含んでいるのでは？ いや，それは正しいが，収束という概念を集合族で書いたら，上のようになるだけである．（と思われれる．）</p>
+<p><span class="math inline">\mathcal F = \mathcal F_{t+}</span>となるとき右連続，<span class="math inline">\mathcal F = \mathcal F_{t-}</span>となるとき，左連続とよぶ．右連続かつ左連続ならフィルトレーション<span class="math inline">\{F_t\}</span>は連続であるという．</p>
+<p>また時間パラメータ集合が<span class="math inline">T = [0,\infty)</span>である場合は，<span class="math inline">\mathcal F_\infty = \bigvee _{n = 1}^\infty \mathcal F_{n}</span> により全時間区間に渡っての情報が必要となることが分かる．もちろん，この情報が我々の知り得る全情報を上回ることは無いので<span class="math inline">\mathcal F_{\infty} \subset \mathcal F</span>である．</p>
+<p>確率過程がフィルトレーションを生成するという考え方を導入しておくと便利である．まず，離散時間パラメータ<span class="math inline">T = \{ 0,1,... \}</span>の場合は次のように定義される．</p>
 </section>
-<section id="一般の確率変数" class="level3">
-<h3 class="anchored" data-anchor-id="一般の確率変数">一般の確率変数</h3>
-<p>次に，一般の確率変数<span class="math inline">X</span>については，次のような手順をとる．まず，<span class="math inline">X</span>を次のように非負の２つの確率変数の差で表示する． <span class="math display">
-X(\omega) = X^+ (\omega) - X^-(\omega) \quad , X^+(\omega) \ge 0 \quad , X^-(\omega) \ge 0 \quad (\forall \omega)
-</span> このとき，単確率変数の増加列で，<span class="math inline">X^+(\omega),X^-(\omega)</span>にそれぞれ収束する列 $$</p>
-<p>_{n } X^+<em>n () = X^+() , </em>{n } X^-_n () = X^-()</p>
-<p><span class="math display">
-を選べることが知られている．(そして$X^+_n, X^-_n$は単確率変数である)
-そして$X$の積分を次のように定義する．
-</span> <span class="math display">\begin{align}
-\int_\Omega X^+(\omega) P(d \omega) \equiv \lim_{n \to \infty} \int_\Omega X_n^+(\omega) P(d \omega) \\
-
-\int_\Omega X^-(\omega) P(d \omega) \equiv \lim_{n \to \infty} \int_\Omega X_n^-(\omega) P(d \omega) \\
-
-\end{align}</span> <span class="math display">
-</span> <em>X() P(d ) </em>X^+() P(d ) - _X^-() P(d ) $$ さて，なぜこういう回りくどいことをするのかを考えていく．</p>
-<p>理由は，シンプルである．一般の確率変数<span class="math inline">X</span>に対して積分を直接定義しようとすると，<span class="math inline">\infty - \infty</span>の計算が出てくるためである． とりあえず直感的に定義してみよう． 一般の<span class="math inline">X</span>に対して<span class="math inline">X_n \to X</span>となる単確率変数<span class="math inline">X_n</span>を適当にとって <span class="math display">
-\int X dP = \lim_{n \to \infty} \int X_n dP
-</span> と定義したくなる．しかしこれでは問題が起こる． 例えば， <span class="math display">
-\Omega = (0,1], \quad P = (\text{一様分布})
-</span></p>
-<p>として，極限の確率変数を<span class="math inline">X(\omega) = 0</span>とする． 要請として <span class="math display">
-\int X dP = 0
-</span> がある． ここで次の単確率変数を考える <span class="math display">
-X_n(\omega) = n \mathbb 1_{(0,\frac{1}{n}]}(\omega)
-</span> これは<span class="math inline">n</span>が大きくなると，ほとんど全ての事象について<span class="math inline">X_n(\omega) = 0</span>となる．したがって，<span class="math inline">X_n \to X</span>は成立する． しかし積分をすると <span class="math display">
-\int_{\Omega}X_n dP = n P((0,\frac{1}{n}]) = n \frac{1}{n} = 1
-</span> したがって <span class="math display">
-\int X dP = \lim_{n \to \infty} \int X_n dP  = 1
-</span> となるが，これは明らかにおかしい． これが言いたいことは<span class="math inline">X_n \to X</span>だけでは，<span class="math inline">\int X_n dP \to \int X dP</span>は保証されないということである．</p>
-<p>ではなぜ非負関数について増加列に限定すると解決するのか？ <span class="math inline">X \ge 0</span> に対して <span class="math display">
-0 \le X_1 \le X_2 \cdots \uparrow X
-</span> とする．ただし上の意味は <span class="math display">
-0\le X_n(\omega) \le X_{n+1} \forall n,\omega \quad\land X_n(\omega) \to X
-</span> である．すると積分の単調性 <span class="math display">
-X_2 - X_1 \ge 0 \rightarrow \int_{\Omega} (X_2 - X_1)dP \ge 0
-</span></p>
-<p>より <span class="math display">
-\int X_1 dP \le \int X_2 dP \le \cdots
-</span> となるので，積分値も単調増加する．そして（これは測度論の重要性質だが，直感的なので数学的な証明は行わない）どの単純関数の増加近似を選んでも，最終的に同じ値になる． なので近似列で収束する値は変わらないので先程のような問題は起こらない．ここで非負性が効いてくる．下から上へ近づけれるので． だが一般の確率変数は全て非負ではないので <span class="math display">
-X = X^+ - X^-
-</span> と分解して，それぞれで近づける． これが上の手法である．すなわち積分の単調性と単純関数の増加近似の任意性を活用して一般の確率変数についてもきちんと定義できることを言っている．</p>
+<section id="定義確率過程から生成されるフィルトレーション離散" class="level3">
+<h3 class="anchored" data-anchor-id="定義確率過程から生成されるフィルトレーション離散">定義：確率過程から生成されるフィルトレーション（離散）</h3>
+<p><span class="math inline">X_0,X_1 , ...,X_n</span>から生成される<span class="math inline">\sigma</span>-加法族，すなわち<span class="math inline">X_0,X_1, ...,X_n</span>をすべて可測とする最小の<span class="math inline">\sigma</span>-加法族<span class="math inline">\sigma(X_0,X_1, ..., X_n)</span>を<span class="math inline">\mathcal F^X_n</span>と表し，この集まり <span class="math inline">\{\mathcal F^X_n\}</span>を，確率過程<span class="math inline">X = \{X_n\}</span>が生成するフィルトレーションと呼ぶ．</p>
+<p>また連続時間の場合は次のように定義する．</p>
 </section>
-<section id="期待値" class="level3">
-<h3 class="anchored" data-anchor-id="期待値">期待値</h3>
-<p>ここで積分が存在するとき <span class="math display">
-\int_{\Omega} X dP \equiv E\{ X\}
-</span> とし，これを<span class="math inline">X</span>の期待値という．教科書は{}を使っているが，このドキュメント群では期待値は汎関数であることを強調したいので<span class="math inline">E[X]</span>と表記する．ないしは<span class="math inline">\mathbb E[X]</span>. モーメント，分散，変動係数，可積分，特性関数は知っているので省略する．特性関数は確率密度関数のFourier変換であること，確率変数の独立性を記述するのに必要であることは重要である．</p>
+<section id="定義確率過程から生成されるフィルトレーション連続" class="level3">
+<h3 class="anchored" data-anchor-id="定義確率過程から生成されるフィルトレーション連続">定義：確率過程から生成されるフィルトレーション（連続）</h3>
+<p>時刻<span class="math inline">t</span>までの確率過程<span class="math inline">X</span>の挙動<span class="math inline">\{ X_s(\omega) ; 0 \le s \le t\}</span>をすべて可測とする<span class="math inline">\sigma</span>- 加法族を<span class="math inline">\sigma (X_s ; s \le t)</span>と表す．これを右連続化したものを<span class="math inline">\mathcal F^X_t</span>と表すとき，それれらの集まり<span class="math inline">\{ \mathcal F^X_t \}</span>を確率過程<span class="math inline">X = \{ X_t \}</span>により生成されるフィルトレーションとよぶ．</p>
 </section>
 </section>
-<section id="確率変数列の収束" class="level2">
-<h2 class="anchored" data-anchor-id="確率変数列の収束">確率変数列の収束</h2>
-<p>実数空間における数列と同じように確率変数を集めた空間においても，確率変数列というものを考えることができる． <strong>実数空間において定義された関数の連続性や微分可能性を議論する上で実数列とその収束性が重要な働きをするように，確率変数列の収束性も重要である.</strong> しかし確率変数はサンプル<span class="math inline">\omega</span>に依存して異なる値を取るため，確率変数列の収束もサンプルに依存してしまう点に注意しなければならない，つまり，一つの確率変数列について，あるサンプルを抽出して得られた数列は収束するのに，別のサンプルを抽出して得られた数列は収束しないことが起こり得る． 例えば，標本空間を <span class="math display">
-\Omega = \{ \omega_1,\omega_2 \}
-</span> とする．そして確率変数列<span class="math inline">X_1, X_2 , ...</span>を <span class="math display">
-X_n(\omega_1) = \frac{1}{n}, \qquad X_n(\omega_2) = (-1)^n
-</span> と定義する．これは<span class="math inline">X_n(\omega_1)</span>は収束するが<span class="math inline">X_{n}(\omega_2)</span>は収束しない．確率変数列が収束すると言うときには，どの<span class="math inline">\omega</span>について収束するのかを指定しないといけない．そして，収束の定義がただ一つに決まらないという問題が起こる．なので次のように３つの収束の定義を与える．</p>
-<section id="定義概収束" class="level3">
-<h3 class="anchored" data-anchor-id="定義概収束">定義：概収束</h3>
-<p>次の式を満たすとき，<span class="math inline">X_n</span>は<span class="math inline">X</span>に概収束するという． <span class="math display">
-\lim_{n \to \infty} |X_n - X| = 0 \quad(\text{a.s.})
-</span> これを次のように表す <span class="math display">
-\text{as-lim}_{n \to \infty} X_n = X
+<section id="マルチンゲール" class="level2">
+<h2 class="anchored" data-anchor-id="マルチンゲール">マルチンゲール</h2>
+<p>マルチンゲールとは，増分が互いに統計的に独立になるような性質を有する確率過程を，条件を緩くして拡張した確率過程である．数学的観点からの確率微分方程式論は，マルチンゲールの概念に立脚して構成されていると言っても過言ではないので，マルチンゲールの概念を理解しておくことは重要である． 以下ではフィルター付き確率空間<span class="math inline">(\Omega, \mathcal F, P ; \{\mathcal F_t\})</span>が与えられているものとする．</p>
+<section id="独立増分過程" class="level3">
+<h3 class="anchored" data-anchor-id="独立増分過程">独立増分過程</h3>
+<p>サイコロを振りながらマス目を進んでいくゲームにおいては，次にどのマス目に進むかは，現在いるマス目によって異なってくるため，<span class="math inline">n</span>ステップ後の位置と<span class="math inline">(n + 1)</span>ステップ後の位置とは統計的に独立とはなりえない．しかし進むマス目が出た目のみに依存するゲームであれば，各ステップごとの「増分」は互いに独立となるはずである．</p>
+<p>例えばサイコロを振って，その出た目の数だけ前に進むすごろくを考える． <span class="math inline">n</span>回目のサイコロの目を<span class="math inline">X_n</span>とすると，<span class="math inline">n</span>回振ったあとの位置<span class="math inline">S_n</span>は <span class="math display">
+S_n = X_1 + X_2 +\cdots + X_n
+</span> となる．したがって増分は <span class="math display">
+S_{n + 1} - S_n = X_{n+1}
+</span> となる．確かにこの確率過程は位置そのものは独立ではない一方，各ステップの増分 <span class="math display">
+S_1 - S_0 , S_2 - S_1 , ...
+</span> は互いに独立である．</p>
+<p>このように，増分が互いに独立となるという性質を保ちながら変動していく確率過程は，あとに述べる確率微分方程式を論じる上で極めて重要な役割を演じる．</p>
+<section id="定義独立増分" class="level4">
+<h4 class="anchored" data-anchor-id="定義独立増分">定義：独立増分</h4>
+<p>確率過程<span class="math inline">X</span>において，互いにかさらない時間区間での増分が統計的に独立となるとき，すなわち時間区間の分割<span class="math inline">t_1 &lt; t_2 &lt; t_3 ,...</span>に対して各区間での増分<span class="math inline">X_{t_2} - X_{t_1},X_{t_3} - X_{t_2} , ...</span>が統計的に独立となるとき，確率過程<span class="math inline">X</span>は独立増分をもつという．</p>
+<p>独立増分をもつ確率過程のことを簡単に独立増分過程ともいう．この定義から，<span class="math inline">X</span>の生成するフィルトレーションを <span class="math inline">\{ \mathcal F^X_t \}</span>とするとき，<span class="math inline">t&gt; s</span>に対して<span class="math inline">X_t - X_s</span>は常に<span class="math inline">\mathcal F^X_s</span>と独立となる．</p>
+<p>確率変数と情報が独立であるとは，確率変数からなる情報とその対象としている情報が独立しているということである．すなわち <span class="math display">
+P(\{ X_t - X_s \in B \} \cap A) = P(X_t -X_s \in B)P(A), \quad \forall A \in \mathcal F^X_s , \forall B \in \mathcal B(\mathbb R)
+</span> を満たしているということである．</p>
+<p><span class="math inline">X</span>が独立増分を持ち，かつ可積分であれば，<span class="math inline">\mathbb E[X_t - X_s | \mathcal F_s^X] = \mathbb E[X_t] - \mathbb E[X_s]</span>が<span class="math inline">t &gt;s</span>に対して成立する．このことから次の定理は明らかである．</p>
+<p>独立増分過程<span class="math inline">X</span>が可積分のとき，その平均が一定であれば，<span class="math inline">\{ \mathcal F^X_t \}</span>を<span class="math inline">X</span>が生成するフィルトレーションとして，次式が成立する． <span class="math display">
+\mathbb E[X_t - X_s | \mathcal F^X_s] = 0 ,\quad(t &gt; s)
 </span></p>
-<p>a.s. - almost surelyの意味は前回参照．と言いたいところだがよくわからなかったので，ここできちんと説明する．(a.s.)の意味は，この等式はほとんど全ての<span class="math inline">\omega</span>について，確率1で成立すると言うことである．（なかなか省略されている．）これは<span class="math inline">\forall \omega \in \Omega</span>よりも弱く，確率0についての事象は考えていない． ### 定義：確率収束 次の式を満たすとき，<span class="math inline">X_n</span>は<span class="math inline">X</span>に確率収束するという． <span class="math display">
-\lim_{n \to \infty} P(|X_n  - X| \ge \epsilon) = 0 \quad(\forall \epsilon &gt;0)
-</span> これを次のように表す <span class="math display">
-\text{p-lim}_{n \to \infty} X_n = X
-</span> ### 定義：<span class="math inline">q</span>次平均収束</p>
-<p><span class="math inline">q \ge 1</span>に対して次式を満たすとき，<span class="math inline">X_n</span>は<span class="math inline">X</span>に<span class="math inline">q</span>次平均収束するという．<span class="math inline">L^q</span>収束とも書く． <span class="math display">
-\lim_{n \to \infty} \mathbb E[|X_n - X|^q] = 0
-</span> 特に<span class="math inline">q=2</span>のとき，2乗平均収束するといい，次のように表す <span class="math display">
-\text{sq-lim}_{n \to \infty} X_n = X
-</span> イメージは a.s 収束 ：ほぼ全ての<span class="math inline">\omega</span>について，実際の列が収束するか 確率収束：大きく外れる確率が0になるか <span class="math inline">L^q</span>収束：誤差の大きさまで含めた平均が 0になるか である． それぞれの関係は <span class="math display">
+<p>次に述べるマルチンゲールはこれを拡張したものである． ## マルチンゲール</p>
+</section>
+<section id="定義" class="level4">
+<h4 class="anchored" data-anchor-id="定義">定義</h4>
+<p>i)可積分なcadlag過程<span class="math inline">M = \{ M_t; t \in T \}</span>が<span class="math inline">\{ \mathcal F_t \}</span>に適合(<span class="math inline">X_t</span>が<span class="math inline">\mathcal F_t</span>-可測)していて <span class="math display">
+\mathbb E[M_t | \mathcal F_s] = M_s  \quad(\text{a.s.}) ,\quad(t &gt; s)
+</span> を満たすとき，<span class="math inline">M</span>を<span class="math inline">\{ \mathcal F_t \}</span>に関するマルチンゲールという．</p>
+<p>ii)上の等号を<span class="math inline">\ge</span>に置き換えたものを劣マルチンゲール，<span class="math inline">\le</span> に置き換えたものを優マルチンゲールという．</p>
+<p>フィルトレーション<span class="math inline">\{ \mathcal F_t \}</span>を明記しなくても特に混乱が生じない場合，あるいは<span class="math inline">\{ \mathcal F_t \}</span>が<span class="math inline">M</span>自身の生成するフィルトレーションである場合は，単にマルチンゲールと呼ぶことも多い． 以下では特に断らない場合，フィルトレーション<span class="math inline">\{ \mathcal F_t\}</span>を明記せずに単にマルチンゲールと呼ぶこととする．</p>
+<p><img src="martingale_diagram.png" class="img-fluid"></p>
+<p>例を見ていく． <span class="math inline">Y</span>を可積分な実確率変数だとして，<span class="math inline">Y</span>をフィルとレーションから確率過程<span class="math inline">X</span>を <span class="math display">
+X_t = \mathbb E[Y | \mathcal F_t] \quad (t \in T)
+</span> と定める．<span class="math inline">t &gt; s</span>とすると，<span class="math inline">\mathcal F_s \subset \mathcal F_t</span>であるので． <span class="math display">
+\mathbb E[X_t | \mathcal F_s] = \mathbb E[\mathbb E[Y | \mathcal F_t] | \mathcal F_s] = \mathbb E[Y | \mathcal F_s]= X_s
+</span> なので<span class="math inline">X</span>はマルチンゲールである．（式変形は[[学習/Zawa25721_documents/Published/StochasticDifferentialEquations/4|4]]を参考に，塔の性質はここで使われるのか！） これの定性的意味は，最終的に知りたい量<span class="math inline">Y</span>についてその時点までに得た情報で作った予想を，時間と共に更新していくと，その予想値の過程はマルチンゲールになるというものである．</p>
+<p>また，期待値をとると，マルチンゲールの平均は一定となることが分かる．同様の理由により，劣マルチンゲールの平均は<span class="math inline">t</span>の増加関数となり，対して優マルチンゲールの平均は減少関数となる．</p>
+<p>マルチンゲールは公平な賭けを数学的に表現したものであると言われる．この理由は，上記の定義よりも，つぎの定義のほうがわかりやすく表しているかもしれない．</p>
+<p>可積分な<span class="math inline">\{\mathcal F_t\}</span>適合過程<span class="math inline">M</span>がマルチンゲールであるための必要十分条件は <span class="math display">
+\mathbb E[M_t - M_s | \mathcal F_s] = 0 \quad(\text{a.s.}) \quad(t&gt;s)
+</span> が成立することである．</p>
+<p>これらの定理から，次の結果を得ることができる．</p>
+<p>独立増分過程<span class="math inline">X</span>が可積分でその平均が一定であるなら，<span class="math inline">X</span>は自身の生成するフィルトレーション<span class="math inline">\{ \mathcal F^X_t \}</span>に関してマルチンゲールである． 逆は必ずしも成立しない．</p>
+<p>ここで重要なのは，独立増分でなくとも，マルチンゲールを満たすことはあるというものである．単に過去の情報を知っていて，その未来の増分の条件付き期待値が0であればよいのである．</p>
+</section>
+</section>
+</section>
+<section id="二乗可積分マルチンゲールと二次変分過程" class="level2">
+<h2 class="anchored" data-anchor-id="二乗可積分マルチンゲールと二次変分過程">二乗可積分マルチンゲールと二次変分過程</h2>
+<p>確率微分方程式の解を構成するには，確率過程を時間について積分するという操作が必要であるため，マルチンゲール，あるいはそれに関連する確率過程の積分について数学的な意味付けを与えなければならない．</p>
+<p>よく知られているように，古典的なRiemann-Stieltjesの意味での積分が可能となる条件は，被積分関数の有界変動性である． Riemann-Stieltjes積分というのは <span class="math display">
+W = \int_0^T F(t) d x(t)
+</span> のような積分である．上の積分は仕事の定義である． 例えば確率過程については次のような例が考えられる． 株価を<span class="math inline">S_t</span>，時刻<span class="math inline">t</span>に保有している株数を<span class="math inline">H_t</span>とする．ある期間における損益は <span class="math display">
+G_T = \int_0^T H_t d S_t
+</span> のように計算される．このような計算を行いたいのである．<img src="Pasted image 20260819131310.png" class="img-fluid"> （参考：https://mathlandscape.com/bdd-variation/ ） これは確率過程の場合も同様で見本関数ごとに時間積分を構成していくには，見本関数の有界変動性があれば，特に深刻な困難さは発生しない．有界変動関数とは，簡単に言えば，増加関数と減少関数の差によって表現し得る関数である．</p>
+<p>連続な単調増加関数は，有界変動であり，あるいは連続でなくても単調増加関数が有界であれば，有界変動となる．単調減少についても同様である．</p>
+<p>しかし，後に明らかになるように，連続時間確率過程が独立増分性，あるいはそれを拡張したマルチンゲール性を持つ場合は，そのような有界変動性を一般には持ち得ないため，積分を定義する上で非常に大きな障壁となってしまう．</p>
+<p>したがってRiemann-Stieltjes積分のアプローチが有効な過程と，そうでない特別なアプローチが必要となる過程は区別しておく必要がある．</p>
+<p>そこで次のような定義を導入する． #### 定義：増加過程，減少過程，有界変動過程 i)フィルトレーション<span class="math inline">\{ \mathcal F_t \}</span>に適合しているcadlag過程<span class="math inline">X = \{ X_t; t\in T \}</span>が<span class="math inline">X_0  = 0 (\text{a.s.})</span>を満たし，かつその見本関数がほとんど確実に増加関数となるとき，増加過程といい，減少関数となるとき，減少過程という．</p>
+<ol start="2" type="i">
+<li><span class="math inline">X^{(1)} = \{X_t^{(1)};t \in T\},X^{(2)} = \{X_t^{(2)};t \in T\}</span>を増加過程として， <span class="math inline">X_t = X_t^{(1)} - X_t^{(2)}</span>と表されるような過程<span class="math inline">X =\{ X_t ; t \in T \}</span>を有界変動過程という．</li>
+</ol>
+<p>増加過程とマルチンゲールの和は劣マルチンゲールであり，減少過程とマルチンゲールの和は優マルチンゲールとなる．</p>
+<p>多くの応用研究に登場するマルチンゲールはさらに二乗可積分である．このようなマルチンゲールを二乗可積分マルチンゲールという．あるいは<span class="math inline">L^2</span>マルチンゲールという．</p>
+<p>分解されることを例として見ていく．</p>
+<p><span class="math inline">M</span>を<span class="math inline">L^2</span>マルチンゲールとする．このとき<span class="math inline">t &gt; s</span>として， <span class="math display">
 \begin{align}
-&amp;\text{i)} \quad X_nがXに概収束すれば，同じXに確率収束する． \\
-&amp;\text{ii)}  \quad X_nがXにq次平均収束すれば，同じXに確率収束する． \\
-&amp;\text{iii)} \quad X_nがXに確率収束すれば，適当な部分列を取ることにより，Xに概収束させることができる．
+\mathbb E[M^2_t - M^2_s | \mathcal F_s] &amp;=
+\mathbb E[(M_t - M_s)^2 | \mathcal F_s]
++ 2M_s\mathbb E[M_t - M_s | \mathcal F_s]\\
+&amp;=\mathbb E[(M_t - M_s)^2 | \mathcal F_s] \\
+&amp;\ge0
+\end{align}
+</span> となるので，まず<span class="math inline">M^2</span>は劣マルチンゲールになることが分かる． <span class="math inline">M_t^2</span>を増分の和の形で表現することにする． 時間を分割して考えると <span class="math display">
+\begin{align}
+M^2_t &amp;= \sum_i^n (M^2_{t_i} - M^2_{t_{i-1}}) \\
+&amp;= \sum_i^n (M_{t_i} - M_{t_{i-1}})^2 + 2\sum_i^n M_{t_{i-1}}(M_{t_i} - M_{t_{i-1}})
 \end{align}
 </span></p>
-<p>である．iとiiはそういうもんかと理解できるが，iiiはよくわからない．まあ，理解しないといけなくなったときになったらまた戻ってきて書く．</p>
-<p>さらに実確率変数については，確率収束よりも弱い収束がある．</p>
+<p>第一項は，非負を足し合わせていくので，非減少過程（広い意味の増加過程）である．</p>
+<p>第二項について考える． 第二項だけをとってきて <span class="math inline">\mathcal F_{t_k}</span>を条件にした条件付き期待値をとると， $$ <span class="math display">\begin{align}
+
+&amp; \mathbb E\left[ \left . 2\sum_i^n M_{t_{i-1}}(M_{t_i} - M_{t_{i-1} } ) \right| \mathcal F_{t_k} \right ] \\
+&amp;=
+2\sum_{i =1}^k \mathbb E\left[ \left .  M_{t_{i-1}}(M_{t_i} - M_{t_{i-1} } ) \right| \mathcal F_{t_k} \right ]
++
+2\sum_{i =k+1}^n \mathbb E\left[ \left .  M_{t_{i-1}}(M_{t_i} - M_{t_{i-1} } ) \right| \mathcal F_{t_k} \right ] \\
+
+&amp;=
+2\sum_{i =1}^k \mathbb E\left[ \left .  M_{t_{i-1}}(M_{t_i} - M_{t_{i-1} } ) \right| \mathcal F_{t_k} \right ]
++
+2\mathbb E\left[ \left .  M_{t_{k}}(M_{t_{k +1}} - M_{t_{k} } ) \right| \mathcal F_{t_k} \right ]
++
+2\sum_{i =k+2}^n \mathbb E\left[ \left .  M_{t_{i-1}}(M_{t_i} - M_{t_{i-1} } ) \right| \mathcal F_{t_k} \right ]
+
+\end{align}</span> <span class="math display">
+まず第二項について，$M_{t_k}$は$\mathcal F_{t_k}$-可測なので
+</span> E=M_{t_{k}} E$$</p>
+<p>である．マルチンゲール性により，0となることが分かる．</p>
+<p>次に第三項について考える $$</p>
+<p>2_{i =k+2}^n E</p>
+<p>$$</p>
+<p>塔の性質を用いて <span class="math display">
+\mathbb E\left[ \left .  M_{t_{i-1}}(M_{t_i} - M_{t_{i-1} } ) \right| \mathcal F_{t_k} \right ] = \mathbb E[\mathbb E[
+  M_{t_{i-1}}(M_{t_i} - M_{t_{i-1} } )
+| \mathcal F_{t_{i-1} }] | \mathcal F_{t_k}]
+</span> となる．可測性を用いると <span class="math display">
+\mathbb E[\mathbb E[
+  M_{t_{i-1}}(M_{t_i} - M_{t_{i-1} } )
+| \mathcal F_{t_{i-1} }] | \mathcal F_{t_k}] =
+\mathbb E[M_{t_{i-1}}\mathbb E[
+  (M_{t_i} - M_{t_{i-1} } )
+| \mathcal F_{t_{i-1} }] | \mathcal F_{t_k}]
+</span> これはマルチンゲール性により，内側の条件付き期待値が0になる．よって全体の条件付き期待値も0となり，第三項も０となることが分かる．</p>
+<p>すなわち <span class="math display">
+\mathbb E\left[ \left . 2\sum_i^n M_{t_{i-1}}(M_{t_i} - M_{t_{i-1} } ) \right| \mathcal F_{t_k} \right ]  = 2\sum_{i =1}^k \mathbb E\left[ \left .  M_{t_{i-1}}(M_{t_i} - M_{t_{i-1} } ) \right| \mathcal F_{t_k} \right ]
+</span> が成立するので，<span class="math inline">2\sum_i^n M_{t_{i-1}}(M_{t_i} - M_{t_{i-1}})</span>はマルチンゲールである．</p>
+<p>よって劣マルチンゲールが増加過程とマルチンゲールの和に分解できることが実例から実感できた．</p>
+<p>以上の考察から，次の定義を与えることにする</p>
+<section id="定義二次共変分過程" class="level4">
+<h4 class="anchored" data-anchor-id="定義二次共変分過程">定義：二次共変分過程</h4>
+<p><span class="math inline">X,Y</span>をともに二乗可積分なマルチンゲールとし，各<span class="math inline">t \in T</span>に対して時間区間の分割を <span class="math display">
+0 = t_0 &lt;t_1 \cdots&lt;t_n = t , \quad |\delta| = \max_{1\le i\le n} |t_i - t_{i-1}|
+</span> とする．この分割に対して <span class="math display">
+[X,X]_t = \text{p-}\lim_{|\delta|\to 0} \sum_i^n (X_{t_{i}} - X_{t_{i-1}})^2
+</span> から定められる過程を<span class="math inline">X</span>の二次変分過程とよび， <span class="math display">
+[X,Y]_t = \text{p-}\lim_{|\delta|\to 0} \sum_i^n (X_{t_{i}} - X_{t_{i-1}}) (Y_{t_{i}} - Y_{t_{i-1}})
+</span> で定められる過程を，<span class="math inline">X</span>と<span class="math inline">Y</span>の二次共変分過程とよぶ．</p>
+<p>次の定理は重要である</p>
+<p>2乗可積分なマルチンゲール<span class="math inline">X</span>が連続過程であるものとする． i)<span class="math inline">X</span>が有界変動過程であるならば，<span class="math inline">[X,X]</span>は恒等的に0，すなわち<span class="math inline">\forall t \in T</span> に対して，<span class="math inline">[X,X]_t = 0 ,\quad (\text{a.s.})</span>である．</p>
+<ol start="2" type="i">
+<li><span class="math inline">[X,X]</span>が恒等的に0でなければ，<span class="math inline">X</span>は有界変動過程ではない．</li>
+</ol>
+<p>最後に半マルチンゲールの説明を書く</p>
 </section>
-<section id="定義法則収束" class="level3">
-<h3 class="anchored" data-anchor-id="定義法則収束">定義：法則収束</h3>
-<p><span class="math inline">X_n</span>の確率分布関数を<span class="math inline">F_{X_n}(x)</span>,<span class="math inline">X</span>の確率分布関数を<span class="math inline">F_X(x)</span>とするとき，関数列が<span class="math inline">F_X(x)</span>に各連続点で収束するならば，<span class="math inline">X_n</span>は<span class="math inline">X</span>に法則収束するという．</p>
-<p>また<span class="math inline">X_n</span>が<span class="math inline">X</span>に確率収束すれば，同じ<span class="math inline">X</span>に法則収束する．</p>
-</section>
-</section>
-<section id="一様可積分" class="level2">
-<h2 class="anchored" data-anchor-id="一様可積分">一様可積分</h2>
-<p>最後に可積分な確率変数列の極限について述べる．確率変数の列<span class="math inline">\{ X_n \}_{n = 1,2 ,...}</span>が存在し，<span class="math inline">\forall n</span> ，<span class="math inline">X_n</span> が可積分であるとき，この列は可積分であるという．可積分な確率変数の列が<span class="math inline">X</span>に確率収束するとしよう．このとき，極限として得られる<span class="math inline">X</span>が可積分になるとは<strong>必ずしもならない</strong>．</p>
-<p>ちょうど，連続な関数列の極限が必ずしも連続になるとは限らないのと似た状況である．</p>
-<p>例は <span class="math display">
-f_n(x) = x^n , \qquad x \in [0,1]
-</span> である．これは<span class="math inline">n</span>について連続関数である．しかし極限関数は <span class="math display">
-f(x) =
-\begin{cases}
-0 , &amp; 0 \le x &lt; 1\\
-1, &amp; x = 1
-\end{cases}
-</span> となるので，これは不連続関数である． すなわち極限で性質を保存するためには，単なる点ごとの収束より強い性質が必要となってくる．</p>
-<section id="定義一様可積分" class="level3">
-<h3 class="anchored" data-anchor-id="定義一様可積分">定義：一様可積分</h3>
-<p>可積分な確率変数列<span class="math inline">\{ X_n \}</span>が <span class="math display">
-\lim_{K \to \infty} \sup_n \int_{|X_n| &gt; K} |X_n| dP =0
-</span> を満たすとき，一様可積分であるという． よくわからないので，一個一個見ていく． まずこれの定性的な意味は「どの<span class="math inline">X_n</span>についても，極端に大きな値を取る部分が期待値に与える影響を，一斉に小さくできる」である． まず <span class="math display">
-\int_{|X_n| &gt; K} |X_n| dP
-</span> は，ある<span class="math inline">K</span>より大きな確率変数についてのみ期待値を取る．ということを意味している．すなわち，巨大な値をとる部分だけ期待値を計算している． <span class="math display">
-\sup_n
-</span> はこの中から，最悪のもの，すなわち一番大きな場合についてのみを選ぶ．それで極限をとっている．</p>
-</section>
-</section>
-<section id="感想" class="level2">
-<h2 class="anchored" data-anchor-id="感想">感想</h2>
-<p>確率の収束の概念がどこで使うねんという感じで，よくわからなかった． たぶん進めていくうちにわかっていくと思うのでここでは深く考えないで，教科書を進めていこうと思う．</p>
+<section id="半マルチンゲール" class="level4">
+<h4 class="anchored" data-anchor-id="半マルチンゲール">半マルチンゲール</h4>
+<p>平均が時間と共に変動し，その周りに振動が現れるような現象をモデル化するには，マルチンゲール<span class="math inline">M</span>と有界変動過程<span class="math inline">A</span>から <span class="math display">
+X_t = A_t + M_t
+</span> という形で構成される確率過程のクラスを考えると便利である．このような形で表現できる確率過程は，半マルチンゲールと呼ばれる．</p>
+<p>次はMarkov過程，定常過程，Gauss過程を書く．これらが終わったらついに確率微分方程式に移る．</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -1065,13 +1092,13 @@ f(x) =
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../Published/StochasticDifferentialEquations/1.html" class="pagination-link" aria-label="確率論の概要(1)">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">確率論の概要(1)</span>
+      <a href="../../Published/StochasticDifferentialEquations/5.html" class="pagination-link" aria-label="確率過程論の概要(1)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">確率過程論の概要(1)</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../Published/StochasticDifferentialEquations/3.html" class="pagination-link" aria-label="確率論の概要(3)">
-        <span class="nav-page-text">確率論の概要(3)</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../Published/StochasticDifferentialEquations/7.html" class="pagination-link" aria-label="確率過程論の概要(3)">
+        <span class="nav-page-text">確率過程論の概要(3)</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

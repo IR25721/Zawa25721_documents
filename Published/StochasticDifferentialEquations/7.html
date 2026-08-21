@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>確率論の概要(2) – Zawaの勉強記録</title>
+<title>確率過程論の概要(3) – Zawaの勉強記録</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -36,8 +36,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../Published/StochasticDifferentialEquations/3.html" rel="next">
-<link href="../../Published/StochasticDifferentialEquations/1.html" rel="prev">
+<link href="../../Published/bayesian_inference/1.html" rel="next">
+<link href="../../Published/StochasticDifferentialEquations/6.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -166,7 +166,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/StochasticDifferentialEquations/1.html">StochasticDifferentialEquations</a></li><li class="breadcrumb-item"><a href="../../Published/StochasticDifferentialEquations/2.html">確率論の概要(2)</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/StochasticDifferentialEquations/1.html">StochasticDifferentialEquations</a></li><li class="breadcrumb-item"><a href="../../Published/StochasticDifferentialEquations/7.html">確率過程論の概要(3)</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -294,7 +294,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Published/StochasticDifferentialEquations/2.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../Published/StochasticDifferentialEquations/2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">確率論の概要(2)</span></a>
   </div>
 </li>
@@ -324,7 +324,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Published/StochasticDifferentialEquations/7.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/StochasticDifferentialEquations/7.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">確率過程論の概要(3)</span></a>
   </div>
 </li>
@@ -472,31 +472,22 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#確率変数の積分" id="toc-確率変数の積分" class="nav-link active" data-scroll-target="#確率変数の積分">確率変数の積分</a>
+  <li><a href="#markov過程" id="toc-markov過程" class="nav-link active" data-scroll-target="#markov過程">Markov過程</a>
   <ul class="collapse">
-  <li><a href="#単確率変数はなぜ必要なのか" id="toc-単確率変数はなぜ必要なのか" class="nav-link" data-scroll-target="#単確率変数はなぜ必要なのか">単確率変数はなぜ必要なのか？</a></li>
-  <li><a href="#一般の確率変数" id="toc-一般の確率変数" class="nav-link" data-scroll-target="#一般の確率変数">一般の確率変数</a></li>
-  <li><a href="#期待値" id="toc-期待値" class="nav-link" data-scroll-target="#期待値">期待値</a></li>
+  <li><a href="#定義markov過程markov性離散時間過程" id="toc-定義markov過程markov性離散時間過程" class="nav-link" data-scroll-target="#定義markov過程markov性離散時間過程">定義：Markov過程，Markov性(離散時間過程)</a></li>
+  <li><a href="#定義markov過程連続時間過程" id="toc-定義markov過程連続時間過程" class="nav-link" data-scroll-target="#定義markov過程連続時間過程">定義：Markov過程（連続時間過程）</a></li>
+  <li><a href="#定義推移確率分布推移確率密度関数時間一様markov過程" id="toc-定義推移確率分布推移確率密度関数時間一様markov過程" class="nav-link" data-scroll-target="#定義推移確率分布推移確率密度関数時間一様markov過程">定義：推移確率分布，推移確率密度関数，時間一様Markov過程</a></li>
+  <li><a href="#具体例" id="toc-具体例" class="nav-link" data-scroll-target="#具体例">具体例</a></li>
   </ul></li>
-  <li><a href="#確率変数列の収束" id="toc-確率変数列の収束" class="nav-link" data-scroll-target="#確率変数列の収束">確率変数列の収束</a>
-  <ul class="collapse">
-  <li><a href="#定義概収束" id="toc-定義概収束" class="nav-link" data-scroll-target="#定義概収束">定義：概収束</a></li>
-  <li><a href="#定義法則収束" id="toc-定義法則収束" class="nav-link" data-scroll-target="#定義法則収束">定義：法則収束</a></li>
-  </ul></li>
-  <li><a href="#一様可積分" id="toc-一様可積分" class="nav-link" data-scroll-target="#一様可積分">一様可積分</a>
-  <ul class="collapse">
-  <li><a href="#定義一様可積分" id="toc-定義一様可積分" class="nav-link" data-scroll-target="#定義一様可積分">定義：一様可積分</a></li>
-  </ul></li>
-  <li><a href="#感想" id="toc-感想" class="nav-link" data-scroll-target="#感想">感想</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/StochasticDifferentialEquations/1.html">StochasticDifferentialEquations</a></li><li class="breadcrumb-item"><a href="../../Published/StochasticDifferentialEquations/2.html">確率論の概要(2)</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/StochasticDifferentialEquations/1.html">StochasticDifferentialEquations</a></li><li class="breadcrumb-item"><a href="../../Published/StochasticDifferentialEquations/7.html">確率過程論の概要(3)</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">確率論の概要(2)</h1>
+<h1 class="title">確率過程論の概要(3)</h1>
 </div>
 
 
@@ -513,153 +504,59 @@ window.Quarto = {
 </header>
 
 
-<section id="確率変数の積分" class="level2">
-<h2 class="anchored" data-anchor-id="確率変数の積分">確率変数の積分</h2>
-<p>以下では簡単のため<span class="math inline">\mathbb R</span>値実確率変数に話を限定して積分の考え方の概要を述べる． ### 定義: 単確率変数</p>
-<p>次の形に書ける確率変数を，単確率変数という <span class="math display">
-X(\omega) = \sum_i a_i \mathbb 1_{A_i} (\omega) \qquad (a_i \in \mathbb R , A_i \in \mathcal F)
-</span> ただし，<span class="math inline">\mathbb 1_{A}(\omega)</span>は指示関数で <span class="math display">
-\mathbb 1_{A}(\omega) =
-\begin{cases}
-1 &amp; (\omega \in A) \\
-0 &amp; (\text{otherwise})
-\end{cases}
-</span> で定義される． 上のように定義される単確率関数の確率測度<span class="math inline">P</span>の元での積分を次式で定義する． <span class="math display">
-\int_{\Omega} X(\omega) P(d \omega) \equiv \sum_i a_i P(A_i)
-</span> よくわからないので，具体例で見ていく．なぜ必要なのかも考えていく．</p>
-<section id="単確率変数はなぜ必要なのか" class="level3">
-<h3 class="anchored" data-anchor-id="単確率変数はなぜ必要なのか">単確率変数はなぜ必要なのか？</h3>
-<p>具体例をみる．まず単確率変数はとりうる値が有限個のものである．例えば <span class="math display">
-X =
-\begin{cases}
-100 &amp; (あたり) \\
-0 &amp; (はずれ)
-\end{cases}
-</span></p>
-<p>がある．事象<span class="math inline">A_i</span>が起きたときに値<span class="math inline">a_i</span>を取るという形である． これが必要な理由は，一般の確率変数の期待値を厳密に定義するための土台になるからである． <span class="math display">
-\sum_i a_i P(A_i)
-</span> を具体的値で計算してみる． - 100円がもらえる確率が0.3 - 0円の確率が0.7 のときこの値は <span class="math display">
-100 \cdot 0.3 + 0 \cdot 0.7 = 30
-</span> これは期待値である．この積分は期待値を意味していることが分かる． 取りうる値が有限個ならば，このままでよいが，人の身長や株価の変化量などは，連続的なので，無限個の値をとる．そこで，後に述べるが，単確率変数からより一般的な確率変数を定義する．すなわち確率変数の基本となるのが単確率変数である．</p>
+<section id="markov過程" class="level2">
+<h2 class="anchored" data-anchor-id="markov過程">Markov過程</h2>
+<p>Markov過程とは，有限次元分布を完全な形で求め得るという性質を備えた確率過程であり，それは確率微分方程式を論じる上でも非常に重要な役割を演じる．</p>
+<section id="定義markov過程markov性離散時間過程" class="level3">
+<h3 class="anchored" data-anchor-id="定義markov過程markov性離散時間過程">定義：Markov過程，Markov性(離散時間過程)</h3>
+<p><span class="math inline">X</span>を時間パラメータ集合が<span class="math inline">T = \{ 0,1,2,... \}</span>の離散時間過程とする．<span class="math inline">B \in \mathcal B</span>をBorel集合とし，<span class="math inline">X_0 = x_0, X_1 = x_1,..X_n = x_n.</span>という条件下での条件付き確率分布<span class="math inline">P(X_m \in B | X_0 = x_0 ,..., X_n = x_n)</span>が最後の時刻<span class="math inline">n</span>での条件<span class="math inline">X_n = x_n</span>のみの条件付き確率に常に等しくなるとき，すなわち <span class="math display">
+P(X_m \in B | X_0 = x_0 ,..., X_n = x_n) = P(X_m |x_n = x_n) \quad (\forall m &gt;n)
+</span> が成立するとき，<span class="math inline">X</span>をMarkov過程という．あるいは<span class="math inline">X</span>はMarkov性をもつという．</p>
+<p>連続時間の場合は次のように定義される．</p>
 </section>
-<section id="一般の確率変数" class="level3">
-<h3 class="anchored" data-anchor-id="一般の確率変数">一般の確率変数</h3>
-<p>次に，一般の確率変数<span class="math inline">X</span>については，次のような手順をとる．まず，<span class="math inline">X</span>を次のように非負の２つの確率変数の差で表示する． <span class="math display">
-X(\omega) = X^+ (\omega) - X^-(\omega) \quad , X^+(\omega) \ge 0 \quad , X^-(\omega) \ge 0 \quad (\forall \omega)
-</span> このとき，単確率変数の増加列で，<span class="math inline">X^+(\omega),X^-(\omega)</span>にそれぞれ収束する列 $$</p>
-<p>_{n } X^+<em>n () = X^+() , </em>{n } X^-_n () = X^-()</p>
-<p><span class="math display">
-を選べることが知られている．(そして$X^+_n, X^-_n$は単確率変数である)
-そして$X$の積分を次のように定義する．
-</span> <span class="math display">\begin{align}
-\int_\Omega X^+(\omega) P(d \omega) \equiv \lim_{n \to \infty} \int_\Omega X_n^+(\omega) P(d \omega) \\
-
-\int_\Omega X^-(\omega) P(d \omega) \equiv \lim_{n \to \infty} \int_\Omega X_n^-(\omega) P(d \omega) \\
-
-\end{align}</span> <span class="math display">
-</span> <em>X() P(d ) </em>X^+() P(d ) - _X^-() P(d ) $$ さて，なぜこういう回りくどいことをするのかを考えていく．</p>
-<p>理由は，シンプルである．一般の確率変数<span class="math inline">X</span>に対して積分を直接定義しようとすると，<span class="math inline">\infty - \infty</span>の計算が出てくるためである． とりあえず直感的に定義してみよう． 一般の<span class="math inline">X</span>に対して<span class="math inline">X_n \to X</span>となる単確率変数<span class="math inline">X_n</span>を適当にとって <span class="math display">
-\int X dP = \lim_{n \to \infty} \int X_n dP
-</span> と定義したくなる．しかしこれでは問題が起こる． 例えば， <span class="math display">
-\Omega = (0,1], \quad P = (\text{一様分布})
-</span></p>
-<p>として，極限の確率変数を<span class="math inline">X(\omega) = 0</span>とする． 要請として <span class="math display">
-\int X dP = 0
-</span> がある． ここで次の単確率変数を考える <span class="math display">
-X_n(\omega) = n \mathbb 1_{(0,\frac{1}{n}]}(\omega)
-</span> これは<span class="math inline">n</span>が大きくなると，ほとんど全ての事象について<span class="math inline">X_n(\omega) = 0</span>となる．したがって，<span class="math inline">X_n \to X</span>は成立する． しかし積分をすると <span class="math display">
-\int_{\Omega}X_n dP = n P((0,\frac{1}{n}]) = n \frac{1}{n} = 1
-</span> したがって <span class="math display">
-\int X dP = \lim_{n \to \infty} \int X_n dP  = 1
-</span> となるが，これは明らかにおかしい． これが言いたいことは<span class="math inline">X_n \to X</span>だけでは，<span class="math inline">\int X_n dP \to \int X dP</span>は保証されないということである．</p>
-<p>ではなぜ非負関数について増加列に限定すると解決するのか？ <span class="math inline">X \ge 0</span> に対して <span class="math display">
-0 \le X_1 \le X_2 \cdots \uparrow X
-</span> とする．ただし上の意味は <span class="math display">
-0\le X_n(\omega) \le X_{n+1} \forall n,\omega \quad\land X_n(\omega) \to X
-</span> である．すると積分の単調性 <span class="math display">
-X_2 - X_1 \ge 0 \rightarrow \int_{\Omega} (X_2 - X_1)dP \ge 0
-</span></p>
-<p>より <span class="math display">
-\int X_1 dP \le \int X_2 dP \le \cdots
-</span> となるので，積分値も単調増加する．そして（これは測度論の重要性質だが，直感的なので数学的な証明は行わない）どの単純関数の増加近似を選んでも，最終的に同じ値になる． なので近似列で収束する値は変わらないので先程のような問題は起こらない．ここで非負性が効いてくる．下から上へ近づけれるので． だが一般の確率変数は全て非負ではないので <span class="math display">
-X = X^+ - X^-
-</span> と分解して，それぞれで近づける． これが上の手法である．すなわち積分の単調性と単純関数の増加近似の任意性を活用して一般の確率変数についてもきちんと定義できることを言っている．</p>
+<section id="定義markov過程連続時間過程" class="level3">
+<h3 class="anchored" data-anchor-id="定義markov過程連続時間過程">定義：Markov過程（連続時間過程）</h3>
+<p>確率過程<span class="math inline">X</span>が生成するフィルトレーションを<span class="math inline">\{ \mathcal F^X_t \}</span>とする．このとき任意のBorel集合<span class="math inline">B</span>に対して <span class="math display">
+P(X_u \in B | \mathcal F^X_t) = P(X_u \in B | X_t) \quad(u &gt; t)
+</span> が成立するとき，<span class="math inline">X</span>をMarkov過程とよぶ．</p>
+<p>Markov過程は，２つの時点間での確率的推移に関する知識のみで全ての条件付き確率が構成できるので，次概念を導入しておくと便利である．</p>
 </section>
-<section id="期待値" class="level3">
-<h3 class="anchored" data-anchor-id="期待値">期待値</h3>
-<p>ここで積分が存在するとき <span class="math display">
-\int_{\Omega} X dP \equiv E\{ X\}
-</span> とし，これを<span class="math inline">X</span>の期待値という．教科書は{}を使っているが，このドキュメント群では期待値は汎関数であることを強調したいので<span class="math inline">E[X]</span>と表記する．ないしは<span class="math inline">\mathbb E[X]</span>. モーメント，分散，変動係数，可積分，特性関数は知っているので省略する．特性関数は確率密度関数のFourier変換であること，確率変数の独立性を記述するのに必要であることは重要である．</p>
+<section id="定義推移確率分布推移確率密度関数時間一様markov過程" class="level3">
+<h3 class="anchored" data-anchor-id="定義推移確率分布推移確率密度関数時間一様markov過程">定義：推移確率分布，推移確率密度関数，時間一様Markov過程</h3>
+<p>Markov過程<span class="math inline">X</span>において <span class="math display">
+P_X(B,t' |x,t) := P(X_{t'} \in B | X_t = x) \quad(t' &gt; t)
+</span> を推移確率分布と呼ぶ．特に密度<span class="math inline">f^{\text{TR}}_X (x', t' | x,t)</span>をもつとき，すなわち任意のBorel集合<span class="math inline">B</span>に対して <span class="math display">
+P_X(B,t' | x,t ) = \int_B f^{\text{TR}}_X (x',t' | x,t) dx' \quad(t' &gt; t)
+</span> を満たす確率密度関数<span class="math inline">f^{\text{TR}}_X (x', t' | x,t)</span>が存在するとき，これを推移確率密度関数とよぶ．</p>
+<p>推移確率分布が時間変数について<span class="math inline">|t' -t|</span>のみに依存するとき，時間一様Markov過程という．</p>
+<p>よくわからないので，具体例を見ていく，</p>
 </section>
-</section>
-<section id="確率変数列の収束" class="level2">
-<h2 class="anchored" data-anchor-id="確率変数列の収束">確率変数列の収束</h2>
-<p>実数空間における数列と同じように確率変数を集めた空間においても，確率変数列というものを考えることができる． <strong>実数空間において定義された関数の連続性や微分可能性を議論する上で実数列とその収束性が重要な働きをするように，確率変数列の収束性も重要である.</strong> しかし確率変数はサンプル<span class="math inline">\omega</span>に依存して異なる値を取るため，確率変数列の収束もサンプルに依存してしまう点に注意しなければならない，つまり，一つの確率変数列について，あるサンプルを抽出して得られた数列は収束するのに，別のサンプルを抽出して得られた数列は収束しないことが起こり得る． 例えば，標本空間を <span class="math display">
-\Omega = \{ \omega_1,\omega_2 \}
-</span> とする．そして確率変数列<span class="math inline">X_1, X_2 , ...</span>を <span class="math display">
-X_n(\omega_1) = \frac{1}{n}, \qquad X_n(\omega_2) = (-1)^n
-</span> と定義する．これは<span class="math inline">X_n(\omega_1)</span>は収束するが<span class="math inline">X_{n}(\omega_2)</span>は収束しない．確率変数列が収束すると言うときには，どの<span class="math inline">\omega</span>について収束するのかを指定しないといけない．そして，収束の定義がただ一つに決まらないという問題が起こる．なので次のように３つの収束の定義を与える．</p>
-<section id="定義概収束" class="level3">
-<h3 class="anchored" data-anchor-id="定義概収束">定義：概収束</h3>
-<p>次の式を満たすとき，<span class="math inline">X_n</span>は<span class="math inline">X</span>に概収束するという． <span class="math display">
-\lim_{n \to \infty} |X_n - X| = 0 \quad(\text{a.s.})
-</span> これを次のように表す <span class="math display">
-\text{as-lim}_{n \to \infty} X_n = X
-</span></p>
-<p>a.s. - almost surelyの意味は前回参照．と言いたいところだがよくわからなかったので，ここできちんと説明する．(a.s.)の意味は，この等式はほとんど全ての<span class="math inline">\omega</span>について，確率1で成立すると言うことである．（なかなか省略されている．）これは<span class="math inline">\forall \omega \in \Omega</span>よりも弱く，確率0についての事象は考えていない． ### 定義：確率収束 次の式を満たすとき，<span class="math inline">X_n</span>は<span class="math inline">X</span>に確率収束するという． <span class="math display">
-\lim_{n \to \infty} P(|X_n  - X| \ge \epsilon) = 0 \quad(\forall \epsilon &gt;0)
-</span> これを次のように表す <span class="math display">
-\text{p-lim}_{n \to \infty} X_n = X
-</span> ### 定義：<span class="math inline">q</span>次平均収束</p>
-<p><span class="math inline">q \ge 1</span>に対して次式を満たすとき，<span class="math inline">X_n</span>は<span class="math inline">X</span>に<span class="math inline">q</span>次平均収束するという．<span class="math inline">L^q</span>収束とも書く． <span class="math display">
-\lim_{n \to \infty} \mathbb E[|X_n - X|^q] = 0
-</span> 特に<span class="math inline">q=2</span>のとき，2乗平均収束するといい，次のように表す <span class="math display">
-\text{sq-lim}_{n \to \infty} X_n = X
-</span> イメージは a.s 収束 ：ほぼ全ての<span class="math inline">\omega</span>について，実際の列が収束するか 確率収束：大きく外れる確率が0になるか <span class="math inline">L^q</span>収束：誤差の大きさまで含めた平均が 0になるか である． それぞれの関係は <span class="math display">
-\begin{align}
-&amp;\text{i)} \quad X_nがXに概収束すれば，同じXに確率収束する． \\
-&amp;\text{ii)}  \quad X_nがXにq次平均収束すれば，同じXに確率収束する． \\
-&amp;\text{iii)} \quad X_nがXに確率収束すれば，適当な部分列を取ることにより，Xに概収束させることができる．
-\end{align}
-</span></p>
-<p>である．iとiiはそういうもんかと理解できるが，iiiはよくわからない．まあ，理解しないといけなくなったときになったらまた戻ってきて書く．</p>
-<p>さらに実確率変数については，確率収束よりも弱い収束がある．</p>
-</section>
-<section id="定義法則収束" class="level3">
-<h3 class="anchored" data-anchor-id="定義法則収束">定義：法則収束</h3>
-<p><span class="math inline">X_n</span>の確率分布関数を<span class="math inline">F_{X_n}(x)</span>,<span class="math inline">X</span>の確率分布関数を<span class="math inline">F_X(x)</span>とするとき，関数列が<span class="math inline">F_X(x)</span>に各連続点で収束するならば，<span class="math inline">X_n</span>は<span class="math inline">X</span>に法則収束するという．</p>
-<p>また<span class="math inline">X_n</span>が<span class="math inline">X</span>に確率収束すれば，同じ<span class="math inline">X</span>に法則収束する．</p>
-</section>
-</section>
-<section id="一様可積分" class="level2">
-<h2 class="anchored" data-anchor-id="一様可積分">一様可積分</h2>
-<p>最後に可積分な確率変数列の極限について述べる．確率変数の列<span class="math inline">\{ X_n \}_{n = 1,2 ,...}</span>が存在し，<span class="math inline">\forall n</span> ，<span class="math inline">X_n</span> が可積分であるとき，この列は可積分であるという．可積分な確率変数の列が<span class="math inline">X</span>に確率収束するとしよう．このとき，極限として得られる<span class="math inline">X</span>が可積分になるとは<strong>必ずしもならない</strong>．</p>
-<p>ちょうど，連続な関数列の極限が必ずしも連続になるとは限らないのと似た状況である．</p>
-<p>例は <span class="math display">
-f_n(x) = x^n , \qquad x \in [0,1]
-</span> である．これは<span class="math inline">n</span>について連続関数である．しかし極限関数は <span class="math display">
-f(x) =
-\begin{cases}
-0 , &amp; 0 \le x &lt; 1\\
-1, &amp; x = 1
-\end{cases}
-</span> となるので，これは不連続関数である． すなわち極限で性質を保存するためには，単なる点ごとの収束より強い性質が必要となってくる．</p>
-<section id="定義一様可積分" class="level3">
-<h3 class="anchored" data-anchor-id="定義一様可積分">定義：一様可積分</h3>
-<p>可積分な確率変数列<span class="math inline">\{ X_n \}</span>が <span class="math display">
-\lim_{K \to \infty} \sup_n \int_{|X_n| &gt; K} |X_n| dP =0
-</span> を満たすとき，一様可積分であるという． よくわからないので，一個一個見ていく． まずこれの定性的な意味は「どの<span class="math inline">X_n</span>についても，極端に大きな値を取る部分が期待値に与える影響を，一斉に小さくできる」である． まず <span class="math display">
-\int_{|X_n| &gt; K} |X_n| dP
-</span> は，ある<span class="math inline">K</span>より大きな確率変数についてのみ期待値を取る．ということを意味している．すなわち，巨大な値をとる部分だけ期待値を計算している． <span class="math display">
-\sup_n
-</span> はこの中から，最悪のもの，すなわち一番大きな場合についてのみを選ぶ．それで極限をとっている．</p>
-</section>
-</section>
-<section id="感想" class="level2">
-<h2 class="anchored" data-anchor-id="感想">感想</h2>
-<p>確率の収束の概念がどこで使うねんという感じで，よくわからなかった． たぶん進めていくうちにわかっていくと思うのでここでは深く考えないで，教科書を進めていこうと思う．</p>
+<section id="具体例" class="level3">
+<h3 class="anchored" data-anchor-id="具体例">具体例</h3>
+<section id="標準ブラウン運動-w_t" class="level4">
+<h4 class="anchored" data-anchor-id="標準ブラウン運動-w_t">標準ブラウン運動 <span class="math inline">W_t</span></h4>
+<p>標準ブラウン運動<span class="math inline">(W_t)</span>はMarkov過程で <span class="math display">
+W_{t'} - W_t \sim \mathcal N(0,t' - t)
+</span> かつ，増分<span class="math inline">W_{t'} - W_t</span>は<span class="math inline">W_t</span>と独立である． したがって<span class="math inline">W_t = x</span>という条件の元で <span class="math display">
+W_{t'} | W_t \sim \mathcal N(x, W_{t'} - W_t)
+</span> が成立する．よって推移確率分布は <span class="math display">
+P_W(B,t' | x,t) = \int_B \frac{1}{\sqrt{2\pi(t' -t)}} \exp\left(-\frac{(x' - x)^2}{2(t'-t)}\right) dx'
+</span> である．ここから推移確率密度関数は <span class="math display">
+f^{\text{TR}}_X (x',t' | x,t) = \frac{1}{\sqrt{2\pi(t' -t)}} \exp\left(-\frac{(x' - x)^2}{2(t'-t)}\right)
+</span> となることが分かる．</p>
+<p>ここで，推移確率分布は確かに<span class="math inline">|t' - t|</span>に依存しているので，離散一様Markov過程である．</p>
+<p>Markov過程において，推移確率分布がわかれば任意の次数の有限次元分布を陽に表現することが可能となる．<span class="math inline">B_1,B_2 , ..., B_n</span>をBorel集合として，Markov過程<span class="math inline">X</span>の<span class="math inline">n</span>次の有限次元分布の確率分布を <span class="math display">
+P^{(n)}_X (B_1,t_1;\cdots;B_n,t_n) := P(X_{t_1}\in B_1, \cdots,X_{t_n} \in B_n)
+</span> と表す．これを <span class="math display">
+P^{(n)}_X(B_1,t_1; \cdots;B_n,t_n) = \int_{x_1 \in B_1}\cdots \int_{x_n \in B_n} f^{(n)}_X (x_1,t_1;\cdots;x_n,t_n) dx_1 \cdots dx_n
+</span> と表現できるような確率密度関数が存在するときこれを<span class="math inline">n</span>次の有限次元分布の確率密度関数とよぶ．</p>
+<p>次の定理は重要である． 以下が成立する <span class="math display">
+f^{(n)}_X (x_n,t_n;\cdots;x_1,t_1) = f^{(1)}_X(x_1,t_1) \prod_i^{n-1} f^{\text{TR}}_X (x_{i+1},t_{i+1} | x_i,t_i)
+</span> まあMarkov性いったらこれが成立するよな．</p>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -1065,13 +962,13 @@ f(x) =
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../Published/StochasticDifferentialEquations/1.html" class="pagination-link" aria-label="確率論の概要(1)">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">確率論の概要(1)</span>
+      <a href="../../Published/StochasticDifferentialEquations/6.html" class="pagination-link" aria-label="確率過程論の概要(2)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">確率過程論の概要(2)</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../Published/StochasticDifferentialEquations/3.html" class="pagination-link" aria-label="確率論の概要(3)">
-        <span class="nav-page-text">確率論の概要(3)</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../Published/bayesian_inference/1.html" class="pagination-link" aria-label="モンテカルロ法">
+        <span class="nav-page-text">モンテカルロ法</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

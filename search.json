@@ -184,123 +184,135 @@
     ]
   },
   {
-    "objectID": "Published/StochasticDifferentialEquations/5.html",
-    "href": "Published/StochasticDifferentialEquations/5.html",
-    "title": "確率過程論の概要(1)",
+    "objectID": "Published/StochasticDifferentialEquations/7.html",
+    "href": "Published/StochasticDifferentialEquations/7.html",
+    "title": "確率過程論の概要(3)",
     "section": "",
-    "text": "確率過程とは，時間とともに不規則に変動する幻想を記述する数学ツールとして広く用いられているもので，確率変数が時間に依存するという考え方が基本となっている．",
+    "text": "Markov過程とは，有限次元分布を完全な形で求め得るという性質を備えた確率過程であり，それは確率微分方程式を論じる上でも非常に重要な役割を演じる．\n\n\nXを時間パラメータ集合がT = \\{ 0,1,2,... \\}の離散時間過程とする．B \\in \\mathcal BをBorel集合とし，X_0 = x_0, X_1 = x_1,..X_n = x_n.という条件下での条件付き確率分布P(X_m \\in B | X_0 = x_0 ,..., X_n = x_n)が最後の時刻nでの条件X_n = x_nのみの条件付き確率に常に等しくなるとき，すなわち \nP(X_m \\in B | X_0 = x_0 ,..., X_n = x_n) = P(X_m |x_n = x_n) \\quad (\\forall m &gt;n)\n が成立するとき，XをMarkov過程という．あるいはXはMarkov性をもつという．\n連続時間の場合は次のように定義される．\n\n\n\n確率過程Xが生成するフィルトレーションを\\{ \\mathcal F^X_t \\}とする．このとき任意のBorel集合Bに対して \nP(X_u \\in B | \\mathcal F^X_t) = P(X_u \\in B | X_t) \\quad(u &gt; t)\n が成立するとき，XをMarkov過程とよぶ．\nMarkov過程は，２つの時点間での確率的推移に関する知識のみで全ての条件付き確率が構成できるので，次概念を導入しておくと便利である．\n\n\n\nMarkov過程Xにおいて \nP_X(B,t' |x,t) := P(X_{t'} \\in B | X_t = x) \\quad(t' &gt; t)\n を推移確率分布と呼ぶ．特に密度f^{\\text{TR}}_X (x', t' | x,t)をもつとき，すなわち任意のBorel集合Bに対して \nP_X(B,t' | x,t ) = \\int_B f^{\\text{TR}}_X (x',t' | x,t) dx' \\quad(t' &gt; t)\n を満たす確率密度関数f^{\\text{TR}}_X (x', t' | x,t)が存在するとき，これを推移確率密度関数とよぶ．\n推移確率分布が時間変数について|t' -t|のみに依存するとき，時間一様Markov過程という．\nよくわからないので，具体例を見ていく，\n\n\n\n\n\n標準ブラウン運動(W_t)はMarkov過程で \nW_{t'} - W_t \\sim \\mathcal N(0,t' - t)\n かつ，増分W_{t'} - W_tはW_tと独立である． したがってW_t = xという条件の元で \nW_{t'} | W_t \\sim \\mathcal N(x, W_{t'} - W_t)\n が成立する．よって推移確率分布は \nP_W(B,t' | x,t) = \\int_B \\frac{1}{\\sqrt{2\\pi(t' -t)}} \\exp\\left(-\\frac{(x' - x)^2}{2(t'-t)}\\right) dx'\n である．ここから推移確率密度関数は \nf^{\\text{TR}}_X (x',t' | x,t) = \\frac{1}{\\sqrt{2\\pi(t' -t)}} \\exp\\left(-\\frac{(x' - x)^2}{2(t'-t)}\\right)\n となることが分かる．\nここで，推移確率分布は確かに|t' - t|に依存しているので，離散一様Markov過程である．\nMarkov過程において，推移確率分布がわかれば任意の次数の有限次元分布を陽に表現することが可能となる．B_1,B_2 , ..., B_nをBorel集合として，Markov過程Xのn次の有限次元分布の確率分布を \nP^{(n)}_X (B_1,t_1;\\cdots;B_n,t_n) := P(X_{t_1}\\in B_1, \\cdots,X_{t_n} \\in B_n)\n と表す．これを \nP^{(n)}_X(B_1,t_1; \\cdots;B_n,t_n) = \\int_{x_1 \\in B_1}\\cdots \\int_{x_n \\in B_n} f^{(n)}_X (x_1,t_1;\\cdots;x_n,t_n) dx_1 \\cdots dx_n\n と表現できるような確率密度関数が存在するときこれをn次の有限次元分布の確率密度関数とよぶ．\n次の定理は重要である． 以下が成立する \nf^{(n)}_X (x_n,t_n;\\cdots;x_1,t_1) = f^{(1)}_X(x_1,t_1) \\prod_i^{n-1} f^{\\text{TR}}_X (x_{i+1},t_{i+1} | x_i,t_i)\n まあMarkov性いったらこれが成立するよな．",
     "crumbs": [
       "Home",
       "StochasticDifferentialEquations",
-      "確率過程論の概要(1)"
+      "確率過程論の概要(3)"
     ]
   },
   {
-    "objectID": "Published/StochasticDifferentialEquations/5.html#はじめに",
-    "href": "Published/StochasticDifferentialEquations/5.html#はじめに",
-    "title": "確率過程論の概要(1)",
+    "objectID": "Published/StochasticDifferentialEquations/7.html#markov過程",
+    "href": "Published/StochasticDifferentialEquations/7.html#markov過程",
+    "title": "確率過程論の概要(3)",
     "section": "",
-    "text": "確率過程とは，時間とともに不規則に変動する幻想を記述する数学ツールとして広く用いられているもので，確率変数が時間に依存するという考え方が基本となっている．",
+    "text": "Markov過程とは，有限次元分布を完全な形で求め得るという性質を備えた確率過程であり，それは確率微分方程式を論じる上でも非常に重要な役割を演じる．\n\n\nXを時間パラメータ集合がT = \\{ 0,1,2,... \\}の離散時間過程とする．B \\in \\mathcal BをBorel集合とし，X_0 = x_0, X_1 = x_1,..X_n = x_n.という条件下での条件付き確率分布P(X_m \\in B | X_0 = x_0 ,..., X_n = x_n)が最後の時刻nでの条件X_n = x_nのみの条件付き確率に常に等しくなるとき，すなわち \nP(X_m \\in B | X_0 = x_0 ,..., X_n = x_n) = P(X_m |x_n = x_n) \\quad (\\forall m &gt;n)\n が成立するとき，XをMarkov過程という．あるいはXはMarkov性をもつという．\n連続時間の場合は次のように定義される．\n\n\n\n確率過程Xが生成するフィルトレーションを\\{ \\mathcal F^X_t \\}とする．このとき任意のBorel集合Bに対して \nP(X_u \\in B | \\mathcal F^X_t) = P(X_u \\in B | X_t) \\quad(u &gt; t)\n が成立するとき，XをMarkov過程とよぶ．\nMarkov過程は，２つの時点間での確率的推移に関する知識のみで全ての条件付き確率が構成できるので，次概念を導入しておくと便利である．\n\n\n\nMarkov過程Xにおいて \nP_X(B,t' |x,t) := P(X_{t'} \\in B | X_t = x) \\quad(t' &gt; t)\n を推移確率分布と呼ぶ．特に密度f^{\\text{TR}}_X (x', t' | x,t)をもつとき，すなわち任意のBorel集合Bに対して \nP_X(B,t' | x,t ) = \\int_B f^{\\text{TR}}_X (x',t' | x,t) dx' \\quad(t' &gt; t)\n を満たす確率密度関数f^{\\text{TR}}_X (x', t' | x,t)が存在するとき，これを推移確率密度関数とよぶ．\n推移確率分布が時間変数について|t' -t|のみに依存するとき，時間一様Markov過程という．\nよくわからないので，具体例を見ていく，\n\n\n\n\n\n標準ブラウン運動(W_t)はMarkov過程で \nW_{t'} - W_t \\sim \\mathcal N(0,t' - t)\n かつ，増分W_{t'} - W_tはW_tと独立である． したがってW_t = xという条件の元で \nW_{t'} | W_t \\sim \\mathcal N(x, W_{t'} - W_t)\n が成立する．よって推移確率分布は \nP_W(B,t' | x,t) = \\int_B \\frac{1}{\\sqrt{2\\pi(t' -t)}} \\exp\\left(-\\frac{(x' - x)^2}{2(t'-t)}\\right) dx'\n である．ここから推移確率密度関数は \nf^{\\text{TR}}_X (x',t' | x,t) = \\frac{1}{\\sqrt{2\\pi(t' -t)}} \\exp\\left(-\\frac{(x' - x)^2}{2(t'-t)}\\right)\n となることが分かる．\nここで，推移確率分布は確かに|t' - t|に依存しているので，離散一様Markov過程である．\nMarkov過程において，推移確率分布がわかれば任意の次数の有限次元分布を陽に表現することが可能となる．B_1,B_2 , ..., B_nをBorel集合として，Markov過程Xのn次の有限次元分布の確率分布を \nP^{(n)}_X (B_1,t_1;\\cdots;B_n,t_n) := P(X_{t_1}\\in B_1, \\cdots,X_{t_n} \\in B_n)\n と表す．これを \nP^{(n)}_X(B_1,t_1; \\cdots;B_n,t_n) = \\int_{x_1 \\in B_1}\\cdots \\int_{x_n \\in B_n} f^{(n)}_X (x_1,t_1;\\cdots;x_n,t_n) dx_1 \\cdots dx_n\n と表現できるような確率密度関数が存在するときこれをn次の有限次元分布の確率密度関数とよぶ．\n次の定理は重要である． 以下が成立する \nf^{(n)}_X (x_n,t_n;\\cdots;x_1,t_1) = f^{(1)}_X(x_1,t_1) \\prod_i^{n-1} f^{\\text{TR}}_X (x_{i+1},t_{i+1} | x_i,t_i)\n まあMarkov性いったらこれが成立するよな．",
     "crumbs": [
       "Home",
       "StochasticDifferentialEquations",
-      "確率過程論の概要(1)"
+      "確率過程論の概要(3)"
     ]
   },
   {
-    "objectID": "Published/StochasticDifferentialEquations/5.html#確率過程とは",
-    "href": "Published/StochasticDifferentialEquations/5.html#確率過程とは",
-    "title": "確率過程論の概要(1)",
-    "section": "確率過程とは？",
-    "text": "確率過程とは？\n確率空間(\\Omega, \\mathcal F, P)が与えたれており，この上に定義された\\mathbb R^n値確率変数の集まりを考える．各確率変数には実数のパラメータが付されており，このパラメータの値がとり得る集合は，\\mathbb Rの部分集合T(すなわち時間)であるものとする．以下ではTを時間パラメータ集合と呼び，その要素を「時間」あるいは「時刻」といった名称で呼ぶ．このTを用いて確率過程を定義する．\n\n定義：確率過程\n時刻 t \\in Tに依存する\\mathbb R^n値確率変数の集まりX(\\omega) = \\{X_t(\\omega);t \\in T\\}を確率過程とよぶ．\nもちろんtを一つ固定するごとに，X_t : \\Omega \\to \\mathbb R^nは\\mathcal F可測となっていなければならない．\n\n\n定義：見本関数（サンプルパス）\n連続時間確率過程Xにおいて，\\omegaを一つ固定すると，X(\\omega)はT上の\\mathbb R^n値関数となる．これを見本関数（サンプルパス）と呼ぶ．\n確率過程の特性を理解するには，「時刻tを一つ固定すると確率変数となる」という特性と「サンプルを一つ抽出するとtの関数が得られる」という特性の両方から把握しなければならない．\n左が関数としての確率過程．右が時間を固定て，確率変数の振る舞いをする確率過程である．",
-    "crumbs": [
-      "Home",
-      "StochasticDifferentialEquations",
-      "確率過程論の概要(1)"
-    ]
-  },
-  {
-    "objectID": "Published/StochasticDifferentialEquations/5.html#有限次元分布",
-    "href": "Published/StochasticDifferentialEquations/5.html#有限次元分布",
-    "title": "確率過程論の概要(1)",
-    "section": "有限次元分布",
-    "text": "有限次元分布\n実確率変数の場合は，確率分布関数を知ることができれば，それに関する確率的な性質や統計量を，原理的にはすべて産出できる．しかし，確率過程の場合は事情がかなり異なる．例えばある時刻を一つ固定すれば実確率変数が得られるが，その時刻の確率分布関数を知っただけでは不十分で，異なる時刻間の統計的相関も知らなければならない．さらに多数の時刻間での情報も必要である．\nこのため，確率過程の確率的性質は次のように表現しなければならない．\\mathbb R値確率過程を例にとると，時間パラメータ空間上任意に与えた時系列t_1, t_2 , ...,t_n \\in Tに対して，(X_{t_1}(\\omega),..., X_{t_n}(\\omega))は \\mathbb R値確率変数を与える．その確率分布を確率過程Xのn次の有限次元分布と呼ぶ．有限次元分布という名称は，確率過程のサンプルが得られる空間（関数空間）が線形空間無限次元の空間であるのに対して，それを有限の次元の空間に射影して表現していることに由来している．\nこれは実確率変数の従う分布であるから，その結合確率分布関数 \nF^{(n)}_X (x_1,t_1 ; x_2,t_2 ; \\cdots;x_n,t_n) = P(X_{t_1} \\le x_1 , ...,X_{t_n} \\le x_n)\n により表現することが可能である．これを，任意の次数，任意の時系列の選択に対して知ることが，確率過程の性質を完全に知る上では必要となるのである．しかしあらゆる確率過程に対してこのような知識を要請することは事実上困難であることは容易に想像がつく．したがって確率過程を用いて現象を解析するにはいくつかの限定された特性を有する確率過程に絞って議論を進めなければならない．後に述べるが，Markov過程という概念はこの目的のための非常に有力な性質となる．\n有限次元分布による確率過程の特性の把握を考えることに関連して，有限次元分布の同一性と確率過程の同一性の違いをはっきりさせておかなければならない． ２つの確率過程の有限次元分布が同じでも，それが見本関数ごとに一致するとは限らない．しかし，実用的観点からは対象とする確率過程の有限次元分布を求めること，あるいはその部分的情報を用いることにより，必要な確率的性質を導出することが重要となるので，見本関数ごとの振る舞いの一致が必ずしも必要なわけではない．ちなみにX = \\{W_t;t \\in T\\}, Y = \\{-W_t\\in T\\}である．たしかに正規分布は左右対称なので，正負を逆にしても確率的には同じになるけど，確率過程はt軸対称になるな．\nしたがって，もしも見本関数ごとの振る舞いが数学的に都合の悪いものであれば，有限次元関数が同じでも見本関数ごとの挙動が解析上都合のよい確率過程を構成すればよいわけである． そのためも次の用語の意味を理解しておくことが重要となる．\n\n定義：変形，判別不能\n(i)確率過程Xに対して，確率過程Yが各t \\in Tに対してX_t(\\omega) = Y_t(\\omega) , \\quad (\\text{a.s)} を満たすとき，YはXの変形であるという． (ii)２つの確率過程XとYが，P(X_t = Y_t, \\forall t \\in T) = 1を満たすとき，判別不能であるという．\nこれ一緒じゃねえの？almost surelyってそういう意味なんじゃないの？ 具体例を考える．T = [0,1], \\Omega = [0,1]で分布は一様分布とする． \nX_t(\\omega) = 0,\\qquad Y_t(\\omega) =\n\\begin{cases}\n1 & \\omega = t\\\\\n0 & \\omega \\neq t\n\\end{cases}\n X_t = Y_tとなるのは\\omega \\neq tである．これは\\omega = tとなる点がtを固定したとき1つしかなく，区間の要素数は無限なので \n\\forall t\\in T ,\\quad P(X_t = Y_t) = 1\n である．なのでAlmost surelyの定義から，YはXの変形である．\nしかし「全てのtで一致する\\omega」は一つもない．なぜなら各tについて，X_t \\neq Y_tを満たす\\omegaが必ず一つだけ存在するからである．すなわち \nP(X_t = Y_t , \\quad \\forall t \\in[0,1]) = 0\n となっているので，判別不能ではない． - 変形：各時刻ごとに見ればa.s.一致 - 判別不能：a.s. の標本経路について全時刻で一致\n実用面の応用という点では，変形という操作により得られる確率過程は，元の確率過程と同じものと考えて差し支えない．",
-    "crumbs": [
-      "Home",
-      "StochasticDifferentialEquations",
-      "確率過程論の概要(1)"
-    ]
-  },
-  {
-    "objectID": "Published/StochasticDifferentialEquations/5.html#確率過程の連続性",
-    "href": "Published/StochasticDifferentialEquations/5.html#確率過程の連続性",
-    "title": "確率過程論の概要(1)",
-    "section": "確率過程の連続性",
-    "text": "確率過程の連続性\n[[学習/Zawa25721_documents/Published/StochasticDifferentialEquations/2|2]]で定義した収束を用いて確率過程の連続性を定義する．\n\n定義：a.s.連続，確率連続，q次平均連続\n\n各t \\in Tに対して，\\text{as-}\\lim_{s \\to t} X_s = X_tとなるとき，Xはa.s.連続であるという． ii)各t \\in Tに対して，\\text{p-}\\lim_{s \\to t} X_s = X_tとなるとき，Xは確率連続であるという． iii)各t \\in Tに対して，X_tはL^qに属するものとする．このとき各t\\in Tに対して\\lim_{s \\to t} \\mathbb E[|X_s - X_t|^q] = 0 となるとき，Xはq次平均連続であるという．\n\nサンプル\\omegaを抽出するごとにどのような見本関数が出現するかという観点からは次のような定義が与えられる．\n\n\n定義：連続確率過程\nXの見本関数がほとんど確実にT上の\\mathbb R^n値連続関数となるとき，Xを連続確率過程という．連続確率過程の集まりを\\mathcal Cと表す．\n見本関数が連続でない場合も考えるので，次の定義も与えておく．\n\n\n定義：cadlag確率過程，caglad確率過程\ni)X の見本関数が，T上の\\mathbb R^n値関数として，ほとんど確実に右連続で左極限をもつとき，Xをcadlag確率過程という．\nii)X の見本関数が，T上の\\mathbb R^n値関数として，ほとんど確実に左連続で右極限をもつとき，Xをcaglad確率過程という．",
-    "crumbs": [
-      "Home",
-      "StochasticDifferentialEquations",
-      "確率過程論の概要(1)"
-    ]
-  },
-  {
-    "objectID": "Published/StochasticDifferentialEquations/5.html#確率過程の列の収束性",
-    "href": "Published/StochasticDifferentialEquations/5.html#確率過程の列の収束性",
-    "title": "確率過程論の概要(1)",
-    "section": "確率過程の列の収束性",
-    "text": "確率過程の列の収束性\n関数に対して関数列があるように，確率過程に対しても確率過程の列があり，それに対する収束性を考えなければならない．時間パラメータtを固定して話を進めれば，それは確率変数列の収束の問題に帰着されるが，それでは確率過程の挙動全体という観点からの議論として十分であるとは言えない．なぜならtを固定した議論ではその時刻での値しか見れないので，確率過程の本質でらう時間方向の繋がりを捨ててしまうからである．\nそこでサンプルを取り出すごとに実数が得られるのが実確率変数であるという認識からの類推のより，サンプルとして関数が得られるのが確率過程であるという考え方に着目する．\nこの場合，標本空間からの写像先が実数空間ではなくなるため，[[学習/Zawa25721_documents/Published/StochasticDifferentialEquations/1|1]]で述べた位相確率変数という概念が必要になる（意味ないと思っていたが，ここで使われるのか！）．したがってサンプルの抽出により得られる関数が属する集合，いわゆる関数空間について，その位相的性質を確率して置かなければならない．\nもっとも基本となる連続確率過程について考えてみる．この場合の標本空間\\Omegaからの写像先は，時間パラメータ集合T上定義された連続関数からなる関数空間となる．T上定義された\\mathbb R^n値連続関数の全体を\\mathcal Cと表すことにする．時間上限T_{\\max}が有限値の場合，\\mathcal Cの２つの要素x,yの距離を \nd(x,y) = \\sup_{t \\in [0,T_{\\max}]} |x(t) - y(t)|\n で定義することにより，空間\\mathcal Cの位相（近さの度合い，収束など）が決まる． Cの要素の列\\{ x_n \\}がこの距離でx \\in \\mathcal Cに収束するとは，関数列\\{x_n\\}が区間[0,T_{\\max}]上でxに一様収束することと同値である．このことから，このように定まる\\mathcal Cの位相を一様収束位相とよぶ （T_{\\max} = \\inftyの場合は修正が必要であるが，ここではそんなに厳密に考えないので記述しない）．\nこの位相の下で定まる\\mathcal Cの開部分集合に基づいて，\\mathcal Cの位相的Borel加法族\\mathcal B(\\mathcal C)が定まり， \\mathcal C値位相確率変数X : \\Omega \\to \\mathcal Cが\\mathcal B(\\mathcal C)可測な写像として定義される．\nXが連続確率過程であることと，\\mathcal C値位相確率変数であることは同値であることが知られている．このように，確率過程を関数空間の値をとる位相確率変数と捉えることは重要である．\n連続確率過程を\\mathcal C値位相確率変数とみなすと，連続確率変数の列の収束性は，先程定義した距離によって記述される．実確率変数列の収束性について，様々な収束の概念があるように，距離dに関してもこれらの収束規範がある．\n時間上限T_{\\max} = \\inftyの場合は，各t &lt; \\inftyを固定するごとに，時間パラメータ集合を[0,t]という有界閉集合に限定することにより，一様収束位相下での確率収束を考えれば多くの実用的な問題に対応できる．そして次の定義を与える\n\n定義：ucpの意味で収束\nt \\in Tを固定するごとに，任意の\\epsilon &gt; 0に対して \n\\lim_{n \\to \\infty} P\\left( \\sup_{s \\in[0,t]} |X_s^{(s)} - X_s| \\ge \\epsilon\\right) = 0\n となるとき，X^{(n)}はXにucpの意味で収束するという．\n混乱が無い場合は \n\\text{p}-\\lim_{n\\to \\infty} X^{(n)} = X\n と表記することにする．",
-    "crumbs": [
-      "Home",
-      "StochasticDifferentialEquations",
-      "確率過程論の概要(1)"
-    ]
-  },
-  {
-    "objectID": "Published/StochasticDifferentialEquations/4.html",
-    "href": "Published/StochasticDifferentialEquations/4.html",
-    "title": "確率論の概要(4)",
+    "objectID": "Published/StochasticDifferentialEquations/3.html",
+    "href": "Published/StochasticDifferentialEquations/3.html",
+    "title": "確率論の概要(3)",
     "section": "",
-    "text": "条件付き確率については，その初等的定義を通じて理解し終えていると認識している人も多いかもしれないが，実は確率測度論の立場からの条件付き確率の記述は非常に難解であり，初等的確率論から確率測度論や確率解析へと進む上で最大の障壁となっていると言っても過言ではない． ここではできるだけ簡潔に条件付き確率について概説する． ## 条件付き期待値\n定義 \\mathcal Gを\\mathcal Fの部分\\sigma-加法族とする．このとき部分確率空間(\\Omega,\\mathcal G,P)上定義された可積分な確率変数Y : \\Omega \\to \\mathbb Rが以下の２つの条件を満たすならば，Yを条件\\mathcal Gの下での条件付き期待値とよび，\\mathbb E[X | \\mathcal G] (\\omega)と表す． i) Yは\\mathcal G可測である， ii)\\mathcal Gの任意の要素Gに対して，次が成立する． \n\\int_G Y(\\omega) P(d \\omega) = \\int_G X(\\omega) P(d \\omega)\n 当然よくわからないので，具体例を見ていく． ### 具体例：サイコロを１回振る\n\\Omega = \\{ 1,2,3,4,5,6 \\}, \\qquad P(\\{\\omega\\}) = \\frac{1}{6}\n とし確率変数Xを \nX(\\omega) = \\omega\n とする． ここでサイコロをを振ったあと，出た目そのものは数えてもらえず， 奇数だったか偶数だったかだけ教えてもらったとする． この持っている情報を\\mathcal Gとする.O = \\{ 1,3,5 \\}, \\quad E = \\{2,4,6\\}とすると， \n\\mathcal G = \\{\\varnothing, O,E,\\Omega\\}\n は確かに\\sigma-加法族となる．ここでY = \\mathbb E[X | \\mathcal G] (\\omega)を考える． iiの性質を満たすためにはまず右辺から計算すると \n\\int_O X(\\omega) P(d \\omega) = \\frac{1}{6} + \\frac{3}{6} + \\frac{5}{6} = \\frac{3}{2}\n Yは\\mathcal G可測なので \nY (\\omega) =\n\\begin{cases}\na & \\omega \\in O \\\\\nb & \\omega \\in E\n\\end{cases}\n でなければならない．指示関数を使えば \nY = a \\mathbb 1_O + b\\mathbb 1_E\n である． 期待値の定義から \n\\int_O Y(\\omega) P(d\\omega) = \\sum_i a_i P(A_i) = a P(O)\n である． ここで \nP(O) = \\frac{3}{6} = \\frac{1}{2}\n である(独立な事象の確率は足すことができる)ので， \na = 3\n であることが分かる．同様に計算すると \nb = 4\n であることが分かるので，最終的に \n\\mathbb E[X |\\mathcal G](\\omega) =\n\\begin{cases}\n3 & \\omega \\in O \\\\\n4 & \\omega \\in E\n\\end{cases}\n という確率変数となることが分かる．\n条件付き期待値の意味を理解する上で，次の定理は重要である．\nAが\\mathcal Gの基本単位であれば，\\mathbb E[X | \\mathcal G]はA上定数であり，特にP(A) \\neq 0 の場合は次の式が成立する． \n\\mathbb E[X | \\mathcal G](\\omega) = \\frac{1}{P(\\omega)} \\int_A X(\\nu) P(d \\nu) , \\quad (\\omega \\in  A)\n これはさっきの話を一般化したものである． すなわち条件付き期待値とは，条件として与える情報の基本単位上でｍ確率変数を平均化したものに他ならない．期待値という名称はこのことによるものである．条件付き期待値に関する基本的性質の中で，主なものを挙げておく ### 定理：条件付き期待値の諸性質 条件付き期待値について，次が成立する $$ \\begin{align}\n\\text{i)}& \\quad \\mathbb E[\\mathbb E[X | \\mathcal G]] = \\mathbb E[X] \\\\\n\\text{ii)}& \\quad \\mathcal G = \\{ \\varnothing , \\Omega \\} \\to \\mathbb E[X | \\mathcal G] = \\mathbb E[X] \\\\\n\\text{iii)}& \\quad Xが\\mathcal G可測かつ，XYが可積分であれば\\mathbb E[XY | \\mathcal G] = X \\mathbb E[Y|\\mathcal G]\n    \n\\end{align} \niは\n Y() P(d ) = X() P(d ) $$ が成立するため，書き換えただけである．\niiは，情報が何もないので，そのまま確率変数が定数になるというだけである．左辺は，確率変数であるが右辺は実数値である．この実数値は「その値を常にとる定数確率変数」と解釈される．\niiiの意味は \n\\mathcal G の情報だけで値がわかるXは，条件付き期待値の外にだせる\n ということである．普通の期待値で定数を \n\\mathbb E[aX] = a\\mathbb E[X]\n と外に出せるのと同じ考え方である．\n次に確率変数と情報の間の統計的独立性と，条件付き期待値の間の基本的な関係を導出しておく",
+    "text": "収束定理は統計学において重要である．特に次に紹介する大数の法則と中心極限定理は，それなくして統計学を記述することは不可能であり，主張を理解しておくことには十分価値がある．",
     "crumbs": [
       "Home",
       "StochasticDifferentialEquations",
-      "確率論の概要(4)"
+      "確率論の概要(3)"
     ]
   },
   {
-    "objectID": "Published/StochasticDifferentialEquations/4.html#条件付き確率",
-    "href": "Published/StochasticDifferentialEquations/4.html#条件付き確率",
-    "title": "確率論の概要(4)",
-    "section": "条件付き確率",
-    "text": "条件付き確率\nまずは定義を書く ### 定義：条件付き確率 \\mathbb 1_{A}(\\omega)をA \\in \\mathcal Fの指示関数とする． i)\\mathcal Gを部分\\sigma-加法族として， \nP(A | \\mathcal G) = \\mathbb E[\\mathbb 1_A | \\mathcal G]\n を条件\\mathcal Gの下で事象Aが起こる条件付き確率と定める． ii) 確率変数Yに対して \nP(A | Y) = \\mathbb E[\\mathbb 1_A | \\sigma(Y)]\n を条件Yの下で事象Aが起こる条件付き確率と定める．\nこの定義から分かるように，条件付き期待値が\\omegaの関数であるのと全く同様にして，条件付き確率も\\omegaの関数，すなわち確率変数になる．「確率」自体が確率変数であるということは最も理解しにくいことかもしれない．\nこれも具体的に計算していく． \nP(C |\\mathcal G) = \\mathbb E[\\mathbb 1_C | \\mathcal G] = \\frac{1}{P(A)}\\int_A \\mathbb 1_C P(d\\omega) ,\\qquad (Aは\\mathcal Gの基本単位)\n であり，積分範囲がAで指示関数が1を取るということは \n\\int_A \\mathbb 1_C P(d\\omega) = P(A \\cap C)\n である．なので条件付き確率は \nP(C |\\mathcal G) = \\frac{ P(A \\cap C)}{P(A)} , \\qquad (Aは\\mathcal G の基本単位)\n\nとなる．Aが具体的になることで，値となる．",
+    "objectID": "Published/StochasticDifferentialEquations/3.html#大数の法則",
+    "href": "Published/StochasticDifferentialEquations/3.html#大数の法則",
+    "title": "確率論の概要(3)",
+    "section": "大数の法則",
+    "text": "大数の法則\n独立列\\{ X_n \\}の第n部分和をS_n = \\sum_{k =1}^n X_kと表す．部分和に対して，\\frac{1}{n} S_nは，X_1からX_nまでの平均を表すが，これを確率分布の平均と区別するため，算術平均と呼ぶことが多い．我々は i.i.dな確率変数列の場合，部分和をとる個数nをおおきくとれば，算術平均によって分布の平均を近似できることを経験的に知っている．これを数学的にきちんと述べたのが 大数の強法則である． ### 定理：大数の強法則\n\\{ X_n \\}をi.i.dなL^1 確率変数(\\forall n , \\mathbb E[|X_n|] &lt; \\infty)の列で，その平均をmとする．このとき \n\\text{as-lim}_{n \\to \\infty} \\frac{1}{n} S_n = m\n が成立する． この定理は，独立確率変数列がL^2に属せば，同一の分布に従わない場合にも拡張できることが知られている(Kolmogorovの大数の強法則)．\n中心極限定理は知ってるので省略する． 一応補足しておくと，中心極限定理には２種類ありLindeberg-Lévyの中心極限定理とLindeberg-Fellerの中心極限定理がある．教科書でよく取り扱われるのはLindeberge-Lévy型である． 世間一般で「中心極限定理」と呼ばれているのは後者のLinderberg-Fellerの中心極限定理である．これは独立ではあるが必ずしも同分布ではない確率変数までも扱えるより一般的な中心極限定理である．",
     "crumbs": [
       "Home",
       "StochasticDifferentialEquations",
-      "確率論の概要(4)"
+      "確率論の概要(3)"
     ]
   },
   {
-    "objectID": "Published/StochasticDifferentialEquations/4.html#条件付き確率分布",
-    "href": "Published/StochasticDifferentialEquations/4.html#条件付き確率分布",
-    "title": "確率論の概要(4)",
-    "section": "条件付き確率分布",
-    "text": "条件付き確率分布\n確率変数の導入に伴って，写像先の空間で確率の計算を行うために確率測度を確率分布に変換したことを思い出そう．Borel集合Bを与えるごとに，P_X(B) = P(X^{-1}B)で定めた確率分布は，Pの有する完全加法性により（完全加法性とは記事[[学習/Zawa25721_documents/Published/StochasticDifferentialEquations/1|1]]を参照するように）置き換えられた可測空間(\\mathbb R , \\mathcal B)上で完全加法性を有する確率測度となる．これと同様に，条件付き確率についても同じような変換を行うことが必要になってくる．だが条件付き確率自体が確率変数出会ってサンプル\\omegaに依存するため，確率分布への変換については注意が必要である．\n\n定義：条件付き確率分布\n条件付き確率P(X\\in B | \\mathcal G)(\\omega)に対して，次を満たすP_X(B ,\\omega | \\mathcal G)を条件\\mathcal Gの下でのXの条件付き確率分布という．\n\n全ての\\omega \\in \\Omegaに対して，P_X(\\cdot,\\omega | \\mathcal G)は(\\mathbb R , \\mathcal B)の確率測度である．\nBorel集合Bを一つ固定するごとに，P_X(B ,\\cdot|\\mathcal G)はP(X \\in B | \\mathcal G)にほとんど確実に一致する．\n\n条件付き確率の方の定理に対応するのが次の定理である． 条件Yの下でのXの条件付き確率分布P_X(B, \\omega | Y)に対して \nP_X(B, \\omega| Y) = f_X(B,Y(\\omega))\n を満たすBorel関数f_Xが存在する．\n\n\n定義：条件Yの条件付き確率\n上記定理により定まるf_Xを用いてf_X(B,y)をP_X(B | Y = y)と表し，条件Y = yの下でのXの条件付き確率分布とさだめる．\nあと例を書いて確率論概論は終わり．",
+    "objectID": "Published/StochasticDifferentialEquations/3.html#poissonの少数法則",
+    "href": "Published/StochasticDifferentialEquations/3.html#poissonの少数法則",
+    "title": "確率論の概要(3)",
+    "section": "Poissonの少数法則",
+    "text": "Poissonの少数法則\n次に，\\{ X_n \\} を０または１の値をとる独立確率変数列とし，1をとる確率が非常に小さいものとする．このとき，多数のX_nの集まりの中で1をとった個数を非負整数値確率変数とみなすとき，この集まりの個数が十分に大きくなれば個数の分布がPoisson分布で近似されるというのがPoissonの少数法則である．\nこれ難しいこと言ってるけど，二項分布の期待値を一定にしてn \\to \\inftyにすればポアソン分布になるって言ってるだけや．",
     "crumbs": [
       "Home",
       "StochasticDifferentialEquations",
-      "確率論の概要(4)"
+      "確率論の概要(3)"
     ]
   },
   {
-    "objectID": "Published/StochasticDifferentialEquations/4.html#おわりに",
-    "href": "Published/StochasticDifferentialEquations/4.html#おわりに",
-    "title": "確率論の概要(4)",
-    "section": "おわりに",
-    "text": "おわりに\nこれで確率論の概論は終わりである．次回からようやく本題の一つである確率過程に入っていく．Pythonなどを用いてわかりやすい図などを書いたりしながら自分で理解していきたいと思う．",
+    "objectID": "Published/StochasticDifferentialEquations/3.html#確率変数と情報",
+    "href": "Published/StochasticDifferentialEquations/3.html#確率変数と情報",
+    "title": "確率論の概要(3)",
+    "section": "確率変数と情報",
+    "text": "確率変数と情報\nここで述べられる情報はShannonの情報理論とは異なる．観測の細かさ，正確さを記述する概念である．\n\nBorel関数\\phi : \\mathbb R \\to \\mathbb Rが存在して \nY(\\omega) = \\phi(X(\\omega)) , \\quad(\\forall \\omega \\in \\Omega)\n が成立するとき，Yのもたらす情報はXのもたらす情報より多くないといい， \nY \\prec_i X\n とあわわす．\nX \\prec _i YかつY \\prec _i XのときX \\sim_p Y と表す．XもYも確率変数であるから，両者ともサンプル\\omegaに依存して値は異なる．しかしY \\prec_i Xが成立するということは，一方の確率変数Xが決まればもう一方の確率変数Yの値が確実に決まってしまうということを意味しており，このことはすなわちYを観測することに寄って得られる情報はXを観測して得られる情報より多くないということを意味している．\n\n例えば身長をどのくらい細かく観測するかを考える． 確率変数Xをある人の正確な身長，Yをその身長を10cm刻みで分類した値とする． \nY = \\phi(X) , \\qquad \\phi(x) = 10 \\lfloor  \\frac{x}{10}  \\rfloor\n すると， \nX = 173.4 \\to Y = 170\n となるので \nY \\prec_i X\n である．一方，Y = 170とわかってもXがどういう情報なのかはわからない．なので一般には \nX \\nprec_i Y\n となる．つまりXは正確な身長，Yは粗く丸めた身長なのでXの方が細かい情報を持っている．\n我々は確率変数のもたらす情報の定量化を行いたいのであるが，その前にまず次の概念を導入する．\n\n定義：可分，生成\n\\Omegaの高々可算無限個の部分集合族 A_n があり，\\sigma-加法族\\mathcal FがA_nを含む最小の\\sigma-加法族となっているとき，\\mathcal Fを可分であるといい，部分集合族A_nが\\sigma-加法族\\mathcal Fを生成するという．\n何を言っているのかよくわからないので，噛み砕いて言うと \\mathcal Fのすべての集合を，可算個の基本的な集合A_1, A_2 , ...から，補集合，可算和などの操作を使って作れるという意味である．\n例えば \n\\Omega = \\{ 1,2,3,4 \\} , \\qquad A = \\{ 1,2 \\}\n とする.これはAを含む\\sigma-加法族を作成すると，自動的に \n\\sigma(A) = \\{ \\varnothing, A , A^c , \\Omega  \\}\n となる． ちなみに\\sigma(X)の意味は \n\\sigma(X) = \\sigma(\\{ X^{-1}(B) : B \\in \\mathcal B(\\mathbb R^n) \\})\n である．まぎらわしい． すなわち，\\mathcal F全体が，可算個の基本集合だけで記述できるということである．\\mathcal Fが最初に存在し，それが可算個の集合で生成可能であるかを調べて，それができるなら可分だと言っている．\n次の定理は重要である．\nX,Yの生成する\\sigma-加法族をそれぞれ\\sigma(X),\\sigma(Y)とするとき，次が成立する． $$ \\begin{align}\n\nY \\prec_i X \\Leftrightarrow \\sigma(Y) \\subset \\sigma(X)\\\\\nY \\sim_p X \\Leftrightarrow \\sigma(Y) = \\sigma(X)\\\\\n\n\\end{align} $$\nこの定理によれば，確率変数が生成する\\sigma-加法族はその確率変数の有する情報の定量化に相当するものであり，それ故に自然に次の定義に行き着くことができる． \n\\begin{align}\n&\\text{i)} \\sigma(X)を確率変数Xの有する情報とよぶ  \\\\\n&\\text{ii)} \\sigma-加法族そのものを情報とよぶ．\n\\end{align}\n 確率空間(\\Omega, \\mathcal F ,P)を考えるということは，\\mathcal Fが我々の知り得る全情報であるということを意味しており，その各情報に対して，生起確率という実数値を対応させるのが確率測度Pである． 先に述べたように確率変数Xには\\mathcal F 可測性が要求されるが，これは \n\\sigma(X) \\subset \\mathcal F\n が成立することにほかならない．すなわち情報の観点から述べれば，Xの有する情報は我々の知り得る全情報よりも多くあってはならないことを，この定義は要求しているのである．\n\n\n情報の基本単位\n\\sigma-加法族はすなわち情報であり，これを既知情報として，次回述べる条件付き確率の「条件」に採用できる．そのための準備として情報の構造について考察しておこう．\n\n\\Omegaの部分集合の族\\mathcal Gが\\mathcal G \\subset \\mathcal Fを満たし，かつ\\mathcal Gが\\sigma -加法族であるとき，\\mathcal Gを\\mathcal Fの部分\\sigma-加法族という．\n\\sigma-加法族\\mathcal Gの要素AでA自身と \\phiを除く全てのAの部分集合が\\mathcal Gに属さないとき，Aを \\mathcal Gの基本単位と呼ぶ．\n\n\\sigma-加法族自身が情報であるから，その基本単位は情報の基本単位と考えて良い，この定義は情報全体を細かく分割していき，最終的にそれ以上細分出来ない基本単位というものによって情報の微細構造を明らかにするものであるが，逆に基本単位から情報全体が構成できる．\n情報の基本単位の例は \\Omega = \\{ 1,2,3,4 \\}のとき \\mathcal G = \\{ \\phi , \\{1,2\\}, \\{3,4 \\} , \\Omega \\} で\\{ 1,2 \\}と\\{3,4\\}が基本単位である． \\{1,2\\}の部分集合は\\phi, \\{1\\},\\{2\\},\\{1,2\\}であるが，確かに自分自身と空集合は含んでいない． 情報の基本単位と確率変数の関係は次の定理で記述される\nXを(\\Omega,\\mathcal F)上の実確率変数，すなわち\\mathcal F可測写像とすると，これは\\mathcal Fの基本単位上で定数である． これは基本単位の例から分かる．\n次回から，この確率論の一番の難所である条件付き期待値，条件付き確率をやる． 実は先読みしたが，いままでやってきた条件付き確率より遥かに難しい概念なので，気を引き締めてじっくり勉強していきたい．",
     "crumbs": [
       "Home",
       "StochasticDifferentialEquations",
-      "確率論の概要(4)"
+      "確率論の概要(3)"
+    ]
+  },
+  {
+    "objectID": "Published/StochasticDifferentialEquations/1.html",
+    "href": "Published/StochasticDifferentialEquations/1.html",
+    "title": "確率論の概要(1)",
+    "section": "",
+    "text": "確率微分方程式です．応用が目標なのでそんなに厳密じゃないです． あと初めて触れる分野なので，じっくりやっていきたいと思います． あと教科書をパラパラ見てみた感じ，この確率論の概要が前提みたいな所がありそうなので，Ankiなどを活用して概念を覚えていきたい．",
+    "crumbs": [
+      "Home",
+      "StochasticDifferentialEquations",
+      "確率論の概要(1)"
+    ]
+  },
+  {
+    "objectID": "Published/StochasticDifferentialEquations/1.html#はじめに",
+    "href": "Published/StochasticDifferentialEquations/1.html#はじめに",
+    "title": "確率論の概要(1)",
+    "section": "",
+    "text": "確率微分方程式です．応用が目標なのでそんなに厳密じゃないです． あと初めて触れる分野なので，じっくりやっていきたいと思います． あと教科書をパラパラ見てみた感じ，この確率論の概要が前提みたいな所がありそうなので，Ankiなどを活用して概念を覚えていきたい．",
+    "crumbs": [
+      "Home",
+      "StochasticDifferentialEquations",
+      "確率論の概要(1)"
+    ]
+  },
+  {
+    "objectID": "Published/StochasticDifferentialEquations/1.html#sigma-加法族と確率測度",
+    "href": "Published/StochasticDifferentialEquations/1.html#sigma-加法族と確率測度",
+    "title": "確率論の概要(1)",
+    "section": "\\sigma-加法族と確率測度",
+    "text": "\\sigma-加法族と確率測度\n確率とは，対象とする事象の起こりやすさを定量化したものである．通常事象というものを直感的に理解できるものとして無定義に取り扱うことが多いが，確率の定量化を数学的に議論するにはまず事象の定義を行わなければならない．\nまず\\Omegaを生成点集合，すなわち試行を１回行うと，\\Omegaの点\\omegaが一つ選択されるような集合とする．\\Omegaは標本空間とも呼ばれる．\\Omegaの各「点」は標本と呼ばれるが，それは生起結果を表すもので，一般に数ではない． （例えば，A,B,Cの内くじを引いて当てるとき，そのくじの結果Bが手に入ったとする．これは数ではない．）\n我々が観測を行うと，\\Omegaの点のどれかが生起した結果が観測されるのだから，事象というものは\\Omegaの部分集合であると考えられるのが自然である． だが，すべての部分集合が事象の資格を持っているとは限らない． （例えば，サイコロを1回投げる試行において，出た目そのものは見えず偶数か奇数かだけを判定する状況を考える．このとき，偶数の目が出るという部分集合\\{ 2,4,6 \\}は結果を識別できるため事象として扱えるが，個別の\\{2\\}という部分集合は，この状況下では生起したかどうかを判別できないため，事象の資格を持たない）\nまた事象と呼ぶためにはどうしても満たさなければならない性質がある． 例えばある部分集合Aが事象であれば，それが起こらない確率も計算できなければならない．すなわちその補集合A^cも事象でなければならない． AとB がともに事象であればAまたはBが起こる確率，AかつBの起こる確率も計算できなければならないので，その和集合や席集合も事象でなければならない．このように事象と呼んで良い部分集合の集まりには自然な制約が発生することになる．これを数学的にまとめたのが次の概念である．\n\n\\sigma-加法族の定義\n\\Omegaの部分集合の族(集合を要素に持つ集合)\\mathcal Fで 1. \\Omega \\in \\mathcal F 2. A \\in \\mathcal F  \\Rightarrow A^c \\in \\mathcal F 3. A_1,A_2 ,... \\in \\mathcal F \\Rightarrow \\bigcup_{n = 1}^{\\infty} A_n \\in \\mathcal F の3条件を満たすものを，\\sigma-加法族と呼ぶ．\n我々は，この\\sigma-加法族\\mathcal Fの要素を事象と呼びたいのであるが，確率の概念を導入する前に事象だけを単独に定義するのは適切ではないため，(確率が満たすべき足し算のルールと関連付けながら，確率と事象を一対のものとして定義していく必要がある．) 引き続いて確率を定義することにしよう． ### 確率の定義 \\mathcal Fの各要素に対して実数を対応させる写像Pが 1. P(A) \\ge 0 2. P(\\Omega) =1 3. A_1, A_2 ,... \\in \\mathcal F, A_i \\cap A_j = \\phi   (i \\neq j) \\Rightarrow P\\left( \\bigcup_{n = 1}^{\\infty} A_n \\right) = \\sum_{n = 1}^{\\infty} P(A_n) を満たすとき，Pを確率測度と呼び，P(A)をAが起こる確率と呼ぶ．\n確率測度は集合に対して実数を対応させる写像であるために，集合関数と呼ばれることがある．\n以上の定義に基づいて，\\mathcal Fの要素を事象と呼ぶ．数学的には\\mathcal Fの要素を可測集合と呼ぶことが多い．また\\Omegaと\\mathcal Fをペアで考えた(\\Omega, \\mathcal F)をその上に測度（確率測度）が定義できるという意味で可測空間と呼ぶ． 同じ\\Omegaでも観測の対象をどこまで細かく設定するかによって\\mathcal Fは異なるものとなり得る．\n例えば，サイコロを一回振るという例を考える．標本空間は \\Omega = \\{1,2,3,4,5,6  \\}となる．この\\Omegaのすべての部分集合からなる集合族\\mathcal Fは\\sigma-加法族であるが， \\mathcal G = \\{ \\{ 1,3,5 \\}, \\{ 2,4,6 \\} \\}もまた\\sigma-加法族である．(\\Omega, \\mathcal F), (\\Omega , \\mathcal G)はそれぞれ可測空間であり，前者は振って出た目をすべて記録することを意味し，後者は偶数か奇数かだけを記録することを意味する．\nさらに以上をまとめる形で次の用語を導入する． (\\Omega, \\mathcal F , P)を確率空間と呼ぶ． - \\Omega は，世界そのものの可能な状態 - \\mathcal Fは，その世界をどの細かさで観測できるか，情報 というイメージが適している． 確率を論じるにあたっては必ず確率空間を与えておく必要がある．",
+    "crumbs": [
+      "Home",
+      "StochasticDifferentialEquations",
+      "確率論の概要(1)"
+    ]
+  },
+  {
+    "objectID": "Published/StochasticDifferentialEquations/1.html#ほとんど確実",
+    "href": "Published/StochasticDifferentialEquations/1.html#ほとんど確実",
+    "title": "確率論の概要(1)",
+    "section": "ほとんど確実",
+    "text": "ほとんど確実\nさて，上述のように自然な要請として， \\sigma-加法族に可算無限回のBool演算を許したわけだが，このことにより少しややこしい事象が顔を出してくることになる．確率の定義から，空集合\\phiの確率測度は０になることは明らかであるが，逆は必ずしも成立しないため（標本空間が無限個の点を持つ場合，個々の点が選ばれる確率がすべて0になるから）次の概念の導入が必要となる．\n\nP零集合の定義\n\\mathcal Fの要素NでP(N) = 0となるものをP零集合とよぶ．\n確率が０となる事象に属する点\\omegaは最初から除外しておけばよいという考えがでてくるが，無限集合になると除外するわけにはいかなくなる(個々の生起確率は０であるため，それらを除外すると標本空間が\\phiとなり意味がなくなるから)この結果，零事象の余事象として次の概念が必要となってくる．\n\n\nほとんど確実（Almost Surely）の定義\nある事象Aが生起する確率が１のときこれをA(a.s.)と表記し，Aはほとんど確実に起きるという．\n実用的応用を考える上でも，\\Omegaが無限集合となる場合を取り扱えるようにしておかなければならないため，数学的な記述においては「ほとんど確実に」という用語が頻繁に登場するので，この用語の意味は理解しておく必要がある．",
+    "crumbs": [
+      "Home",
+      "StochasticDifferentialEquations",
+      "確率論の概要(1)"
+    ]
+  },
+  {
+    "objectID": "Published/StochasticDifferentialEquations/1.html#確率変数",
+    "href": "Published/StochasticDifferentialEquations/1.html#確率変数",
+    "title": "確率論の概要(1)",
+    "section": "確率変数",
+    "text": "確率変数\n標本空間\\Omegaは一般に数の空間であるとは限らないので，諸々の統計量を数量化するには不便と言うより，数量化そのものが不可能であることのほうがむしろ普通となっている．そこで，数量化が可能でしかも取り扱いに便利な空間に移して議論したほうが都合が良い．この写像を広い意味で確率変数とよぶ． ### 実確率変数 まず，標本空間を実数空間に写像することを考えよう．我々が実数空間において確率的量を計算するということは，基本的には積分計算を行うということであると言って良い．したがって実数空間における積分論に準拠して，議論を進めていかなければならない．こういった視点で言えば実数空間で計算対象の基本となるのは区間である．\n与えられた区間に値をとる確率は当然計算できなければならないし，それらの和集合からなる集合でも確率が計算できなければ都合が悪い．すなわち，これらが先に述べた事象に対応するものであると言うことが要請される．そこで，写像先の実数空間において事象に対応する集合として次の定義を導入する．\n\nBorel集合の定義\n\nn次元Euclid空間の開部分集合をすべて含む最小の\\sigma-加法族を\\mathcal B (\\mathbb R^n)と書き，これをBorel加法族と呼ぶ\nBorel加法族の部分集合をBorel集合と呼ぶ\n\n開部分集合とは，境界がない部分集合のことである． （離散の場合は，いったん置いておいてここでは連続空間の話をしているのだろう） 実用上考察の対象となる\\mathbb R^nの部分集合はすべてBorel集合であると考えてしまって問題はない． さて，我々はすべてのBorel集合に対して確率の計算が行えることを要請したいわけだが，確率の計算はあくまで元の確率の確率測度Pによってしか行えないので，写像XによりBorel集合に写される要素の集合が，必ず可測集合でなければならない．つまり，標本空間\\Omegaからその写像は任意に選定できるということにならず，ある制約が加わることになる．\n\n\n写像Xの制約\n写像X : \\Omega \\rightarrow \\mathbb R^nが \nX^{-1}(B) = \\{ \\omega ; X(\\omega) \\in B\\} \\in \\mathcal F (\\forall B \\in \\mathcal B(\\mathbb R^n))\n を満たす必要がある．このときXを\\mathcal F可測写像と呼ぶ． \nこの図を見れば分かるが，逆写像が\\mathcal Fに戻ってくることを要請している．\nここでこの写像は単に実確率変数と呼ばれる． このように実確率変数の導入により標本空間\\Omegaが \\mathbb R^nに写される． なので可測空間が置き換えられたと考えて良い．\n\n\n確率分布の定義\n確率変数Xについて， \nP_X(B) = P(X^{-1}(B)) = P(\\{ \\omega ; X(\\omega) \\in B \\}) , (B \\in \\mathcal B)\n により定まる可測空間(\\mathbb R^n , \\mathcal B^n)上の確率測度P_Xを確率変数Xの確率分布とよぶ． しばしばP(X^{-1}(B))はP(X \\in B)と略記される． 一応確率分布関数と確率密度関数の定義も書いておく \nF_X(x) = P_X((-\\infty , x]) =  P(X \\le x)\n \nf_X(x) = \\frac{\\partial^n}{\\partial x_1 ... \\partial x_n} F_X(x)\n ## 一般の確率変数 実確率変数を導入することによって確率論的な記述が十分に可能になる例は多いが，確率過程に議論を拡張する場合，標本空間からの写像先を，実数空間から一般の空間に拡張しておく必要が生じる． Sを一般の空間として，実確率変数における写像X : \\Omega \\rightarrow \\mathbb R^nをX \\rightarrow Sに拡張することを考える． 写像先であるSを一般の空間に拡張する場合，Borel加法族に相当する部分集合族を考えなければ定義を拡張できない． このためSは位相空間(距離に依存せず，開集合のルールを定めることで「近さ」や「つながり」を表現できるようにした空間)であるものとしBorel加法族，Borel集合を一般化して，次の定義を導入しよう．\n\n\nS値位相確率変数の定義\nSを一般の位相空間とし，Sの開部分集合族が定義されているものとする． 1. Sの開部分集合族の要素をすべて含む最小の\\sigma-加法族を\\mathcal B(S)と表し，Sの位相的Borel加法族とよび，その要素を位相的Borel集合とよぶ． 2.  X^{-1}(B) = \\{ \\omega ; X(\\omega) \\in B\\} \\in \\mathcal F (\\forall B \\in \\mathcal B(S)) を満たすとき，XをS値位相確率変数とよぶ．\nSが位相空間であると仮定することは実用的な応用を考える上では特に問題のある制約ではないと言ってよい．\n補足：この概念は[[学習/Zawa25721_documents/Published/StochasticDifferentialEquations/5|5]]で再登場する．",
+    "crumbs": [
+      "Home",
+      "StochasticDifferentialEquations",
+      "確率論の概要(1)"
     ]
   },
   {
@@ -784,154 +796,40 @@
     ]
   },
   {
-    "objectID": "Published/PR/3.html",
-    "href": "Published/PR/3.html",
-    "title": "誤差評価に基づく学習",
+    "objectID": "Published/PR/4.html",
+    "href": "Published/PR/4.html",
+    "title": "識別部の設計",
     "section": "",
-    "text": "前回で解説したパーセプトロンの学習規則の欠点は線形分離可能であること，すなわち誤識別を０にする線形識別関数が存在するkとを前提としなければならない点にある．線形分離不可能な学習パターンに対しては誤り訂正の手続きを無限に繰り返し，解に到達できない． そこで線形分離不可能な場合にも適応できる一般的な学習アルゴリズムをこれから学んでいく．この基本的な枠組みは評価関数を定義し，それを最小化するという考えに基づいている．極めて重要な事実として以下で述べる学習アルゴリズムはいずれもベイズ決定則と密接に関係していることを書いておく．\n学習パターンがn個のパターンx_1 ,..., x_nからなるとする．今，p番目のパターンx_pを入力したときのi番目の識別関数の望ましい出力をb_{ip}として定めておく．このb_{ip}を教師信号と呼ぶ．さらにc個の識別関数の出力値をベクトル(g_1(x_p), g_2(x_p) ,..., g_c(x_p))^Tで表すと(b_{1p},b_{2p} ,..., b_{cp})^Tと表される．このベクトルで表された教師信号を教師ベクトルと呼ぶ．\n識別関数の性質から， \nb_{ip} &gt; b_{jp} , (j \\ne i , x_p \\in \\omega_i)\n となるように設定されなければならない．（値が大きいほうが採用されるので．） クラス\\omega_iに属するすべてのパターンに対して同一の教師ベクトルt_i = (b_1 ,..., b_i , ... , b_c)を割り当てることにすれば，教師ベクトルとしては，c個を用意すればよい．このベクトルにはワンホットベクトルなどがあげられる．\n入力パターンx_pに対する実際の出力と教師信号との誤差\\epsilon_{ip}は \n\\epsilon_{ip} = g_i(x_p) - b_{ip}\n であり，この二乗和を評価関数J_pとして定義する． \\sum_{p=1}^n J_{p}を最小化する手法を二乗誤差最小学習という．\nこれの解は，X = (x_1 , x_2 , ... ,x_n)^T , b_i = (b_{i1} , ... , b_{in})^Tを用いると \nw_i = (X^TX)^{-1} X^T b_i\n となる．これは厳密解だが，X^{T}Xが正則でない場合には適応できず，また特徴量数d(xの次元数)が大きい場合には計算量が膨大になるので，実用的ではない． そこで代わりの手法として，逐次近似によって重みを決定する方法について述べる．この種の方法で最もよく用いられるのは最急降下法である．\n\n\n最急降下法とは重みを \nw^{(k+1)} = w^{(k)} - \\eta \\nabla J(w^{(k)}))\n と更新することだが，これがなぜうまくいくのかを説明する． J(w^{(k+1)}) &lt; J(w^{(k)})であることを示せば良い． J(w  + \\Delta w)を一次テイラー近似すると \nJ(w + \\Delta w) \\approx J(w) + \\nabla J(w)^T \\Delta w\n であるが，\\Delta w = - \\eta \\nabla J(w)を代入すると \nJ(w - \\eta \\nabla J(w)) \\approx J(w) - |\\nabla J(w)|^2\n となる．このとき\\eta |\\nabla J(w)|^2は\\eta &gt; 0 のとき必ず正になるので 適切な学習率をやれば必ず損失関数は減ることがわかる．\n\n\n\n\nw_i^{(k+1)} = w_i^{(k)} - \\frac 1 n\\sum_j ^n \\eta \\nabla J_j(w_i^{(k)}))\n と一括で更新する手法がバッチ学習である． これに対して \nw_i^{(k+1)} = w_i^{(k)} - \\eta \\nabla J_p(w_i^{(k)}))\n とパターンが示されるたびに更新することも可能である．この場合オンライン学習と呼ばれる．\n中間的な手法としてミニバッチ学習がある．",
+    "text": "P(\\omega_i | x)は未知パターンxが入力されたとき，その所属するクラスが\\omega_iである確からさを示している．したがってxを識別する際に事後確率P(\\omega_i | x)が最大となる\\omega_iを識別結果として出力するのが最も自然である． \n\\max_{i = 1 ,...,c} \\{ P(\\omega_i | x) \\} =P(\\omega_k | x) , x\\in \\omega_k\n が識別方となる．このような識別法をベイズ決定則と呼ぶ． NN法に当てはめて考えるとDをP(\\omega_i | x)に変えたと解釈できる ベイズの定理を用いると \ng_i(x) = p(x | \\omega_i) p(\\omega_i)\n となる，あるいは対数をとって \ng_i(x) = \\log p(x | \\omega_i) + \\log p(\\omega_i)\n としてもよい． ## ベイズ決定則の具体例：多次元正規分布 ベイズ決定則の具体例として，尤度が多次元正規分布の場合を考える．\n\np(x | \\omega_i) = \\frac{1}{(2\\pi)^{\\frac d 2} |\\Sigma_i|^{\\frac 1 2}} \\exp{\\left( -\\frac 1 2 (x - m_i)^T\\Sigma_i^{-1}(x - m_i) \\right)}\n これを識別関数の式に代入し,さらに比較に関係のない項を省くと\n\ng_i(x) = (x - m_i)^T \\Sigma_i^{-1}(x - m_i) - \\frac 12\\log|\\Sigma_i|+ p(w_i)  \n となり，識別関数はxについての二次関数になることが分かる． \nD^2_M =  (x - m_i)^T \\Sigma_i^{-1}(x - m_i)\n\nとするとD_Mはマハラノビス汎距離と呼ばれる．\n次に全クラスで分散共分散行列が等しい場合を考える． \n\\Sigma_i = \\Sigma_0\n とおき，比較に関係のない項を省略すると \ng_i(x) = x^T\\Sigma_0^{-1} m_i - \\frac 1 2 m_i^T \\Sigma_0^{-1}m_i + \\log p(\\omega_i)\n となる．これは明らかに線形識別関数である．\nここで，\\Sigma_0を特徴量同士には相関がなく，分散が等しいとする．さらに，事前確率が各クラスで等しいとする(p(w_i) = \\frac 1 c). そうするならば \ng_i = m_i^T x - \\frac 1 2 |m_i|^2\n としてよい．これはNN法で用いた最小距離識別法と一致する．\n教科書にある最尤推定法はよく知られているので省略する．",
     "crumbs": [
       "Home",
       "PR",
-      "誤差評価に基づく学習"
+      "識別部の設計"
     ]
   },
   {
-    "objectID": "Published/PR/3.html#二乗誤差最小化学習",
-    "href": "Published/PR/3.html#二乗誤差最小化学習",
-    "title": "誤差評価に基づく学習",
+    "objectID": "Published/PR/4.html#ベイズ決定則",
+    "href": "Published/PR/4.html#ベイズ決定則",
+    "title": "識別部の設計",
     "section": "",
-    "text": "前回で解説したパーセプトロンの学習規則の欠点は線形分離可能であること，すなわち誤識別を０にする線形識別関数が存在するkとを前提としなければならない点にある．線形分離不可能な学習パターンに対しては誤り訂正の手続きを無限に繰り返し，解に到達できない． そこで線形分離不可能な場合にも適応できる一般的な学習アルゴリズムをこれから学んでいく．この基本的な枠組みは評価関数を定義し，それを最小化するという考えに基づいている．極めて重要な事実として以下で述べる学習アルゴリズムはいずれもベイズ決定則と密接に関係していることを書いておく．\n学習パターンがn個のパターンx_1 ,..., x_nからなるとする．今，p番目のパターンx_pを入力したときのi番目の識別関数の望ましい出力をb_{ip}として定めておく．このb_{ip}を教師信号と呼ぶ．さらにc個の識別関数の出力値をベクトル(g_1(x_p), g_2(x_p) ,..., g_c(x_p))^Tで表すと(b_{1p},b_{2p} ,..., b_{cp})^Tと表される．このベクトルで表された教師信号を教師ベクトルと呼ぶ．\n識別関数の性質から， \nb_{ip} &gt; b_{jp} , (j \\ne i , x_p \\in \\omega_i)\n となるように設定されなければならない．（値が大きいほうが採用されるので．） クラス\\omega_iに属するすべてのパターンに対して同一の教師ベクトルt_i = (b_1 ,..., b_i , ... , b_c)を割り当てることにすれば，教師ベクトルとしては，c個を用意すればよい．このベクトルにはワンホットベクトルなどがあげられる．\n入力パターンx_pに対する実際の出力と教師信号との誤差\\epsilon_{ip}は \n\\epsilon_{ip} = g_i(x_p) - b_{ip}\n であり，この二乗和を評価関数J_pとして定義する． \\sum_{p=1}^n J_{p}を最小化する手法を二乗誤差最小学習という．\nこれの解は，X = (x_1 , x_2 , ... ,x_n)^T , b_i = (b_{i1} , ... , b_{in})^Tを用いると \nw_i = (X^TX)^{-1} X^T b_i\n となる．これは厳密解だが，X^{T}Xが正則でない場合には適応できず，また特徴量数d(xの次元数)が大きい場合には計算量が膨大になるので，実用的ではない． そこで代わりの手法として，逐次近似によって重みを決定する方法について述べる．この種の方法で最もよく用いられるのは最急降下法である．\n\n\n最急降下法とは重みを \nw^{(k+1)} = w^{(k)} - \\eta \\nabla J(w^{(k)}))\n と更新することだが，これがなぜうまくいくのかを説明する． J(w^{(k+1)}) &lt; J(w^{(k)})であることを示せば良い． J(w  + \\Delta w)を一次テイラー近似すると \nJ(w + \\Delta w) \\approx J(w) + \\nabla J(w)^T \\Delta w\n であるが，\\Delta w = - \\eta \\nabla J(w)を代入すると \nJ(w - \\eta \\nabla J(w)) \\approx J(w) - |\\nabla J(w)|^2\n となる．このとき\\eta |\\nabla J(w)|^2は\\eta &gt; 0 のとき必ず正になるので 適切な学習率をやれば必ず損失関数は減ることがわかる．\n\n\n\n\nw_i^{(k+1)} = w_i^{(k)} - \\frac 1 n\\sum_j ^n \\eta \\nabla J_j(w_i^{(k)}))\n と一括で更新する手法がバッチ学習である． これに対して \nw_i^{(k+1)} = w_i^{(k)} - \\eta \\nabla J_p(w_i^{(k)}))\n とパターンが示されるたびに更新することも可能である．この場合オンライン学習と呼ばれる．\n中間的な手法としてミニバッチ学習がある．",
+    "text": "P(\\omega_i | x)は未知パターンxが入力されたとき，その所属するクラスが\\omega_iである確からさを示している．したがってxを識別する際に事後確率P(\\omega_i | x)が最大となる\\omega_iを識別結果として出力するのが最も自然である． \n\\max_{i = 1 ,...,c} \\{ P(\\omega_i | x) \\} =P(\\omega_k | x) , x\\in \\omega_k\n が識別方となる．このような識別法をベイズ決定則と呼ぶ． NN法に当てはめて考えるとDをP(\\omega_i | x)に変えたと解釈できる ベイズの定理を用いると \ng_i(x) = p(x | \\omega_i) p(\\omega_i)\n となる，あるいは対数をとって \ng_i(x) = \\log p(x | \\omega_i) + \\log p(\\omega_i)\n としてもよい． ## ベイズ決定則の具体例：多次元正規分布 ベイズ決定則の具体例として，尤度が多次元正規分布の場合を考える．\n\np(x | \\omega_i) = \\frac{1}{(2\\pi)^{\\frac d 2} |\\Sigma_i|^{\\frac 1 2}} \\exp{\\left( -\\frac 1 2 (x - m_i)^T\\Sigma_i^{-1}(x - m_i) \\right)}\n これを識別関数の式に代入し,さらに比較に関係のない項を省くと\n\ng_i(x) = (x - m_i)^T \\Sigma_i^{-1}(x - m_i) - \\frac 12\\log|\\Sigma_i|+ p(w_i)  \n となり，識別関数はxについての二次関数になることが分かる． \nD^2_M =  (x - m_i)^T \\Sigma_i^{-1}(x - m_i)\n\nとするとD_Mはマハラノビス汎距離と呼ばれる．\n次に全クラスで分散共分散行列が等しい場合を考える． \n\\Sigma_i = \\Sigma_0\n とおき，比較に関係のない項を省略すると \ng_i(x) = x^T\\Sigma_0^{-1} m_i - \\frac 1 2 m_i^T \\Sigma_0^{-1}m_i + \\log p(\\omega_i)\n となる．これは明らかに線形識別関数である．\nここで，\\Sigma_0を特徴量同士には相関がなく，分散が等しいとする．さらに，事前確率が各クラスで等しいとする(p(w_i) = \\frac 1 c). そうするならば \ng_i = m_i^T x - \\frac 1 2 |m_i|^2\n としてよい．これはNN法で用いた最小距離識別法と一致する．\n教科書にある最尤推定法はよく知られているので省略する．",
     "crumbs": [
       "Home",
       "PR",
-      "誤差評価に基づく学習"
+      "識別部の設計"
     ]
   },
   {
-    "objectID": "Published/PR/3.html#widrow-hoff-の学習規則",
-    "href": "Published/PR/3.html#widrow-hoff-の学習規則",
-    "title": "誤差評価に基づく学習",
-    "section": "Widrow-Hoff の学習規則",
-    "text": "Widrow-Hoff の学習規則\nJを具体的な形として示し，それをこの最急降下法に代入したものを Widrow-Hoffの学習規則という．\n具体的には \nw_i \\leftarrow w - \\eta \\frac 1 n \\sum_j^n (w_i^T x_j - b_{ij})x_j\n が更新法則である．",
+    "objectID": "Published/PR/4.html#識別関数の設計",
+    "href": "Published/PR/4.html#識別関数の設計",
+    "title": "識別部の設計",
+    "section": "識別関数の設計",
+    "text": "識別関数の設計\n\n線形識別関数の設計\nまず識別関数に対する評価を表す関数をJとおく．境界となる超平面を定めることは，その法線ベクトルで表される軸と軸上の境界点を定めることと等価である．だが，超平面の評価は難しいので，その軸によって表される１次元空間上での各クラス\\omega_i の平均と分散をそれぞれ\\tilde m_i , \\tilde \\sigma_iとする.  クラス数が2の場合を考えると \nJ = J(\\tilde m_1 , \\tilde m_2 , \\tilde \\sigma_1, \\tilde \\sigma_2)\n である．これを最大化しよう． 計算は省略するが，チェーンルールを用いると \nw \\propto (s \\Sigma_1 + (1 - s)\\Sigma_2)^{-1} (m_1 - m_2)\n ただし \ns = \\frac{ \\frac{ \\partial J}{\\partial \\tilde\\sigma_1^2}}{\\frac{ \\partial J}{\\partial \\tilde\\sigma_1^2}  + \\frac{ \\partial J}{\\partial \\tilde\\sigma_2^2} }\n である．\n### 線形識別関数を用いた多クラスの認識\n多クラス識別について考える 1. 任意のクラス\\omega_i , \\omega_jが線形分離可能な場合 このときクラス\\omega_iと\\omega_jを識別する線形識別関数g_{ij}(x)が存在し \n\\begin{equation}\n  \\left\\{\n  \\begin{alignedat}{2}   \n    x \\in \\omega_i \\rightarrow g_{ij} &gt; 0  \\\\\n    x \\in \\omega_j \\rightarrow g_{ij} &lt; 0\n  \\end{alignedat}\n  \\right.\n\\end{equation}\n を満たす.同様にして\\frac {c(c-1)}{2}個の識別関数を定義できる．\nまたこの変法として，多数決法もよく知られている．まずすべてのi (i = 1,...,c)について \ng_{ij} &gt; 0\n が成り立つj (j = 1 ,...,c)の個数を求め，これを得票数N(i)として識別則を \nN(i) &gt; N(j) \\rightarrow x \\in \\omega_i\n\n\n\n具体例\nクラスの総数を3とし，それぞれをクラス \\omega_1 ，クラス \\omega_2 ，クラス \\omega_3 とする． ある入力 x に対し，1対1の識別関数の出力に関して，次の関係が得られた状況を考える．\n\\omega_1 と \\omega_2 の比較において，g_{12} &gt; 0 が成り立つとする． \\omega_1 と \\omega_3 の比較において，g_{13} &gt; 0 が成り立つとする． \\omega_2 と \\omega_1 の比較において，g_{21} &gt; 0 は成り立たないとする． \\omega_2 と \\omega_3 の比較において，g_{23} &gt; 0 が成り立つとする． \\omega_3 と \\omega_1 の比較において，g_{31} &gt; 0 は成り立たないとする． \\omega_3 と \\omega_2 の比較において，g_{32} &gt; 0 は成り立たないとする．\nなお，同一クラスの比較である g_{11} ， g_{22} ， g_{33} はすべて 0 であり，これらも正にはならないとする．\nこのとき，各クラス i について，g_{ij} &gt; 0 が成り立つ j の個数，すなわち得票数 N(i) を算出する． \\omega_1 については，g_{12} &gt; 0 と g_{13} &gt; 0 の2つが成り立つため，得票数 N(1) は 2 となる． \\omega_2 については，g_{23} &gt; 0 の1つのみが成り立つため，得票数 N(2) は 1 となる． \\omega_3 については，条件を満たす j が存在しないため，得票数 N(3) は 0 となる． 得票数の結果を比較すると，N(1) &gt; N(2) および N(1) &gt; N(3) が成り立つため，N(1) が最大となる．したがって，識別則に基づいて，この入力 x はクラス \\omega_1 に属すると判定される．",
     "crumbs": [
       "Home",
       "PR",
-      "誤差評価に基づく学習"
+      "識別部の設計"
     ]
-  },
-  {
-    "objectID": "Published/PR/3.html#誤差評価とパーセプトロン",
-    "href": "Published/PR/3.html#誤差評価とパーセプトロン",
-    "title": "誤差評価に基づく学習",
-    "section": "誤差評価とパーセプトロン",
-    "text": "誤差評価とパーセプトロン\nWidrow-Hoffの学習規則とパーセプトロンを比較してみよう． まず，重みの修正は誤差 \\epsilon_{ip} = g_i(x_p) - b_{ip} に比例して行われる（最急降下法に基づく更新式は w_i \\leftarrow w_i - \\eta \\epsilon_{ip} x_p となる）．ここで，しきい値関数 T による処理を g_i(x_p) に施すと，g_i(x_p) の出力は1または0の2値となる．この線形加重和としきい値処理という単位はしきい値論理ユニットと呼ばれ，パーセプトロンを始めとする学習機能を持つ多層ネットワークの基本的構成要素と考えられる．\n\n\\begin{equation}\n  \\left\\{\n  \\begin{alignedat}{2}   \n    w_i^T x &gt; 0  , (x \\in \\omega_i)\\\\\n    w_i^T x &lt; 0 , (x \\notin \\omega_i)\n  \\end{alignedat}\n  \\right.\n\\end{equation}\n\nとなるように重みベクトルを設定すれば，しきい値処理後の出力は\n\n\\begin{equation}\n  \\left\\{\n  \\begin{alignedat}{2}   \n    g_i(x) = 1  , (x \\in \\omega_i)\\\\\n    g_i(x) = 0 , (x \\notin \\omega_i)\n  \\end{alignedat}\n  \\right.\n\\end{equation}\n\nとなる．これは最後に最大値を選択するので（マルチクラス・パーセプトロンの場合），これで判別はできる． このとき教師信号をワンホットベクトルとすると，誤認識した場合（本来クラス \\omega_i に属するパターン x_p を，誤ってクラス \\omega_j と判定した場合）は\n\n\\begin{equation}\n  \\left\\{\n  \\begin{alignedat}{2}   \n    g_i(x_p) = 0 , \\quad b_{ip} = 1 \\quad (\\text{正解クラス } i) \\\\\n    g_j(x_p) = 1 , \\quad b_{jp} = 0 \\quad (\\text{誤って選択されたクラス } j)\n  \\end{alignedat}\n  \\right.\n\\end{equation}\n\nとなる． それぞれの誤差を計算すると， * クラス i においては，\\epsilon_{ip} = g_i(x_p) - b_{ip} = 0 - 1 = -1 * クラス j においては，\\epsilon_{jp} = g_j(x_p) - b_{jp} = 1 - 0 = 1\nとなるので，これを最急降下法に基づく Widrow-Hoff の更新式 w \\leftarrow w - \\eta \\epsilon x_p に当てはめると\n\n\\begin{equation}\n  \\left\\{\n  \\begin{alignedat}{2}   \nw_i \\leftarrow w_i - \\eta (-1) x_p = w_i + \\eta x_p \\\\\nw_j \\leftarrow w_j - \\eta (1) x_p = w_j - \\eta x_p\n  \\end{alignedat}\n  \\right.\n\\end{equation}\n\nが得られる．これは誤り訂正学習に基づくパーセプトロンの学習規則そのものである． したがって，しきい値処理を導入したWidrow-Hoffの学習規則は，パーセプトロンの学習規則を内包している（その一種である）と考えられる．\n（逆にパーセプトロンの学習規則も評価関数最小化のアルゴリズムとして導けるが，省略する．）\n\nおわりに\n教科書ではニューラルネットワークについて述べられているが，ここでは説明しない．知っているのとMLPの方で紹介したほうが良いと判断したためである．まあこの次の章のベイズ決定則を早くやりたいからというのが主な理由だが．",
-    "crumbs": [
-      "Home",
-      "PR",
-      "誤差評価に基づく学習"
-    ]
-  },
-  {
-    "objectID": "Published/PR/1.html",
-    "href": "Published/PR/1.html",
-    "title": "パターン認識とは",
-    "section": "",
-    "text": "これはテスト勉強用に残すやつです．時間があまりないので，細かい式変形などは飛ばします（疑問に思ったところはかきますが ）．教科書は「わかりやすいパターン認識」を使います．（結構古典的名著って感じがする．コードを書いてほしい．） ## パターン認識とはなにか\nパターン認識とは，観測されたパターンを予め定められた複数の概念のうちの一つに対応させる処理のことである． 例をあげるなら，アルファベットの認識であれば，画像データから26個のクラスのいずれかに対応させる処理ということになる．\n機械でパターン認識系を構成するとき\nflowchart LR\n入力パターン --&gt; 前処理部\n前処理部 --&gt; 特徴抽出部\n特徴抽出部 --&gt; 識別演算部\n識別演算部 --&gt; 出力\n\nsubgraph 識別部\n     識別演算部 &lt;--&gt;|照合| 識別辞書\nend\nという流れの形を取ることが多い． 前処理と特徴抽出は理解できるので置いておいて， 識別演算部と識別辞書について考える，識別演算部はどのクラスに一番近いかを計算するところである．それはスコアでもいいし，確率的でも良い． その識別演算部にデータを渡す（相対的な距離を測るためのもの）ものが辞書部である．",
-    "crumbs": [
-      "Home",
-      "PR",
-      "パターン認識とは"
-    ]
-  },
-  {
-    "objectID": "Published/PR/1.html#はじめに",
-    "href": "Published/PR/1.html#はじめに",
-    "title": "パターン認識とは",
-    "section": "",
-    "text": "これはテスト勉強用に残すやつです．時間があまりないので，細かい式変形などは飛ばします（疑問に思ったところはかきますが ）．教科書は「わかりやすいパターン認識」を使います．（結構古典的名著って感じがする．コードを書いてほしい．） ## パターン認識とはなにか\nパターン認識とは，観測されたパターンを予め定められた複数の概念のうちの一つに対応させる処理のことである． 例をあげるなら，アルファベットの認識であれば，画像データから26個のクラスのいずれかに対応させる処理ということになる．\n機械でパターン認識系を構成するとき\nflowchart LR\n入力パターン --&gt; 前処理部\n前処理部 --&gt; 特徴抽出部\n特徴抽出部 --&gt; 識別演算部\n識別演算部 --&gt; 出力\n\nsubgraph 識別部\n     識別演算部 &lt;--&gt;|照合| 識別辞書\nend\nという流れの形を取ることが多い． 前処理と特徴抽出は理解できるので置いておいて， 識別演算部と識別辞書について考える，識別演算部はどのクラスに一番近いかを計算するところである．それはスコアでもいいし，確率的でも良い． その識別演算部にデータを渡す（相対的な距離を測るためのもの）ものが辞書部である．",
-    "crumbs": [
-      "Home",
-      "PR",
-      "パターン認識とは"
-    ]
-  },
-  {
-    "objectID": "Published/PR/1.html#特徴ベクトルと特徴空間",
-    "href": "Published/PR/1.html#特徴ベクトルと特徴空間",
-    "title": "パターン認識とは",
-    "section": "特徴ベクトルと特徴空間",
-    "text": "特徴ベクトルと特徴空間\n識別部にデータを通すためにはまず特徴を数値化しないといけない．例えば文字認識の場合は，文字線の傾き，幅，曲率などが用いられたりする． これらを組にしたベクトルを識別部に入れる．いまd個の特徴を用いることにすると，パターンは次の式のようなd次元ベクトルxとして表される．\n\nx = (x_1, ... x_d)^t\n\n上のベクトルを特徴ベクトル，特徴ベクトルによってはられる空間を特徴空間と呼ぶ． c個のクラスが与えられていて．各クラスを\\omega_1 ,... , \\omega_cで表す． 同じクラスに属していれば，特徴が近いということなので，それは特徴空間において距離の近いところにいると解釈できる．このベクトルで構成される塊をクラスタと呼ぶ．\n例として手書き文字数字認識に適応してみる． 5 \\times 5のメッシュを特徴とする． 特徴ベクトルの要素は黒のとき1,白のとき0とする． パターンの数は合計して2^{25}ある.最も単純な識別系の構成法はすべてのパターンを，クラス名とともに識別辞書として格納することである． このパターンは１，このパターンは７みたいな感じで． ただし，この全パターンのうちには，数字として意味をなさないものも多数含まれている．このようなパターンに対しては11番目のパターンとして，リジェクトを割り当てれば良い．\nしかしこの手法は記憶容量，識別時間の点で非現実的である． 策として，すべての可能性を網羅する代わりに代表的なパターンのみを記憶する方法が考えられる．この代表的なパターンのことをプロトタイプと呼ぶ． 代表的とかいてあるので，あたかもクラスにつき1つだけのように見えるが，プロトタイプはクラスにつき複数定義できるし，それが一般的である． 入力パターンは特徴空間上でこれらのプロトタイプと比較され，最も距離が近いプロトタイプ，すなわち最近傍の属するクラスを識別結果として出力する．この手法のことをNN法(Nearest Neighbor rule)という．\n\nNN法の定式化\n今n個のパターンがその所属するクラスとともに(x_1,\\theta_1), ..., (x_n , \\theta_n)で与えられている．ただし\\{ \\omega_1 ,..., \\omega_c \\}．一般にc \\ll nである．(数字識別ならc=10だが，n = 100000など大量のパターンを用意する．) ここでD(x,x_p)をxとx_pの距離とすると \n\\theta_p = \\arg \\min_{p = 1,2,...n} {D(x,x_p)}\n \\theta_pがxのクラスとなる．\nこれを拡張したもので，距離をすべて測って，上位k個のプロトタイプを取り，多数決した結果を識別結果として出力する方法がある．これをk-NN法と呼ぶ．上のNN法は1-NN法である．",
-    "crumbs": [
-      "Home",
-      "PR",
-      "パターン認識とは"
-    ]
-  },
-  {
-    "objectID": "Published/PR/1.html#特徴空間の分割",
-    "href": "Published/PR/1.html#特徴空間の分割",
-    "title": "パターン認識とは",
-    "section": "特徴空間の分割",
-    "text": "特徴空間の分割\nそれでは機械にパターン認識機能を持たせるためにプロトタイプをどのようにして設定すればよいのか．もっとも単純な方法は収集した全パターンをプロトタイプとすることである．これは全数記憶方式と呼ばれる．上で紹介したn = 100000すべてのデータの距離を測るNN法は全数記憶方式である．だがこれは少し効率が悪い．もう少し効率のよい手法として，少数のパターンをプロトタイプとして設定する方法が考えられる． 例えば特徴空間の重心をプロトタイプとして選べば，効率よく分離できるのではないか．クラス間を分断する境界を決定境界と呼ぶ． 決定境界はd次元特徴空間の際はd-1次元部分空間である．この部分空間を超平面とよぶことが多い．",
-    "crumbs": [
-      "Home",
-      "PR",
-      "パターン認識とは"
-    ]
-  },
-  {
-    "objectID": "Published/PR/1.html#おわりに",
-    "href": "Published/PR/1.html#おわりに",
-    "title": "パターン認識とは",
-    "section": "おわりに",
-    "text": "おわりに\n全数記憶方式ってなんだろうなって初めて勉強したとき考えました．けっこう省略している部分が多いので教科書を読んだほうが良いと思います．",
-    "crumbs": [
-      "Home",
-      "PR",
-      "パターン認識とは"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Zawaの勉強記録",
-    "section": "",
-    "text": "2026-08-17: パターン認識コンテンツの作成予定"
-  },
-  {
-    "objectID": "index.html#お知らせ",
-    "href": "index.html#お知らせ",
-    "title": "Zawaの勉強記録",
-    "section": "",
-    "text": "2026-08-17: パターン認識コンテンツの作成予定"
-  },
-  {
-    "objectID": "index.html#はじめに",
-    "href": "index.html#はじめに",
-    "title": "Zawaの勉強記録",
-    "section": "はじめに",
-    "text": "はじめに\nはじめに"
-  },
-  {
-    "objectID": "index.html#githubページ",
-    "href": "index.html#githubページ",
-    "title": "Zawaの勉強記録",
-    "section": "GitHubページ",
-    "text": "GitHubページ\nGitHub Repository：指摘などはここからIssueを立ててください．"
-  },
-  {
-    "objectID": "index.html#公開済みコンテンツ",
-    "href": "index.html#公開済みコンテンツ",
-    "title": "Zawaの勉強記録",
-    "section": "公開済みコンテンツ",
-    "text": "公開済みコンテンツ\n\n\nCalculusOfVariations\n\n\nPR\n\n\nStochasticDifferentialEquations\n\n\nベイズ推論\n\n\n平衡系統計力学\n\n\n情報幾何学\n\n\n機械学習理論 (記事なし)\n\n\n最適化数学"
-  },
-  {
-    "objectID": "News/pr.html",
-    "href": "News/pr.html",
-    "title": "パターン認識コンテンツの作成予定",
-    "section": "",
-    "text": "そろそろ大学のテストが近いので，パターン認識のメモと演習を一気に書いてアップロードしようと思います．あと最適化数学も近いのでこいつも一気に勉強します．（他にも色々分野はあるがまあ大丈夫やろ）\n\n追記\n最適化数学すごい簡単だったので，書かなくてもいいかなってなって結局なにも書きませんでした．"
   },
   {
     "objectID": "Published/PR/2.html",
@@ -1042,39 +940,237 @@
     ]
   },
   {
-    "objectID": "Published/PR/4.html",
-    "href": "Published/PR/4.html",
-    "title": "識別部の設計",
+    "objectID": "News/pr.html",
+    "href": "News/pr.html",
+    "title": "パターン認識コンテンツの作成予定",
     "section": "",
-    "text": "P(\\omega_i | x)は未知パターンxが入力されたとき，その所属するクラスが\\omega_iである確からさを示している．したがってxを識別する際に事後確率P(\\omega_i | x)が最大となる\\omega_iを識別結果として出力するのが最も自然である． \n\\max_{i = 1 ,...,c} \\{ P(\\omega_i | x) \\} =P(\\omega_k | x) , x\\in \\omega_k\n が識別方となる．このような識別法をベイズ決定則と呼ぶ． NN法に当てはめて考えるとDをP(\\omega_i | x)に変えたと解釈できる ベイズの定理を用いると \ng_i(x) = p(x | \\omega_i) p(\\omega_i)\n となる，あるいは対数をとって \ng_i(x) = \\log p(x | \\omega_i) + \\log p(\\omega_i)\n としてもよい． ## ベイズ決定則の具体例：多次元正規分布 ベイズ決定則の具体例として，尤度が多次元正規分布の場合を考える．\n\np(x | \\omega_i) = \\frac{1}{(2\\pi)^{\\frac d 2} |\\Sigma_i|^{\\frac 1 2}} \\exp{\\left( -\\frac 1 2 (x - m_i)^T\\Sigma_i^{-1}(x - m_i) \\right)}\n これを識別関数の式に代入し,さらに比較に関係のない項を省くと\n\ng_i(x) = (x - m_i)^T \\Sigma_i^{-1}(x - m_i) - \\frac 12\\log|\\Sigma_i|+ p(w_i)  \n となり，識別関数はxについての二次関数になることが分かる． \nD^2_M =  (x - m_i)^T \\Sigma_i^{-1}(x - m_i)\n\nとするとD_Mはマハラノビス汎距離と呼ばれる．\n次に全クラスで分散共分散行列が等しい場合を考える． \n\\Sigma_i = \\Sigma_0\n とおき，比較に関係のない項を省略すると \ng_i(x) = x^T\\Sigma_0^{-1} m_i - \\frac 1 2 m_i^T \\Sigma_0^{-1}m_i + \\log p(\\omega_i)\n となる．これは明らかに線形識別関数である．\nここで，\\Sigma_0を特徴量同士には相関がなく，分散が等しいとする．さらに，事前確率が各クラスで等しいとする(p(w_i) = \\frac 1 c). そうするならば \ng_i = m_i^T x - \\frac 1 2 |m_i|^2\n としてよい．これはNN法で用いた最小距離識別法と一致する．\n教科書にある最尤推定法はよく知られているので省略する．",
+    "text": "そろそろ大学のテストが近いので，パターン認識のメモと演習を一気に書いてアップロードしようと思います．あと最適化数学も近いのでこいつも一気に勉強します．（他にも色々分野はあるがまあ大丈夫やろ）\n\n追記\n最適化数学すごい簡単だったので，書かなくてもいいかなってなって結局なにも書きませんでした．"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Zawaの勉強記録",
+    "section": "",
+    "text": "2026-08-21: パターン認識コンテンツの作成予定"
+  },
+  {
+    "objectID": "index.html#お知らせ",
+    "href": "index.html#お知らせ",
+    "title": "Zawaの勉強記録",
+    "section": "",
+    "text": "2026-08-21: パターン認識コンテンツの作成予定"
+  },
+  {
+    "objectID": "index.html#はじめに",
+    "href": "index.html#はじめに",
+    "title": "Zawaの勉強記録",
+    "section": "はじめに",
+    "text": "はじめに\nはじめに"
+  },
+  {
+    "objectID": "index.html#githubページ",
+    "href": "index.html#githubページ",
+    "title": "Zawaの勉強記録",
+    "section": "GitHubページ",
+    "text": "GitHubページ\nGitHub Repository：指摘などはここからIssueを立ててください．"
+  },
+  {
+    "objectID": "index.html#公開済みコンテンツ",
+    "href": "index.html#公開済みコンテンツ",
+    "title": "Zawaの勉強記録",
+    "section": "公開済みコンテンツ",
+    "text": "公開済みコンテンツ\n\n\nCalculusOfVariations\n\n\nPR\n\n\nPyTorch\n\n\nStochasticDifferentialEquations\n\n\nベイズ推論\n\n\n平衡系統計力学\n\n\n情報幾何学\n\n\n機械学習理論 (記事なし)\n\n\n最適化数学"
+  },
+  {
+    "objectID": "Published/PR/1.html",
+    "href": "Published/PR/1.html",
+    "title": "パターン認識とは",
+    "section": "",
+    "text": "これはテスト勉強用に残すやつです．時間があまりないので，細かい式変形などは飛ばします（疑問に思ったところはかきますが ）．教科書は「わかりやすいパターン認識」を使います．（結構古典的名著って感じがする．コードを書いてほしい．） ## パターン認識とはなにか\nパターン認識とは，観測されたパターンを予め定められた複数の概念のうちの一つに対応させる処理のことである． 例をあげるなら，アルファベットの認識であれば，画像データから26個のクラスのいずれかに対応させる処理ということになる．\n機械でパターン認識系を構成するとき\nflowchart LR\n入力パターン --&gt; 前処理部\n前処理部 --&gt; 特徴抽出部\n特徴抽出部 --&gt; 識別演算部\n識別演算部 --&gt; 出力\n\nsubgraph 識別部\n     識別演算部 &lt;--&gt;|照合| 識別辞書\nend\nという流れの形を取ることが多い． 前処理と特徴抽出は理解できるので置いておいて， 識別演算部と識別辞書について考える，識別演算部はどのクラスに一番近いかを計算するところである．それはスコアでもいいし，確率的でも良い． その識別演算部にデータを渡す（相対的な距離を測るためのもの）ものが辞書部である．",
     "crumbs": [
       "Home",
       "PR",
-      "識別部の設計"
+      "パターン認識とは"
     ]
   },
   {
-    "objectID": "Published/PR/4.html#ベイズ決定則",
-    "href": "Published/PR/4.html#ベイズ決定則",
-    "title": "識別部の設計",
+    "objectID": "Published/PR/1.html#はじめに",
+    "href": "Published/PR/1.html#はじめに",
+    "title": "パターン認識とは",
     "section": "",
-    "text": "P(\\omega_i | x)は未知パターンxが入力されたとき，その所属するクラスが\\omega_iである確からさを示している．したがってxを識別する際に事後確率P(\\omega_i | x)が最大となる\\omega_iを識別結果として出力するのが最も自然である． \n\\max_{i = 1 ,...,c} \\{ P(\\omega_i | x) \\} =P(\\omega_k | x) , x\\in \\omega_k\n が識別方となる．このような識別法をベイズ決定則と呼ぶ． NN法に当てはめて考えるとDをP(\\omega_i | x)に変えたと解釈できる ベイズの定理を用いると \ng_i(x) = p(x | \\omega_i) p(\\omega_i)\n となる，あるいは対数をとって \ng_i(x) = \\log p(x | \\omega_i) + \\log p(\\omega_i)\n としてもよい． ## ベイズ決定則の具体例：多次元正規分布 ベイズ決定則の具体例として，尤度が多次元正規分布の場合を考える．\n\np(x | \\omega_i) = \\frac{1}{(2\\pi)^{\\frac d 2} |\\Sigma_i|^{\\frac 1 2}} \\exp{\\left( -\\frac 1 2 (x - m_i)^T\\Sigma_i^{-1}(x - m_i) \\right)}\n これを識別関数の式に代入し,さらに比較に関係のない項を省くと\n\ng_i(x) = (x - m_i)^T \\Sigma_i^{-1}(x - m_i) - \\frac 12\\log|\\Sigma_i|+ p(w_i)  \n となり，識別関数はxについての二次関数になることが分かる． \nD^2_M =  (x - m_i)^T \\Sigma_i^{-1}(x - m_i)\n\nとするとD_Mはマハラノビス汎距離と呼ばれる．\n次に全クラスで分散共分散行列が等しい場合を考える． \n\\Sigma_i = \\Sigma_0\n とおき，比較に関係のない項を省略すると \ng_i(x) = x^T\\Sigma_0^{-1} m_i - \\frac 1 2 m_i^T \\Sigma_0^{-1}m_i + \\log p(\\omega_i)\n となる．これは明らかに線形識別関数である．\nここで，\\Sigma_0を特徴量同士には相関がなく，分散が等しいとする．さらに，事前確率が各クラスで等しいとする(p(w_i) = \\frac 1 c). そうするならば \ng_i = m_i^T x - \\frac 1 2 |m_i|^2\n としてよい．これはNN法で用いた最小距離識別法と一致する．\n教科書にある最尤推定法はよく知られているので省略する．",
+    "text": "これはテスト勉強用に残すやつです．時間があまりないので，細かい式変形などは飛ばします（疑問に思ったところはかきますが ）．教科書は「わかりやすいパターン認識」を使います．（結構古典的名著って感じがする．コードを書いてほしい．） ## パターン認識とはなにか\nパターン認識とは，観測されたパターンを予め定められた複数の概念のうちの一つに対応させる処理のことである． 例をあげるなら，アルファベットの認識であれば，画像データから26個のクラスのいずれかに対応させる処理ということになる．\n機械でパターン認識系を構成するとき\nflowchart LR\n入力パターン --&gt; 前処理部\n前処理部 --&gt; 特徴抽出部\n特徴抽出部 --&gt; 識別演算部\n識別演算部 --&gt; 出力\n\nsubgraph 識別部\n     識別演算部 &lt;--&gt;|照合| 識別辞書\nend\nという流れの形を取ることが多い． 前処理と特徴抽出は理解できるので置いておいて， 識別演算部と識別辞書について考える，識別演算部はどのクラスに一番近いかを計算するところである．それはスコアでもいいし，確率的でも良い． その識別演算部にデータを渡す（相対的な距離を測るためのもの）ものが辞書部である．",
     "crumbs": [
       "Home",
       "PR",
-      "識別部の設計"
+      "パターン認識とは"
     ]
   },
   {
-    "objectID": "Published/PR/4.html#識別関数の設計",
-    "href": "Published/PR/4.html#識別関数の設計",
-    "title": "識別部の設計",
-    "section": "識別関数の設計",
-    "text": "識別関数の設計\n\n線形識別関数の設計\nまず識別関数に対する評価を表す関数をJとおく．境界となる超平面を定めることは，その法線ベクトルで表される軸と軸上の境界点を定めることと等価である．だが，超平面の評価は難しいので，その軸によって表される１次元空間上での各クラス\\omega_i の平均と分散をそれぞれ\\tilde m_i , \\tilde \\sigma_iとする.  クラス数が2の場合を考えると \nJ = J(\\tilde m_1 , \\tilde m_2 , \\tilde \\sigma_1, \\tilde \\sigma_2)\n である．これを最大化しよう． 計算は省略するが，チェーンルールを用いると \nw \\propto (s \\Sigma_1 + (1 - s)\\Sigma_2)^{-1} (m_1 - m_2)\n ただし \ns = \\frac{ \\frac{ \\partial J}{\\partial \\tilde\\sigma_1^2}}{\\frac{ \\partial J}{\\partial \\tilde\\sigma_1^2}  + \\frac{ \\partial J}{\\partial \\tilde\\sigma_2^2} }\n である．\n### 線形識別関数を用いた多クラスの認識\n多クラス識別について考える 1. 任意のクラス\\omega_i , \\omega_jが線形分離可能な場合 このときクラス\\omega_iと\\omega_jを識別する線形識別関数g_{ij}(x)が存在し \n\\begin{equation}\n  \\left\\{\n  \\begin{alignedat}{2}   \n    x \\in \\omega_i \\rightarrow g_{ij} &gt; 0  \\\\\n    x \\in \\omega_j \\rightarrow g_{ij} &lt; 0\n  \\end{alignedat}\n  \\right.\n\\end{equation}\n を満たす.同様にして\\frac {c(c-1)}{2}個の識別関数を定義できる．\nまたこの変法として，多数決法もよく知られている．まずすべてのi (i = 1,...,c)について \ng_{ij} &gt; 0\n が成り立つj (j = 1 ,...,c)の個数を求め，これを得票数N(i)として識別則を \nN(i) &gt; N(j) \\rightarrow x \\in \\omega_i\n\n\n\n具体例\nクラスの総数を3とし，それぞれをクラス \\omega_1 ，クラス \\omega_2 ，クラス \\omega_3 とする． ある入力 x に対し，1対1の識別関数の出力に関して，次の関係が得られた状況を考える．\n\\omega_1 と \\omega_2 の比較において，g_{12} &gt; 0 が成り立つとする． \\omega_1 と \\omega_3 の比較において，g_{13} &gt; 0 が成り立つとする． \\omega_2 と \\omega_1 の比較において，g_{21} &gt; 0 は成り立たないとする． \\omega_2 と \\omega_3 の比較において，g_{23} &gt; 0 が成り立つとする． \\omega_3 と \\omega_1 の比較において，g_{31} &gt; 0 は成り立たないとする． \\omega_3 と \\omega_2 の比較において，g_{32} &gt; 0 は成り立たないとする．\nなお，同一クラスの比較である g_{11} ， g_{22} ， g_{33} はすべて 0 であり，これらも正にはならないとする．\nこのとき，各クラス i について，g_{ij} &gt; 0 が成り立つ j の個数，すなわち得票数 N(i) を算出する． \\omega_1 については，g_{12} &gt; 0 と g_{13} &gt; 0 の2つが成り立つため，得票数 N(1) は 2 となる． \\omega_2 については，g_{23} &gt; 0 の1つのみが成り立つため，得票数 N(2) は 1 となる． \\omega_3 については，条件を満たす j が存在しないため，得票数 N(3) は 0 となる． 得票数の結果を比較すると，N(1) &gt; N(2) および N(1) &gt; N(3) が成り立つため，N(1) が最大となる．したがって，識別則に基づいて，この入力 x はクラス \\omega_1 に属すると判定される．",
+    "objectID": "Published/PR/1.html#特徴ベクトルと特徴空間",
+    "href": "Published/PR/1.html#特徴ベクトルと特徴空間",
+    "title": "パターン認識とは",
+    "section": "特徴ベクトルと特徴空間",
+    "text": "特徴ベクトルと特徴空間\n識別部にデータを通すためにはまず特徴を数値化しないといけない．例えば文字認識の場合は，文字線の傾き，幅，曲率などが用いられたりする． これらを組にしたベクトルを識別部に入れる．いまd個の特徴を用いることにすると，パターンは次の式のようなd次元ベクトルxとして表される．\n\nx = (x_1, ... x_d)^t\n\n上のベクトルを特徴ベクトル，特徴ベクトルによってはられる空間を特徴空間と呼ぶ． c個のクラスが与えられていて．各クラスを\\omega_1 ,... , \\omega_cで表す． 同じクラスに属していれば，特徴が近いということなので，それは特徴空間において距離の近いところにいると解釈できる．このベクトルで構成される塊をクラスタと呼ぶ．\n例として手書き文字数字認識に適応してみる． 5 \\times 5のメッシュを特徴とする． 特徴ベクトルの要素は黒のとき1,白のとき0とする． パターンの数は合計して2^{25}ある.最も単純な識別系の構成法はすべてのパターンを，クラス名とともに識別辞書として格納することである． このパターンは１，このパターンは７みたいな感じで． ただし，この全パターンのうちには，数字として意味をなさないものも多数含まれている．このようなパターンに対しては11番目のパターンとして，リジェクトを割り当てれば良い．\nしかしこの手法は記憶容量，識別時間の点で非現実的である． 策として，すべての可能性を網羅する代わりに代表的なパターンのみを記憶する方法が考えられる．この代表的なパターンのことをプロトタイプと呼ぶ． 代表的とかいてあるので，あたかもクラスにつき1つだけのように見えるが，プロトタイプはクラスにつき複数定義できるし，それが一般的である． 入力パターンは特徴空間上でこれらのプロトタイプと比較され，最も距離が近いプロトタイプ，すなわち最近傍の属するクラスを識別結果として出力する．この手法のことをNN法(Nearest Neighbor rule)という．\n\nNN法の定式化\n今n個のパターンがその所属するクラスとともに(x_1,\\theta_1), ..., (x_n , \\theta_n)で与えられている．ただし\\{ \\omega_1 ,..., \\omega_c \\}．一般にc \\ll nである．(数字識別ならc=10だが，n = 100000など大量のパターンを用意する．) ここでD(x,x_p)をxとx_pの距離とすると \n\\theta_p = \\arg \\min_{p = 1,2,...n} {D(x,x_p)}\n \\theta_pがxのクラスとなる．\nこれを拡張したもので，距離をすべて測って，上位k個のプロトタイプを取り，多数決した結果を識別結果として出力する方法がある．これをk-NN法と呼ぶ．上のNN法は1-NN法である．",
     "crumbs": [
       "Home",
       "PR",
-      "識別部の設計"
+      "パターン認識とは"
+    ]
+  },
+  {
+    "objectID": "Published/PR/1.html#特徴空間の分割",
+    "href": "Published/PR/1.html#特徴空間の分割",
+    "title": "パターン認識とは",
+    "section": "特徴空間の分割",
+    "text": "特徴空間の分割\nそれでは機械にパターン認識機能を持たせるためにプロトタイプをどのようにして設定すればよいのか．もっとも単純な方法は収集した全パターンをプロトタイプとすることである．これは全数記憶方式と呼ばれる．上で紹介したn = 100000すべてのデータの距離を測るNN法は全数記憶方式である．だがこれは少し効率が悪い．もう少し効率のよい手法として，少数のパターンをプロトタイプとして設定する方法が考えられる． 例えば特徴空間の重心をプロトタイプとして選べば，効率よく分離できるのではないか．クラス間を分断する境界を決定境界と呼ぶ． 決定境界はd次元特徴空間の際はd-1次元部分空間である．この部分空間を超平面とよぶことが多い．",
+    "crumbs": [
+      "Home",
+      "PR",
+      "パターン認識とは"
+    ]
+  },
+  {
+    "objectID": "Published/PR/1.html#おわりに",
+    "href": "Published/PR/1.html#おわりに",
+    "title": "パターン認識とは",
+    "section": "おわりに",
+    "text": "おわりに\n全数記憶方式ってなんだろうなって初めて勉強したとき考えました．けっこう省略している部分が多いので教科書を読んだほうが良いと思います．",
+    "crumbs": [
+      "Home",
+      "PR",
+      "パターン認識とは"
+    ]
+  },
+  {
+    "objectID": "Published/PR/3.html",
+    "href": "Published/PR/3.html",
+    "title": "誤差評価に基づく学習",
+    "section": "",
+    "text": "前回で解説したパーセプトロンの学習規則の欠点は線形分離可能であること，すなわち誤識別を０にする線形識別関数が存在するkとを前提としなければならない点にある．線形分離不可能な学習パターンに対しては誤り訂正の手続きを無限に繰り返し，解に到達できない． そこで線形分離不可能な場合にも適応できる一般的な学習アルゴリズムをこれから学んでいく．この基本的な枠組みは評価関数を定義し，それを最小化するという考えに基づいている．極めて重要な事実として以下で述べる学習アルゴリズムはいずれもベイズ決定則と密接に関係していることを書いておく．\n学習パターンがn個のパターンx_1 ,..., x_nからなるとする．今，p番目のパターンx_pを入力したときのi番目の識別関数の望ましい出力をb_{ip}として定めておく．このb_{ip}を教師信号と呼ぶ．さらにc個の識別関数の出力値をベクトル(g_1(x_p), g_2(x_p) ,..., g_c(x_p))^Tで表すと(b_{1p},b_{2p} ,..., b_{cp})^Tと表される．このベクトルで表された教師信号を教師ベクトルと呼ぶ．\n識別関数の性質から， \nb_{ip} &gt; b_{jp} , (j \\ne i , x_p \\in \\omega_i)\n となるように設定されなければならない．（値が大きいほうが採用されるので．） クラス\\omega_iに属するすべてのパターンに対して同一の教師ベクトルt_i = (b_1 ,..., b_i , ... , b_c)を割り当てることにすれば，教師ベクトルとしては，c個を用意すればよい．このベクトルにはワンホットベクトルなどがあげられる．\n入力パターンx_pに対する実際の出力と教師信号との誤差\\epsilon_{ip}は \n\\epsilon_{ip} = g_i(x_p) - b_{ip}\n であり，この二乗和を評価関数J_pとして定義する． \\sum_{p=1}^n J_{p}を最小化する手法を二乗誤差最小学習という．\nこれの解は，X = (x_1 , x_2 , ... ,x_n)^T , b_i = (b_{i1} , ... , b_{in})^Tを用いると \nw_i = (X^TX)^{-1} X^T b_i\n となる．これは厳密解だが，X^{T}Xが正則でない場合には適応できず，また特徴量数d(xの次元数)が大きい場合には計算量が膨大になるので，実用的ではない． そこで代わりの手法として，逐次近似によって重みを決定する方法について述べる．この種の方法で最もよく用いられるのは最急降下法である．\n\n\n最急降下法とは重みを \nw^{(k+1)} = w^{(k)} - \\eta \\nabla J(w^{(k)}))\n と更新することだが，これがなぜうまくいくのかを説明する． J(w^{(k+1)}) &lt; J(w^{(k)})であることを示せば良い． J(w  + \\Delta w)を一次テイラー近似すると \nJ(w + \\Delta w) \\approx J(w) + \\nabla J(w)^T \\Delta w\n であるが，\\Delta w = - \\eta \\nabla J(w)を代入すると \nJ(w - \\eta \\nabla J(w)) \\approx J(w) - |\\nabla J(w)|^2\n となる．このとき\\eta |\\nabla J(w)|^2は\\eta &gt; 0 のとき必ず正になるので 適切な学習率をやれば必ず損失関数は減ることがわかる．\n\n\n\n\nw_i^{(k+1)} = w_i^{(k)} - \\frac 1 n\\sum_j ^n \\eta \\nabla J_j(w_i^{(k)}))\n と一括で更新する手法がバッチ学習である． これに対して \nw_i^{(k+1)} = w_i^{(k)} - \\eta \\nabla J_p(w_i^{(k)}))\n とパターンが示されるたびに更新することも可能である．この場合オンライン学習と呼ばれる．\n中間的な手法としてミニバッチ学習がある．",
+    "crumbs": [
+      "Home",
+      "PR",
+      "誤差評価に基づく学習"
+    ]
+  },
+  {
+    "objectID": "Published/PR/3.html#二乗誤差最小化学習",
+    "href": "Published/PR/3.html#二乗誤差最小化学習",
+    "title": "誤差評価に基づく学習",
+    "section": "",
+    "text": "前回で解説したパーセプトロンの学習規則の欠点は線形分離可能であること，すなわち誤識別を０にする線形識別関数が存在するkとを前提としなければならない点にある．線形分離不可能な学習パターンに対しては誤り訂正の手続きを無限に繰り返し，解に到達できない． そこで線形分離不可能な場合にも適応できる一般的な学習アルゴリズムをこれから学んでいく．この基本的な枠組みは評価関数を定義し，それを最小化するという考えに基づいている．極めて重要な事実として以下で述べる学習アルゴリズムはいずれもベイズ決定則と密接に関係していることを書いておく．\n学習パターンがn個のパターンx_1 ,..., x_nからなるとする．今，p番目のパターンx_pを入力したときのi番目の識別関数の望ましい出力をb_{ip}として定めておく．このb_{ip}を教師信号と呼ぶ．さらにc個の識別関数の出力値をベクトル(g_1(x_p), g_2(x_p) ,..., g_c(x_p))^Tで表すと(b_{1p},b_{2p} ,..., b_{cp})^Tと表される．このベクトルで表された教師信号を教師ベクトルと呼ぶ．\n識別関数の性質から， \nb_{ip} &gt; b_{jp} , (j \\ne i , x_p \\in \\omega_i)\n となるように設定されなければならない．（値が大きいほうが採用されるので．） クラス\\omega_iに属するすべてのパターンに対して同一の教師ベクトルt_i = (b_1 ,..., b_i , ... , b_c)を割り当てることにすれば，教師ベクトルとしては，c個を用意すればよい．このベクトルにはワンホットベクトルなどがあげられる．\n入力パターンx_pに対する実際の出力と教師信号との誤差\\epsilon_{ip}は \n\\epsilon_{ip} = g_i(x_p) - b_{ip}\n であり，この二乗和を評価関数J_pとして定義する． \\sum_{p=1}^n J_{p}を最小化する手法を二乗誤差最小学習という．\nこれの解は，X = (x_1 , x_2 , ... ,x_n)^T , b_i = (b_{i1} , ... , b_{in})^Tを用いると \nw_i = (X^TX)^{-1} X^T b_i\n となる．これは厳密解だが，X^{T}Xが正則でない場合には適応できず，また特徴量数d(xの次元数)が大きい場合には計算量が膨大になるので，実用的ではない． そこで代わりの手法として，逐次近似によって重みを決定する方法について述べる．この種の方法で最もよく用いられるのは最急降下法である．\n\n\n最急降下法とは重みを \nw^{(k+1)} = w^{(k)} - \\eta \\nabla J(w^{(k)}))\n と更新することだが，これがなぜうまくいくのかを説明する． J(w^{(k+1)}) &lt; J(w^{(k)})であることを示せば良い． J(w  + \\Delta w)を一次テイラー近似すると \nJ(w + \\Delta w) \\approx J(w) + \\nabla J(w)^T \\Delta w\n であるが，\\Delta w = - \\eta \\nabla J(w)を代入すると \nJ(w - \\eta \\nabla J(w)) \\approx J(w) - |\\nabla J(w)|^2\n となる．このとき\\eta |\\nabla J(w)|^2は\\eta &gt; 0 のとき必ず正になるので 適切な学習率をやれば必ず損失関数は減ることがわかる．\n\n\n\n\nw_i^{(k+1)} = w_i^{(k)} - \\frac 1 n\\sum_j ^n \\eta \\nabla J_j(w_i^{(k)}))\n と一括で更新する手法がバッチ学習である． これに対して \nw_i^{(k+1)} = w_i^{(k)} - \\eta \\nabla J_p(w_i^{(k)}))\n とパターンが示されるたびに更新することも可能である．この場合オンライン学習と呼ばれる．\n中間的な手法としてミニバッチ学習がある．",
+    "crumbs": [
+      "Home",
+      "PR",
+      "誤差評価に基づく学習"
+    ]
+  },
+  {
+    "objectID": "Published/PR/3.html#widrow-hoff-の学習規則",
+    "href": "Published/PR/3.html#widrow-hoff-の学習規則",
+    "title": "誤差評価に基づく学習",
+    "section": "Widrow-Hoff の学習規則",
+    "text": "Widrow-Hoff の学習規則\nJを具体的な形として示し，それをこの最急降下法に代入したものを Widrow-Hoffの学習規則という．\n具体的には \nw_i \\leftarrow w - \\eta \\frac 1 n \\sum_j^n (w_i^T x_j - b_{ij})x_j\n が更新法則である．",
+    "crumbs": [
+      "Home",
+      "PR",
+      "誤差評価に基づく学習"
+    ]
+  },
+  {
+    "objectID": "Published/PR/3.html#誤差評価とパーセプトロン",
+    "href": "Published/PR/3.html#誤差評価とパーセプトロン",
+    "title": "誤差評価に基づく学習",
+    "section": "誤差評価とパーセプトロン",
+    "text": "誤差評価とパーセプトロン\nWidrow-Hoffの学習規則とパーセプトロンを比較してみよう． まず，重みの修正は誤差 \\epsilon_{ip} = g_i(x_p) - b_{ip} に比例して行われる（最急降下法に基づく更新式は w_i \\leftarrow w_i - \\eta \\epsilon_{ip} x_p となる）．ここで，しきい値関数 T による処理を g_i(x_p) に施すと，g_i(x_p) の出力は1または0の2値となる．この線形加重和としきい値処理という単位はしきい値論理ユニットと呼ばれ，パーセプトロンを始めとする学習機能を持つ多層ネットワークの基本的構成要素と考えられる．\n\n\\begin{equation}\n  \\left\\{\n  \\begin{alignedat}{2}   \n    w_i^T x &gt; 0  , (x \\in \\omega_i)\\\\\n    w_i^T x &lt; 0 , (x \\notin \\omega_i)\n  \\end{alignedat}\n  \\right.\n\\end{equation}\n\nとなるように重みベクトルを設定すれば，しきい値処理後の出力は\n\n\\begin{equation}\n  \\left\\{\n  \\begin{alignedat}{2}   \n    g_i(x) = 1  , (x \\in \\omega_i)\\\\\n    g_i(x) = 0 , (x \\notin \\omega_i)\n  \\end{alignedat}\n  \\right.\n\\end{equation}\n\nとなる．これは最後に最大値を選択するので（マルチクラス・パーセプトロンの場合），これで判別はできる． このとき教師信号をワンホットベクトルとすると，誤認識した場合（本来クラス \\omega_i に属するパターン x_p を，誤ってクラス \\omega_j と判定した場合）は\n\n\\begin{equation}\n  \\left\\{\n  \\begin{alignedat}{2}   \n    g_i(x_p) = 0 , \\quad b_{ip} = 1 \\quad (\\text{正解クラス } i) \\\\\n    g_j(x_p) = 1 , \\quad b_{jp} = 0 \\quad (\\text{誤って選択されたクラス } j)\n  \\end{alignedat}\n  \\right.\n\\end{equation}\n\nとなる． それぞれの誤差を計算すると， * クラス i においては，\\epsilon_{ip} = g_i(x_p) - b_{ip} = 0 - 1 = -1 * クラス j においては，\\epsilon_{jp} = g_j(x_p) - b_{jp} = 1 - 0 = 1\nとなるので，これを最急降下法に基づく Widrow-Hoff の更新式 w \\leftarrow w - \\eta \\epsilon x_p に当てはめると\n\n\\begin{equation}\n  \\left\\{\n  \\begin{alignedat}{2}   \nw_i \\leftarrow w_i - \\eta (-1) x_p = w_i + \\eta x_p \\\\\nw_j \\leftarrow w_j - \\eta (1) x_p = w_j - \\eta x_p\n  \\end{alignedat}\n  \\right.\n\\end{equation}\n\nが得られる．これは誤り訂正学習に基づくパーセプトロンの学習規則そのものである． したがって，しきい値処理を導入したWidrow-Hoffの学習規則は，パーセプトロンの学習規則を内包している（その一種である）と考えられる．\n（逆にパーセプトロンの学習規則も評価関数最小化のアルゴリズムとして導けるが，省略する．）\n\nおわりに\n教科書ではニューラルネットワークについて述べられているが，ここでは説明しない．知っているのとMLPの方で紹介したほうが良いと判断したためである．まあこの次の章のベイズ決定則を早くやりたいからというのが主な理由だが．",
+    "crumbs": [
+      "Home",
+      "PR",
+      "誤差評価に基づく学習"
+    ]
+  },
+  {
+    "objectID": "Published/PyTorch/1.html",
+    "href": "Published/PyTorch/1.html",
+    "title": "PyTorchでMLPを実装する",
+    "section": "",
+    "text": "最近深層学習をメインで勉強しているわけだが，先輩と話していてやはり研究をするなら自分でコードを確認できなければ不安になるし，現在GPT5.6のCodexでも間違えることが多いと聞いた．\n実際自分もそういう経験は何度かあり，そもそも理論だけやっても深層学習などはあまり意味はない．深層学習は動かしてみて初めて不備が分かるのである．\nなぜ自分でコードを書く必要があるのか，それはやはり教科書や論文を読むだけではわからない部分を自分で発見するというのが第一の理由であると思われる．\nまた単純に自分でモデルを構築するとき，ドキュメントを自分で作成するとは思うがそれをAIに渡しても間違えることがある．\n別にもうFrontとかネット関係のBackとかはもうAIがやればいいと思う．\nだが，研究は自分の専門なので，自分で自分のぷろじぇくとを掌握していないといけない．なので自分でモデルをPytorchで学習回せるようにするというのが目標である．",
+    "crumbs": [
+      "Home",
+      "PyTorch",
+      "PyTorchでMLPを実装する"
+    ]
+  },
+  {
+    "objectID": "Published/PyTorch/1.html#はじめに",
+    "href": "Published/PyTorch/1.html#はじめに",
+    "title": "PyTorchでMLPを実装する",
+    "section": "",
+    "text": "最近深層学習をメインで勉強しているわけだが，先輩と話していてやはり研究をするなら自分でコードを確認できなければ不安になるし，現在GPT5.6のCodexでも間違えることが多いと聞いた．\n実際自分もそういう経験は何度かあり，そもそも理論だけやっても深層学習などはあまり意味はない．深層学習は動かしてみて初めて不備が分かるのである．\nなぜ自分でコードを書く必要があるのか，それはやはり教科書や論文を読むだけではわからない部分を自分で発見するというのが第一の理由であると思われる．\nまた単純に自分でモデルを構築するとき，ドキュメントを自分で作成するとは思うがそれをAIに渡しても間違えることがある．\n別にもうFrontとかネット関係のBackとかはもうAIがやればいいと思う．\nだが，研究は自分の専門なので，自分で自分のぷろじぇくとを掌握していないといけない．なので自分でモデルをPytorchで学習回せるようにするというのが目標である．",
+    "crumbs": [
+      "Home",
+      "PyTorch",
+      "PyTorchでMLPを実装する"
+    ]
+  },
+  {
+    "objectID": "Published/PyTorch/1.html#import",
+    "href": "Published/PyTorch/1.html#import",
+    "title": "PyTorchでMLPを実装する",
+    "section": "Import",
+    "text": "Import\nimport torch\nimport torch.nn as nn\nimport torch.optim as optim\nまず\nimport torch\nがTensor計算を行い\nimport torch.nn as nn\nがNNのLayerやLossを計算し\nimport torch.optim as optim\nがSGDやAdamなどの最適化手法である．\n\n復習：2層MLPのFoward\n分類タスクを考える．クラス数はCとする． まず入力をxとする. $$ \\begin{align}\nz_1 &= W_1 x + b_1\\\\\nh_1 &= \\text{ReLU}(z_1)\\\\\nz_2 &= W_2 h_1 + b_2 \\\\\n\n\\end{align} \n損失関数はCrossEntropyなので\n y = (y_2) \n L = _i^C y_iy_i $$ これで計算する．",
+    "crumbs": [
+      "Home",
+      "PyTorch",
+      "PyTorchでMLPを実装する"
+    ]
+  },
+  {
+    "objectID": "Published/PyTorch/1.html#mlpクラス",
+    "href": "Published/PyTorch/1.html#mlpクラス",
+    "title": "PyTorchでMLPを実装する",
+    "section": "MLPクラス",
+    "text": "MLPクラス\n学習可能であるということは，値を保存しなければならない．ここでオブジェクト指向が便利である．MLPクラスを次のように定義する．\nclass MLP(nn.Module):\n    def __init__(self):\n        \n        super().__init__()\n        self.fc1 = nn.Linear(10,64)\n        self.fc2 = nn.Linear(64,3)\n    def forward(self, x):\n        x = self.fc1(x)\n        x = torch.relu(x)\n        x = self.fc2(x)\n        return \nMLPクラスはnn.Moduleを継承している．継承することで PyTorchがモデルの構造を管理できるようになる. すなわちあとでパラメータ最適化を使うことができるのである．\nsuper.__init__()\nはまあおまじないみたいなもんである．（多分研究者は）気にしなくて良い（と思う）．\n        self.fc1 = nn.Linear(10,64)\n        self.fc2 = nn.Linear(64,3)\nここでnn.Linear(a,b)は線形変換 \n\\text{nn.Linear} : \\mathbb R^a \\to \\mathbb R^b\n を表す．なのでわざわざW,bを分けなくてもよいというメリットがある．\n次に forwardというMethodがあるが，これは上の式を書いただけである．",
+    "crumbs": [
+      "Home",
+      "PyTorch",
+      "PyTorchでMLPを実装する"
+    ]
+  },
+  {
+    "objectID": "Published/PyTorch/1.html#実行",
+    "href": "Published/PyTorch/1.html#実行",
+    "title": "PyTorchでMLPを実装する",
+    "section": "実行",
+    "text": "実行\nいったんこれを実行してみる\nimport torch\nimport torch.nn as nn\nimport torch.optim as optim\n\n\nclass MLP(nn.Module):\n    def __init__(self):\n        super().__init__()\n        self.fc1 = nn.Linear(10, 64)\n        self.fc2 = nn.Linear(64, 3)\n\n    def forward(self, x):\n        x = self.fc1(x)\n        x = torch.relu(x)\n        x = self.fc2(x)\n        return x\n\n\nmodel = MLP()\n\nprint(model)\n実行すると次のようになるはず\npytorch/daily on  master [?] via 🐍 v3.14.6\n❯ uv run 20260821.py\nMLP(\n  (fc1): Linear(in_features=10, out_features=64, bias=True)\n  (fc2): Linear(in_features=64, out_features=3, bias=True)\n)\nMLPインスタンスが生成されていることが分かる．\n次に\nx = torch.randn(32,10)\nを入力して，行列の形を見ると\npytorch/daily on  master [?] via 🐍 v3.14.6 took 2s\n❯ uv run 20260821.py\ntorch.Size([32, 3])\nとなることが分かる．",
+    "crumbs": [
+      "Home",
+      "PyTorch",
+      "PyTorchでMLPを実装する"
+    ]
+  },
+  {
+    "objectID": "Published/PyTorch/1.html#正解ラベルlossoptimizeraccuracy",
+    "href": "Published/PyTorch/1.html#正解ラベルlossoptimizeraccuracy",
+    "title": "PyTorchでMLPを実装する",
+    "section": "正解ラベル，Loss，Optimizer，Accuracy",
+    "text": "正解ラベル，Loss，Optimizer，Accuracy\n\n正解ラベル\nLossを計算するには，NNを通したあとの入力と正解ラベルが必要で，NNと入力は今実装したので，正解ラベルを仮に実装する．\ntarget = torch.randint(0,3,(32,))\nこれは上の入力と続いていて，0,1,2のどれかをランダムに32個生成している．すなわち32次元ベクトルを生成していると考えて良い．入力は10次元の特徴量を持ち，32個のデータがまとまっていると考えて良い．\nこれを我々はBatch学習と読んでいるのだった．\nだから実際MLPの１層で計算しているのは \nY = X W^T + b\n なのである．\n\n\nLoss\nBatchで出てくるのはZ_2,今回で言うと32×3の行列である． これをそれぞれの列について，損失を取ると \n\\mathbb L = [L_1,L_2 ,...,L_32]\n が出てきて，これをデフォルトでは平均して \nL = \\frac{1}{32} \\sum_{n =1}^{32} L_n\n をOptimizerに渡すのである．コードは\ncriterion = nn.CrossEntropyLoss()\nloss = criterion(logits, target)\nである．\n\n\nOptimizer\nあとは，Lossを用いて誤差逆伝播すればよい．\nまずOptimizerを定義する必要がある．Optimizerは次のように実装される．今回はAdamを用いる．\noptimizer = optim.Adam(model.parameters(),lr = 1e-4)\nこれまでの流れは \nx \\to Wx_1 +b_1 \\to \\text{ReLU} \\to W_2h_1 + b_2 \\to \\text{Logits and Softmax} \\to \\text{CrossEntropy} \\to L\n という流れだったわけだが，これは計算グラフで繋がっているのである． なのでこれを逆向き，すなわちLossから誤差逆伝播すればよいのである． なので実装は\noptimizer.zero_grad()\nloss.backward()\noptimizer.step()\nとなるのである．\noptimizer.zero_grad()は勾配更新， loss.bacward()は微分値の計算， optimizer.step()は重み更新そのものである．\nすなわち学習一回分のコードは以下のようになる．\nimport torch\nimport torch.nn as nn\nimport torch.optim as optim\n\n\nclass MLP(nn.Module):\n    def __init__(self):\n        super().__init__()\n        self.fc1 = nn.Linear(10, 64)\n        self.fc2 = nn.Linear(64, 3)\n\n    def forward(self, x):\n        x = self.fc1(x)\n        x = torch.relu(x)\n        x = self.fc2(x)\n        return x\n\n\nmodel = MLP()\n\nx = torch.randn(32, 10)\ntarget = torch.randint(0, 3, (32,))\n\ncriterion = nn.CrossEntropyLoss()\n\noptimizer = optim.Adam(model.parameters(), lr=1e-4)\n\nlogits = model(x)\n\nloss = criterion(logits, target)\n\noptimizer.zero_grad()\n\nloss.backward()\n\noptimizer.step()\nあとはFor文を加えてやれば繰り返して学習できる．\npytorch/daily on  master [?] via 🐍 v3.14.6\n❯ uv run 20260821.py\n0 1.0943821668624878\n1 1.0934474468231201\n2 1.0925146341323853\n3 1.0915838479995728\n4 1.090654969215393\n5 1.0897283554077148\n6 1.088803768157959\n7 1.087881326675415\n8 1.086961030960083\n9 1.0860427618026733\n学習が成功していることが分かる．\n\n\nAccuracy\nあとは正答率を出してあげればどれだけ学習が成功しているか観察できる．\nwith torch.no_grad():\n    logits = model(x)\n\n    pred = logits.argmax(dim=1)\n\n    accuracy = (pred == target).float().mean()\n\n    print(\"accuracy:\", accuracy.item())\nwith torch.no_grad()は，勾配を計算しないということである． logits.argmax(dim=1)は今回で言うと，列方向，での最大値のIndexを撮っているのである．例えば\nlogits = torch.tensor([\n    [0.2, 1.5, -0.3],\n    [2.1, 0.4, 0.7],\n    [0.1, 0.3, 1.2]\n])\nではargmax(dim=1)を通すと\ntensor([1, 0, 2])\nになることが分かる．",
+    "crumbs": [
+      "Home",
+      "PyTorch",
+      "PyTorchでMLPを実装する"
+    ]
+  },
+  {
+    "objectID": "Published/PyTorch/1.html#実データを用いた学習",
+    "href": "Published/PyTorch/1.html#実データを用いた学習",
+    "title": "PyTorchでMLPを実装する",
+    "section": "実データを用いた学習",
+    "text": "実データを用いた学習\n先程入力したx,\\text{target}はテスト用のランダム値なので，実データを用いてMLPがきちんと働くか確認する．\nこれは明日以降でいいや．",
+    "crumbs": [
+      "Home",
+      "PyTorch",
+      "PyTorchでMLPを実装する"
     ]
   },
   {
@@ -1450,111 +1546,195 @@
     ]
   },
   {
-    "objectID": "Published/StochasticDifferentialEquations/1.html",
-    "href": "Published/StochasticDifferentialEquations/1.html",
-    "title": "確率論の概要(1)",
+    "objectID": "Published/StochasticDifferentialEquations/6.html",
+    "href": "Published/StochasticDifferentialEquations/6.html",
+    "title": "確率過程論の概要(2)",
     "section": "",
-    "text": "確率微分方程式です．応用が目標なのでそんなに厳密じゃないです． あと初めて触れる分野なので，じっくりやっていきたいと思います． あと教科書をパラパラ見てみた感じ，この確率論の概要が前提みたいな所がありそうなので，Ankiなどを活用して概念を覚えていきたい．",
+    "text": "\\sigma-加法族はすなわち情報であり，確率過程を考える場合には，情報が時間と共にどう変化していくかを定式化しておくことが重要となる．\\mathcal Fが我々の知り得る全情報であるから，限定された時刻までに得られる情報は\\mathcal Fの部分\\sigma-加法族として表されることとなる．さらに時間の流れが逆光のできないものであるという前提のもとでは，そのような情報は時間変数の増加とともに増加していくと考えられることになる．このような観点に立って，次のような定義を与える．\n\n\n\n時間パラメータt \\in Tに依存する\\mathcal Fの部分\\sigma-加法族の族\\{ \\mathcal F; t\\in T \\}が \ns&lt;t \\quad \\Rightarrow \\mathcal F_s \\subset  \\mathcal F_t\n を満たすとき，増大情報系あるいはフィルトレーションという．\n確率過程Xについて，x_t(\\omega)がtを固定するごとに\\mathcal F_t可測となっているとき，Xはフィルトレーション\\{ \\mathcal F_t ; t \\in T \\}に適合している，あるいはXを\\{ \\mathcal F_t ; t \\in T \\}に関して適合過程であるという．\n\nなお以下では\\{ \\mathcal F_t ; t \\in T \\}は単に\\{\\mathcal F_t\\}と略記する．\n適合性が成立していることを因果的という表現で呼ぶ． 確率過程を論じるには，確率空間にフィルトレーションを加えた４つの組 (\\Omega, \\mathcal F, P ; \\{\\mathcal F_t\\})を常に想定しておかなければならない．これを，フィルター付き確率空間とよぶ．\n確率過程について連続あるいは右連続といった特性があるように，フィルトレーションにも連続性という概念がある．\n時刻tまでの情報よりも大きな情報全ての共通部分をとって得られる集合\\bigwedge_{n = 1}^{\\infty} \\mathcal F_{t + \\frac{1}{n}}を\\mathcal F_{t+}で表して，\\mathcal F_tの右極限とよび，\n対照に時刻tまでの情報よりも小さな情報の総和により得られる\\bigvee _{n = 1}^\\infty \\mathcal F_{t - \\frac{1}{n}}を\\mathcal F_{t-}で表して\\mathcal F_tの左極限とよぶ．\nなぜ\\mathcal F_{t + \\frac{1}{n}}や\\mathcal F_{t - \\frac{1}{n}}ではいけないのか？それぞれ情報を含んでいるのでは？ いや，それは正しいが，収束という概念を集合族で書いたら，上のようになるだけである．（と思われれる．）\n\\mathcal F = \\mathcal F_{t+}となるとき右連続，\\mathcal F = \\mathcal F_{t-}となるとき，左連続とよぶ．右連続かつ左連続ならフィルトレーション\\{F_t\\}は連続であるという．\nまた時間パラメータ集合がT = [0,\\infty)である場合は，\\mathcal F_\\infty = \\bigvee _{n = 1}^\\infty \\mathcal F_{n} により全時間区間に渡っての情報が必要となることが分かる．もちろん，この情報が我々の知り得る全情報を上回ることは無いので\\mathcal F_{\\infty} \\subset \\mathcal Fである．\n確率過程がフィルトレーションを生成するという考え方を導入しておくと便利である．まず，離散時間パラメータT = \\{ 0,1,... \\}の場合は次のように定義される．\n\n\n\nX_0,X_1 , ...,X_nから生成される\\sigma-加法族，すなわちX_0,X_1, ...,X_nをすべて可測とする最小の\\sigma-加法族\\sigma(X_0,X_1, ..., X_n)を\\mathcal F^X_nと表し，この集まり \\{\\mathcal F^X_n\\}を，確率過程X = \\{X_n\\}が生成するフィルトレーションと呼ぶ．\nまた連続時間の場合は次のように定義する．\n\n\n\n時刻tまでの確率過程Xの挙動\\{ X_s(\\omega) ; 0 \\le s \\le t\\}をすべて可測とする\\sigma- 加法族を\\sigma (X_s ; s \\le t)と表す．これを右連続化したものを\\mathcal F^X_tと表すとき，それれらの集まり\\{ \\mathcal F^X_t \\}を確率過程X = \\{ X_t \\}により生成されるフィルトレーションとよぶ．",
     "crumbs": [
       "Home",
       "StochasticDifferentialEquations",
-      "確率論の概要(1)"
+      "確率過程論の概要(2)"
     ]
   },
   {
-    "objectID": "Published/StochasticDifferentialEquations/1.html#はじめに",
-    "href": "Published/StochasticDifferentialEquations/1.html#はじめに",
-    "title": "確率論の概要(1)",
+    "objectID": "Published/StochasticDifferentialEquations/6.html#フィルトレーション",
+    "href": "Published/StochasticDifferentialEquations/6.html#フィルトレーション",
+    "title": "確率過程論の概要(2)",
     "section": "",
-    "text": "確率微分方程式です．応用が目標なのでそんなに厳密じゃないです． あと初めて触れる分野なので，じっくりやっていきたいと思います． あと教科書をパラパラ見てみた感じ，この確率論の概要が前提みたいな所がありそうなので，Ankiなどを活用して概念を覚えていきたい．",
+    "text": "\\sigma-加法族はすなわち情報であり，確率過程を考える場合には，情報が時間と共にどう変化していくかを定式化しておくことが重要となる．\\mathcal Fが我々の知り得る全情報であるから，限定された時刻までに得られる情報は\\mathcal Fの部分\\sigma-加法族として表されることとなる．さらに時間の流れが逆光のできないものであるという前提のもとでは，そのような情報は時間変数の増加とともに増加していくと考えられることになる．このような観点に立って，次のような定義を与える．\n\n\n\n時間パラメータt \\in Tに依存する\\mathcal Fの部分\\sigma-加法族の族\\{ \\mathcal F; t\\in T \\}が \ns&lt;t \\quad \\Rightarrow \\mathcal F_s \\subset  \\mathcal F_t\n を満たすとき，増大情報系あるいはフィルトレーションという．\n確率過程Xについて，x_t(\\omega)がtを固定するごとに\\mathcal F_t可測となっているとき，Xはフィルトレーション\\{ \\mathcal F_t ; t \\in T \\}に適合している，あるいはXを\\{ \\mathcal F_t ; t \\in T \\}に関して適合過程であるという．\n\nなお以下では\\{ \\mathcal F_t ; t \\in T \\}は単に\\{\\mathcal F_t\\}と略記する．\n適合性が成立していることを因果的という表現で呼ぶ． 確率過程を論じるには，確率空間にフィルトレーションを加えた４つの組 (\\Omega, \\mathcal F, P ; \\{\\mathcal F_t\\})を常に想定しておかなければならない．これを，フィルター付き確率空間とよぶ．\n確率過程について連続あるいは右連続といった特性があるように，フィルトレーションにも連続性という概念がある．\n時刻tまでの情報よりも大きな情報全ての共通部分をとって得られる集合\\bigwedge_{n = 1}^{\\infty} \\mathcal F_{t + \\frac{1}{n}}を\\mathcal F_{t+}で表して，\\mathcal F_tの右極限とよび，\n対照に時刻tまでの情報よりも小さな情報の総和により得られる\\bigvee _{n = 1}^\\infty \\mathcal F_{t - \\frac{1}{n}}を\\mathcal F_{t-}で表して\\mathcal F_tの左極限とよぶ．\nなぜ\\mathcal F_{t + \\frac{1}{n}}や\\mathcal F_{t - \\frac{1}{n}}ではいけないのか？それぞれ情報を含んでいるのでは？ いや，それは正しいが，収束という概念を集合族で書いたら，上のようになるだけである．（と思われれる．）\n\\mathcal F = \\mathcal F_{t+}となるとき右連続，\\mathcal F = \\mathcal F_{t-}となるとき，左連続とよぶ．右連続かつ左連続ならフィルトレーション\\{F_t\\}は連続であるという．\nまた時間パラメータ集合がT = [0,\\infty)である場合は，\\mathcal F_\\infty = \\bigvee _{n = 1}^\\infty \\mathcal F_{n} により全時間区間に渡っての情報が必要となることが分かる．もちろん，この情報が我々の知り得る全情報を上回ることは無いので\\mathcal F_{\\infty} \\subset \\mathcal Fである．\n確率過程がフィルトレーションを生成するという考え方を導入しておくと便利である．まず，離散時間パラメータT = \\{ 0,1,... \\}の場合は次のように定義される．\n\n\n\nX_0,X_1 , ...,X_nから生成される\\sigma-加法族，すなわちX_0,X_1, ...,X_nをすべて可測とする最小の\\sigma-加法族\\sigma(X_0,X_1, ..., X_n)を\\mathcal F^X_nと表し，この集まり \\{\\mathcal F^X_n\\}を，確率過程X = \\{X_n\\}が生成するフィルトレーションと呼ぶ．\nまた連続時間の場合は次のように定義する．\n\n\n\n時刻tまでの確率過程Xの挙動\\{ X_s(\\omega) ; 0 \\le s \\le t\\}をすべて可測とする\\sigma- 加法族を\\sigma (X_s ; s \\le t)と表す．これを右連続化したものを\\mathcal F^X_tと表すとき，それれらの集まり\\{ \\mathcal F^X_t \\}を確率過程X = \\{ X_t \\}により生成されるフィルトレーションとよぶ．",
     "crumbs": [
       "Home",
       "StochasticDifferentialEquations",
-      "確率論の概要(1)"
+      "確率過程論の概要(2)"
     ]
   },
   {
-    "objectID": "Published/StochasticDifferentialEquations/1.html#sigma-加法族と確率測度",
-    "href": "Published/StochasticDifferentialEquations/1.html#sigma-加法族と確率測度",
-    "title": "確率論の概要(1)",
-    "section": "\\sigma-加法族と確率測度",
-    "text": "\\sigma-加法族と確率測度\n確率とは，対象とする事象の起こりやすさを定量化したものである．通常事象というものを直感的に理解できるものとして無定義に取り扱うことが多いが，確率の定量化を数学的に議論するにはまず事象の定義を行わなければならない．\nまず\\Omegaを生成点集合，すなわち試行を１回行うと，\\Omegaの点\\omegaが一つ選択されるような集合とする．\\Omegaは標本空間とも呼ばれる．\\Omegaの各「点」は標本と呼ばれるが，それは生起結果を表すもので，一般に数ではない． （例えば，A,B,Cの内くじを引いて当てるとき，そのくじの結果Bが手に入ったとする．これは数ではない．）\n我々が観測を行うと，\\Omegaの点のどれかが生起した結果が観測されるのだから，事象というものは\\Omegaの部分集合であると考えられるのが自然である． だが，すべての部分集合が事象の資格を持っているとは限らない． （例えば，サイコロを1回投げる試行において，出た目そのものは見えず偶数か奇数かだけを判定する状況を考える．このとき，偶数の目が出るという部分集合\\{ 2,4,6 \\}は結果を識別できるため事象として扱えるが，個別の\\{2\\}という部分集合は，この状況下では生起したかどうかを判別できないため，事象の資格を持たない）\nまた事象と呼ぶためにはどうしても満たさなければならない性質がある． 例えばある部分集合Aが事象であれば，それが起こらない確率も計算できなければならない．すなわちその補集合A^cも事象でなければならない． AとB がともに事象であればAまたはBが起こる確率，AかつBの起こる確率も計算できなければならないので，その和集合や席集合も事象でなければならない．このように事象と呼んで良い部分集合の集まりには自然な制約が発生することになる．これを数学的にまとめたのが次の概念である．\n\n\\sigma-加法族の定義\n\\Omegaの部分集合の族(集合を要素に持つ集合)\\mathcal Fで 1. \\Omega \\in \\mathcal F 2. A \\in \\mathcal F  \\Rightarrow A^c \\in \\mathcal F 3. A_1,A_2 ,... \\in \\mathcal F \\Rightarrow \\bigcup_{n = 1}^{\\infty} A_n \\in \\mathcal F の3条件を満たすものを，\\sigma-加法族と呼ぶ．\n我々は，この\\sigma-加法族\\mathcal Fの要素を事象と呼びたいのであるが，確率の概念を導入する前に事象だけを単独に定義するのは適切ではないため，(確率が満たすべき足し算のルールと関連付けながら，確率と事象を一対のものとして定義していく必要がある．) 引き続いて確率を定義することにしよう． ### 確率の定義 \\mathcal Fの各要素に対して実数を対応させる写像Pが 1. P(A) \\ge 0 2. P(\\Omega) =1 3. A_1, A_2 ,... \\in \\mathcal F, A_i \\cap A_j = \\phi   (i \\neq j) \\Rightarrow P\\left( \\bigcup_{n = 1}^{\\infty} A_n \\right) = \\sum_{n = 1}^{\\infty} P(A_n) を満たすとき，Pを確率測度と呼び，P(A)をAが起こる確率と呼ぶ．\n確率測度は集合に対して実数を対応させる写像であるために，集合関数と呼ばれることがある．\n以上の定義に基づいて，\\mathcal Fの要素を事象と呼ぶ．数学的には\\mathcal Fの要素を可測集合と呼ぶことが多い．また\\Omegaと\\mathcal Fをペアで考えた(\\Omega, \\mathcal F)をその上に測度（確率測度）が定義できるという意味で可測空間と呼ぶ． 同じ\\Omegaでも観測の対象をどこまで細かく設定するかによって\\mathcal Fは異なるものとなり得る．\n例えば，サイコロを一回振るという例を考える．標本空間は \\Omega = \\{1,2,3,4,5,6  \\}となる．この\\Omegaのすべての部分集合からなる集合族\\mathcal Fは\\sigma-加法族であるが， \\mathcal G = \\{ \\{ 1,3,5 \\}, \\{ 2,4,6 \\} \\}もまた\\sigma-加法族である．(\\Omega, \\mathcal F), (\\Omega , \\mathcal G)はそれぞれ可測空間であり，前者は振って出た目をすべて記録することを意味し，後者は偶数か奇数かだけを記録することを意味する．\nさらに以上をまとめる形で次の用語を導入する． (\\Omega, \\mathcal F , P)を確率空間と呼ぶ． - \\Omega は，世界そのものの可能な状態 - \\mathcal Fは，その世界をどの細かさで観測できるか，情報 というイメージが適している． 確率を論じるにあたっては必ず確率空間を与えておく必要がある．",
+    "objectID": "Published/StochasticDifferentialEquations/6.html#マルチンゲール",
+    "href": "Published/StochasticDifferentialEquations/6.html#マルチンゲール",
+    "title": "確率過程論の概要(2)",
+    "section": "マルチンゲール",
+    "text": "マルチンゲール\nマルチンゲールとは，増分が互いに統計的に独立になるような性質を有する確率過程を，条件を緩くして拡張した確率過程である．数学的観点からの確率微分方程式論は，マルチンゲールの概念に立脚して構成されていると言っても過言ではないので，マルチンゲールの概念を理解しておくことは重要である． 以下ではフィルター付き確率空間(\\Omega, \\mathcal F, P ; \\{\\mathcal F_t\\})が与えられているものとする．\n\n独立増分過程\nサイコロを振りながらマス目を進んでいくゲームにおいては，次にどのマス目に進むかは，現在いるマス目によって異なってくるため，nステップ後の位置と(n + 1)ステップ後の位置とは統計的に独立とはなりえない．しかし進むマス目が出た目のみに依存するゲームであれば，各ステップごとの「増分」は互いに独立となるはずである．\n例えばサイコロを振って，その出た目の数だけ前に進むすごろくを考える． n回目のサイコロの目をX_nとすると，n回振ったあとの位置S_nは \nS_n = X_1 + X_2 +\\cdots + X_n\n となる．したがって増分は \nS_{n + 1} - S_n = X_{n+1}\n となる．確かにこの確率過程は位置そのものは独立ではない一方，各ステップの増分 \nS_1 - S_0 , S_2 - S_1 , ...\n は互いに独立である．\nこのように，増分が互いに独立となるという性質を保ちながら変動していく確率過程は，あとに述べる確率微分方程式を論じる上で極めて重要な役割を演じる．\n\n定義：独立増分\n確率過程Xにおいて，互いにかさらない時間区間での増分が統計的に独立となるとき，すなわち時間区間の分割t_1 &lt; t_2 &lt; t_3 ,...に対して各区間での増分X_{t_2} - X_{t_1},X_{t_3} - X_{t_2} , ...が統計的に独立となるとき，確率過程Xは独立増分をもつという．\n独立増分をもつ確率過程のことを簡単に独立増分過程ともいう．この定義から，Xの生成するフィルトレーションを \\{ \\mathcal F^X_t \\}とするとき，t&gt; sに対してX_t - X_sは常に\\mathcal F^X_sと独立となる．\n確率変数と情報が独立であるとは，確率変数からなる情報とその対象としている情報が独立しているということである．すなわち \nP(\\{ X_t - X_s \\in B \\} \\cap A) = P(X_t -X_s \\in B)P(A), \\quad \\forall A \\in \\mathcal F^X_s , \\forall B \\in \\mathcal B(\\mathbb R)\n を満たしているということである．\nXが独立増分を持ち，かつ可積分であれば，\\mathbb E[X_t - X_s | \\mathcal F_s^X] = \\mathbb E[X_t] - \\mathbb E[X_s]がt &gt;sに対して成立する．このことから次の定理は明らかである．\n独立増分過程Xが可積分のとき，その平均が一定であれば，\\{ \\mathcal F^X_t \\}をXが生成するフィルトレーションとして，次式が成立する． \n\\mathbb E[X_t - X_s | \\mathcal F^X_s] = 0 ,\\quad(t &gt; s)\n\n次に述べるマルチンゲールはこれを拡張したものである． ## マルチンゲール\n\n\n定義\ni)可積分なcadlag過程M = \\{ M_t; t \\in T \\}が\\{ \\mathcal F_t \\}に適合(X_tが\\mathcal F_t-可測)していて \n\\mathbb E[M_t | \\mathcal F_s] = M_s  \\quad(\\text{a.s.}) ,\\quad(t &gt; s)\n を満たすとき，Mを\\{ \\mathcal F_t \\}に関するマルチンゲールという．\nii)上の等号を\\geに置き換えたものを劣マルチンゲール，\\le に置き換えたものを優マルチンゲールという．\nフィルトレーション\\{ \\mathcal F_t \\}を明記しなくても特に混乱が生じない場合，あるいは\\{ \\mathcal F_t \\}がM自身の生成するフィルトレーションである場合は，単にマルチンゲールと呼ぶことも多い． 以下では特に断らない場合，フィルトレーション\\{ \\mathcal F_t\\}を明記せずに単にマルチンゲールと呼ぶこととする．\n\n例を見ていく． Yを可積分な実確率変数だとして，Yをフィルとレーションから確率過程Xを \nX_t = \\mathbb E[Y | \\mathcal F_t] \\quad (t \\in T)\n と定める．t &gt; sとすると，\\mathcal F_s \\subset \\mathcal F_tであるので． \n\\mathbb E[X_t | \\mathcal F_s] = \\mathbb E[\\mathbb E[Y | \\mathcal F_t] | \\mathcal F_s] = \\mathbb E[Y | \\mathcal F_s]= X_s\n なのでXはマルチンゲールである．（式変形は[[学習/Zawa25721_documents/Published/StochasticDifferentialEquations/4|4]]を参考に，塔の性質はここで使われるのか！） これの定性的意味は，最終的に知りたい量Yについてその時点までに得た情報で作った予想を，時間と共に更新していくと，その予想値の過程はマルチンゲールになるというものである．\nまた，期待値をとると，マルチンゲールの平均は一定となることが分かる．同様の理由により，劣マルチンゲールの平均はtの増加関数となり，対して優マルチンゲールの平均は減少関数となる．\nマルチンゲールは公平な賭けを数学的に表現したものであると言われる．この理由は，上記の定義よりも，つぎの定義のほうがわかりやすく表しているかもしれない．\n可積分な\\{\\mathcal F_t\\}適合過程Mがマルチンゲールであるための必要十分条件は \n\\mathbb E[M_t - M_s | \\mathcal F_s] = 0 \\quad(\\text{a.s.}) \\quad(t&gt;s)\n が成立することである．\nこれらの定理から，次の結果を得ることができる．\n独立増分過程Xが可積分でその平均が一定であるなら，Xは自身の生成するフィルトレーション\\{ \\mathcal F^X_t \\}に関してマルチンゲールである． 逆は必ずしも成立しない．\nここで重要なのは，独立増分でなくとも，マルチンゲールを満たすことはあるというものである．単に過去の情報を知っていて，その未来の増分の条件付き期待値が0であればよいのである．",
     "crumbs": [
       "Home",
       "StochasticDifferentialEquations",
-      "確率論の概要(1)"
+      "確率過程論の概要(2)"
     ]
   },
   {
-    "objectID": "Published/StochasticDifferentialEquations/1.html#ほとんど確実",
-    "href": "Published/StochasticDifferentialEquations/1.html#ほとんど確実",
-    "title": "確率論の概要(1)",
-    "section": "ほとんど確実",
-    "text": "ほとんど確実\nさて，上述のように自然な要請として， \\sigma-加法族に可算無限回のBool演算を許したわけだが，このことにより少しややこしい事象が顔を出してくることになる．確率の定義から，空集合\\phiの確率測度は０になることは明らかであるが，逆は必ずしも成立しないため（標本空間が無限個の点を持つ場合，個々の点が選ばれる確率がすべて0になるから）次の概念の導入が必要となる．\n\nP零集合の定義\n\\mathcal Fの要素NでP(N) = 0となるものをP零集合とよぶ．\n確率が０となる事象に属する点\\omegaは最初から除外しておけばよいという考えがでてくるが，無限集合になると除外するわけにはいかなくなる(個々の生起確率は０であるため，それらを除外すると標本空間が\\phiとなり意味がなくなるから)この結果，零事象の余事象として次の概念が必要となってくる．\n\n\nほとんど確実（Almost Surely）の定義\nある事象Aが生起する確率が１のときこれをA(a.s.)と表記し，Aはほとんど確実に起きるという．\n実用的応用を考える上でも，\\Omegaが無限集合となる場合を取り扱えるようにしておかなければならないため，数学的な記述においては「ほとんど確実に」という用語が頻繁に登場するので，この用語の意味は理解しておく必要がある．",
+    "objectID": "Published/StochasticDifferentialEquations/6.html#二乗可積分マルチンゲールと二次変分過程",
+    "href": "Published/StochasticDifferentialEquations/6.html#二乗可積分マルチンゲールと二次変分過程",
+    "title": "確率過程論の概要(2)",
+    "section": "二乗可積分マルチンゲールと二次変分過程",
+    "text": "二乗可積分マルチンゲールと二次変分過程\n確率微分方程式の解を構成するには，確率過程を時間について積分するという操作が必要であるため，マルチンゲール，あるいはそれに関連する確率過程の積分について数学的な意味付けを与えなければならない．\nよく知られているように，古典的なRiemann-Stieltjesの意味での積分が可能となる条件は，被積分関数の有界変動性である． Riemann-Stieltjes積分というのは \nW = \\int_0^T F(t) d x(t)\n のような積分である．上の積分は仕事の定義である． 例えば確率過程については次のような例が考えられる． 株価をS_t，時刻tに保有している株数をH_tとする．ある期間における損益は \nG_T = \\int_0^T H_t d S_t\n のように計算される．このような計算を行いたいのである． （参考：https://mathlandscape.com/bdd-variation/ ） これは確率過程の場合も同様で見本関数ごとに時間積分を構成していくには，見本関数の有界変動性があれば，特に深刻な困難さは発生しない．有界変動関数とは，簡単に言えば，増加関数と減少関数の差によって表現し得る関数である．\n連続な単調増加関数は，有界変動であり，あるいは連続でなくても単調増加関数が有界であれば，有界変動となる．単調減少についても同様である．\nしかし，後に明らかになるように，連続時間確率過程が独立増分性，あるいはそれを拡張したマルチンゲール性を持つ場合は，そのような有界変動性を一般には持ち得ないため，積分を定義する上で非常に大きな障壁となってしまう．\nしたがってRiemann-Stieltjes積分のアプローチが有効な過程と，そうでない特別なアプローチが必要となる過程は区別しておく必要がある．\nそこで次のような定義を導入する． #### 定義：増加過程，減少過程，有界変動過程 i)フィルトレーション\\{ \\mathcal F_t \\}に適合しているcadlag過程X = \\{ X_t; t\\in T \\}がX_0  = 0 (\\text{a.s.})を満たし，かつその見本関数がほとんど確実に増加関数となるとき，増加過程といい，減少関数となるとき，減少過程という．\n\nX^{(1)} = \\{X_t^{(1)};t \\in T\\},X^{(2)} = \\{X_t^{(2)};t \\in T\\}を増加過程として， X_t = X_t^{(1)} - X_t^{(2)}と表されるような過程X =\\{ X_t ; t \\in T \\}を有界変動過程という．\n\n増加過程とマルチンゲールの和は劣マルチンゲールであり，減少過程とマルチンゲールの和は優マルチンゲールとなる．\n多くの応用研究に登場するマルチンゲールはさらに二乗可積分である．このようなマルチンゲールを二乗可積分マルチンゲールという．あるいはL^2マルチンゲールという．\n分解されることを例として見ていく．\nMをL^2マルチンゲールとする．このときt &gt; sとして， \n\\begin{align}\n\\mathbb E[M^2_t - M^2_s | \\mathcal F_s] &=\n\\mathbb E[(M_t - M_s)^2 | \\mathcal F_s]\n+ 2M_s\\mathbb E[M_t - M_s | \\mathcal F_s]\\\\\n&=\\mathbb E[(M_t - M_s)^2 | \\mathcal F_s] \\\\\n&\\ge0\n\\end{align}\n となるので，まずM^2は劣マルチンゲールになることが分かる． M_t^2を増分の和の形で表現することにする． 時間を分割して考えると \n\\begin{align}\nM^2_t &= \\sum_i^n (M^2_{t_i} - M^2_{t_{i-1}}) \\\\\n&= \\sum_i^n (M_{t_i} - M_{t_{i-1}})^2 + 2\\sum_i^n M_{t_{i-1}}(M_{t_i} - M_{t_{i-1}})\n\\end{align}\n\n第一項は，非負を足し合わせていくので，非減少過程（広い意味の増加過程）である．\n第二項について考える． 第二項だけをとってきて \\mathcal F_{t_k}を条件にした条件付き期待値をとると， $$ \\begin{align}\n\n& \\mathbb E\\left[ \\left . 2\\sum_i^n M_{t_{i-1}}(M_{t_i} - M_{t_{i-1} } ) \\right| \\mathcal F_{t_k} \\right ] \\\\\n&=\n2\\sum_{i =1}^k \\mathbb E\\left[ \\left .  M_{t_{i-1}}(M_{t_i} - M_{t_{i-1} } ) \\right| \\mathcal F_{t_k} \\right ]\n+\n2\\sum_{i =k+1}^n \\mathbb E\\left[ \\left .  M_{t_{i-1}}(M_{t_i} - M_{t_{i-1} } ) \\right| \\mathcal F_{t_k} \\right ] \\\\\n\n&=\n2\\sum_{i =1}^k \\mathbb E\\left[ \\left .  M_{t_{i-1}}(M_{t_i} - M_{t_{i-1} } ) \\right| \\mathcal F_{t_k} \\right ]\n+\n2\\mathbb E\\left[ \\left .  M_{t_{k}}(M_{t_{k +1}} - M_{t_{k} } ) \\right| \\mathcal F_{t_k} \\right ]\n+\n2\\sum_{i =k+2}^n \\mathbb E\\left[ \\left .  M_{t_{i-1}}(M_{t_i} - M_{t_{i-1} } ) \\right| \\mathcal F_{t_k} \\right ]\n\n\\end{align} \nまず第二項について，$M_{t_k}$は$\\mathcal F_{t_k}$-可測なので\n E=M_{t_{k}} E$$\nである．マルチンゲール性により，0となることが分かる．\n次に第三項について考える $$\n2_{i =k+2}^n E\n$$\n塔の性質を用いて \n\\mathbb E\\left[ \\left .  M_{t_{i-1}}(M_{t_i} - M_{t_{i-1} } ) \\right| \\mathcal F_{t_k} \\right ] = \\mathbb E[\\mathbb E[\n  M_{t_{i-1}}(M_{t_i} - M_{t_{i-1} } )\n| \\mathcal F_{t_{i-1} }] | \\mathcal F_{t_k}]\n となる．可測性を用いると \n\\mathbb E[\\mathbb E[\n  M_{t_{i-1}}(M_{t_i} - M_{t_{i-1} } )\n| \\mathcal F_{t_{i-1} }] | \\mathcal F_{t_k}] =\n\\mathbb E[M_{t_{i-1}}\\mathbb E[\n  (M_{t_i} - M_{t_{i-1} } )\n| \\mathcal F_{t_{i-1} }] | \\mathcal F_{t_k}]\n これはマルチンゲール性により，内側の条件付き期待値が0になる．よって全体の条件付き期待値も0となり，第三項も０となることが分かる．\nすなわち \n\\mathbb E\\left[ \\left . 2\\sum_i^n M_{t_{i-1}}(M_{t_i} - M_{t_{i-1} } ) \\right| \\mathcal F_{t_k} \\right ]  = 2\\sum_{i =1}^k \\mathbb E\\left[ \\left .  M_{t_{i-1}}(M_{t_i} - M_{t_{i-1} } ) \\right| \\mathcal F_{t_k} \\right ]\n が成立するので，2\\sum_i^n M_{t_{i-1}}(M_{t_i} - M_{t_{i-1}})はマルチンゲールである．\nよって劣マルチンゲールが増加過程とマルチンゲールの和に分解できることが実例から実感できた．\n以上の考察から，次の定義を与えることにする\n\n定義：二次共変分過程\nX,Yをともに二乗可積分なマルチンゲールとし，各t \\in Tに対して時間区間の分割を \n0 = t_0 &lt;t_1 \\cdots&lt;t_n = t , \\quad |\\delta| = \\max_{1\\le i\\le n} |t_i - t_{i-1}|\n とする．この分割に対して \n[X,X]_t = \\text{p-}\\lim_{|\\delta|\\to 0} \\sum_i^n (X_{t_{i}} - X_{t_{i-1}})^2\n から定められる過程をXの二次変分過程とよび， \n[X,Y]_t = \\text{p-}\\lim_{|\\delta|\\to 0} \\sum_i^n (X_{t_{i}} - X_{t_{i-1}}) (Y_{t_{i}} - Y_{t_{i-1}})\n で定められる過程を，XとYの二次共変分過程とよぶ．\n次の定理は重要である\n2乗可積分なマルチンゲールXが連続過程であるものとする． i)Xが有界変動過程であるならば，[X,X]は恒等的に0，すなわち\\forall t \\in T に対して，[X,X]_t = 0 ,\\quad (\\text{a.s.})である．\n\n[X,X]が恒等的に0でなければ，Xは有界変動過程ではない．\n\n最後に半マルチンゲールの説明を書く\n\n\n半マルチンゲール\n平均が時間と共に変動し，その周りに振動が現れるような現象をモデル化するには，マルチンゲールMと有界変動過程Aから \nX_t = A_t + M_t\n という形で構成される確率過程のクラスを考えると便利である．このような形で表現できる確率過程は，半マルチンゲールと呼ばれる．\n次はMarkov過程，定常過程，Gauss過程を書く．これらが終わったらついに確率微分方程式に移る．",
     "crumbs": [
       "Home",
       "StochasticDifferentialEquations",
-      "確率論の概要(1)"
+      "確率過程論の概要(2)"
     ]
   },
   {
-    "objectID": "Published/StochasticDifferentialEquations/1.html#確率変数",
-    "href": "Published/StochasticDifferentialEquations/1.html#確率変数",
-    "title": "確率論の概要(1)",
-    "section": "確率変数",
-    "text": "確率変数\n標本空間\\Omegaは一般に数の空間であるとは限らないので，諸々の統計量を数量化するには不便と言うより，数量化そのものが不可能であることのほうがむしろ普通となっている．そこで，数量化が可能でしかも取り扱いに便利な空間に移して議論したほうが都合が良い．この写像を広い意味で確率変数とよぶ． ### 実確率変数 まず，標本空間を実数空間に写像することを考えよう．我々が実数空間において確率的量を計算するということは，基本的には積分計算を行うということであると言って良い．したがって実数空間における積分論に準拠して，議論を進めていかなければならない．こういった視点で言えば実数空間で計算対象の基本となるのは区間である．\n与えられた区間に値をとる確率は当然計算できなければならないし，それらの和集合からなる集合でも確率が計算できなければ都合が悪い．すなわち，これらが先に述べた事象に対応するものであると言うことが要請される．そこで，写像先の実数空間において事象に対応する集合として次の定義を導入する．\n\nBorel集合の定義\n\nn次元Euclid空間の開部分集合をすべて含む最小の\\sigma-加法族を\\mathcal B (\\mathbb R^n)と書き，これをBorel加法族と呼ぶ\nBorel加法族の部分集合をBorel集合と呼ぶ\n\n開部分集合とは，境界がない部分集合のことである． （離散の場合は，いったん置いておいてここでは連続空間の話をしているのだろう） 実用上考察の対象となる\\mathbb R^nの部分集合はすべてBorel集合であると考えてしまって問題はない． さて，我々はすべてのBorel集合に対して確率の計算が行えることを要請したいわけだが，確率の計算はあくまで元の確率の確率測度Pによってしか行えないので，写像XによりBorel集合に写される要素の集合が，必ず可測集合でなければならない．つまり，標本空間\\Omegaからその写像は任意に選定できるということにならず，ある制約が加わることになる．\n\n\n写像Xの制約\n写像X : \\Omega \\rightarrow \\mathbb R^nが \nX^{-1}(B) = \\{ \\omega ; X(\\omega) \\in B\\} \\in \\mathcal F (\\forall B \\in \\mathcal B(\\mathbb R^n))\n を満たす必要がある．このときXを\\mathcal F可測写像と呼ぶ． \nこの図を見れば分かるが，逆写像が\\mathcal Fに戻ってくることを要請している．\nここでこの写像は単に実確率変数と呼ばれる． このように実確率変数の導入により標本空間\\Omegaが \\mathbb R^nに写される． なので可測空間が置き換えられたと考えて良い．\n\n\n確率分布の定義\n確率変数Xについて， \nP_X(B) = P(X^{-1}(B)) = P(\\{ \\omega ; X(\\omega) \\in B \\}) , (B \\in \\mathcal B)\n により定まる可測空間(\\mathbb R^n , \\mathcal B^n)上の確率測度P_Xを確率変数Xの確率分布とよぶ． しばしばP(X^{-1}(B))はP(X \\in B)と略記される． 一応確率分布関数と確率密度関数の定義も書いておく \nF_X(x) = P_X((-\\infty , x]) =  P(X \\le x)\n \nf_X(x) = \\frac{\\partial^n}{\\partial x_1 ... \\partial x_n} F_X(x)\n ## 一般の確率変数 実確率変数を導入することによって確率論的な記述が十分に可能になる例は多いが，確率過程に議論を拡張する場合，標本空間からの写像先を，実数空間から一般の空間に拡張しておく必要が生じる． Sを一般の空間として，実確率変数における写像X : \\Omega \\rightarrow \\mathbb R^nをX \\rightarrow Sに拡張することを考える． 写像先であるSを一般の空間に拡張する場合，Borel加法族に相当する部分集合族を考えなければ定義を拡張できない． このためSは位相空間(距離に依存せず，開集合のルールを定めることで「近さ」や「つながり」を表現できるようにした空間)であるものとしBorel加法族，Borel集合を一般化して，次の定義を導入しよう．\n\n\nS値位相確率変数の定義\nSを一般の位相空間とし，Sの開部分集合族が定義されているものとする． 1. Sの開部分集合族の要素をすべて含む最小の\\sigma-加法族を\\mathcal B(S)と表し，Sの位相的Borel加法族とよび，その要素を位相的Borel集合とよぶ． 2.  X^{-1}(B) = \\{ \\omega ; X(\\omega) \\in B\\} \\in \\mathcal F (\\forall B \\in \\mathcal B(S)) を満たすとき，XをS値位相確率変数とよぶ．\nSが位相空間であると仮定することは実用的な応用を考える上では特に問題のある制約ではないと言ってよい．\n補足：この概念は[[学習/Zawa25721_documents/Published/StochasticDifferentialEquations/5|5]]で再登場する．",
-    "crumbs": [
-      "Home",
-      "StochasticDifferentialEquations",
-      "確率論の概要(1)"
-    ]
-  },
-  {
-    "objectID": "Published/StochasticDifferentialEquations/3.html",
-    "href": "Published/StochasticDifferentialEquations/3.html",
-    "title": "確率論の概要(3)",
+    "objectID": "Published/StochasticDifferentialEquations/4.html",
+    "href": "Published/StochasticDifferentialEquations/4.html",
+    "title": "確率論の概要(4)",
     "section": "",
-    "text": "収束定理は統計学において重要である．特に次に紹介する大数の法則と中心極限定理は，それなくして統計学を記述することは不可能であり，主張を理解しておくことには十分価値がある．",
+    "text": "条件付き確率については，その初等的定義を通じて理解し終えていると認識している人も多いかもしれないが，実は確率測度論の立場からの条件付き確率の記述は非常に難解であり，初等的確率論から確率測度論や確率解析へと進む上で最大の障壁となっていると言っても過言ではない． ここではできるだけ簡潔に条件付き確率について概説する． ## 条件付き期待値\n定義 \\mathcal Gを\\mathcal Fの部分\\sigma-加法族とする．このとき部分確率空間(\\Omega,\\mathcal G,P)上定義された可積分な確率変数Y : \\Omega \\to \\mathbb Rが以下の２つの条件を満たすならば，Yを条件\\mathcal Gの下での条件付き期待値とよび，\\mathbb E[X | \\mathcal G] (\\omega)と表す． i) Yは\\mathcal G可測である， ii)\\mathcal Gの任意の要素Gに対して，次が成立する． \n\\int_G Y(\\omega) P(d \\omega) = \\int_G X(\\omega) P(d \\omega)\n 当然よくわからないので，具体例を見ていく． ### 具体例：サイコロを１回振る\n\\Omega = \\{ 1,2,3,4,5,6 \\}, \\qquad P(\\{\\omega\\}) = \\frac{1}{6}\n とし確率変数Xを \nX(\\omega) = \\omega\n とする． ここでサイコロをを振ったあと，出た目そのものは数えてもらえず， 奇数だったか偶数だったかだけ教えてもらったとする． この持っている情報を\\mathcal Gとする.O = \\{ 1,3,5 \\}, \\quad E = \\{2,4,6\\}とすると， \n\\mathcal G = \\{\\varnothing, O,E,\\Omega\\}\n は確かに\\sigma-加法族となる．ここでY = \\mathbb E[X | \\mathcal G] (\\omega)を考える． iiの性質を満たすためにはまず右辺から計算すると \n\\int_O X(\\omega) P(d \\omega) = \\frac{1}{6} + \\frac{3}{6} + \\frac{5}{6} = \\frac{3}{2}\n Yは\\mathcal G可測なので \nY (\\omega) =\n\\begin{cases}\na & \\omega \\in O \\\\\nb & \\omega \\in E\n\\end{cases}\n でなければならない．指示関数を使えば \nY = a \\mathbb 1_O + b\\mathbb 1_E\n である． 期待値の定義から \n\\int_O Y(\\omega) P(d\\omega) = \\sum_i a_i P(A_i) = a P(O)\n である． ここで \nP(O) = \\frac{3}{6} = \\frac{1}{2}\n である(独立な事象の確率は足すことができる)ので， \na = 3\n であることが分かる．同様に計算すると \nb = 4\n であることが分かるので，最終的に \n\\mathbb E[X |\\mathcal G](\\omega) =\n\\begin{cases}\n3 & \\omega \\in O \\\\\n4 & \\omega \\in E\n\\end{cases}\n という確率変数となることが分かる．\n条件付き期待値の意味を理解する上で，次の定理は重要である．\nAが\\mathcal Gの基本単位であれば，\\mathbb E[X | \\mathcal G]はA上定数であり，特にP(A) \\neq 0 の場合は次の式が成立する． \n\\mathbb E[X | \\mathcal G](\\omega) = \\frac{1}{P(\\omega)} \\int_A X(\\nu) P(d \\nu) , \\quad (\\omega \\in  A)\n これはさっきの話を一般化したものである． すなわち条件付き期待値とは，条件として与える情報の基本単位上でｍ確率変数を平均化したものに他ならない．期待値という名称はこのことによるものである．条件付き期待値に関する基本的性質の中で，主なものを挙げておく ### 定理：条件付き期待値の諸性質 条件付き期待値について，次が成立する $$ \\begin{align}\n\\text{i)}& \\quad \\mathbb E[\\mathbb E[X | \\mathcal G]] = \\mathbb E[X] \\\\\n\\text{ii)}& \\quad \\mathcal G = \\{ \\varnothing , \\Omega \\} \\to \\mathbb E[X | \\mathcal G] = \\mathbb E[X] \\\\\n\\text{iii)}& \\quad Xが\\mathcal G可測かつ，XYが可積分であれば\\mathbb E[XY | \\mathcal G] = X \\mathbb E[Y|\\mathcal G]\n    \n\\end{align} \niは\n Y() P(d ) = X() P(d ) $$ が成立するため，書き換えただけである．\niiは，情報が何もないので，そのまま確率変数が定数になるというだけである．左辺は，確率変数であるが右辺は実数値である．この実数値は「その値を常にとる定数確率変数」と解釈される．\niiiの意味は \n\\mathcal G の情報だけで値がわかるXは，条件付き期待値の外にだせる\n ということである．普通の期待値で定数を \n\\mathbb E[aX] = a\\mathbb E[X]\n と外に出せるのと同じ考え方である．\n次に確率変数と情報の間の統計的独立性と，条件付き期待値の間の基本的な関係を導出しておく",
     "crumbs": [
       "Home",
       "StochasticDifferentialEquations",
-      "確率論の概要(3)"
+      "確率論の概要(4)"
     ]
   },
   {
-    "objectID": "Published/StochasticDifferentialEquations/3.html#大数の法則",
-    "href": "Published/StochasticDifferentialEquations/3.html#大数の法則",
-    "title": "確率論の概要(3)",
-    "section": "大数の法則",
-    "text": "大数の法則\n独立列\\{ X_n \\}の第n部分和をS_n = \\sum_{k =1}^n X_kと表す．部分和に対して，\\frac{1}{n} S_nは，X_1からX_nまでの平均を表すが，これを確率分布の平均と区別するため，算術平均と呼ぶことが多い．我々は i.i.dな確率変数列の場合，部分和をとる個数nをおおきくとれば，算術平均によって分布の平均を近似できることを経験的に知っている．これを数学的にきちんと述べたのが 大数の強法則である． ### 定理：大数の強法則\n\\{ X_n \\}をi.i.dなL^1 確率変数(\\forall n , \\mathbb E[|X_n|] &lt; \\infty)の列で，その平均をmとする．このとき \n\\text{as-lim}_{n \\to \\infty} \\frac{1}{n} S_n = m\n が成立する． この定理は，独立確率変数列がL^2に属せば，同一の分布に従わない場合にも拡張できることが知られている(Kolmogorovの大数の強法則)．\n中心極限定理は知ってるので省略する． 一応補足しておくと，中心極限定理には２種類ありLindeberg-Lévyの中心極限定理とLindeberg-Fellerの中心極限定理がある．教科書でよく取り扱われるのはLindeberge-Lévy型である． 世間一般で「中心極限定理」と呼ばれているのは後者のLinderberg-Fellerの中心極限定理である．これは独立ではあるが必ずしも同分布ではない確率変数までも扱えるより一般的な中心極限定理である．",
+    "objectID": "Published/StochasticDifferentialEquations/4.html#条件付き確率",
+    "href": "Published/StochasticDifferentialEquations/4.html#条件付き確率",
+    "title": "確率論の概要(4)",
+    "section": "条件付き確率",
+    "text": "条件付き確率\nまずは定義を書く ### 定義：条件付き確率 \\mathbb 1_{A}(\\omega)をA \\in \\mathcal Fの指示関数とする． i)\\mathcal Gを部分\\sigma-加法族として， \nP(A | \\mathcal G) = \\mathbb E[\\mathbb 1_A | \\mathcal G]\n を条件\\mathcal Gの下で事象Aが起こる条件付き確率と定める． ii) 確率変数Yに対して \nP(A | Y) = \\mathbb E[\\mathbb 1_A | \\sigma(Y)]\n を条件Yの下で事象Aが起こる条件付き確率と定める．\nこの定義から分かるように，条件付き期待値が\\omegaの関数であるのと全く同様にして，条件付き確率も\\omegaの関数，すなわち確率変数になる．「確率」自体が確率変数であるということは最も理解しにくいことかもしれない．\nこれも具体的に計算していく． \nP(C |\\mathcal G) = \\mathbb E[\\mathbb 1_C | \\mathcal G] = \\frac{1}{P(A)}\\int_A \\mathbb 1_C P(d\\omega) ,\\qquad (Aは\\mathcal Gの基本単位)\n であり，積分範囲がAで指示関数が1を取るということは \n\\int_A \\mathbb 1_C P(d\\omega) = P(A \\cap C)\n である．なので条件付き確率は \nP(C |\\mathcal G) = \\frac{ P(A \\cap C)}{P(A)} , \\qquad (Aは\\mathcal G の基本単位)\n\nとなる．Aが具体的になることで，値となる．",
     "crumbs": [
       "Home",
       "StochasticDifferentialEquations",
-      "確率論の概要(3)"
+      "確率論の概要(4)"
     ]
   },
   {
-    "objectID": "Published/StochasticDifferentialEquations/3.html#poissonの少数法則",
-    "href": "Published/StochasticDifferentialEquations/3.html#poissonの少数法則",
-    "title": "確率論の概要(3)",
-    "section": "Poissonの少数法則",
-    "text": "Poissonの少数法則\n次に，\\{ X_n \\} を０または１の値をとる独立確率変数列とし，1をとる確率が非常に小さいものとする．このとき，多数のX_nの集まりの中で1をとった個数を非負整数値確率変数とみなすとき，この集まりの個数が十分に大きくなれば個数の分布がPoisson分布で近似されるというのがPoissonの少数法則である．\nこれ難しいこと言ってるけど，二項分布の期待値を一定にしてn \\to \\inftyにすればポアソン分布になるって言ってるだけや．",
+    "objectID": "Published/StochasticDifferentialEquations/4.html#条件付き確率分布",
+    "href": "Published/StochasticDifferentialEquations/4.html#条件付き確率分布",
+    "title": "確率論の概要(4)",
+    "section": "条件付き確率分布",
+    "text": "条件付き確率分布\n確率変数の導入に伴って，写像先の空間で確率の計算を行うために確率測度を確率分布に変換したことを思い出そう．Borel集合Bを与えるごとに，P_X(B) = P(X^{-1}B)で定めた確率分布は，Pの有する完全加法性により（完全加法性とは記事[[学習/Zawa25721_documents/Published/StochasticDifferentialEquations/1|1]]を参照するように）置き換えられた可測空間(\\mathbb R , \\mathcal B)上で完全加法性を有する確率測度となる．これと同様に，条件付き確率についても同じような変換を行うことが必要になってくる．だが条件付き確率自体が確率変数出会ってサンプル\\omegaに依存するため，確率分布への変換については注意が必要である．\n\n定義：条件付き確率分布\n条件付き確率P(X\\in B | \\mathcal G)(\\omega)に対して，次を満たすP_X(B ,\\omega | \\mathcal G)を条件\\mathcal Gの下でのXの条件付き確率分布という．\n\n全ての\\omega \\in \\Omegaに対して，P_X(\\cdot,\\omega | \\mathcal G)は(\\mathbb R , \\mathcal B)の確率測度である．\nBorel集合Bを一つ固定するごとに，P_X(B ,\\cdot|\\mathcal G)はP(X \\in B | \\mathcal G)にほとんど確実に一致する．\n\n条件付き確率の方の定理に対応するのが次の定理である． 条件Yの下でのXの条件付き確率分布P_X(B, \\omega | Y)に対して \nP_X(B, \\omega| Y) = f_X(B,Y(\\omega))\n を満たすBorel関数f_Xが存在する．\n\n\n定義：条件Yの条件付き確率\n上記定理により定まるf_Xを用いてf_X(B,y)をP_X(B | Y = y)と表し，条件Y = yの下でのXの条件付き確率分布とさだめる．\nあと例を書いて確率論概論は終わり．",
     "crumbs": [
       "Home",
       "StochasticDifferentialEquations",
-      "確率論の概要(3)"
+      "確率論の概要(4)"
     ]
   },
   {
-    "objectID": "Published/StochasticDifferentialEquations/3.html#確率変数と情報",
-    "href": "Published/StochasticDifferentialEquations/3.html#確率変数と情報",
-    "title": "確率論の概要(3)",
-    "section": "確率変数と情報",
-    "text": "確率変数と情報\nここで述べられる情報はShannonの情報理論とは異なる．観測の細かさ，正確さを記述する概念である．\n\nBorel関数\\phi : \\mathbb R \\to \\mathbb Rが存在して \nY(\\omega) = \\phi(X(\\omega)) , \\quad(\\forall \\omega \\in \\Omega)\n が成立するとき，Yのもたらす情報はXのもたらす情報より多くないといい， \nY \\prec_i X\n とあわわす．\nX \\prec _i YかつY \\prec _i XのときX \\sim_p Y と表す．XもYも確率変数であるから，両者ともサンプル\\omegaに依存して値は異なる．しかしY \\prec_i Xが成立するということは，一方の確率変数Xが決まればもう一方の確率変数Yの値が確実に決まってしまうということを意味しており，このことはすなわちYを観測することに寄って得られる情報はXを観測して得られる情報より多くないということを意味している．\n\n例えば身長をどのくらい細かく観測するかを考える． 確率変数Xをある人の正確な身長，Yをその身長を10cm刻みで分類した値とする． \nY = \\phi(X) , \\qquad \\phi(x) = 10 \\lfloor  \\frac{x}{10}  \\rfloor\n すると， \nX = 173.4 \\to Y = 170\n となるので \nY \\prec_i X\n である．一方，Y = 170とわかってもXがどういう情報なのかはわからない．なので一般には \nX \\nprec_i Y\n となる．つまりXは正確な身長，Yは粗く丸めた身長なのでXの方が細かい情報を持っている．\n我々は確率変数のもたらす情報の定量化を行いたいのであるが，その前にまず次の概念を導入する．\n\n定義：可分，生成\n\\Omegaの高々可算無限個の部分集合族 A_n があり，\\sigma-加法族\\mathcal FがA_nを含む最小の\\sigma-加法族となっているとき，\\mathcal Fを可分であるといい，部分集合族A_nが\\sigma-加法族\\mathcal Fを生成するという．\n何を言っているのかよくわからないので，噛み砕いて言うと \\mathcal Fのすべての集合を，可算個の基本的な集合A_1, A_2 , ...から，補集合，可算和などの操作を使って作れるという意味である．\n例えば \n\\Omega = \\{ 1,2,3,4 \\} , \\qquad A = \\{ 1,2 \\}\n とする.これはAを含む\\sigma-加法族を作成すると，自動的に \n\\sigma(A) = \\{ \\varnothing, A , A^c , \\Omega  \\}\n となる． ちなみに\\sigma(X)の意味は \n\\sigma(X) = \\sigma(\\{ X^{-1}(B) : B \\in \\mathcal B(\\mathbb R^n) \\})\n である．まぎらわしい． すなわち，\\mathcal F全体が，可算個の基本集合だけで記述できるということである．\\mathcal Fが最初に存在し，それが可算個の集合で生成可能であるかを調べて，それができるなら可分だと言っている．\n次の定理は重要である．\nX,Yの生成する\\sigma-加法族をそれぞれ\\sigma(X),\\sigma(Y)とするとき，次が成立する． $$ \\begin{align}\n\nY \\prec_i X \\Leftrightarrow \\sigma(Y) \\subset \\sigma(X)\\\\\nY \\sim_p X \\Leftrightarrow \\sigma(Y) = \\sigma(X)\\\\\n\n\\end{align} $$\nこの定理によれば，確率変数が生成する\\sigma-加法族はその確率変数の有する情報の定量化に相当するものであり，それ故に自然に次の定義に行き着くことができる． \n\\begin{align}\n&\\text{i)} \\sigma(X)を確率変数Xの有する情報とよぶ  \\\\\n&\\text{ii)} \\sigma-加法族そのものを情報とよぶ．\n\\end{align}\n 確率空間(\\Omega, \\mathcal F ,P)を考えるということは，\\mathcal Fが我々の知り得る全情報であるということを意味しており，その各情報に対して，生起確率という実数値を対応させるのが確率測度Pである． 先に述べたように確率変数Xには\\mathcal F 可測性が要求されるが，これは \n\\sigma(X) \\subset \\mathcal F\n が成立することにほかならない．すなわち情報の観点から述べれば，Xの有する情報は我々の知り得る全情報よりも多くあってはならないことを，この定義は要求しているのである．\n\n\n情報の基本単位\n\\sigma-加法族はすなわち情報であり，これを既知情報として，次回述べる条件付き確率の「条件」に採用できる．そのための準備として情報の構造について考察しておこう．\n\n\\Omegaの部分集合の族\\mathcal Gが\\mathcal G \\subset \\mathcal Fを満たし，かつ\\mathcal Gが\\sigma -加法族であるとき，\\mathcal Gを\\mathcal Fの部分\\sigma-加法族という．\n\\sigma-加法族\\mathcal Gの要素AでA自身と \\phiを除く全てのAの部分集合が\\mathcal Gに属さないとき，Aを \\mathcal Gの基本単位と呼ぶ．\n\n\\sigma-加法族自身が情報であるから，その基本単位は情報の基本単位と考えて良い，この定義は情報全体を細かく分割していき，最終的にそれ以上細分出来ない基本単位というものによって情報の微細構造を明らかにするものであるが，逆に基本単位から情報全体が構成できる．\n情報の基本単位の例は \\Omega = \\{ 1,2,3,4 \\}のとき \\mathcal G = \\{ \\phi , \\{1,2\\}, \\{3,4 \\} , \\Omega \\} で\\{ 1,2 \\}と\\{3,4\\}が基本単位である． \\{1,2\\}の部分集合は\\phi, \\{1\\},\\{2\\},\\{1,2\\}であるが，確かに自分自身と空集合は含んでいない． 情報の基本単位と確率変数の関係は次の定理で記述される\nXを(\\Omega,\\mathcal F)上の実確率変数，すなわち\\mathcal F可測写像とすると，これは\\mathcal Fの基本単位上で定数である． これは基本単位の例から分かる．\n次回から，この確率論の一番の難所である条件付き期待値，条件付き確率をやる． 実は先読みしたが，いままでやってきた条件付き確率より遥かに難しい概念なので，気を引き締めてじっくり勉強していきたい．",
+    "objectID": "Published/StochasticDifferentialEquations/4.html#おわりに",
+    "href": "Published/StochasticDifferentialEquations/4.html#おわりに",
+    "title": "確率論の概要(4)",
+    "section": "おわりに",
+    "text": "おわりに\nこれで確率論の概論は終わりである．次回からようやく本題の一つである確率過程に入っていく．Pythonなどを用いてわかりやすい図などを書いたりしながら自分で理解していきたいと思う．",
     "crumbs": [
       "Home",
       "StochasticDifferentialEquations",
-      "確率論の概要(3)"
+      "確率論の概要(4)"
+    ]
+  },
+  {
+    "objectID": "Published/StochasticDifferentialEquations/5.html",
+    "href": "Published/StochasticDifferentialEquations/5.html",
+    "title": "確率過程論の概要(1)",
+    "section": "",
+    "text": "確率過程とは，時間とともに不規則に変動する幻想を記述する数学ツールとして広く用いられているもので，確率変数が時間に依存するという考え方が基本となっている．",
+    "crumbs": [
+      "Home",
+      "StochasticDifferentialEquations",
+      "確率過程論の概要(1)"
+    ]
+  },
+  {
+    "objectID": "Published/StochasticDifferentialEquations/5.html#はじめに",
+    "href": "Published/StochasticDifferentialEquations/5.html#はじめに",
+    "title": "確率過程論の概要(1)",
+    "section": "",
+    "text": "確率過程とは，時間とともに不規則に変動する幻想を記述する数学ツールとして広く用いられているもので，確率変数が時間に依存するという考え方が基本となっている．",
+    "crumbs": [
+      "Home",
+      "StochasticDifferentialEquations",
+      "確率過程論の概要(1)"
+    ]
+  },
+  {
+    "objectID": "Published/StochasticDifferentialEquations/5.html#確率過程とは",
+    "href": "Published/StochasticDifferentialEquations/5.html#確率過程とは",
+    "title": "確率過程論の概要(1)",
+    "section": "確率過程とは？",
+    "text": "確率過程とは？\n確率空間(\\Omega, \\mathcal F, P)が与えたれており，この上に定義された\\mathbb R^n値確率変数の集まりを考える．各確率変数には実数のパラメータが付されており，このパラメータの値がとり得る集合は，\\mathbb Rの部分集合T(すなわち時間)であるものとする．以下ではTを時間パラメータ集合と呼び，その要素を「時間」あるいは「時刻」といった名称で呼ぶ．このTを用いて確率過程を定義する．\n\n定義：確率過程\n時刻 t \\in Tに依存する\\mathbb R^n値確率変数の集まりX(\\omega) = \\{X_t(\\omega);t \\in T\\}を確率過程とよぶ．\nもちろんtを一つ固定するごとに，X_t : \\Omega \\to \\mathbb R^nは\\mathcal F可測となっていなければならない．\n\n\n定義：見本関数（サンプルパス）\n連続時間確率過程Xにおいて，\\omegaを一つ固定すると，X(\\omega)はT上の\\mathbb R^n値関数となる．これを見本関数（サンプルパス）と呼ぶ．\n確率過程の特性を理解するには，「時刻tを一つ固定すると確率変数となる」という特性と「サンプルを一つ抽出するとtの関数が得られる」という特性の両方から把握しなければならない．\n左が関数としての確率過程．右が時間を固定て，確率変数の振る舞いをする確率過程である．",
+    "crumbs": [
+      "Home",
+      "StochasticDifferentialEquations",
+      "確率過程論の概要(1)"
+    ]
+  },
+  {
+    "objectID": "Published/StochasticDifferentialEquations/5.html#有限次元分布",
+    "href": "Published/StochasticDifferentialEquations/5.html#有限次元分布",
+    "title": "確率過程論の概要(1)",
+    "section": "有限次元分布",
+    "text": "有限次元分布\n実確率変数の場合は，確率分布関数を知ることができれば，それに関する確率的な性質や統計量を，原理的にはすべて産出できる．しかし，確率過程の場合は事情がかなり異なる．例えばある時刻を一つ固定すれば実確率変数が得られるが，その時刻の確率分布関数を知っただけでは不十分で，異なる時刻間の統計的相関も知らなければならない．さらに多数の時刻間での情報も必要である．\nこのため，確率過程の確率的性質は次のように表現しなければならない．\\mathbb R値確率過程を例にとると，時間パラメータ空間上任意に与えた時系列t_1, t_2 , ...,t_n \\in Tに対して，(X_{t_1}(\\omega),..., X_{t_n}(\\omega))は \\mathbb R値確率変数を与える．その確率分布を確率過程Xのn次の有限次元分布と呼ぶ．有限次元分布という名称は，確率過程のサンプルが得られる空間（関数空間）が線形空間無限次元の空間であるのに対して，それを有限の次元の空間に射影して表現していることに由来している．\nこれは実確率変数の従う分布であるから，その結合確率分布関数 \nF^{(n)}_X (x_1,t_1 ; x_2,t_2 ; \\cdots;x_n,t_n) = P(X_{t_1} \\le x_1 , ...,X_{t_n} \\le x_n)\n により表現することが可能である．これを，任意の次数，任意の時系列の選択に対して知ることが，確率過程の性質を完全に知る上では必要となるのである．しかしあらゆる確率過程に対してこのような知識を要請することは事実上困難であることは容易に想像がつく．したがって確率過程を用いて現象を解析するにはいくつかの限定された特性を有する確率過程に絞って議論を進めなければならない．後に述べるが，Markov過程という概念はこの目的のための非常に有力な性質となる．\n有限次元分布による確率過程の特性の把握を考えることに関連して，有限次元分布の同一性と確率過程の同一性の違いをはっきりさせておかなければならない． ２つの確率過程の有限次元分布が同じでも，それが見本関数ごとに一致するとは限らない．しかし，実用的観点からは対象とする確率過程の有限次元分布を求めること，あるいはその部分的情報を用いることにより，必要な確率的性質を導出することが重要となるので，見本関数ごとの振る舞いの一致が必ずしも必要なわけではない．ちなみにX = \\{W_t;t \\in T\\}, Y = \\{-W_t\\in T\\}である．たしかに正規分布は左右対称なので，正負を逆にしても確率的には同じになるけど，確率過程はt軸対称になるな．\nしたがって，もしも見本関数ごとの振る舞いが数学的に都合の悪いものであれば，有限次元関数が同じでも見本関数ごとの挙動が解析上都合のよい確率過程を構成すればよいわけである． そのためも次の用語の意味を理解しておくことが重要となる．\n\n定義：変形，判別不能\n(i)確率過程Xに対して，確率過程Yが各t \\in Tに対してX_t(\\omega) = Y_t(\\omega) , \\quad (\\text{a.s)} を満たすとき，YはXの変形であるという． (ii)２つの確率過程XとYが，P(X_t = Y_t, \\forall t \\in T) = 1を満たすとき，判別不能であるという．\nこれ一緒じゃねえの？almost surelyってそういう意味なんじゃないの？ 具体例を考える．T = [0,1], \\Omega = [0,1]で分布は一様分布とする． \nX_t(\\omega) = 0,\\qquad Y_t(\\omega) =\n\\begin{cases}\n1 & \\omega = t\\\\\n0 & \\omega \\neq t\n\\end{cases}\n X_t = Y_tとなるのは\\omega \\neq tである．これは\\omega = tとなる点がtを固定したとき1つしかなく，区間の要素数は無限なので \n\\forall t\\in T ,\\quad P(X_t = Y_t) = 1\n である．なのでAlmost surelyの定義から，YはXの変形である．\nしかし「全てのtで一致する\\omega」は一つもない．なぜなら各tについて，X_t \\neq Y_tを満たす\\omegaが必ず一つだけ存在するからである．すなわち \nP(X_t = Y_t , \\quad \\forall t \\in[0,1]) = 0\n となっているので，判別不能ではない． - 変形：各時刻ごとに見ればa.s.一致 - 判別不能：a.s. の標本経路について全時刻で一致\n実用面の応用という点では，変形という操作により得られる確率過程は，元の確率過程と同じものと考えて差し支えない．",
+    "crumbs": [
+      "Home",
+      "StochasticDifferentialEquations",
+      "確率過程論の概要(1)"
+    ]
+  },
+  {
+    "objectID": "Published/StochasticDifferentialEquations/5.html#確率過程の連続性",
+    "href": "Published/StochasticDifferentialEquations/5.html#確率過程の連続性",
+    "title": "確率過程論の概要(1)",
+    "section": "確率過程の連続性",
+    "text": "確率過程の連続性\n[[学習/Zawa25721_documents/Published/StochasticDifferentialEquations/2|2]]で定義した収束を用いて確率過程の連続性を定義する．\n\n定義：a.s.連続，確率連続，q次平均連続\n\n各t \\in Tに対して，\\text{as-}\\lim_{s \\to t} X_s = X_tとなるとき，Xはa.s.連続であるという． ii)各t \\in Tに対して，\\text{p-}\\lim_{s \\to t} X_s = X_tとなるとき，Xは確率連続であるという． iii)各t \\in Tに対して，X_tはL^qに属するものとする．このとき各t\\in Tに対して\\lim_{s \\to t} \\mathbb E[|X_s - X_t|^q] = 0 となるとき，Xはq次平均連続であるという．\n\nサンプル\\omegaを抽出するごとにどのような見本関数が出現するかという観点からは次のような定義が与えられる．\n\n\n定義：連続確率過程\nXの見本関数がほとんど確実にT上の\\mathbb R^n値連続関数となるとき，Xを連続確率過程という．連続確率過程の集まりを\\mathcal Cと表す．\n見本関数が連続でない場合も考えるので，次の定義も与えておく．\n\n\n定義：cadlag確率過程，caglad確率過程\ni)X の見本関数が，T上の\\mathbb R^n値関数として，ほとんど確実に右連続で左極限をもつとき，Xをcadlag確率過程という．\nii)X の見本関数が，T上の\\mathbb R^n値関数として，ほとんど確実に左連続で右極限をもつとき，Xをcaglad確率過程という．",
+    "crumbs": [
+      "Home",
+      "StochasticDifferentialEquations",
+      "確率過程論の概要(1)"
+    ]
+  },
+  {
+    "objectID": "Published/StochasticDifferentialEquations/5.html#確率過程の列の収束性",
+    "href": "Published/StochasticDifferentialEquations/5.html#確率過程の列の収束性",
+    "title": "確率過程論の概要(1)",
+    "section": "確率過程の列の収束性",
+    "text": "確率過程の列の収束性\n関数に対して関数列があるように，確率過程に対しても確率過程の列があり，それに対する収束性を考えなければならない．時間パラメータtを固定して話を進めれば，それは確率変数列の収束の問題に帰着されるが，それでは確率過程の挙動全体という観点からの議論として十分であるとは言えない．なぜならtを固定した議論ではその時刻での値しか見れないので，確率過程の本質でらう時間方向の繋がりを捨ててしまうからである．\nそこでサンプルを取り出すごとに実数が得られるのが実確率変数であるという認識からの類推のより，サンプルとして関数が得られるのが確率過程であるという考え方に着目する．\nこの場合，標本空間からの写像先が実数空間ではなくなるため，[[学習/Zawa25721_documents/Published/StochasticDifferentialEquations/1|1]]で述べた位相確率変数という概念が必要になる（意味ないと思っていたが，ここで使われるのか！）．したがってサンプルの抽出により得られる関数が属する集合，いわゆる関数空間について，その位相的性質を確率して置かなければならない．\nもっとも基本となる連続確率過程について考えてみる．この場合の標本空間\\Omegaからの写像先は，時間パラメータ集合T上定義された連続関数からなる関数空間となる．T上定義された\\mathbb R^n値連続関数の全体を\\mathcal Cと表すことにする．時間上限T_{\\max}が有限値の場合，\\mathcal Cの２つの要素x,yの距離を \nd(x,y) = \\sup_{t \\in [0,T_{\\max}]} |x(t) - y(t)|\n で定義することにより，空間\\mathcal Cの位相（近さの度合い，収束など）が決まる． Cの要素の列\\{ x_n \\}がこの距離でx \\in \\mathcal Cに収束するとは，関数列\\{x_n\\}が区間[0,T_{\\max}]上でxに一様収束することと同値である．このことから，このように定まる\\mathcal Cの位相を一様収束位相とよぶ （T_{\\max} = \\inftyの場合は修正が必要であるが，ここではそんなに厳密に考えないので記述しない）．\nこの位相の下で定まる\\mathcal Cの開部分集合に基づいて，\\mathcal Cの位相的Borel加法族\\mathcal B(\\mathcal C)が定まり， \\mathcal C値位相確率変数X : \\Omega \\to \\mathcal Cが\\mathcal B(\\mathcal C)可測な写像として定義される．\nXが連続確率過程であることと，\\mathcal C値位相確率変数であることは同値であることが知られている．このように，確率過程を関数空間の値をとる位相確率変数と捉えることは重要である．\n連続確率過程を\\mathcal C値位相確率変数とみなすと，連続確率変数の列の収束性は，先程定義した距離によって記述される．実確率変数列の収束性について，様々な収束の概念があるように，距離dに関してもこれらの収束規範がある．\n時間上限T_{\\max} = \\inftyの場合は，各t &lt; \\inftyを固定するごとに，時間パラメータ集合を[0,t]という有界閉集合に限定することにより，一様収束位相下での確率収束を考えれば多くの実用的な問題に対応できる．そして次の定義を与える\n\n定義：ucpの意味で収束\nt \\in Tを固定するごとに，任意の\\epsilon &gt; 0に対して \n\\lim_{n \\to \\infty} P\\left( \\sup_{s \\in[0,t]} |X_s^{(s)} - X_s| \\ge \\epsilon\\right) = 0\n となるとき，X^{(n)}はXにucpの意味で収束するという．\n混乱が無い場合は \n\\text{p}-\\lim_{n\\to \\infty} X^{(n)} = X\n と表記することにする．",
+    "crumbs": [
+      "Home",
+      "StochasticDifferentialEquations",
+      "確率過程論の概要(1)"
+    ]
+  },
+  {
+    "objectID": "Published/StochasticDifferentialEquations/5.html#確率過程の可積分性と一様可積分性",
+    "href": "Published/StochasticDifferentialEquations/5.html#確率過程の可積分性と一様可積分性",
+    "title": "確率過程論の概要(1)",
+    "section": "確率過程の可積分性と一様可積分性",
+    "text": "確率過程の可積分性と一様可積分性\n確率過程は時間パラメータtを固定するごとに確率変数となっているから，可積分の定義は次のような語を用いる．\n\n定義：可積分\n\\forall t \\in TについてX_tがL^1に属するとき，Xを可積分であるという． またL^2に属するとき，2乗可積分であるという．\nしかし，確率過程の場合は，時間パラメータtへの依存性があるため，T_{\\max} \\to \\inftyの場合などでは．この可積分性がtについて一様であるか否かという概念が必要となってくる．これは一様可積分の定義に対応して，次のように定義される\n\n\n定義：一様可積分\n可積分な確率過程Xが \n\\lim_{A \\to \\infty} \\sup_{t \\in T} \\int_{|X_t| &gt; A}|X_t| dP = 0\n を満たすとき，一様可積分であるという．\nとりあえず共通しているのは，一番遠く行って，その値が0にならないと発散しちゃうから禁止シているということか．",
+    "crumbs": [
+      "Home",
+      "StochasticDifferentialEquations",
+      "確率過程論の概要(1)"
+    ]
+  },
+  {
+    "objectID": "Published/StochasticDifferentialEquations/5.html#確率過程の可分性",
+    "href": "Published/StochasticDifferentialEquations/5.html#確率過程の可分性",
+    "title": "確率過程論の概要(1)",
+    "section": "確率過程の可分性",
+    "text": "確率過程の可分性\n連続時間確率過程においては，時間パラメータ集合が非可算集合となるため，非可算個のBorel演算が必要となることがしばしば生じる．\n例えば\\mathbb R値確率過程Xについて，所与の時刻t_0までにXがある限界値x_cを超過しない確率を計算するという問題が，あとに述べる信頼性工学では中心的役割を演じることとなるし，他の応用分野でも類似の問題が登場することが多い．\nXが初めてx_cを超過する時刻を\\tauとすると，t_0までにx_cを超過しないということは，\\tauがt_0よりも大きいということにほかならず，それは時刻t_0までに一度も値x_cを超えていないということと同値である．したがって\n$$\n{ ; () t_0 } = _{0 t t_0} { ; X_t() x_c }\n$$ となる．右辺に現れる\\{ \\omega ; X_t(\\omega) \\leq x_c \\}は可測性により，必ず\\mathcal Fの要素となるが，それらの非可算個の積集合をとっているため，左辺の集合が\\mathcal Fの要素となるかはわからない．\nすなわち，「時刻t_0までに限界値x_cを超過しない」というのが事象かどうかわからないことになる．なぜなら\\sigma-加法族は定義により可算個のBorel演算の下では閉じているが，非可算個の演算のもとで閉じていることまでは保証されていないためである．\nこのような状況を放置しておくと，連続時間確率過程の実用的な応用性は著しく低下してしまう．そこで，可算個の演算により非可算個の演算と同等の結果を得ることのできる特性として，Doobは次のような概念を導入した．\n\n定義：可分\n任意の閉集合A \\subset \\mathbb R^nに対して，時間パラメータ集合の可算部分集合T' \\subset Tと零集合N \\in \\mathcal Fが存在して，任意の開区間I \\subset Tに対して，\\{ \\omega ; X_t(\\omega) \\in A , t \\in I \\cap T \\}と\\{ \\omega ; X_t(\\omega) \\in A , t \\in I \\cap T' \\}が零集合Nの部分集合しか異ならないとき，確率過程Xは可分である．あるいはXは可分過程であるという．またT'のことを分離集合という．\n具体例というか直感を見ていく．\nB = (B_t)_{t \\ge 0}（ブラウン運動）を考えると，分離集合として \nT' = \\mathbb Q_{\\ge0}\n を取ることができる．\n可分性の直感は「すべての実数時刻を見る必要はなく，有理数時刻だけ見れば十分」 ということである．\nここでT = [0,\\infty)ｋ，開集合を \nA = (-\\infty,x_c]\n とする．区間I = (0,t_0)に対して \nB_t(\\omega) \\in A \\qquad \\forall t \\in I\n という条件，つまり $$\nB_t() x_c t (0,t_0)\n$$\nを考える． ブラウン運動の標本路は確率1で連続（ほとんど確実に連続），したがって連続でない標本路を集めた零集合をNとして除けば\n\nB_t(\\omega) \\in A \\qquad \\forall t \\in T'\\cap I\n と \nB_t(\\omega) \\le x_c \\qquad \\forall t \\in (0,t_0)\n が同値である．零集合を除いているのは，ブラウン運動がほとんど確実に連続であるので，別に除いても問題ないということである．（ここらへんはよくわからなかった．というか，可算個程度の無限の密度でも十分記述できるということを理解していればよいのでは？と思っている．）\n実は都合の良いことに，あらゆる確率過程について同一の確率空間上に定義された変形で可分となるものが存在することがDoobによって示されている．これを元の確率過程の可分変形という．したがってもしも確率過程が可分でない場合はその可分変形を用いればよく，その操作によりそれに関する確率的性質は全く影響を受けない．\n次回はフィルトレーションとマルチンゲールをやる．",
+    "crumbs": [
+      "Home",
+      "StochasticDifferentialEquations",
+      "確率過程論の概要(1)"
     ]
   },
   {
