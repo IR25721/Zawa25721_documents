@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>カノニカルアンサンブル – Zawaの勉強記録</title>
+<title>双対アファイン接続 – Zawaの勉強記録</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -36,8 +36,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../Published/information_geometry/1.html" rel="next">
-<link href="../../Published/equilibrium_stat_mech/2.html" rel="prev">
+<link href="../../Published/nonflat_information_geometry/1.html" rel="next">
+<link href="../../Published/information_geometry/6.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -47,7 +47,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-b286bb201c9dfdd51ad8d12a75fcbf0e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-197e0eb505517abad2e593204d215838.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -76,6 +76,49 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -123,7 +166,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/equilibrium_stat_mech/1.html">平衡系統計力学</a></li><li class="breadcrumb-item"><a href="../../Published/equilibrium_stat_mech/3.html">カノニカルアンサンブル</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/information_geometry/1.html">情報幾何学</a></li><li class="breadcrumb-item"><a href="../../Published/information_geometry/7.html">双対アファイン接続</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -179,12 +222,29 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">PR</span></a>
+ <span class="menu-text">DifferentialGeometry</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/DifferentialGeometry/1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.md</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">PR</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Published/PR/1.html" class="sidebar-item-text sidebar-link">
@@ -219,30 +279,42 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
  <span class="menu-text">PyTorch</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Published/PyTorch/1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PyTorchでMLPを実装する</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/PyTorch/2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">DLアーキテクチャーを色々試してみる</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/PyTorch/3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">一般にどうPyTorchをつかうべきなのか？</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
  <span class="menu-text">StochasticDifferentialEquations</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Published/StochasticDifferentialEquations/1.html" class="sidebar-item-text sidebar-link">
@@ -289,13 +361,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
  <span class="menu-text">ベイズ推論</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Published/bayesian_inference/1.html" class="sidebar-item-text sidebar-link">
@@ -324,42 +396,30 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
  <span class="menu-text">平衡系統計力学</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Published/equilibrium_stat_mech/1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">リウビルの定理と等確率の原理</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../Published/equilibrium_stat_mech/2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">ボルツマンの原理</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../Published/equilibrium_stat_mech/3.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">カノニカルアンサンブル</span></a>
+ <span class="menu-text">統計力学とは</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
  <span class="menu-text">情報幾何学</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Published/information_geometry/1.html" class="sidebar-item-text sidebar-link">
@@ -396,6 +456,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">多様体のアファイン接続(1)</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/information_geometry/7.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">双対アファイン接続</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -404,13 +470,30 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
- <span class="menu-text">最適化数学</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
+ <span class="menu-text">nonflat_information_geometry</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Published/nonflat_information_geometry/1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.md</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true">
+ <span class="menu-text">最適化数学</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Published/optimization_math/1.html" class="sidebar-item-text sidebar-link">
@@ -424,15 +507,27 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#双対アファイン接続" id="toc-双対アファイン接続" class="nav-link active" data-scroll-target="#双対アファイン接続">双対アファイン接続</a>
+  <ul class="collapse">
+  <li><a href="#定義双対アファイン接続" id="toc-定義双対アファイン接続" class="nav-link" data-scroll-target="#定義双対アファイン接続">定義：双対アファイン接続</a></li>
+  <li><a href="#定義双対構造" id="toc-定義双対構造" class="nav-link" data-scroll-target="#定義双対構造">定義：双対構造</a></li>
+  <li><a href="#定理双対平行移動に関する内積の不変性" id="toc-定理双対平行移動に関する内積の不変性" class="nav-link" data-scroll-target="#定理双対平行移動に関する内積の不変性">定理：双対平行移動に関する内積の不変性</a></li>
+  </ul></li>
+  <li><a href="#統計多様体" id="toc-統計多様体" class="nav-link" data-scroll-target="#統計多様体">統計多様体</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/equilibrium_stat_mech/1.html">平衡系統計力学</a></li><li class="breadcrumb-item"><a href="../../Published/equilibrium_stat_mech/3.html">カノニカルアンサンブル</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/information_geometry/1.html">情報幾何学</a></li><li class="breadcrumb-item"><a href="../../Published/information_geometry/7.html">双対アファイン接続</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">カノニカルアンサンブル</h1>
+<h1 class="title">双対アファイン接続</h1>
 </div>
 
 
@@ -449,8 +544,78 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>情報幾何とは狭い意味では双対アファイン接続の微分幾何のことである．</p>
+<section id="双対アファイン接続" class="level2">
+<h2 class="anchored" data-anchor-id="双対アファイン接続">双対アファイン接続</h2>
+<section id="定義双対アファイン接続" class="level3">
+<h3 class="anchored" data-anchor-id="定義双対アファイン接続">定義：双対アファイン接続</h3>
+<p>アファイン接続<span class="math inline">\nabla</span>を持つRiemann多様体<span class="math inline">(M,g)</span>において <span class="math display">
+Xg(Y,Z) = g(\nabla_X Y,Z) + g(Y,\nabla^*_X Z) \quad(X,Y,Z \in \mathcal X(M))
+</span></p>
+<p>で定義されるアファイン接続<span class="math inline">\nabla^*</span>を計量<span class="math inline">g</span>に関する<span class="math inline">\nabla</span>の双対アファイン接続という．</p>
+<p>要請から写像<span class="math inline">\nabla^*</span>が一意に定まること，共変微分の公理を満たすことは分かっている．</p>
+</section>
+<section id="定義双対構造" class="level3">
+<h3 class="anchored" data-anchor-id="定義双対構造">定義：双対構造</h3>
+<p>Riemann多様体<span class="math inline">(M,g)</span>において，計量<span class="math inline">g</span>に関する双対性を満たすアファイン接続のペア<span class="math inline">(\nabla,\nabla^*)</span>が与えられた時，３つの組<span class="math inline">(g,\nabla,\nabla^*)</span>を<span class="math inline">M</span>の双対構造という．</p>
+<p>双対アファイン接続に関する基本性質を以下に列記する．まず <span class="math display">
+(\nabla ^*) ^* = \nabla
+</span> が成り立つ．これは双対接続の一意性から明らかであろう．次に <span class="math display">
+\nabla \text{がRiemann接続} \leftrightarrow \nabla = \nabla ^* \text{かつ捩率がゼロ}
+</span> が成り立つ．実際<span class="math inline">\nabla = \nabla ^ *</span> とは<span class="math inline">\nabla</span>が計量的であることに他ならない．逆に言えば，<span class="math inline">\nabla</span>も<span class="math inline">\nabla^*</span>も一般には計量的ではない．しかしこれらを平均した接続 <span class="math display">
+\bar \nabla := \frac{\nabla + \nabla ^*}{2}
+</span> は常に計量的となる．<span class="math inline">g(Y,Z)=g(Z,Y)</span>であることに気をつければよい．</p>
+<p>よくわからなかったので，具体例で見ていくことにする．<span class="math inline">M = \mathbb R</span>，座標を<span class="math inline">x</span>として，計量を普通の <span class="math inline">g = dx^2</span>にする．すなわち<span class="math inline">g(\partial_x,\partial_x) = 1</span>である．ここで，Levi-Civita接続ではなく，接続を <span class="math inline">\nabla_{\partial_x}\partial_x = a \partial_x</span>とする．これの双対接続<span class="math inline">\nabla_{\partial_x}^ *\partial_x</span> はなんだろうか考えてみる．</p>
+<p>定義から <span class="math display">
+X g(Y,Z) = g(\nabla_X Y , Z) + g(Y, \nabla^*_X Z)
+</span> が成立するわけだが，<span class="math inline">X = \partial_x, Y = f \partial_x, Z = h \partial_x</span>として計算する．まず左辺は $$ <span class="math display">\begin{align}
+
+\partial_x g(f \partial_x, h \partial_x)  = \partial_x (fg) = f'g + fg'
+
+\end{align}</span> $$</p>
+<p>となる.<span class="math inline">\nabla^*_{\partial_x} \partial_x = b \partial_x</span>とすると左辺は $$ <span class="math display">\begin{align}
+
+g(\nabla_{\partial_x}f \partial _x, h \partial _x) &amp;= g(f'\partial_x + a f \partial_x, h\partial_x) \\
+&amp;= (f' + af) h \\
+\\
+g(f \partial_x, \nabla^*_{\partial_x}h \partial _x) &amp;= g (f\partial_x, h' + h \nabla^*_{\partial_x}\partial_x) \\
+&amp;= f( h' + h b \partial_x)
+\end{align}</span> $$</p>
+<p>となる，比較すると結局 <span class="math display">
+a + b = 0
+</span></p>
+<p>を満たさないといけないことがわかるので，<span class="math inline">\nabla^*_{\partial_x} \partial_x = -a \partial_x</span>である．g()</p>
+<p>平行について考えよう．<span class="math inline">\nabla</span>-平行とは<span class="math inline">\nabla_{\partial_x} Y = 0</span> であったから<span class="math inline">f = C e ^{-ax}</span> である．対照に<span class="math inline">\nabla^*</span>-平行とは<span class="math inline">\nabla^*_{\partial_x} Z = 0</span>であったから，<span class="math inline">h = De^{ax}</span>である． これの計量をとってみると <span class="math display">
+g(Y,Z) = g(Ce^{-ax},De^{ax}) = CD = \text{const}
+</span></p>
+<p>となるので確かに内積が一定であることがわかる．</p>
+<p>しかし，計算を実際にしてみても不気味であって，こんなものが本当に必要なのかと思ってしまう．確実に考えていく．</p>
+<p>まず多様体そのものが与えるのは各点の接空間までであり，異なる点の接空間を比較する方法は多様体だけでは決まらない．その比較規則を追加するものが接続であった． したがって接続は多様体そのものではなく，多様体に追加した構造と考えるのが第一歩である． 次でこの疑問は解決される．</p>
+<p>さて，一般に<span class="math inline">\nabla</span> も<span class="math inline">\nabla ^*</span> も計量的でないということは，Riemann接続が有していた平行移動で内積が保存されるという性質が成り立たないことを意味する．しかし，双対接続の定義が計量的な接続の条件に似ていることから，何かしらの形でその定理を拡張できるのではないかと予感させる．</p>
+<p>それを実現したのが次の定理である．</p>
+</section>
+<section id="定理双対平行移動に関する内積の不変性" class="level3">
+<h3 class="anchored" data-anchor-id="定理双対平行移動に関する内積の不変性">定理：双対平行移動に関する内積の不変性</h3>
+<p>滑らかな曲線<span class="math inline">C =  \{ p(t) ;  a \le t \le b\}</span>に沿った<span class="math inline">\nabla</span>および<span class="math inline">\nabla^*</span>に関する平行移動をそれぞれ <span class="math inline">\Pi_C, \Pi_C^*</span> と書くと，任意の<span class="math inline">v  , w \in T_{p(a)}M</span>に対して <span class="math display">
+g_{p(b)}(\Pi_C v , \Pi_C^* w) = g_{p(a)} (v,w)
+</span> すなわち，２つの接ベクトルの内，一方を<span class="math inline">\nabla</span>に関して平行移動し，他方を<span class="math inline">\nabla^*</span>に関して平行移動するなら，内積は保存される．</p>
+<p>一つの接続で「自身が計量を保存する」と要求する代わりに，二つの接続の間で計量を保存する，という弱い条件にするということである．平行移動を２つ考えているのである．</p>
+<p><img src="Pasted image 20260830175556.png" class="img-fluid"> また，次のことも言える．</p>
+<p><span class="math inline">\nabla</span>-曲率 <span class="math inline">R</span>がゼロであることと，<span class="math inline">\nabla ^*</span>- 曲率<span class="math inline">R^*</span>がゼロであることは同値である．</p>
+<p>互いに双対な曲率<span class="math inline">R</span>と，<span class="math inline">R^*</span> に関して，このような単純な関係が成り立つので，互いに双対な捩率<span class="math inline">T</span>と<span class="math inline">T^*</span>にも対応する性質が成り立つことが期待される．しかし，残念なことにこれは成り立たない．もう少し説明するために，次の量を導入する． <span class="math display">
+(\nabla g) (X,Y,Z) := Xg(Y,Z) -g(\nabla_X Y,Z) - g(Y,\nabla Z)
+</span></p>
+<p>これは，接続がどれくらい計量的でないかを計るテンソル量である．このとき次の定理が成り立つ． 次の4条件のうち，任意の２条件を仮定すると，残りの２条件が成立する． i) <span class="math inline">\nabla</span> の捩率はゼロである． ii) <span class="math inline">\nabla ^*</span> の捩率はゼロである． iii) <span class="math inline">(\nabla g) (X,Y,Z)</span> は<span class="math inline">X,Y,Z</span>に関して対称である． iv)<span class="math inline">\bar \nabla</span>がRiemann接続である．</p>
+</section>
+</section>
+<section id="統計多様体" class="level2">
+<h2 class="anchored" data-anchor-id="統計多様体">統計多様体</h2>
+<p><span class="math inline">(M,g,\nabla ,\nabla^*)</span>を統計多様体とする．</p>
+<p>情報幾何の基礎はここまでとする．この先の教科書は基本的に双対平坦構造についてばかり書いており，古典的な場合には非常に美しい解釈が与えられているが私が知りたいのは非平坦構造の情報幾何なので，ここには興味がない．なのでここでいったん切って，別のディレクトリで平坦を仮定しない情報幾何を勉強していく．教科書が英語なので，英語で勉強メモを書いていく．</p>
+<p>とりあえずいったんここで終わる．</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -855,13 +1020,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../Published/equilibrium_stat_mech/2.html" class="pagination-link" aria-label="ボルツマンの原理">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">ボルツマンの原理</span>
+      <a href="../../Published/information_geometry/6.html" class="pagination-link" aria-label="多様体のアファイン接続(1)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">多様体のアファイン接続(1)</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../Published/information_geometry/1.html" class="pagination-link" aria-label="双対空間">
-        <span class="nav-page-text">双対空間</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../Published/nonflat_information_geometry/1.html" class="pagination-link" aria-label="1.md">
+        <span class="nav-page-text">1.md</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

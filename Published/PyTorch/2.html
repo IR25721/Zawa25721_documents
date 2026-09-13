@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>統計力学とは – Zawaの勉強記録</title>
+<title>DLアーキテクチャーを色々試してみる – Zawaの勉強記録</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,6 +26,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -36,8 +71,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../Published/information_geometry/1.html" rel="next">
-<link href="../../Published/bayesian_inference/4.html" rel="prev">
+<link href="../../Published/PyTorch/3.html" rel="next">
+<link href="../../Published/PyTorch/1.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -76,6 +111,49 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -123,7 +201,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/equilibrium_stat_mech/1.html">平衡系統計力学</a></li><li class="breadcrumb-item"><a href="../../Published/equilibrium_stat_mech/1.html">統計力学とは</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/PyTorch/1.html">PyTorch</a></li><li class="breadcrumb-item"><a href="../../Published/PyTorch/2.html">DLアーキテクチャーを色々試してみる</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -251,7 +329,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Published/PyTorch/2.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Published/PyTorch/2.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">DLアーキテクチャーを色々試してみる</span></a>
   </div>
 </li>
@@ -362,7 +440,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Published/equilibrium_stat_mech/1.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../Published/equilibrium_stat_mech/1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">統計力学とは</span></a>
   </div>
 </li>
@@ -469,22 +547,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#はじめに" id="toc-はじめに" class="nav-link active" data-scroll-target="#はじめに">はじめに</a></li>
-  <li><a href="#統計力学とはなにか" id="toc-統計力学とはなにか" class="nav-link" data-scroll-target="#統計力学とはなにか">統計力学とはなにか</a></li>
-  <li><a href="#確率論" id="toc-確率論" class="nav-link" data-scroll-target="#確率論">確率論</a></li>
-  <li><a href="#量子論" id="toc-量子論" class="nav-link" data-scroll-target="#量子論">量子論</a>
-  <ul class="collapse">
-  <li><a href="#シュレーディンガー方程式" id="toc-シュレーディンガー方程式" class="nav-link" data-scroll-target="#シュレーディンガー方程式">シュレーディンガー方程式</a></li>
-  </ul></li>
+  <li><a href="#cnnの場合" id="toc-cnnの場合" class="nav-link active" data-scroll-target="#cnnの場合">CNNの場合</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/equilibrium_stat_mech/1.html">平衡系統計力学</a></li><li class="breadcrumb-item"><a href="../../Published/equilibrium_stat_mech/1.html">統計力学とは</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Published/PyTorch/1.html">PyTorch</a></li><li class="breadcrumb-item"><a href="../../Published/PyTorch/2.html">DLアーキテクチャーを色々試してみる</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">統計力学とは</h1>
+<h1 class="title">DLアーキテクチャーを色々試してみる</h1>
 </div>
 
 
@@ -501,41 +573,217 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="はじめに" class="level3">
-<h3 class="anchored" data-anchor-id="はじめに">はじめに</h3>
-<p>マセマの統計力学を読んでいたが，なんか色々曖昧だったので，やめて田崎統計力学を読んでいく．ここで統計力学とはなにかを学んでから，演習に移っていこうと思う．あと熱力は学ばない，正確には熱力固有のもの（例えばカルノー・サイクルとか）はミクロからマクロの観点からはあまり本質的な議論ではなく，マクロで解決する問題だからである．</p>
-</section>
-<section id="統計力学とはなにか" class="level2">
-<h2 class="anchored" data-anchor-id="統計力学とはなにか">統計力学とはなにか</h2>
-<p>ミクロな世界についての科学の発展に伴って，すべての物質が粒子でできていることが分かった．これは直感に反する事実である．</p>
-<p>地動説の場合と同様に，ミクロな世界についての科学も，分子や原子や素粒子の存在を単に暴くだけでは不十分である． ミクロな世界の存在が明らかになった以上，目に見えないミクロの世界の法則と経験できるマクロな世界の現象を論理的に結びつける科学が必要となってくる．</p>
-<p>ミクロとマクロの世界を結ぶのは，極めて難解な課題であるが，平衡状態という限定された状態においてはミクロな世界の法則がどのようにしてマクロな世界と対応するかについてのほぼ完全な一般論が得られている．</p>
-<p>この学問を平衡統計力学とよぶ．</p>
-</section>
-<section id="確率論" class="level2">
-<h2 class="anchored" data-anchor-id="確率論">確率論</h2>
-<p>確率論は飛ばす．詳しくは，久保川の現代数理統計学を勉強すればわかる．</p>
-<p>一応チェビシェフの不等式は忘れていたので書く．</p>
-<p>平均と分散が存在する場合次の不等式が成立する $$</p>
-<p>P(| X - | k) (k R)</p>
-<p>$$</p>
-</section>
-<section id="量子論" class="level2">
-<h2 class="anchored" data-anchor-id="量子論">量子論</h2>
-<p>完全に孤立した系の物理的な性質は量子論を用いて記述できる．量子論を使えば，ある時刻での系の状態を表現し，時間の経過とともに状態がどのように変化していくか予言できる．また各々の状態において，様々な物理量がどのような値をとりうるか調べることができる． ただ，量子論が古典論と根本的に異なっているのは，一般にはある状態においてある物理量がとる値が確定しておらず，物理量を観測したときにある値が観測される確率だけが予言できる．</p>
-<p>(量子確率か，古典確率かどうかは置いて，自由エネルギー原理とよく似た構造を持っているように思える．)</p>
-<p>数多く考えられる物理量の中で，最も重要で本質的なのはエネルギーである．エネルギーは，熱力学から場の量子論にいたる幅広い範囲の物理の基本的な体系の中に保存量として登場する．</p>
-<p>(自由エネルギー原理は（広い意味での）エネルギーは保存されないが，ミクロからマクロの流れを勉強するのに平衡統計力学はさらっと流す．）</p>
-<p>量子論においても．孤立した系において，エネルギーは保存されるわけだが，エネルギーも一般の状態では確定した値をとらない．エネルギーが確定した値を持つような特別な状態をエネルギー固有状態とよび，太陽するエネルギーの確定値をエネルギー固有値と呼ぶ．</p>
-<p>我々の扱っているような有限体積の量子系では，エネルギー固有値は離散的な値しかとらないことが分かっている．これは「量子力学」という名前の由来になっている．</p>
-<p>平衡統計力学を進めていく上で絶対に必要なのは - エネルギー固有上状態の全てに名前をつけて列挙する - 各々のエネルギー固有状態のエネルギーを求める</p>
-<p>という２つだけである． そこで，これから統計力学の議論を進めていくうえで，量子論というのは，われわれが興味を持っている物理的な系について，上の２つの情報を与えてくれる情報源であるというふうに割り切ってしまうこともできる．</p>
-<section id="シュレーディンガー方程式" class="level3">
-<h3 class="anchored" data-anchor-id="シュレーディンガー方程式">シュレーディンガー方程式</h3>
-<p>(あかん抽象数学に触れたせいで，全部抽象的に記述したくなる．美しさと実用を兼ね備えているから仕方ない．)ここでは最低限の記述をして，深堀りした記事を別で書くことにしよう．</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.nn <span class="im">as</span> nn</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.optim <span class="im">as</span> optim</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> load_wine</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> MLP(nn.Module):</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>()</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.fc1 <span class="op">=</span> nn.Linear(<span class="dv">13</span>, <span class="dv">64</span>)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.fc2 <span class="op">=</span> nn.Linear(<span class="dv">64</span>, <span class="dv">3</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> forward(<span class="va">self</span>, x):</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> <span class="va">self</span>.fc1(x)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> torch.relu(x)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> <span class="va">self</span>.fc2(x)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> x</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> MLP()</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> load_wine()</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>scaler <span class="op">=</span> StandardScaler()</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> scaler.fit_transform(data.data)</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> torch.tensor(x, dtype<span class="op">=</span>torch.float32)</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>target <span class="op">=</span> torch.tensor(data.target, dtype<span class="op">=</span>torch.<span class="bu">long</span>)</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>criterion <span class="op">=</span> nn.CrossEntropyLoss()</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>optimizer <span class="op">=</span> optim.Adam(model.parameters(), lr<span class="op">=</span><span class="fl">1e-4</span>)</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    logits <span class="op">=</span> model(x)</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>    loss <span class="op">=</span> criterion(logits, target)</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    optimizer.zero_grad()</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>    loss.backward()</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>    optimizer.step()</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(loss.item())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>まで書いたわけだが，他のDLアーキテクチャーを試してみたくなる． ということでやってみる．</p>
+<section id="cnnの場合" class="level2">
+<h2 class="anchored" data-anchor-id="cnnの場合">CNNの場合</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>項目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>目的</td>
+<td>CNNをPyTorchで試してみたい</td>
+</tr>
+<tr class="even">
+<td>入力</td>
+<td>画像データ</td>
+</tr>
+<tr class="odd">
+<td>出力</td>
+<td>クラス</td>
+</tr>
+<tr class="even">
+<td>タスク</td>
+<td>分類</td>
+</tr>
+<tr class="odd">
+<td>規模</td>
+<td>小規模</td>
+</tr>
+<tr class="even">
+<td>用途</td>
+<td>学習用</td>
+</tr>
+</tbody>
+</table>
+<p>これに適したDatasetはFashionMNISTらしいので，これを使う．</p>
+<p>まずCNNの順伝播を復習する．<span class="math inline">X</span>は入力とし，畳み込み層は１層とする． <span class="math display">
+\begin{align}
+Z_{kij} &amp;= b_k + \sum_{c =1}^{C_{\text{in}}}\sum_{u = 0}^{K_h - 1} \sum_{v = 0}^{K_w - 1} W_{kcuv} X_{c,i +u,j+v}\\
+A_{kij} &amp;= \text{ReLU}(Z_{kij}) \\
+P_{kij} &amp;= \max_{0 \le u,v &lt; 2} A_{k,2i+u,2j + v} \\
+p &amp;= \text{Flatten}(P_{kij})\\
+z_1 &amp;= W_1 p + b_1\\
+h_1 &amp;= \text{ReLU}(z_1) \\
+z_2 &amp;= W_2 h_1 + b_2 \\
+\end{align}
+</span> 損失関数は分類なのでCrossEntropyである． クラスは次のように定義される</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.nn <span class="im">as</span> nn</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.optim <span class="im">as</span> optim</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> CNN(nn.Module):</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>()</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.conv1 <span class="op">=</span> nn.Conv2d(in_channels<span class="op">=</span><span class="dv">1</span>, out_channels<span class="op">=</span><span class="dv">16</span>, kernel_size<span class="op">=</span><span class="dv">3</span>, padding<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.pool <span class="op">=</span> nn.MaxPool2d(kernel_size<span class="op">=</span><span class="dv">2</span>, stride<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.fc1 <span class="op">=</span> nn.Linear(<span class="dv">16</span> <span class="op">*</span> <span class="dv">14</span> <span class="op">*</span> <span class="dv">14</span>, <span class="dv">64</span>)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.fc2 <span class="op">=</span> nn.Linear(<span class="dv">64</span>, <span class="dv">10</span>)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> forward(<span class="va">self</span>, x):</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>        Z <span class="op">=</span> <span class="va">self</span>.conv1(x)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>        A <span class="op">=</span> torch.relu(Z)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>        P <span class="op">=</span> <span class="va">self</span>.pool(A)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>        p <span class="op">=</span> torch.flatten(P, <span class="dv">1</span>)</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>        z1 <span class="op">=</span> <span class="va">self</span>.fc1(p)</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>        h1 <span class="op">=</span> torch.relu(z1)</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>        z2 <span class="op">=</span> <span class="va">self</span>.fc2(h1)</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> z2</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>FashionMNISTを使っていくのでデータインポート部分を変える必要がある．というかこれは別に自分で書かなくてもいいか，AIが推奨してくれるから，それのやりかたをコピペするだけやな．</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> torchvision <span class="im">import</span> datasets, transforms</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> torch.utils.data <span class="im">import</span> DataLoader</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>transform <span class="op">=</span> transforms.ToTensor() </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>train_data <span class="op">=</span> datasets.FashionMNIST( </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>root<span class="op">=</span><span class="st">"./data"</span>, </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>train<span class="op">=</span><span class="va">True</span>, </span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>download<span class="op">=</span><span class="va">True</span>, </span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>transform<span class="op">=</span>transform </span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>) </span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>train_loader <span class="op">=</span> DataLoader(</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a> train_data, </span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a> batch_size<span class="op">=</span><span class="dv">64</span>, </span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a> shuffle<span class="op">=</span><span class="va">True</span> </span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a> )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>ということでデータもとってこれたので，あとは学習をするだけである．</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.nn <span class="im">as</span> nn</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.optim <span class="im">as</span> optim</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> torch.utils.data <span class="im">import</span> DataLoader</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> torchvision <span class="im">import</span> datasets, transforms</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> CNN(nn.Module):</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>()</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.conv1 <span class="op">=</span> nn.Conv2d(in_channels<span class="op">=</span><span class="dv">1</span>, out_channels<span class="op">=</span><span class="dv">16</span>, kernel_size<span class="op">=</span><span class="dv">3</span>, padding<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.pool <span class="op">=</span> nn.MaxPool2d(kernel_size<span class="op">=</span><span class="dv">2</span>, stride<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.fc1 <span class="op">=</span> nn.Linear(<span class="dv">16</span> <span class="op">*</span> <span class="dv">14</span> <span class="op">*</span> <span class="dv">14</span>, <span class="dv">64</span>)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.fc2 <span class="op">=</span> nn.Linear(<span class="dv">64</span>, <span class="dv">10</span>)</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> forward(<span class="va">self</span>, x):</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>        Z <span class="op">=</span> <span class="va">self</span>.conv1(x)</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>        A <span class="op">=</span> torch.relu(Z)</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>        P <span class="op">=</span> <span class="va">self</span>.pool(A)</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>        p <span class="op">=</span> torch.flatten(P, <span class="dv">1</span>)</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>        z1 <span class="op">=</span> <span class="va">self</span>.fc1(p)</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>        h1 <span class="op">=</span> torch.relu(z1)</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>        z2 <span class="op">=</span> <span class="va">self</span>.fc2(h1)</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> z2</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>transform <span class="op">=</span> transforms.ToTensor()</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>train_data <span class="op">=</span> datasets.FashionMNIST(</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>    root<span class="op">=</span><span class="st">"./data"</span>, train<span class="op">=</span><span class="va">True</span>, download<span class="op">=</span><span class="va">True</span>, transform<span class="op">=</span>transform</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>train_loader <span class="op">=</span> DataLoader(train_data, batch_size<span class="op">=</span><span class="dv">64</span>, shuffle<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> CNN()</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>criterion <span class="op">=</span> nn.CrossEntropyLoss()</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>optimizer <span class="op">=</span> optim.Adam(model.parameters(), lr<span class="op">=</span><span class="fl">1e-3</span>)</span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> epoch <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):</span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>    total_loss <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> x, target <span class="kw">in</span> train_loader:</span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>        logits <span class="op">=</span> model(x)</span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>        loss <span class="op">=</span> criterion(logits, target)</span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>        optimizer.zero_grad()</span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>        loss.backward()</span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a>        optimizer.step()</span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a>        total_loss <span class="op">+=</span> loss.item()</span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"epoch: </span><span class="sc">{</span>epoch <span class="op">+</span> <span class="dv">1</span><span class="sc">}</span><span class="ss">, loss: </span><span class="sc">{</span>total_loss <span class="op">/</span> <span class="bu">len</span>(train_loader)<span class="sc">:.4f}</span><span class="ss">"</span>)<span class="op">+</span> <span class="dv">1</span>}, loss: {total_loss <span class="op">/</span> <span class="bu">len</span>(train_loader):<span class="fl">.4</span><span class="er">f</span>}<span class="st">")</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>実行してみると</p>
+<pre class="fish"><code>pytorch on  master [?] is 📦 v0.1.0 via 🐍 v3.14.6 took 2s
+❯ uv run daily/20260825.py
+epoch: 1, loss: 0.4855
+epoch: 2, loss: 0.3138
+epoch: 3, loss: 0.2756
+epoch: 4, loss: 0.2479
+epoch: 5, loss: 0.2277
+epoch: 6, loss: 0.2098
+epoch: 7, loss: 0.1952
+epoch: 8, loss: 0.1817
+epoch: 9, loss: 0.1689
+epoch: 10, loss: 0.1569</code></pre>
+<p>と確かに減っていることがわかる．</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -941,13 +1189,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../Published/bayesian_inference/4.html" class="pagination-link" aria-label="VB-EMアルゴリズム">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">VB-EMアルゴリズム</span>
+      <a href="../../Published/PyTorch/1.html" class="pagination-link" aria-label="PyTorchでMLPを実装する">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">PyTorchでMLPを実装する</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../Published/information_geometry/1.html" class="pagination-link" aria-label="双対空間">
-        <span class="nav-page-text">双対空間</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../Published/PyTorch/3.html" class="pagination-link" aria-label="一般にどうPyTorchをつかうべきなのか？">
+        <span class="nav-page-text">一般にどうPyTorchをつかうべきなのか？</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
